@@ -1,0 +1,10 @@
+<div id="bread-crumb">
+    <a href="/">Home</a> >
+    <a href="/learn">Tutorials</a> >
+    {% for link in file.data.tutorials[file.fm.group][file.fm.id]['breadcrumb'] %}
+    <a href="/{{ link.link }}">
+        {{ link.link_title }}
+    </a> >
+    {% endfor %}
+    {{ file.fm.title_html | safe }}
+</div>

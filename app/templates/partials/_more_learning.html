@@ -1,0 +1,8 @@
+<h2 id="more-learning">More Learning</h2>
+
+<div id="more-learning-embed">
+    {% for id in file.fm.more_learning.youtube %}
+    {% set embed = { slug: id } %}
+    {% include "app/templates/partials/_youtube_embed.html" %}
+    {% endfor %}
+</div>

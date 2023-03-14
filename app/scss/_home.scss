@@ -1,0 +1,182 @@
+main#home {
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        padding: 0;
+        margin: 0 0 20px 0;
+        background-color: unset;
+    }
+
+    #banner {
+        background-image: url("/assets/images/levelup/bg.png");
+        padding: 25px 0;
+        resize: both;
+        background-size: cover;
+        color: white;
+        font-weight: 300;
+
+        table#devlive-logo {
+
+            width: 400px;
+
+            @media (max-width: $mobile-screen-width) {
+                width: 100%;
+            }
+
+            #oracle-logo img {
+                width: 90px;
+                margin: 0 0 -15px 0;
+            }
+
+            #devlive {
+                font-size: 1.6rem;
+                margin: 0 0 0 10px;
+            }
+
+            td#first {
+                border-right: 1px solid lightseagreen;
+            }
+
+            #levelup {
+                font-size: 2em;
+                float: right;
+            }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 500;
+            margin: 0 0 15px 0;
+        }
+
+        #join-us {
+            font-size: 1.9rem;
+            margin: 40px 0 0 0;
+            #java20 {
+                font-weight: 600;
+            }
+        }
+
+        #date-location {
+            font-size: 1.6rem;
+            margin-top: 30px;
+            line-height: 1.2;
+        }
+
+        .cta-buttons {
+            gap: 20px;
+        }
+
+        #secondary-button {
+            color: white;
+        }
+
+        #release-info {
+            font-size: 1rem;
+        }
+    }
+
+    .section:nth-child(even) {
+        background-color: #eee;
+    }
+
+    .card-section {
+        padding: 10px 0 90px 0;
+    }
+
+    .card-deck {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        @include media-breakpoint-up(sm) {
+            flex-flow: row wrap;
+        }
+    }
+
+    .card-header {
+        margin: 0;
+    }
+
+    .card-title {
+        margin: 0.5em 0;
+    }
+
+    #learning-paths {
+
+        .card {
+            flex: 1 0 0%;
+
+            .card-body {
+                a {
+                    color: white;
+                }
+            }
+        }
+
+    }
+
+    #updates {
+
+        .card {
+            flex: 1 0 30%;
+        }
+
+    }
+
+    #news-events {
+        .card {
+            display: flex;
+            flex: 1 0 0%;
+            flex-direction: column;
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+    }
+
+    #future {
+
+        .card-deck {
+            display: grid;
+            grid-template-columns: 1fr;
+
+            @include media-breakpoint-up(sm) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        .card {
+            min-height: 500px;
+        }
+
+        .youtube-embed {
+            border: 0;
+        }
+
+        iframe {
+            border-bottom: 1px solid #DDD;
+        }
+
+    }
+
+
+    #playground {
+        margin: 80px auto;
+
+        #pg-placeholder {
+            max-height: 505px;
+        }
+
+        img#placeholder {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

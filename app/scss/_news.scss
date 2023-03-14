@@ -1,0 +1,35 @@
+
+main#news {
+    a.title {
+        font-weight: bold;
+        font-size: 1.4rem;
+        color: #222;
+        text-decoration: none;
+    }
+    a.title:hover {
+        color: #3a75b0;
+    }
+
+    .summary {
+        color: #777;
+        font-size: 1rem;
+    }
+
+    .author {
+        color: #777;
+        font-size: 1.1rem;
+    }
+
+    hr {
+        border-top: 1px dashed #aaa;
+        margin: 30px 0;
+    }
+
+    .read {
+        font-size: 0.9rem;
+    }
+
+    .next_instance {
+        color: $secondary;
+    }
+}

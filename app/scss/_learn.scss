@@ -1,0 +1,182 @@
+main#learn {
+
+    table, td, th {
+        border: 1px solid #AAA;
+        padding: 8px;
+    }
+
+    table {
+        margin: 15px 0;
+    }
+
+
+    h2:first-of-type {
+        margin-top: 0;
+    }
+
+
+    h2.tutorial-group-subtitle {
+        background-color: #fff;
+        font-size: 1.6em;
+    }
+
+    div.learn-group {
+        margin-bottom: 50px;
+
+        ul {
+            list-style: none;
+
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    ol#tutorial-group {
+        a {
+            font-weight: bold;
+        }
+    }
+
+    li {
+        margin-top: 10px;
+    }
+
+    li div.desc {
+        margin-top: 6px;
+    }
+
+    div#tutorial-nav {
+        margin: 30px 0 50px 0;
+
+        span {
+            display: inline;
+            width: 50px;
+            height: 100px;
+            padding-top: 35px;
+        }
+
+        span.left-arrow,
+        span.right-arrow {
+            font-size: 1.9em;
+        }
+
+        span.left-arrow {
+            transform: rotate(180deg);
+            padding-top: 20px;
+        }
+
+        div.item {
+            border: 1px solid gray;
+            padding: 0;
+        }
+
+        div.header {
+            padding: 3px;
+            background-color: #ddd;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px dotted #333;
+            font-size: 1.3rem;
+        }
+
+        div.name {
+            padding: 8px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        #current_tutorial div.name {
+            font-weight: bold;
+            color: $orange;
+        }
+
+        div#current_tutorial {
+            background-color: lightyellow;
+        }
+
+        div#end {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee;
+        }
+    }
+
+    div#toc {
+        h3 {
+            margin: 3px 0 20px 5px;
+            font-size: 1.4rem;
+        }
+    }
+
+    .sticky-top {
+        z-index: 50;
+    }
+
+    .back-link {
+        font-size: 1.2rem;
+    }
+
+    p.update {
+        font-style: italic;
+        margin: 30px 0;
+
+        .text {
+            font-weight: bold;
+        }
+    }
+
+    #sidemenu {
+        margin: 55px 0 0 0;
+
+        li.active {
+            font-weight: bold;
+            color: $orange;
+        }
+    }
+
+    #tutorial-nav-mobile {
+        display: none;
+    }
+
+    #related-stuff {
+        margin: 100px 0 0 0;
+        padding: 10px;
+        border: 1px solid #BBB;
+        background-color: #EEE;
+
+        a#small {
+            font-size: 0.9rem;
+        }
+    }
+
+    #more-learning-embed {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    @media (max-width: 576px) {
+        #sidemenu {
+            display: none;
+        }
+        #content {
+            width: 100%;
+        }
+
+        #tutorial-nav-mobile {
+            display: block;
+            margin: 20px 0 40px 0;
+        }
+
+        #tutorial-nav {
+            display: none;
+        }
+
+        #more-learning-embed {
+            grid-template-columns: 1fr;
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description) }}
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_news_subheader.html" %}
+{% endblock %}
+
+
+{% block page %}
+
+<div class="container">
+    <h1>{{ file.fm.title_html | safe }}</h1>
+    {{ contents | safe }}
+
+    {% for n in file.data.inside %}
+
+        <a href="{{ n.link }}" class="title">{{ n.title }}</a><br />
+        <p class="author">By {{ n.author }} on {{ n.published }}</p>
+        <p class="summary">{{ n.summary }}</p>
+
+        <a href="{{ n.link }}" class="read">Read More</a>
+        <hr />
+
+    {% endfor %}
+
+    <br /><br />
+
+    <p>
+        Sourced from <a href="https://inside.java">https://inside.java</a> via <a href="https://inside.java/feed.xml">RSS</a>.
+    </p>
+</div>
+
+
+{% endblock %}

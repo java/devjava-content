@@ -11,12 +11,10 @@ var data = require('gulp-data');
 var browserSync = require('browser-sync').create();
 const { DateTime } = require("luxon");
 
-const slugs = new Map();
 var tutorials = {};
 var links = {};
 var link_map = new Map();
 var link_title_map = new Map();
-const updates = []
 
 var javadoc = require('./app/data/javadoc.json')
 
@@ -26,11 +24,6 @@ function copy_assets() {
 }
 
 
-function copy_favicon() {
-    return src("app/favicon.ico")
-        .pipe(dest("site"));
-}
-
 function sassify() {
     return src("app/scss/*.scss")
         .pipe(sass())
@@ -38,13 +31,10 @@ function sassify() {
 }
 
 function pre_process_pages() {
-    slugs.clear()
     tutorials = { "tutorials": {} }
     links = { "links": {} }
-    updates.length = 0
 
     return src('app/pages/**/*.md', { silent: false, debug: false })
-        // Frontmatter processing: Attaches frontmatter to data object as data.fm
         .pipe(frontMatter({
             property: 'fm',
             remove: true
@@ -76,7 +66,6 @@ function pre_process_pages() {
 
                 const tutorial_json = { title, title_html, path, description, description_html, group, category_order }
 
-                // Create the link_map to be used later for custom linking in markdown files
                 if (file.fm.id) {
                     link_map.set(file.fm.id, path);
                 }
@@ -101,7 +90,6 @@ function pre_process_pages() {
                     }
                 }
 
-                // Create a map by category
                 if (type == "tutorial") {
                     if (tutorials["tutorials"][category]) {
                         tutorials["tutorials"][category].push(tutorial_json);
@@ -110,7 +98,6 @@ function pre_process_pages() {
                     }
                 }
 
-                // Create a map by group
                 if (group) {
                     if (!tutorials["tutorials"][group]) {
                         tutorials["tutorials"][group] = [];
@@ -160,34 +147,14 @@ function pre_process_pages() {
             }
 
         }))
-
-        // create list of recent updates
-        .pipe(data(function (file) {
-            if (file.fm.last_update)
-                updates.push({
-                    date: file.fm.last_update,
-                    date_text: DateTime
-                        .fromJSDate(file.fm.last_update)
-                        .setLocale('en-us')
-                        .toLocaleString(DateTime.DATE_FULL),
-                    title: file.fm.title_html,
-                    description: file.fm.description_html,
-                    path: generate_url_structure(file).newrelative.replace(".md", ".html"),
-                    aria_label: file.fm.aria_label
-                })
-        }))
 }
 
 
 function pages() {
-    // sort updates by date with latest (largest) date first
-    updates.sort((left, right) => right.date - left.date)
-
     const renderer = {
         link(href, title, text) {
             let processedHref = href;
 
-            // Markdown includes link to another dev.java page
             if (href.includes("id:")) {
                 let page_id = href.match(/id:([\w|\.|-]+)/);
                 if (page_id != null) {
@@ -208,7 +175,6 @@ function pages() {
                 }
             }
 
-            // Markdown includes a link to a javadoc entry
             if (href.includes("javadoc:")) {
                 let javadoc_id = href.match(/javadoc:([\w\.\-(),]+)/)
                 if (javadoc_id != null) {
@@ -220,13 +186,10 @@ function pages() {
                 }
             }
 
-            // Markdown includes a link to a doc entry (w/o Javadoc base URL)
             if (href.includes("doc:")) {
                 let doc_id = href.match(/doc:([\w\.\-(),]+)/);
 
                 if (doc_id != null) {
-                    // If this is a javadoc entry that contains additional link title information,
-                    // otherwise use the old format with just a link.
                     if (javadoc[doc_id[1]]["text"] != null) {
                         processedHref = processDocLink("" + javadoc[doc_id[1]]["link"])
                     } else {
@@ -254,8 +217,6 @@ function pages() {
             const richHeader = parseRichHeader(text)
             text = richHeader.text
 
-            // the following code is an edited version of the original renderer at
-            // https://github.com/markedjs/marked/blob/master/src/Renderer.js#L49-L64
             if (this.options.headerIds) {
                 const slug = richHeader.slug ?? this.options.headerPrefix + slugger.slug(raw)
                 return '<h'
@@ -268,7 +229,6 @@ function pages() {
                     + level
                     + '>\n';
             }
-            // ignore IDs
             return '<h' + level + '>' + text + '</h' + level + '>\n';
         }
     };
@@ -282,7 +242,6 @@ function pages() {
 
     var mystream = src('app/pages/**/*.md', { silent: false, debug: false })
 
-        // Frontmatter processing: Attaches frontmatter to data object as data.fm
         .pipe(frontMatter({
             property: 'fm',
             remove: true
@@ -297,19 +256,15 @@ function pages() {
 
         .pipe(data(function (file) {
             generate_url_structure(file);
-            guarantee_unique_url(file);
         }))
 
-        // Take JSON data and pipe to swig() which sets the data object
         .pipe(data(function () {
             return tutorials
         }))
-        // create a table of contents and attach the JSON representation to the front matter
         .pipe(toc())
 
         .pipe(data(function (file) {
             if (file.fm.toc) {
-                // process manual toc
                 const section_name_regex = /^[\s|\w|/|,]+[^{|^\s{]+/;
                 const anchor_regex = /{([^{|^}]+)}/;
                 file.fm.toc = file.fm.toc
@@ -323,7 +278,6 @@ function pages() {
                         slug: (anchorsArray == null || anchorsArray.length == 0) ? `anchor_${index + 1}` : anchorsArray[1]
                     }))
             } else {
-                // use automatic toc
                 file.fm.toc = file.toc.json
                     .filter(entry => entry.lvl === 2)
                     .map(entry => {
@@ -348,40 +302,20 @@ function pages() {
         .pipe(data(function () {
             let data = {}
             data.env = process.env;
-            data.updates = updates
 
             return data;
         }))
 
         .pipe(swig({ defaults: { cache: false } }))
 
-        // Markdown processing
         .pipe(markdown())
 
         .pipe(wrap(function (data) {
             return fs.readFileSync('app/templates/pages/' + data.file.fm.layout).toString()
         }, null, { engine: 'nunjucks' }))
 
-        // Create redirects for the slug_history
-        .pipe(data(function (file) {
-            if (file.fm.slug_history) {
-                file.fm.slug_history.forEach(slug => {
-                    let newFilePath = file.cwd + "/site/" + slug + "/index.html";
-                    let content = "<meta http-equiv=\"refresh\" content=\"0; url=/" + file.fm.slug + "/\" />\n"
-                    content += "<link rel=\"canonical\" href=\"https://dev.java/" + file.fm.slug + "/\" />"
-
-                    writeFile(newFilePath, content, err => {
-                        if (err) {
-                            console.error(err);
-                        }
-                    });
-                })
-            }
-        }))
-
         .pipe(dest('site'))
 
-        // Stream to browser for hot reload capability
         .pipe(browserSync.stream());
 
     return mystream;
@@ -392,15 +326,6 @@ function processDocLink(link) {
     return link.replace("@@CURRENT_RELEASE@@", javadoc[`current_release`]);
 }
 
-
-// helper function to recursively create directories that don't exist -- for writing slug history
-var getDirName = require('path').dirname;
-function writeFile(path, contents, cb) {
-    fs.mkdir(getDirName(path), { recursive: true }, function (err) {
-        if (err) return cb(err);
-        fs.writeFile(path, contents, cb);
-    });
-}
 
 function is_tutorial(file) {
     return file.fm.type == "tutorial" || file.fm.type == "tutorial-group";
@@ -442,14 +367,6 @@ function process_last_update(file) {
 }
 
 function parseRichHeader(header) {
-    // A rich header starts with the title text followed by an optional config in curly braces that defines a custom anchor/slug.
-
-    // A bit more formal:
-    //  - full header = "$text $config?" (i.e. " $config" is optional)
-    //  - with $config = "{#$slug}"
-    // Curly braces can show up in the text as long as the closing "}" is not the last character.
-
-    // Fully formal in this beautiful regex:
     const parsed = header.match(/^(?<text>.*[^\}]) ?(?<config>\{#(?<slug>.+)\})?$/)
     if (parsed === null)
         throw new Error(`Illegal header "${header}" - check gulpfile.js for details.`)
@@ -461,13 +378,11 @@ function parseRichHeader(header) {
 }
 
 function generate_url_structure(file) {
-    // If there's a slug, make it that
     if (file.fm.slug) {
         file.basename = "index.html";
         file.dirname = file.cwd + "/app/pages/" + file.fm.slug;
         file.newrelative = file.fm.slug + "/";
     } else {
-        // Matches digits and then underscore (ie. `12_` in `12_this_page.md`)
         const reg = /^\d+_/g;
 
         file.basename = file.basename.replace(reg, "");
@@ -484,15 +399,9 @@ function generate_url_structure(file) {
     return file;
 }
 
-function guarantee_unique_url(file) {
-    if (slugs.get(file.newrelative))
-        throw new Error(`Duplicate slug "${file.newrelative}". Check files "${file.history[0]}" and "${slugs.get(file.newrelative)}".`)
-    slugs.set(file.newrelative, file.history[0])
-}
 
 
-
-var build = series(cleanup, copy_assets, copy_favicon, sassify, pre_process_pages, pages);
+var build = series(cleanup, copy_assets, sassify, pre_process_pages, pages);
 var deploy = series(cleanup, build);
 
 // local development only (by typing `gulp`)

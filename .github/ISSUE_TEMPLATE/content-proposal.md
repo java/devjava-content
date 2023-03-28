@@ -1,3 +1,4 @@
+---
 name: Content Proposal
 about: Proposal for new content on Dev.java
 title: '[Proposal]: '
@@ -41,3 +42,4 @@ body:
       placeholder: "eg. https://www.mygreatblog.com/"
     validations:
       required: false
+---

@@ -9,7 +9,6 @@ body:
     attributes:
       value: |
         Thank you for showing interest in contributing to Dev.java. Getting your content featured and seen by hundreds of thousands of developers worldwide, and the endorsement of the Java Platform Group, is very exciting but will require some effort.
-
         Please read this repo's README before submitting a proposal.
   - type: input
     id: request

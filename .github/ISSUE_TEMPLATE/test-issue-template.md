@@ -1,9 +1,8 @@
 name: Test Issue Template
 description: File a bug report
 title: "[Bug]: "
-labels: ["bug", "triage"]
-assignees:
-  - octocat
+labels: proposal
+assignees: ''
 body:
   - type: markdown
     attributes:

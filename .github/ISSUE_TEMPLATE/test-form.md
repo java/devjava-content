@@ -1,5 +1,4 @@
 name: Test name
-about: Test about
 description: test description
 title: ''
 labels: ''

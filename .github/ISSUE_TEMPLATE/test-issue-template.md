@@ -9,21 +9,21 @@ body:
       description: |
         blah blah
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: expected
     attributes:
       label: What did you expect to happen?
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: repro
     attributes:
       label: How can we reproduce it (as minimally and precisely as possible)?
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: additional
@@ -44,4 +44,4 @@ body:
 
         </details>
     validations:
-      required: true
+      required: false

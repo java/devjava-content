@@ -32,7 +32,7 @@ body:
       description: Please provide an outline of your content
       placeholder: Tell us what you see!
     validations:
-      required: true
+      required: false
   - type: textarea
     id: examples
     attributes:

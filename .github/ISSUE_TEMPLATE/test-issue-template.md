@@ -1,5 +1,6 @@
 ---
 name: Test Issue Template
+about: Test about
 description: File a bug report
 title: "[Bug]: "
 labels: proposal

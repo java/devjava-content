@@ -5,7 +5,7 @@ title: '[Proposal]: '
 labels: proposal
 assignees: ''
 body:
- - type: markdown
+  - type: markdown
     attributes:
       value: |
         Thank you for showing interest in contributing to Dev.java. Getting your content featured and seen by hundreds of thousands of developers worldwide, and the endorsement of the Java Platform Group, is very exciting but will require some effort.

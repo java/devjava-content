@@ -107,8 +107,8 @@ https://github.com/java/devjava-content/blob/main/app/pages/community/duke/index
 There is some basic JavaScript infrastructure to help build the static site. This should be as simple as:
 
 1. install node and npm. easiest way is [nvm](https://github.com/nvm-sh/nvm) and `nvm use` in this directory.
-1. npm install
-1. npm install gulp -g
-1. just type `gulp`
+1. `npm install`
+1. `npm install gulp -g`
+1. `gulp`
 
 A browser should launch viewing https://localhost:3000. 

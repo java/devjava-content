@@ -9,11 +9,10 @@ Here are the sections of this document:
 * [Read This First](#read-this-first)
 * [Contributing](#contributing)
 * [Content Lifecycle](#content-lifecycle)
-    * [GitHub Issues](#issues)
-    * [Content Proposal](#proposal)
+    * [GitHub Issues](#github-issues)
+    * [Content Proposal](#content-proposal)
     * [Working on your Content](#working-on-your-content)
 * [Building the Site](#building-the-site)
-* [Style Guide](#style-guide)
 
 
 ## Read This First

@@ -89,9 +89,11 @@ https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/01
 
 **Tutorial Series**
 
-Series page: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md
+Series "header" page: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md
 
 First in series: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md
+
+Second in series: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md
 
 
 **Non-tutorial page**

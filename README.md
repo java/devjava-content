@@ -11,8 +11,7 @@ Here are the sections of this document:
 * [Content Lifecycle](#content-lifecycle)
     * [GitHub Issues](#issues)
     * [Content Proposal](#proposal)
-    * [Approval Process](#approval-process)
-    * [PR Process](#pr-process)
+    * [Working on your Content](#working-on-your-content)
 * [Building the Site](#building-the-site)
 * [Style Guide](#style-guide)
 
@@ -65,13 +64,39 @@ All content must start with a Content Proposal. This will be in the form of a Gi
 Please make sure the proposal thoroughly describes what you intend to contribute. An outline format detailing the sections and a sentence that describes what will be covered in each section, is preferred.
 
 
-
-
-### Approval Process
-
 Once you submit your proposal, the editors will review your proposal and follow up with any other information needed. The status of the issue will eventually move to either `approved` or `rejected`.
 
 There is no need for further information until notified through the issue.
+
+
+### Working on Your Content
+
+Once your proposal has been moved to the `accepted` stage, you can begin working on your content. Here are the steps to do this:
+
+1. Fork this repo
+1. Create a branch off of main for each piece of content
+1. Build the site using the [building the site](#building-the-site) section below
+1. Create your content (see [Content Types](#content-types) section below)
+1. Submit a pull request back to this repo
+
+
+### Content Types
+
+**Single Page Tutorial**
+
+https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md
+
+
+**Tutorial Series**
+
+Series page: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md
+
+First in series: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md
+
+
+**Non-tutorial page**
+
+https://github.com/java/devjava-content/blob/main/app/pages/community/duke/index.md
 
 
 

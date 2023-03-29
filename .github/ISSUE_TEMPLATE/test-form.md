@@ -1,8 +1,8 @@
 name: Test name
 description: test description
-title: ''
-labels: ''
-assignees: ''
+title: 'Username'
+labels: 'prod'
+assignees: 'username'
 body:
   - type: input
     id: request

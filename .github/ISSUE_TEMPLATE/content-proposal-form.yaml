@@ -1,8 +1,7 @@
 name: Content Proposal
-about: Proposal for new content on Dev.java
+description: Proposal for new content on Dev.java
 title: '[Proposal]: '
 labels: proposal
-assignees: ''
 body:
   - type: markdown
     attributes:

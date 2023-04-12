@@ -12,7 +12,7 @@ Working on content should be mostly done in Markdown files under the /app/pages 
 
 A single-page tutorial, probably the most common on the site, although tutorial series are also popular. 
 
-Example: [Getting Started with Java](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md).
+Example: [Getting Started with Java](/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md).
 
 
 ### Tutorial Series
@@ -21,13 +21,13 @@ A multi-tutorial series with a guide at the top that walks you through the serie
 
 There are two components to a series, the series page, and the actual tutorial pages.
 
-Tutorial series example: [Language Basics Folder](https://github.com/java/devjava-content/tree/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics)
+Tutorial series example: [Language Basics Folder](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics)
 
-Series page example: [Language Basics](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md)
+Series page example: [Language Basics](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md)
 
-First tutorial in series: [Language Basics: Creating Variables](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md)
+First tutorial in series: [Language Basics: Creating Variables](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md)
 
-Second tutorial in series: [Language Basics: Primitive Types](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md)
+Second tutorial in series: [Language Basics: Primitive Types](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md)
 
 - All tutorials in a series have the `group` field in the markdown
 - The series page is of type and layout `tutorial`
@@ -36,7 +36,7 @@ Second tutorial in series: [Language Basics: Primitive Types](https://github.com
 
 ### Non-tutorial page
 
-Example: [Duke Home](https://github.com/java/devjava-content/blob/main/app/pages/community/duke/index.md)
+Example: [Duke Home](/app/pages/community/duke/index.md)
 
 
 

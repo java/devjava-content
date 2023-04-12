@@ -8,11 +8,11 @@ Here are the sections of this document:
 
 * [Read This First](#read-this-first)
 * [Contributing](#contributing)
-* [Content Lifecycle](#content-lifecycle)
-    * [GitHub Issues](#github-issues)
+    * [Content Lifecycle](#content-lifecycle)
     * [Content Proposal](#content-proposal)
-    * [Working on your Content](#working-on-your-content)
+    * [GitHub Workflow](#github-workflow)
 * [Building the Site](#building-the-site)
+* [Working with Content](#working-with-content)
 
 
 ## Read This First
@@ -23,7 +23,7 @@ This document will outline the steps to get there. Please read and understand th
 
 When referring to **the editors**, the document is referring directly to the Java Developer Relations team on the Java Platform Group at Oracle.
 
-## Contributing
+## Contributing Overview
 
 Note: the editors reserve the right to accept, or reject, any contributions. Like contributing to Java itself, the bar is high, but the outcome is your contribution and attribution on the official Java developer site.
 
@@ -36,10 +36,7 @@ The process at a high level is as follows:
 1. Reviews of your content will take place as GitHub pull requests, and once accepted, will move to the `scheduled` and `published` phases.
 
 
-
-## Content Lifecycle
-
-### GitHub Issues
+### Content Lifecycle
 
 We use [GitHub issues](https://github.com/java/devjava-content/issues) to track articles from conception to publication. An article will go through the following stages, which are marked with labels:
 
@@ -62,13 +59,12 @@ All content must start with a Content Proposal. This will be in the form of a Gi
 
 Please make sure the proposal thoroughly describes what you intend to contribute. An outline format detailing the sections and a sentence that describes what will be covered in each section, is preferred.
 
-
 Once you submit your proposal, the editors will review your proposal and follow up with any other information needed. The status of the issue will eventually move to either `approved` or `rejected`.
 
 There is no need for further information until notified through the issue.
 
 
-### Working on Your Content
+### GitHub Workflow
 
 Once your proposal has been moved to the `accepted` stage, you can begin working on your content. Here are the steps to do this:
 
@@ -77,39 +73,6 @@ Once your proposal has been moved to the `accepted` stage, you can begin working
 1. Build the site using the [building the site](#building-the-site) section below
 1. Create your content (see [Content Types](#content-types) section below)
 1. Submit a pull request back to this repo
-
-
-### Content Types
-
-**Single Page Tutorial**
-
-A single-page tutorial, probably the most common on the site, although tutorial series are also popular. 
-
-Example: [Getting Started with Java](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md).
-
-
-**Tutorial Series**
-
-A multi-tutorial series with a guide at the top that walks you through the series.
-
-There are two components to a series, the series page, and the actual tutorial pages.
-
-Tutorial series example: [Language Basics Folder](https://github.com/java/devjava-content/tree/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics)
-
-Series page example: [Language Basics](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md)
-
-First tutorial in series: [Language Basics: Creating Variables](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md)
-
-Second tutorial in series: [Language Basics: Primitive Types](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md)
-
-- All tutorials in a series have the `group` field in the markdown
-- The series page is of type and layout `tutorial`
-- The actual tutorials in the series are type and layout of `tutorial-group`.
-
-
-**Non-tutorial page**
-
-Example: [Duke Home](https://github.com/java/devjava-content/blob/main/app/pages/community/duke/index.md)
 
 
 
@@ -124,3 +87,8 @@ There is some basic JavaScript infrastructure to help build the static site. Thi
 1. `gulp`
 
 A browser should launch viewing https://localhost:3000. 
+
+
+## Working with Content
+
+See [working with content guide](/abc)

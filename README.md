@@ -83,21 +83,33 @@ Once your proposal has been moved to the `accepted` stage, you can begin working
 
 **Single Page Tutorial**
 
-https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md
+A single-page tutorial, probably the most common on the site, although tutorial series are also popular. 
+
+Example: [Getting Started with Java](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md).
 
 
 **Tutorial Series**
 
-Series "header" page: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md
+A multi-tutorial series with a guide at the top that walks you through the series.
 
-First in series: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md
+There are two components to a series, the series page, and the actual tutorial pages.
 
-Second in series: https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md
+Tutorial series example: [Language Basics Folder](https://github.com/java/devjava-content/tree/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics)
+
+Series page example: [Language Basics](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md)
+
+First tutorial in series: [Language Basics: Creating Variables](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md)
+
+Second tutorial in series: [Language Basics: Primitive Types](https://github.com/java/devjava-content/blob/main/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md)
+
+- All tutorials in a series have the `group` field in the markdown
+- The series page is of type and layout `tutorial`
+- The actual tutorials in the series are type and layout of `tutorial-group`.
 
 
 **Non-tutorial page**
 
-https://github.com/java/devjava-content/blob/main/app/pages/community/duke/index.md
+Example: [Duke Home](https://github.com/java/devjava-content/blob/main/app/pages/community/duke/index.md)
 
 
 

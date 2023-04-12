@@ -1,13 +1,18 @@
 name: Content Proposal
-description: Proposal for new content on Dev.java
+description: This is a proposal to add a content contribution to Dev.java
 title: '[Proposal]: '
 labels: proposal
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for showing interest in contributing to Dev.java. Getting your content featured and seen by hundreds of thousands of developers worldwide, and the endorsement of the Java Platform Group, is very exciting but will require some effort.
-        Please read this repo's README before submitting a proposal.
+        Thank you for your interest in contributing to Dev.java. 
+        
+        Getting your content featured and seen by hundreds of thousands of developers worldwide is very exciting!
+        
+        New content always starts here, with a proposal. 
+
+        Please read this repo's [README](/) before submitting a proposal.
   - type: input
     id: request
     attributes:

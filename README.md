@@ -91,4 +91,4 @@ A browser should launch viewing https://localhost:3000.
 
 ## Working with Content
 
-See [working with content guide](/abc)
+See [working with content guide](/docs/working-with-content.md)

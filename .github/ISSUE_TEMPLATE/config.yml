@@ -1,5 +1,2 @@
 
-contact_links:
-  - name: Java DevRel Group
-    url: https://dev.java/contact
-    about: Questions about contributing to Dev.java
+blank_issues_enabled: false

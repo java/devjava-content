@@ -12,7 +12,7 @@ Working on content should be mostly done in Markdown files under the /app/pages 
 
 A single-page tutorial, probably the most common on the site, although tutorial series are also popular. 
 
-Example: [Getting Started with Java](/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md).
+Example: [Getting Started with Java](/app/pages/learn/01_tutorial/01_your-first-java-app/01_getting-started-with-java.md?plain=1)
 
 
 ### Tutorial Series
@@ -23,11 +23,11 @@ There are two components to a series, the series page, and the actual tutorial p
 
 Tutorial series example: [Language Basics Folder](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics)
 
-Series page example: [Language Basics](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md)
+Series page example: [Language Basics](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/00_language-basics.md?plain=1)
 
-First tutorial in series: [Language Basics: Creating Variables](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md)
+First tutorial in series: [Language Basics: Creating Variables](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/01_creating-variables.md?plain=1)
 
-Second tutorial in series: [Language Basics: Primitive Types](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md)
+Second tutorial in series: [Language Basics: Primitive Types](/app/pages/learn/01_tutorial/03_getting-to-know-the-language/02_basics/02_creating-primitive-types.md?plain=1)
 
 - All tutorials in a series have the `group` field in the markdown
 - The series page is of type and layout `tutorial`

@@ -36,7 +36,7 @@ Second tutorial in series: [Language Basics: Primitive Types](/app/pages/learn/0
 
 ### Non-tutorial page
 
-Example: [Duke Home](/app/pages/community/duke/index.md)
+Example: [Duke Home](/app/pages/community/duke/index.md?plain=1)
 
 
 

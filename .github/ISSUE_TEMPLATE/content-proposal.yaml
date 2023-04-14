@@ -1,6 +1,6 @@
 name: Content Proposal
 description: This is a proposal to add a content contribution to Dev.java
-title: '[Proposal]: '
+title: '[Proposal] '
 labels: proposal
 body:
   - type: markdown
@@ -8,11 +8,9 @@ body:
       value: |
         Thank you for your interest in contributing to Dev.java. 
         
-        Getting your content featured and seen by hundreds of thousands of developers worldwide is very exciting!
-        
-        New content always starts here, with a proposal. 
+        This is an opportunity to feature your content, with attribution to you as the author, in front of hundreds of thousands of developers worldwide. This is exciting! But please understand that as a new contributor, the process will take some effort, and may not always result in content being accepted. Please start by reading the repo's [README](/) before submitting a proposal.
 
-        Please read this repo's [README](/) before submitting a proposal.
+        All content proposals must start with a "Request Issue". If you have an idea for content that does not have a Request Issue yet, 
   - type: input
     id: request
     attributes:

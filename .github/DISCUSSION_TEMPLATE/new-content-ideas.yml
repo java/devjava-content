@@ -1,7 +1,5 @@
-name: Content Request
-description: This is a request for content that does not have a "Content Request" issue yet
-title: '[Proposal] '
-labels: proposal
+title: '[Content Request] '
+labels: request
 body:
   - type: markdown
     attributes:

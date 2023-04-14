@@ -1,5 +1,5 @@
 title: '[Content Request] '
-labels: request
+labels: requested
 body:
   - type: markdown
     attributes:

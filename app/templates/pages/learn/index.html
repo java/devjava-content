@@ -28,17 +28,6 @@
         </ul>
     </div>
 
-    <div class="learn-group">
-        <h2>Staying Aware of New Features</h2>
-        <ul>
-            {% for tutorial in file.data.tutorials.awareness | sort(false, false, "category_order") %}
-            <li>
-                <a href="/{{ tutorial.path }}">{{ tutorial.title_html | safe }}</a><br />
-                <div class="desc">{{ tutorial.description_html | safe }}</div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
 
     <div class="learn-group">
         <h2>Getting to Know the Language</h2>
@@ -52,54 +41,6 @@
         </ul>
     </div>
 
-    <div class="learn-group">
-        <h2>Mastering the API</h2>
-        <ul>
-            {% for tutorial in file.data.tutorials.api | sort(false, false, "category_order") %}
-            <li>
-                <a href="/{{ tutorial.path }}">{{ tutorial.title_html | safe }}</a><br />
-                <div class="desc">{{ tutorial.description_html | safe }}</div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="learn-group">
-        <h2>Organizing your Application</h2>
-        <ul>
-            {% for tutorial in file.data.tutorials.organizing | sort(false, false, "category_order") %}
-            <li>
-                <a href="/{{ tutorial.path }}">{{ tutorial.title_html | safe }}</a><br />
-                <div class="desc">{{ tutorial.description_html | safe }}</div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="learn-group">
-        <h2>Getting to know the JVM</h2>
-        <ul>
-            {% for tutorial in file.data.tutorials.jvm | sort(false, false, "category_order") %}
-            <li>
-                <a href="/{{ tutorial.path }}">{{ tutorial.title_html | safe }}</a><br />
-                <div class="desc">{{ tutorial.description_html | safe }}</div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-<!--
-    <div class="learn-group">
-        <h2>References</h2>
-        <ul>
-            {% for tutorial in file.data.tutorials.reference | sort(false, false, "category_order") %}
-            <li>
-                <a href="/{{ tutorial.path }}">{{ tutorial.title_html | safe }}</a><br />
-                <div class="desc">{{ tutorial.description_html | safe }}</div>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
--->
     {{ contents | safe }}
 </div>
 

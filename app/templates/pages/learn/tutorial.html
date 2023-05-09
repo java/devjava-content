@@ -18,6 +18,11 @@
 
     <h1>{{ file.fm.title_html | safe }}</h1>
 
+    {% if file.fm.author %}
+    This page was contributed by <a href="/author/{{ file.fm.author }}">{{ file.data.authorsMap[file.fm.author].name }}</a> under the <a href="https://oss.oracle.com/licenses/upl/">UPL</a>
+    <br />
+    {% endif %}
+
     <div class="row">
         <div id="content" class="col-9">
             <div class="line-numbers">

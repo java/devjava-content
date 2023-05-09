@@ -10,13 +10,26 @@ var swig = require('gulp-swig');
 var data = require('gulp-data');
 var browserSync = require('browser-sync').create();
 const { DateTime } = require("luxon");
+var yaml = require('js-yaml');
+const nunjucks = require('nunjucks');
 
 var tutorials = {};
 var links = {};
 var link_map = new Map();
 var link_title_map = new Map();
 
+var authorsMap = new Map();
+var authorsArray = yaml.load(fs.readFileSync('app/data/authors.yaml', 'utf8'))
+for (const author of authorsArray) {
+    authorsMap[getAuthorID(author.name)] = author;
+    authorsMap[getAuthorID(author.name)].tutorials = [];
+}
+
 var javadoc = require('./app/data/javadoc.json')
+
+function getAuthorID(name) {
+    return name.replace(/\s/g, '')
+}
 
 function copy_assets() {
     return src("app/assets/**/*.*")
@@ -146,6 +159,12 @@ function pre_process_pages() {
                 }
             }
 
+        }))
+
+        .pipe(data(function (file) {
+            if (file.fm.author) {
+                authorsMap[file.fm.author].tutorials.push(file.fm.id);
+            }
         }))
 }
 
@@ -302,6 +321,10 @@ function pages() {
         .pipe(data(function () {
             let data = {}
             data.env = process.env;
+            data.authorsMap = authorsMap;
+            data.authorsArray = authorsArray;
+            data.linkMap = link_map;
+            data.linkTitleMap = link_title_map;
 
             return data;
         }))
@@ -314,11 +337,35 @@ function pages() {
             return fs.readFileSync('app/templates/pages/' + data.file.fm.layout).toString()
         }, null, { engine: 'nunjucks' }))
 
+        .pipe(data(function (file) {
+            if (file.relative == "author/index.html") {
+                var template = fs.readFileSync('app/templates/pages/authors/author.html').toString();
+                for (const author of authorsArray) {
+                    let nameId = author.name.replace(/\s/g, '');
+                    let authorPage = nunjucks.renderString(template, { author: author, file: file });
+                    let newFilePath = file.cwd + "/site/author/" + nameId + "/index.html";
+                    writeFile(newFilePath, authorPage, err => {
+                        if (err) {
+                            console.error(err);
+                        }
+                    });
+                }
+            }
+        }))
+
         .pipe(dest('site'))
 
         .pipe(browserSync.stream());
 
     return mystream;
+}
+
+var getDirName = require('path').dirname;
+function writeFile(path, contents, cb) {
+    fs.mkdir(getDirName(path), { recursive: true }, function (err) {
+        if (err) return cb(err);
+        fs.writeFile(path, contents, cb);
+    });
 }
 
 

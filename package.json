@@ -17,7 +17,7 @@
     "gulp-nunjucks-render": "^2.2.3",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
-    "gulp-swig": "^0.8.0",
+    "gulp-swig": "^0.9.1",
     "gulp-wrap": "^0.15.0",
     "luxon": "^2.5.2",
     "xml2js": "^0.4.23"

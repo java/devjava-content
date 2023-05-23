@@ -1,0 +1,68 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description, canonical=file.fm.canonical) }}
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_learn_subheader.html" %}
+{% endblock %}
+
+
+{% block page %}
+
+{% set current_index = null %}
+{% set previous_tutorial = null %}
+{% set next_tutorial = null %}
+
+{% for tutorial in file.data.tutorials[file.fm.group] %}
+{% if file.fm.title == tutorial.title %}
+{% set current_index = loop.index0 %}
+{% set previous_tutorial = file.data.tutorials[file.fm.group][loop.index0 - 1] if not loop.first %}
+{% set next_tutorial = file.data.tutorials[file.fm.group][loop.index0 + 1] if not loop.last %}
+{% endif %}
+{% endfor %}
+
+<div class="container" id="main-content">
+
+    {% include "app/templates/partials/_breadcrumb.html" %}
+
+    {% if previous_tutorial or next_tutorial %}
+    {% include "app/templates/partials/_learn_tutorialnav.html" %}
+    {% endif %}
+
+
+    <h1>{{ file.fm.title_html | safe }}</h1>
+
+    <div class="row">
+        <div id="content" class="col-9">
+            <div class="line-numbers">
+                {{ contents | safe }}
+
+                {% if file.fm.more_learning %}
+                {% include "app/templates/partials/_more_learning.html" %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="sidemenu" class="col-3">
+            {% include "app/templates/partials/_tutorial_sidemenu.html" ignore missing %}
+        </div>
+    </div>
+
+    <br />
+
+    {% include "app/templates/partials/_last_update.html" %}
+
+    <br />
+
+    {% if previous_tutorial or next_tutorial %}
+    {% include "app/templates/partials/_learn_tutorialnav.html" %}
+    {% endif %}
+
+    {% include "app/templates/partials/_breadcrumb.html" %}
+
+</div>
+
+{% endblock %}

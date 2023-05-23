@@ -1,0 +1,128 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description) }}
+<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+
+<style media="all">
+    #map {
+        height: 800px;
+    }
+</style>
+
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_community_subheader.html" %}
+{% endblock %}
+
+{% block page %}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-10">
+            <h1>{{ file.fm.title_html | safe }}</h1>
+
+            {{ contents | safe }}
+
+            <div id="map"></div><br />
+
+            <table id="jug-list">
+                <tr>
+                    <th id="default-sort"><a href="#">User Group</a></th>
+                    <th><a href="#">City</a></th>
+                    <th><a href="#">State</a></th>
+                    <th><a href="#">Country</a></th>
+                    <th><a href="#">Status</a></th>
+                </tr>
+                {% for j in file.data.jugs %}
+                <tr>
+                    <td><a href="{{ j.website }}">{{ j.name }}</a></td>
+                    <td>{{ j.city }}</td>
+                    <td>{{ j.state }}</td>
+                    <td>{{ j.country }}</td>
+                    <td>{{ j.status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const key = 'pk.eyJ1IjoiY3RhMTExIiwiYSI6ImNrc2c5bzF1bzFpNXoyb256ZzZzYnlzMTEifQ.KsQetwSsCQsGi7k-3VxG8Q'
+    L.mapbox.accessToken = key;
+
+    var geocoder = L.mapbox.geocoder('mapbox.places');
+
+    var geojson = {
+        type: 'FeatureCollection',
+        features: [
+        ]
+    };
+
+    {% for j in file.data.jugs %}
+
+    {% if j.lat and j.lng %}
+
+    geojson.features.push({
+        "type": "Feature",
+        "geometry": {
+            "type": "Point",
+            "coordinates": [{{ j.lng }}, {{ j.lat }}]
+        },
+        "properties": {
+        "title": "{{ j.name }}",
+        "description": "<a href='{{ j.website }}' target='_blank'>{{ j.website }}</a>",
+        "icon": {
+            "iconUrl": "/assets/images/java-pin2.png",
+            "className": "java-pin"
+        }
+    }
+    });
+
+    {% endif %}
+
+    {% endfor %}
+
+    var map = L.mapbox.map('map')
+        .setView([30.000, 20.000], 2)
+        .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+
+    var layer = L.mapbox.featureLayer().addTo(map);
+
+    layer.on('layeradd', function (e) {
+        var marker = e.layer;
+        var feature = marker.feature;
+
+        marker.setIcon(L.icon(feature.properties.icon));
+    });
+
+    layer.setGeoJSON(geojson);
+
+</script>
+
+
+<script>
+    const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+    const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+        v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+    )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+
+    // do the work...
+    document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+        const table = th.closest('table');
+        Array.from(table.querySelectorAll('tr:nth-child(n+2)'))
+            .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+            .forEach(tr => table.appendChild(tr));
+    })));
+
+    document.getElementById("default-sort").click();
+</script>
+
+{% endblock %}

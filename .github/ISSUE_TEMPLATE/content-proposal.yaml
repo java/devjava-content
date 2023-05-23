@@ -1,0 +1,45 @@
+name: Content Proposal
+description: This is a proposal to add a content contribution to Dev.java
+title: '[Proposal] '
+labels: proposal
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in contributing to Dev.java. 
+        
+        This is an opportunity to feature your content, with attribution to you as the author, in front of hundreds of thousands of developers worldwide. This is exciting! But please understand that as a new contributor, the process will take some effort, and may not always result in content being accepted. Please start by reading the repo's [README](/) before submitting a proposal.
+
+        All content proposals must start with a "Request Issue". If you have an idea for content that does not have a Request Issue yet, 
+  - type: input
+    id: request
+    attributes:
+      label: Request Issue
+      description: "Which request issue prompted this proposal?"
+      placeholder: "eg Issue #123"
+    validations:
+      required: false
+  - type: input
+    id: section
+    attributes:
+      label: Website Section
+      description: "What section will your content be placed?"
+      placeholder: "eg Learn --> Tutorials --> Getting to Know the Language"
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Proposal Details
+      description: Please provide an outline of your content
+      placeholder: Tell us what you see!
+    validations:
+      required: false
+  - type: textarea
+    id: examples
+    attributes:
+      label: Author References
+      description: Please include links to other public content you have created. (If you are a new writer, that is great, just let us know.)
+      placeholder: "eg. https://www.mygreatblog.com/"
+    validations:
+      required: false

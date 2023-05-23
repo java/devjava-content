@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+{% macro head(title, description, canonical) %}
+{% if title %}
+<title>{{ title }} - Dev.java</title>
+{% else %}
+<title>Dev.java: The Destination for Java Developers</title>
+{% endif %}
+{% endmacro %}
+
+<body {% if file.fm.type=='tutorial' or file.fm.type=='tutorial-group' %}data-bs-spy="scroll" data-bs-target="#current-tutorial" {% endif %}>
+  <!-- TOP NAVIGATION BAR -->
+  <header>
+
+    <div id="skip-link">
+      <a class="skip-to-content-link" href="#main-content">
+        Skip to content
+      </a>
+    </div>
+    <nav class="navbar navbar-expand-lg justify-content-between">
+      <div class="container-fluid">
+        <div id="navbar-logo">
+          <a href="/"><img src="/assets/images/java-logo-vector.png" id="logo" alt="Java Home" /></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link {% if file.fm.main_css_id == 'learn' %}active{% endif %}" href="/learn">Learn</a></li>
+            <li class="nav-item"><a class="nav-link {% if file.fm.main_css_id == 'download' %}active{% endif %}" href="/download">Download</a></li>
+            <li class="nav-item"><a class="nav-link {% if file.fm.main_css_id == 'community' %}active{% endif %}" href="/community">Community</a></li>
+            <li class="nav-item"><a class="nav-link {% if file.fm.main_css_id == 'contribute' %}active{% endif %}" href="/contribute">Contribute</a></li>
+            <li class="nav-item"><a class="nav-link {% if file.fm.main_css_id == 'news' %}active{% endif %}" href="/news">News</a></li>
+            <li class="nav-item"><a class="nav-link {% if file.fm.main_css_id == 'future' %}active{% endif %}" href="/future">Future</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-fluid" id="subheader">
+    {% block subheader %}
+    {% endblock %}
+  </div>
+
+
+  <!--// SUB NAV -->
+
+  <main id="{{ file.fm.main_css_id }}">
+    {% block page %}
+    {% endblock %}
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container-fluid text-center" id="outer">
+
+      <div class="container-fluid text-start" id="nav">
+        <div class="row">
+
+          <div class="col">
+            <b id="about">About</b><br /><br />
+            <ul aria-labelledby="about">
+              <li><a href="https://www.oracle.com/java/" aria-label="Oracle Java website">About Java</a><br /></li>
+              <li><a href="https://openjdk.java.net/" aria-label="Open JDK website">About OpenJDK</a><br /></li>
+              <li><a href="/learn/getting-started" aria-label="Geting started with Java">Getting Started</a><br /></li>
+              <li><a href="https://www.oracle.com/java/java-se-subscription/" aria-label="Oracle SE subscription">Oracle Java SE Subscription</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="downloadsLabel">Downloads</b><br /><br />
+            <ul aria-labelledby="downloadsLabel">
+              <li><a href="https://www.oracle.com/java/technologies/javase-downloads.html" aria-label="All releases">All Releases</a><br /></li>
+              <li><a href="https://github.com/openjdk/jdk" aria-label="GitHub OpenJDK repositories">Source Code</a><br /></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="learningJava">Learning Java</b><br /><br />
+            <ul aria-labelledby="learningJava">
+              <li><a href="https://docs.oracle.com/en/java/" aria-label="Documentation on the Oracle website">Documentation</a><br /></li>
+              <li><a href="https://docs.oracle.com/en/java/javase/19/docs/api/index.html" aria-label="API documentation for Java 18">Java 19 API Docs</a><br /></li>
+              <li><a href="/learn/" aria-label="Tutorials">Tutorials</a><br /></li>
+              <li><a href="/learn/faq/" aria-label="Frequently Asked Questions">FAQ</a><br /></li>
+              <li><a href="https://www.youtube.com/java" aria-label="Java on YouTube">Java YouTube</a><br /></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="community">Community</b><br /><br />
+            <ul aria-labelledby="community">
+              <li><a href="/community/jugs/" aria-label="Java USer Groups">Java User Groups</a><br /></li>
+              <li><a href="/community/events/" aria-label="Java Conferences">Java Conferences</a><br /></li>
+              <li><a href="/contribute/" aria-label="Contributing">Contributing</a><br /></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="stayInformed">Stay Informed</b><br /><br />
+            <ul aria-labelledby="stayInformed">
+              <li><a href="https://inside.java" aria-label="Inside Java">Inside.java</a><br /></li>
+              <li><a href="https://inside.java/newscast" aria-label="The inside Java newscast">Newscast</a><br /></li>
+              <li><a href="https://inside.java/podcast/" aria-label="The inside Java podcasts">Podcast</a><br /></li>
+              <li><a href="https://blogs.oracle.com/javamagazine/" aria-label="Java Magazine">Java Magazine</a><br /></li>
+              <li><a href="https://youtube.com/java" aria-label="Java on YouTube">Java YouTube</a><br /></li>
+              <li><a href="https://twitter.com/java" aria-label="Java on Twitter">@java on Twitter</a><br /></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="social-links">
+        <a href="https://www.twitter.com/java" aria-label="Java on Twitter"><i class="svg-icon twitter"></i></a>
+        <a href="https://github.com/openjdk" aria-label="GitHub OpenJDK repositories"><i class="svg-icon github"></i></a>
+        <a href="https://youtube.com/java" aria-label="Java YouTube channel"><i class="svg-icon youtube"></i></a>
+        <!--<a href="/feed.xml" aria-label="RSS Feed"><i class="svg-icon rss"></i></a>-->
+      </div>
+
+      <p id="copyright">
+        <a href="https://www.oracle.com/legal/copyright.html" aria-label="Copyright">Copyright</a> © 2023 Oracle and/or its affiliates. All rights reserved. <br />
+        <a href="https://www.oracle.com/legal/terms.html" aria-label="Terms of Use">Terms of Use</a> | <a href="https://www.oracle.com/legal/privacy/">Privacy</a> | <a href="https://www.oracle.com/legal/trademarks.html" aria-label="Trademarks">Trademarks</a>
+      </p>
+      <a href="https://www.oracle.com"><img src="/assets/images/oracle-logo.png" id="oracle-logo" alt="Oracle Home" /></a>
+
+    </div>
+  </footer>
+  <!--// FOOTER -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+</body>
+
+</html>

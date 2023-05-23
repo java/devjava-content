@@ -1,0 +1,13 @@
+
+<div class="sticky-top">
+    <div id="toc">
+        <div>
+            <h3>In this tutorial</h3>
+        </div>
+        <div id="current-tutorial" class="list-group">
+            {% for entry in file.fm.toc %}
+            <a href="#{{ entry.slug }}" class="list-group-item list-group-item-action {% if loop.first %}active{% endif %}">{{ entry.html | safe }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

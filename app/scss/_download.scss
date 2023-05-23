@@ -1,0 +1,14 @@
+table#current-release, table#past-release, table#future-release {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1rem;
+  
+    th {
+      cursor: pointer;
+    }
+  
+    th, td {
+      border: 1px solid lightgray;
+      padding: 10px;
+    }
+  }

@@ -1,0 +1,45 @@
+<!-- NEWS -->
+<div class="container mt-5 text-center" id="news">
+    <h2>Latest News & Events</h2>
+    <p>Stay Informed with the latest Java News and Events</p>
+    <div class="card-deck text-start">
+        <div class="card align-items-center">
+            <div class="card-body">
+                <h4 class="card-title">News</h4>
+                {% for i in range(0,4) %}
+                <a href="{{ file.data.inside[i].link }}">{{ file.data.inside[i].title }}</a><br />
+                {{ file.data.inside[i].author }} on {{ file.data.inside[i].published }} <br /><br />
+                {% endfor %}
+                <br /><br />
+                <div class="container-fluid text-end">
+                    <a href="https://inside.java">More</a>
+                </div>
+            </div>
+        </div>
+        <div class="card align-items-center">
+            <div class="card-body">
+                <h4 class="card-title">Upcoming Events</h4>
+                {% for i in range(0,4) %}
+                <a href="{{ file.data.events[i].website }}">{{ file.data.events[i].name }}</a><br />
+                {{ file.data.events[i].next_instance }}
+                {% if file.data.events[i].city or file.data.events[i].country %}
+                in
+                {% endif %}
+                {% if file.data.events[i].city and file.data.events[i].country %}
+                {{ file.data.events[i].city }}, {{ file.data.events[i].country }}
+                {% elif file.data.events[i].city and not file.data.events[i].country %}
+                {{ file.data.events[i].city }}
+                {% elif not file.data.events[i].city and file.data.events[i].country %}
+                {{ file.data.events[i].country }}
+                {% endif %}
+                <br /><br />
+                {% endfor %}
+                <br /><br />
+                <div class="container-fluid text-end">
+                    <a href="community/events">More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // NEWS -->

@@ -1,0 +1,43 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description) }}
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_news_subheader.html" %}
+{% endblock %}
+
+
+{% block page %}
+
+<style>
+    iframe {
+        top: 0;
+        left: 0;
+        width: 500px;
+        height: 1000px;
+        border: 0;
+        overflow: hidden; 
+    }
+</style>
+
+<div class="container">
+    <h1>{{ file.fm.title_html | safe }}</h1>
+    
+    {{ contents | safe }}
+
+    <div id="newsletter_form">
+        <iframe src="https://go.oracle.com/LP=28277?elqCampaignId=124071&nsl=ijn" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+
+    
+
+
+
+</div>
+
+
+{% endblock %}

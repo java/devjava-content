@@ -1,0 +1,263 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head() }}
+{% endblock %}
+
+{% block page %}
+
+
+<!--
+<div class="bd-masthead section" id="banner">
+    <div class="container" id="main-content">
+        <div class="row align-items-center">
+
+            <div class="order-md-1 col-lg-7">
+                <h1>Best of Duke 2022</h1>
+                <p id="welcome-text">
+                    Rockstar Duke takes the trophy in the inaugural <a href="https://twitter.com/java/status/1561788661506756608">Best of Duke competition</a>! Come meet Rockstar Duke, and the introduction
+                    of a new Duke, at JavaOne in Las Vegas on October 17-20. Use promo code <b>INSIDEJAVA</b> for $400 off the ticket price.
+                </p>
+                <div class="d-flex flex-column flex-md-row mt-5 cta-buttons">
+                    <a href="https://www.oracle.com/cloudworld/javaone/" class="btn btn-secondary btn-lg" id="secondary-button">Register for JavaOne</a>
+                </div>
+            </div>
+            <div class="order-md-2 col-lg-5">
+                <img src="/assets/images/duke/best-of-duke-2022-lg.png" alt="Rockstar Duke"  />
+            </div>
+            
+        </div>
+    </div>
+</div>
+-->
+
+<div class="bd-masthead section" id="banner">
+    <div class="container" id="main-content">
+        <div class="row align-items-center">
+
+            <div class="order-md-1 col-lg-7">
+                <table id="devlive-logo">
+                    <tr>
+                        <td id="first">
+                            <span id="oracle-logo"><img src="/assets/images/logos/Oracle_cmyk_rev.png" /></span><br />
+                            <span id="devlive">DevLive</span>
+                        </td>
+                        <td id="levelup">Level Up</td>
+                    </tr>
+                </table>
+
+                <br clear="all" />
+
+                <h1>Java Developer Day</h1>
+                <p id="join-us">Join us for the <b id="java20">Java 20</b> launch.</p>
+                <p id="date-location">
+                    March 21st<br />
+                    Redwood Shores, CA & Online
+                </p>
+                <div class="d-flex flex-column flex-md-row mt-5 cta-buttons">
+                    <a href="https://developer.oracle.com/community/events/devlive-level-up-march-2023.html" class="btn btn-success btn-lg" id="secondary-button">Register Now</a>
+                </div>
+                <br />
+            </div>
+
+            <div class="order-md-2 col-lg-4">
+                <img src="/assets/images/java-logo-vector.png" id="logo" alt="Java Home" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--// BANNER -->
+
+
+<!-- LEARNING PATHS -->
+<div id="learning-paths" class="section card-section">
+    <div class="container mt-5 text-center">
+        <h2>The Destination for Java Developers</h2>
+        <p>Hundreds of tutorials, news and videos from the experts, all right here.</p>
+        <div class="card-deck text-start">
+
+            <div class="card text-white bg-primary" aria-labelledby="getStarted">
+                <h3 id="getStarted" class="card-header">Get Started</h3>
+                <div class="card-body">
+                    <ul>
+                        <li><a href="/learn/getting-started/">Getting Started with Java</a></li>
+                        <li><a href="/learn/language-basics/">Java Language Basics</a></li>
+                        <li><a href="/download">Downloading Java</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card text-white bg-secondary" aria-labelledby="goDeeper">
+                <h3 id="goDeeper" class="card-header">Go Deeper</h3>
+                <div class="card-body">
+                    <ul>
+                        <li><a href="/learn/lambdas">Lambda Expressions</a></li>
+                        <li><a href="/learn/api/streams">The Stream API</a></li>
+                        <li><a href="/learn/api/collections-framework">The Collections Framework</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="card text-white bg-success" aria-labelledby="resources">
+                <h3 id="resources" class="card-header">Resources</h3>
+                <div class="card-body">
+                    <ul>
+                        <li><a href="/news/">Java News</a></li>
+                        <li><a href="/learn/watchlisten/">Official Java Podcast and More</a></li>
+                        <li><a href="https://oracle.com/javaone">JavaOne Conference 2022</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--// LEARNING PATHS -->
+
+
+<!-- RECENT UPDATES -->
+<div id="updates" class="section card-section">
+    <div class="container mt-5 text-center">
+        <h2>Recently Updated Articles</h2>
+        <p>Been here before? Looking for something new to learn? Try these!</p>
+
+        <div class="card-deck articles text-start">
+            {% for i in range(0,3) %}
+            <div class="card article" aria-labelledby="{{ file.data.updates[i].aria_label }}">
+                <div class="card-body">
+                    <h3 id="{{ file.data.updates[i].aria_label }}" class="card-title"><a href="{{ file.data.updates[i].path }}">{{ file.data.updates[i].title | safe}}</a></h3>
+                    {{ file.data.updates[i].description | safe}}
+                </div>
+                <div class="card-footer text-end">
+                    <small class="text-muted">Last update: {{ file.data.updates[i].date_text }}</small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- // RECENT UPDATES -->
+
+
+<!-- NEWS & EVENTS -->
+<div id="news-events" class="section card-section">
+    <div class="container mt-5 text-center">
+        <h2>Latest News & Events</h2>
+        <p>Stay Informed with the latest Java News and Events</p>
+
+        <div class="card-deck text-start">
+            <div class="card">
+                <div class="card-body" id="news">
+                    <h3 class="card-title">News</h3>
+                    <ul aria-labelledby="news">
+                        {% for i in range(0,4) %}
+                        <li>
+                            <a href="{{ file.data.inside[i].link }}">{{ file.data.inside[i].title }}</a>
+                            <p>{{ file.data.inside[i].author }} on {{ file.data.inside[i].published }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="https://inside.java">More news on inside.java</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body" id="events">
+                    <h3 class="card-title">Upcoming Events</h3>
+                    <ul aria-labelledby="events">
+                        {% for i in range(0,4) %}
+                        <li>
+                            <a href="{{ file.data.events[i].website }}">{{ file.data.events[i].name }}</a>
+                            <p>
+                                {{ file.data.events[i].next_instance }}
+                                {% if file.data.events[i].city or file.data.events[i].country %}
+                                in
+                                {% endif %}
+                                {% if file.data.events[i].city and file.data.events[i].country %}
+                                {{ file.data.events[i].city }}, {{ file.data.events[i].country }}
+                                {% elif file.data.events[i].city and not file.data.events[i].country %}
+                                {{ file.data.events[i].city }}
+                                {% elif not file.data.events[i].city and file.data.events[i].country %}
+                                {{ file.data.events[i].country }}
+                                {% endif %}
+                            </p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="card-footer text-end">
+                    <a href="community/events">More upcoming events</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--// NEWS & EVENTS -->
+
+
+<!-- FUTURE -->
+<div id="future" class="section card-section">
+
+    <div class="container mt-5 text-center">
+        <h2>The Future of Java</h2>
+        <p>Learn about the future of the Java Platform</p>
+
+        <div class="card-deck text-start">
+            <div class="card">
+                {% set embed = { slug: 'NEVap2Wt5go', title: 'JavaOne Technical Keynote'} %}
+                {% include "app/templates/partials/_youtube_embed.html" %}
+                <div class="card-body">
+                    <h3 class="card-title">JavaOne Technical Keynote</h3>
+                    <p class="card-text">
+                        Missed JavaOne 2022? See the day 2 technical keynote where members from the Java team demo projects Loom, Amber, ZGC, and Platform Security.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                {% set embed = { slug: 'HpbchS5kmio', title: 'The Future of the Java Platform and the JDK: Who is in Charge?' } %}
+                {% include "app/templates/partials/_youtube_embed.html" %}
+                <div class="card-body">
+                    <h3 class="card-title">Stewardship</h3>
+                    <p class="card-text">
+                        With decades of history and millions of developers worldwide, how does the Java Platform continue efficiently moving forward?
+                        Java's chief architect Mark Reinhold tells us.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                {% set embed = { slug: 'm7Ypbw-xVRo', title: 'Java Language Features: Spring 2022 Edition' } %}
+                {% include "app/templates/partials/_youtube_embed.html" %}
+                <div class="card-body">
+                    <h3 class="card-title">Java Language Features: Spring 2022 Edition</h3>
+                    <p class="card-text">
+                        Pattern matching, switch expressions, Record types, oh my! Gavin Bierman talks about the latest innovations in Java, as well as a
+                        sneak peak at what's coming.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                {% set embed = { slug: 'fq0OEX0XYR8', title: 'Modern, Scalable Concurrency for the Java Platform' } %}
+                {% include "app/templates/partials/_youtube_embed.html" %}
+                <div class="card-body">
+                    <h3 class="card-title">Modern, Scalable Concurrency for the Java Platform</h3>
+                    <p class="card-text">
+                        In this session learn about Project Loom, which aims to reinstate the thread as an efficient unit of concurrency by adding a lightweight
+                        implementation of threads to the Java platform.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--// FUTURE -->
+
+
+{% endblock %}

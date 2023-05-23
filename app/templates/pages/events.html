@@ -1,0 +1,32 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description) }}
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_news_subheader.html" %}
+{% endblock %}
+
+
+{% block page %}
+
+<div class="container">
+    <h1>{{ file.fm.title_html | safe }}</h1>
+
+    {{ contents | safe }}
+
+    {% for e in file.data.events %}
+
+    <p class="next_instance">{{ e.next_instance }}</p>
+    <a href="{{ e.website }}" class="title">{{ e.name }}</a><br />
+    <p class="author">{{ e.city }} {{ e.country }}</p>
+
+    <a href="{{ e.website }}" class="read">Visit Event</a>
+    <hr />
+
+    {% endfor %}
+</div>
+
+{% endblock %}

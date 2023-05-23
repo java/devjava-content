@@ -1,0 +1,57 @@
+<div class="row justify-content-evenly" id="tutorial-nav">
+
+    {% if previous_tutorial %}
+    <div class="col-3 item" id="previous_tutorial">
+
+        <div class="header">
+            <b>Previous in the Series</b>
+        </div>
+        <div class="name">
+            <a href="/{{ previous_tutorial.path }}">{{ previous_tutorial.title_html | safe }}</a>
+        </div>
+    </div>
+    <span class="left-arrow">&#x279C;</span>
+    {% endif %}
+
+    <div class="col-3 item" id="current_tutorial">
+        <div class="header">
+            <b>Current Tutorial</b>
+        </div>
+        <div class="name">{{ file.fm.title_html | safe }}</div>
+    </div>
+
+    {% if next_tutorial %}
+    <span class="right-arrow">&#x279C;</span>
+    <div class="col-3 item" id="next_tutorial">
+
+        <div class="header">
+            <b>Next in the Series</b>
+        </div>
+        <div class="name">
+            <a href="/{{ next_tutorial.path }}">{{ next_tutorial.title_html | safe }}</a>
+        </div>
+    </div>
+    {% else %}
+    <span class="right-arrow">&#x279C;</span>
+    <div class="col-3 item" id="end">
+        That's the end of the series!
+    </div>
+
+    {% endif %}
+
+</div>
+
+
+<div class="row" id="tutorial-nav-mobile">
+    {% if previous_tutorial %}
+    <p>
+        <b>Previous in the Series: </b> <a href="/{{ previous_tutorial.path }}">{{ previous_tutorial.title_html | safe }}</a>
+    </p>
+    {% endif %}
+
+    {% if next_tutorial %}
+    <p>
+        <b>Next in the Series: </b> <a href="/{{ next_tutorial.path }}">{{ next_tutorial.title_html | safe }}</a>
+    </p>
+    {% endif %}
+</div>

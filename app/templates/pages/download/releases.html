@@ -1,0 +1,154 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description) }}
+
+<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_download_subheader.html" %}
+{% endblock %}
+
+{% block page %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-10">
+			<h1>{{ file.fm.title_html | safe }}</h1>
+
+            {{ contents | safe }}
+
+			<!--
+			<h2>Currently Supported Releases</h2>
+            <table id="current-release">
+                <tr>
+                    <th>Version</th>
+                    <th>Initial Release</a></th>
+                    <th>Current Release</a></th>
+					<th>Version Info</a></th>
+					<th>End of Life</a></th>
+                </tr>
+
+                {% for v in file.data.releases.currentReleases %}
+                <tr>
+                    <td>{{ v.majorVersion }}</td>
+                    <td>{{ v.initialReleaseDate }}</td>
+                    <td>{{ v.currentRelease }} <br/>
+						{{ v.currentReleaseDate }}
+					</td>
+					<td>
+						{% if v.releaseNotes != null %}
+							<a href="{{ v.releaseNotes }}" target="_blank">Release Notes<br/>
+						{% endif %}
+						{% if v.documentation != null %}
+							<a href="{{ v.documentation }}" target="_blank">Documentation<br/>
+						{% endif %}
+						{% if v.certConfig != null %}
+							<a href="{{ v.certConfig }}" target="_blank">Certified Configurations<br/>
+						{% endif %}
+						{% if v.riskMatrix != null %}
+							<a href="{{ v.riskMatrix }}" target="_blank">Risk Matrix<br/>
+						{% endif %}
+						{% if v.openjdkUrl != null %}
+							<a href="{{ v.openjdkUrl }}" target="_blank">Open JDK Project Page<br/>
+						{% endif %}
+						{% if v.jcpId != 0 %}
+							<a href="https://jcp.org/en/jsr/detail?id={{ v.jcpId }}" target="_blank">JSR {{ v.jcpId }}</a><br/>
+						{% endif %}
+					</td>
+                    <td>{{ v.endOfLife }}
+					</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+			<h2>Future Releases</h2>
+            <table id="future-release">
+                <tr>
+                    <th>Version</th>
+                    <th>Initial Release</a></th>
+					<th>Version Info</a></th>
+                </tr>
+
+                {% for v in file.data.releases.futureReleases %}
+                <tr>
+                    <td>{{ v.majorVersion }}</td>
+                    <td>{{ v.initialReleaseDate }}</td>
+					<td>
+						{% if v.releaseNotes != null %}
+							<a href="{{ v.releaseNotes }}" target="_blank">Release Notes<br/>
+						{% endif %}
+						{% if v.documentation != null %}
+							<a href="{{ v.documentation }}" target="_blank">Documentation<br/>
+						{% endif %}
+						{% if v.certConfig != null %}
+							<a href="{{ v.certConfig }}" target="_blank">Certified Configurations<br/>
+						{% endif %}
+						{% if v.riskMatrix != null %}
+							<a href="{{ v.riskMatrix }}" target="_blank">Risk Matrix<br/>
+						{% endif %}
+						{% if v.openjdkUrl != null %}
+							<a href="{{ v.openjdkUrl }}" target="_blank">Open JDK Project Page<br/>
+						{% endif %}
+						{% if v.jcpId != 0 %}
+							<a href="https://jcp.org/en/jsr/detail?id={{ v.jcpId }}" target="_blank">JSR {{ v.jcpId }}</a><br/>
+						{% endif %}
+					</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+			<h2>No Longer Supported Releases</h2>
+            <table id="past-release">
+                <tr>
+                    <th>Version</th>
+                    <th>Initial Release</a></th>
+                    <th>Final Release</a></th>
+					<th>Version Info</a></th>
+                </tr>
+
+                {% for v in file.data.releases.pastReleases %}
+                <tr>
+                    <td>{{ v.majorVersion }}</td>
+                    <td>{{ v.initialReleaseDate }}</td>
+                    <td>{{ v.currentRelease }} <br/>
+						{{ v.currentReleaseDate }}
+					</td>
+					<td>
+						{% if v.releaseNotes != null %}
+							<a href="{{ v.releaseNotes }}" target="_blank">Release Notes<br/>
+						{% endif %}
+						{% if v.documentation != null %}
+							<a href="{{ v.documentation }}" target="_blank">Documentation<br/>
+						{% endif %}
+						{% if v.certConfig != null %}
+							<a href="{{ v.certConfig }}" target="_blank">Certified Configurations<br/>
+						{% endif %}
+						{% if v.riskMatrix != null %}
+							<a href="{{ v.riskMatrix }}" target="_blank">Risk Matrix<br/>
+						{% endif %}
+						{% if v.openjdkUrl != null %}
+							<a href="{{ v.openjdkUrl }}" target="_blank">Open JDK Project Page<br/>
+						{% endif %}
+						{% if v.jcpId != 0 %}
+							<a href="https://jcp.org/en/jsr/detail?id={{ v.jcpId }}" target="_blank">JSR {{ v.jcpId }}</a><br/>
+						{% endif %}
+					</td>
+                </tr>
+                {% endfor %}
+            </table>
+			-->
+
+
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

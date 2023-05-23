@@ -1,0 +1,18 @@
+{% if embed.image %}
+<div class="youtube-thumbnail">
+<a href="https://www.youtube.com/watch?v={{ embed.slug }}"
+   aria-label="{{ embed.title }}">
+    <img src="{{ embed.image }}"/>
+</a>
+</div>
+{% else %}
+<div class="youtube-embed">
+<iframe
+        src="https://www.youtube.com/embed/{{ embed.slug }}"
+        title="{{ embed.title }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+</div>
+{% endif %}
+{% set embed = {} %}

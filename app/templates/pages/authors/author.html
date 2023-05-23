@@ -1,0 +1,51 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description) }}
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_contribute_subheader.html" %}
+{% endblock %}
+
+{% block page %}
+
+
+<div class="container">
+    <h1>{{ author.name }}</h1>
+
+    <p><img src="{{ author.photo_url }}" alt="{{ author.name }}" class="author_image" /></p>
+
+    <p>{{ author.description }}</p>
+
+    <p>
+        Website: <a href="{{ author.website }}">{{ author.website }}</a><br />
+        Twitter: <a href="https://twitter.com/{{ author.twitter }}">{{ author.twitter }}</a>
+    </p>
+
+    <p>
+
+        {% if file.data.authorsMap[author.name | replace(" ", "")].tutorials | length > 0 %}
+        Tutorials Published: <br />
+        {% endif %}
+
+    <ul>
+        {% for linkId in file.data.authorsMap[author.name | replace(" ", "")].tutorials %}
+        <li>
+            <a href="/{{ file.data.linkMap.get(linkId) }}">{{ file.data.linkTitleMap.get(file.data.linkMap.get(linkId)) }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+    </p>
+
+
+    <br /><br />
+
+    Back to <a href="/authors/">Authors List</a><br /><br />
+</div>
+
+
+{% endblock %}

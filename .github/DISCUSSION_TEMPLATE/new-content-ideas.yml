@@ -1,0 +1,27 @@
+title: '[Content Request] '
+labels: requested
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in Dev.java. 
+        
+        This form is to request content that is not on Dev.java, and does not have an issue yet requesting this topic. No content will be added to Dev.java without first going through a "Content Request" first.
+
+        Please review this repo's [README](/java/devjava-content) to understand the content lifecycle first.
+  - type: textarea
+    id: details
+    attributes:
+      label: Content Details
+      description: Please describe the content that is missing from Dev.java
+      placeholder: An article on JavaFX for beginners
+    validations:
+      required: false
+  - type: input
+    id: section
+    attributes:
+      label: Website Section
+      description: "What section do you think this content will go into?"
+      placeholder: "eg Learn --> Tutorials --> Getting to Know the Language"
+    validations:
+      required: false

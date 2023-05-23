@@ -1,0 +1,77 @@
+{% extends "app/templates/layout.html" %}
+{% import "app/templates/layout.html" as layout %}
+
+{% block head %}
+{{ layout.head(title=file.fm.title, description=file.fm.description) }}
+{% endblock %}
+
+{% block subheader %}
+{% include "app/templates/partials/_learn_subheader.html" %}
+{% endblock %}
+
+
+{% block page %}
+
+
+<div class="container" id="main-content">
+
+    {% include "app/templates/partials/_breadcrumb.html" %}
+
+    <h1>{{ file.fm.title_html | safe }}</h1>
+
+    <p>{{ contents | safe }}</p>
+
+    <br />
+
+    <ol id="tutorial-group">
+        {% for tutorial in file.data.tutorials[file.fm.group] | sort(false, false, "category_order") %}
+        <li>
+            <a href="/{{ tutorial.path }}">{{ tutorial.title_html | safe }}</a><br />
+            {{ tutorial.description_html | safe }}
+        </li>
+        {% endfor %}
+    </ol>
+
+    {% if file.fm.more_learning %}
+    <br /><br />
+    {% include "app/templates/partials/_more_learning.html" %}
+    {% endif %}
+
+    {% if file.data.tutorials[file.fm.group].doc_links or file.data.tutorials[file.fm.group].related_pages %}
+    <div id="related-stuff">
+        {% if file.data.tutorials[file.fm.group].doc_links | length > 0 %}
+        <b>Related Links</b>
+        <ul>
+            {% for link in file.data.tutorials[file.fm.group].doc_links %}
+            <li>
+                <a href="{{ link.path }}" class="small" target="_blank" rel="noopener noreferrer">{{ link.title_html | safe }}</a><br />
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% if file.data.tutorials[file.fm.group].related_pages | length > 0 %}
+
+        {% if file.data.tutorials[file.fm.group].doc_links | length > 0 %}<br />{% endif %}
+
+        <b>Related Pages</b>
+        <ul>
+            {% for page in file.data.tutorials[file.fm.group].related_pages %}
+            <li>
+                <a href="/{{ page.path }}" class="small">{{ page.title_html | safe }}</a><br />
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endif %}
+
+
+
+    <br /><br />
+    <p><a href="/learn/">Back to Tutorial List</a></p>
+
+</div>
+
+
+{% endblock %}

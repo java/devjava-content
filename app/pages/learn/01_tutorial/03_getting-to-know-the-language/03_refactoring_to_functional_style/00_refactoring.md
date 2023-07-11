@@ -2,8 +2,6 @@
 id: refactoring
 title: "Refactoring from the Imperative to the Functional Style"
 slug: learn/refactoring-to-functional-style
-slug_history:
-- refactoring
 type: tutorial
 category: language
 category_order: 3
@@ -18,6 +16,7 @@ This part of the tutorial helps you to learn the functional style equivalent of 
 
 In this series we cover the following conversions from the imperative to the functional style:
 
-| Description       | Tutorial         |Imperative Style | Functional Style Equivalent |
-| Simple `for` loop | link to simple loop tutorial       | for              | range or rangeClosed        |
+| Tutorial                                             |Imperative Style | Functional Style Equivalent  |
+|------------------------------------------------------|-----------------|------------------------------|
+| [Converting Simple Loops](#refactoring.simple.loops) | `for()`           | `range()` or `rangeClosed()` |
 

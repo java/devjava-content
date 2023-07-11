@@ -2,8 +2,6 @@
 id: refactoring.simple.loops
 title: Converting Simple Loops
 slug: learn/refactoring-to-functional-style/simpleloops
-slug_history:
-- learn/converting-simple-loops-to-functional-style
 type: tutorial-group
 group: refactoring-to-functional-style
 layout: learn/tutorial-group.html
@@ -14,7 +12,6 @@ toc:
 - Simple for Loops {simplefor}
 - Mappings {mappings}
 description: "Converting Simple Imperative Loops to Functional Style."
-author: ["Venkat Subramaniam"]
 last_update: 2023-07-06
 ---
 
@@ -93,7 +90,7 @@ Unlike the external iterator provided by the `for` loop, the code that uses the 
 Proceed to look for opportunities in your own code base where you see the traditional `for` loop and modify it to using the `IntStream`'s `range` or `rangeClosed` method. Make sure you verify that the code works as expected after the change, preferably by running automated tests that you may already have.
 
 <a id="mappings">&nbsp;</a>
-##Mappings
+## Mappings
 
 Anywhere you see a simple `for` loop, you can use either the `range` or the `rangeClosed` method of `IntStream`. Use the `range` method if you want to iterate until but not including the ending value. Use the `rangeClosed` to include the ending value as well in your iteration.
 

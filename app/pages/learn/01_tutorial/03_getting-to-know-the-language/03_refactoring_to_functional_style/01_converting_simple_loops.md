@@ -13,6 +13,7 @@ toc:
 - Mappings {mappings}
 description: "Converting Simple Imperative Loops to Functional Style."
 last_update: 2023-07-06
+author: ["VenkatSubramaniam"]
 ---
 
 <a id="styles">&nbsp;</a>

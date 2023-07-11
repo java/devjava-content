@@ -284,7 +284,7 @@ function pages() {
 
         .pipe(data(function (file) {
             if (file.fm.toc) {
-                const section_name_regex = /^[\s|\w|/|,]+[^{|^\s{]+/;
+                const section_name_regex = /^[\s\w.,|]+[^{|^\s{]+/;
                 const anchor_regex = /{([^{|^}]+)}/;
                 file.fm.toc = file.fm.toc
                     .map(entry => ({

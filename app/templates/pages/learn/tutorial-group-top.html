@@ -19,6 +19,10 @@
 
     <h1>{{ file.fm.title_html | safe }}</h1>
 
+    {% if file.fm.author %}
+        {% include "app/templates/partials/_author.html" %}
+    {% endif %}
+
     <p>{{ contents | safe }}</p>
 
     <br />

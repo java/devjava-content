@@ -30,3 +30,12 @@
     José is a cool guy.
     and here's more text.
     thanks.
+
+- name: Venkat Subramaniam
+  email: venkats@agiledeveloper.com
+  photo_url: https://itkonekt.com/media/2019/12/Venkat.png
+  github: venkats
+  twitter: venkat_s
+  website: https://agiledeveloper.com/
+  description: |
+    Venkat Placeholder.

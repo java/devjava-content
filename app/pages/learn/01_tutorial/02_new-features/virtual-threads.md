@@ -1,15 +1,16 @@
 ---
 id: new_features.virtual_threads
 title: Virtual Threads
-slug: learn/new-features/virtual-threads
+slug: learn/virtual-threads
 type: tutorial
 category: awareness
 category_order: 2
-layout: learn/tutorial.html
+group: refactoring-to-functional-style
+layout: learn/tutorial-group-top.html
 main_css_id: learn
 subheader_select: tutorials
 description: "Virtual Threads: What, Why, and How?"
-author: ["cayhorstmann"]
+author: ["CayHorstmann"]
 ---
 
 

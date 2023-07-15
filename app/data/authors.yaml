@@ -39,3 +39,12 @@
   website: https://agiledeveloper.com/
   description: |
     Venkat Placeholder.
+
+- name: Cay Horstmann
+  email: cay@horstmann.com
+  photo_url: https://horstmann.com/cay-pfh.jpg
+  github: cayhorstmann
+  twitter: cayhorstmann
+  website: https://horstmann.com
+  description: |
+    Cay Placeholder.

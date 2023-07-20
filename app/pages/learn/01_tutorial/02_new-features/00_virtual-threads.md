@@ -1,19 +1,27 @@
 ---
 id: new_features.virtual_threads
 title: Virtual Threads
-slug: learn/virtual-threads
+slug: learn/new-features/virtual-threads
 type: tutorial
 category: awareness
-category_order: 2
-group: refactoring-to-functional-style
-layout: learn/tutorial-group-top.html
+category_order: 1
+layout: learn/tutorial.html
 main_css_id: learn
 subheader_select: tutorials
+toc:
+  - Why Virtual Threads? {why}
+  - Creating Virtual Threads {creating}
+  - Thread API Changes {api-changes}
+  - Capturing Task Results {task-results}
+  - Rate Limiting {rate-limiting}
+  - Pinning {pinning}
+  - Thread Locals {thread-locals}
+  - Conclusion {conclusion}
 description: "Virtual Threads: What, Why, and How?"
 author: ["CayHorstmann"]
 ---
 
-
+<a id="why">&nbsp;</a>
 ## Why Virtual Threads?
 
 When Java 1.0 was released in 1995, its API had about a hundred classes, among them `java.lang.Thread`. Java was the first mainstream programming language that directly supported concurrent programming. 
@@ -30,11 +38,12 @@ With virtual threads, blocking is cheap. When a result is not immediately availa
 
 Virtual threads are useful when the number of concurrent tasks is large, and the tasks mostly block on network I/O. They offer no benefit for CPU-intensive tasks. For such tasks, consider parallel streams or [recursive fork-join tasks](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/RecursiveTask.html). 
 
+<a id="creating">&nbsp;</a>
 ## Creating Virtual Threads
 
 The factory method `Executors.newVirtualThreadPerTaskExecutor()` yields an `ExecutorService` that runs each task in a separate virtual thread. For example:
 
-```
+```java
 import java.util.concurrent.*;
 
 public class VirtualThreadDemo {
@@ -57,7 +66,7 @@ By the way, the code uses `LockSupport.parkNanos` instead of `Thread.sleep` so t
 
 Perhaps you are using a lower-level API that asks for a thread factory. To obtain a factory for virtual threads, use the new `Thread.Builder` class:
 
-```
+```java
 Thread.Builder builder = Thread.ofVirtual().name("request-", 1);
 ThreadFactory factory = builder.factory();
 ```
@@ -66,24 +75,25 @@ Now, calling `factory.newThread(myRunnable)` creates a new (unstarted) virtual t
 
 You can also use a builder to create a single virtual thread: 
 
-```
+```java
 Thread t = builder.unstarted(myRunnable);
 ```
 
 Alternatively, if you want to start the thread right away:
 
-```
+```java
 Thread t = builder.started(myRunnable);
 ```
 
 Finally, for a quick demo, there is a convenience method:
 
-```
+```java
 Thread t = Thread.startVirtualThread(myRunnable);
 ```
 
 Note that only the first approach, with an executor service, works with result-bearing tasks (callables).
 
+<a id="api-changes">&nbsp;</a>
 ## Thread API Changes
 
 After a series of experiments with different APIs, the designers of Java virtual threads decided to simply reuse the familiar `Thread` API. A virtual thread is an instance of `Thread`. Cancellation works the same way as for platform threads, by calling `interrupt`. As always, the thread code must check the “interrupted” flag or call a method that does. (Most blocking methods do.)
@@ -109,11 +119,12 @@ Java 19 has a couple of changes to the `Thread` API that have nothing to do with
 
 As of Java 20, the `stop`, `suspend`, and `resume` methods throw an `UnsupportedOperationException` for both platform and virtual threads. These methods have been deprecated since Java 1.2 and deprecated for removal since Java 18.
 
+<a id="task-results">&nbsp;</a>
 ## Capturing Task Results
 
 You often want to combine the results of multiple concurrent tasks:
 
-```
+```java
 Future<T1> f1 = service.submit(callable1);
 Future<T2> f2 = service.submit(callable2);
 result = combine(f1.get(), f2.get());
@@ -121,7 +132,7 @@ result = combine(f1.get(), f2.get());
 
 Before virtual threads, you might have felt bad about the blocking `get` calls. But now blocking is cheap. Here is a sample program with a more concrete example:
 
-```
+```java
 import java.util.concurrent.*;
 import java.net.*;
 import java.net.http.*;
@@ -153,7 +164,7 @@ public class VirtualThreadDemo {
 
 If you have a list of tasks with the same result type, you can use the `invokeAll` method and then call `get` on each `Future`:
 
-```
+```java
 List<Callable<T>> callables = ...;
 List<T> results = new ArrayList<>();
 for (Future<T> f : service.invokeAll(callables))
@@ -162,7 +173,7 @@ for (Future<T> f : service.invokeAll(callables))
 
 Again, a more concrete sample program:
 
-```
+```java
 import java.util.*;
 import java.util.concurrent.*;
 import java.net.*;
@@ -198,6 +209,7 @@ public class VirtualThreadDemo {
 }
 ```
 
+<a id="rate-limiting">&nbsp;</a>
 ## Rate Limiting
 
 Virtual threads improve application throughput since you can have many more concurrent tasks than with platform threads. That can put pressure on the services that the tasks invoke. For example, a web service may not tolerate huge numbers of concurrent requests.
@@ -210,7 +222,7 @@ As an example, on my personal web site, I provide demo services for producing ra
 
 The following sample program shows rate limiting with a simple semaphore that allows a small number of concurrent requests. When the maximum is exceeded, the `acquire` method blocks, but that is ok. With virtual threads, blocking is cheap.
 
-```
+```java
 import java.util.*;
 import java.util.concurrent.*;
 import java.net.*;
@@ -253,6 +265,7 @@ public class RateLimitDemo {
 }
 ```
 
+<a id="pinning">&nbsp;</a>
 ## Pinning
 
 The virtual thread scheduler mounts virtual threads onto carrier threads. By default, there are as many carrier threads as there are CPU cores. You can tune that count with the `jdk.virtualThreadScheduler.parallelism` VM option.
@@ -272,14 +285,14 @@ You always have the option whether or not to use virtual threads. In particular,
 
 To find out whether pinned threads are blocked, start the JVM with one of the options
 
-```
+```shell
 -Djdk.tracePinnedThreads=short
 -Djdk.tracePinnedThreads=full
 ```
 
 You get a stack trace that shows when a pinned thread blocks:
 
-```
+```shell
 ...
 org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) <== monitors:1
 ...
@@ -296,7 +309,7 @@ The following sample program shows pinning in action. We launch a number of virt
 * use a `ReentrantLock`
 * don't use virtual threads
 
-```
+```java
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
 
@@ -344,6 +357,7 @@ public class PinningDemo {
 }
 ```
 
+<a id="thread-locals">&nbsp;</a>
 ## Thread Locals
 
 A *thread-local variable* is an object whose `get` and `set` methods access a value that depends on the current thread. Why would you want such a thing instead of using a global or local variable? The classic application is a service that is not threadsafe, such as `SimpleDateFormat`, or that would suffer from contention, such as a random number generator. In these cases, a per-thread shared instance makes sense.
@@ -356,6 +370,7 @@ An *inheritable thread-local variable* is a special kind of thread-local variabl
 
 Such mutation is uncommon. Run with the VM flag `jdk.traceVirtualThreadLocals` to get a stack trace when a virtual thread mutates a thread-local variable.
 
+<a id="conclusion">&nbsp;</a>
 ## Conclusion
 
 * Use virtual threads to increase throughput when you have many tasks that mostly block on network I/O 

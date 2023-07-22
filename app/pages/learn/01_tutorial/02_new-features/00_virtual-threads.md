@@ -36,7 +36,7 @@ JEP 425 introduced *virtual threads* in Java 19. Many virtual threads run on a p
 
 With virtual threads, blocking is cheap. When a result is not immediately available, you simply block in a virtual thread. You use familiar programming structures—branches, loops, try blocks—instead of a pipeline of callbacks.
 
-Virtual threads are useful when the number of concurrent tasks is large, and the tasks mostly block on network I/O. They offer no benefit for CPU-intensive tasks. For such tasks, consider parallel streams or [recursive fork-join tasks](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/RecursiveTask.html). 
+Virtual threads are useful when the number of concurrent tasks is large, and the tasks mostly block on network I/O. They offer no benefit for CPU-intensive tasks. For such tasks, consider [parallel streams](https://dev.java/learn/api/streams/parallel-streams/) or [recursive fork-join tasks](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/RecursiveTask.html). 
 
 <a id="creating">&nbsp;</a>
 ## Creating Virtual Threads
@@ -270,18 +270,16 @@ public class RateLimitDemo {
 
 The virtual thread scheduler mounts virtual threads onto carrier threads. By default, there are as many carrier threads as there are CPU cores. You can tune that count with the `jdk.virtualThreadScheduler.parallelism` VM option.
 
-When a virtual thread executes a blocking operation, it is supposed to be unmounted from its its carrier thread, which can then execute a different virtual thread. There are two situations in which this does *not* happen:
+When a virtual thread executes a blocking operation, it is supposed to be unmounted from its its carrier thread, which can then execute a different virtual thread. However, there are situations where this unmounting is not possible. In some situations, the virtual thread scheduler will compensate by starting another carrier thread. For example, in JDK 21, this happens for many file I/O operations, and when calling `Object.wait`. You can control the maximum number of carrier threads with the `jdk.virtualThreadScheduler.maxPoolSize` VM option.
+
+A thread is called *pinned* in either of the two following situations:
 
 1. When executing a `synchronized` method or block
 2. When calling a native method or foreign function
 
-A thread that does either of  these is called *pinned*. Being pinned is not bad in itself. But when a pinned thread blocks, there is a problem. The thread cannot be unmounted, and the carrier thread is blocked. That leaves fewer carrier threads for running virtual threads.
-
-In some situations, the virtual thread scheduler will compensate by starting another carrier thread. For example, in JDK 21, this happens for many file I/O operations, and when calling `Object.wait`. But this is an implementation detail that may change. You can control the maximum number of carrier threads with the `jdk.virtualThreadScheduler.maxPoolSize` VM option.
+Being pinned is not bad in itself. But when a pinned thread blocks, it cannot be unmounted. The carrier thread is blocked, and, in Java 21, no additional carrier thread is started. That leaves fewer carrier threads for running virtual threads.
 
 Pinning is harmless if `synchronized` is used to avoid a race condition in an in-memory operation. However, if there are blocking calls, it would be best to replace `synchronized` with a `ReentrantLock`. This is of course only an option if you have control over the source code. 
-
-You always have the option whether or not to use virtual threads. In particular, heavy file I/O work may be better suited for platform threads.
 
 To find out whether pinned threads are blocked, start the JVM with one of the options
 
@@ -362,13 +360,13 @@ public class PinningDemo {
 
 A *thread-local variable* is an object whose `get` and `set` methods access a value that depends on the current thread. Why would you want such a thing instead of using a global or local variable? The classic application is a service that is not threadsafe, such as `SimpleDateFormat`, or that would suffer from contention, such as a random number generator. In these cases, a per-thread shared instance makes sense.
 
-However, if the shared instance is resource-intensive, there can be a problem when migrating to virtual threads. There will likely be far more of them than threads in a thread pool, and now you have many more expensive instances. In such a situation, you should rethink your sharing strategy.
-
 Another common use for thread locals is to provide “implicit” context, such as a database connection, that is properly configured for each task. Instead of passing the context from one method to another, the task code simply reads the thread-local variable. This is actually hard to get right with thread pools, since you don't want another thread use your database. But tasks are mapped 1:1 to virtual threads, so a thread-local context makes sense. 
 
 An *inheritable thread-local variable* is a special kind of thread-local variable. When a new thread is started, it receives a copy of the parent's inheritable thread locals. This is just the behavior that you want for context information, but making these copies can be expensive. The copies are necessary because the child thread might mutate the thread-local values.
 
 Such mutation is uncommon. Run with the VM flag `jdk.traceVirtualThreadLocals` to get a stack trace when a virtual thread mutates a thread-local variable.
+
+Resource-intensive thread locals can be a problem when migrating to virtual threads. There will likely be far more of them than threads in a thread pool, and now you have many more expensive instances. In such a situation, you should rethink your sharing strategy.
 
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
@@ -378,6 +376,3 @@ Such mutation is uncommon. Run with the VM flag `jdk.traceVirtualThreadLocals` t
 * Don't pool virtual threads; use other mechanisms for rate limiting
 * Check for pinning and mitigate if necessary
 * Minimize thread-local variables in virtual threads
-
-
-

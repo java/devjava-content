@@ -73,14 +73,23 @@ Once your proposal has been moved to the `accepted` stage, you can begin working
 
 ## Building the Site
 
-There is some basic JavaScript infrastructure to help build the static site. This should be as simple as:
+There is some basic JavaScript infrastructure to help build the static site. There are two options:
+
+### Option 1: Build locally
 
 1. install node and npm. easiest way is [nvm](https://github.com/nvm-sh/nvm) and `nvm use` in this directory.
 1. `npm install`
 1. `npm install gulp -g`
 1. `gulp`
 
-A browser should launch viewing https://localhost:3000. 
+A browser should launch viewing [https://localhost:3000](https://localhost:3000) 
+
+### Option 2: Use Docker
+
+1. docker build --tag devjava .
+1. docker run --publish 3000:3000 devjava
+
+You should then be able to open a browser and visit [https://localhost:3000](https://localhost:3000)
 
 
 ## Working with Content

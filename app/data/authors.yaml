@@ -48,3 +48,15 @@
   website: https://horstmann.com
   description: |
     Cay Placeholder.
+
+- name: Dr Heinz M. Kabutz
+  email: heinz@javaspecialists.eu
+  photo_url: https://javaspecialists.eu/pics/gb/heinz2-300x300.jpg
+  github: kabutz
+  twitter: kabutz
+  website: https://www.javaspecialists.eu
+  description: |
+    Heinz is the author of [The Java Specialists' Newsletter](https://www.javaspecialists.eu),
+    a monthly newsletter that has been in publication since the end of 2000. In it, he explores
+    many useful tips and tricks that have enthralled tens of thousands of enthusiastic fans for
+    over two decades. He was one of the first [Java Champions](https://www.javachampions.org).

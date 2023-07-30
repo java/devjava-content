@@ -39,3 +39,13 @@
   website: https://agiledeveloper.com/
   description: |
     Venkat Placeholder.
+    
+
+- name: Jeanne Boyarsky
+  email: nyjeanne@gmail.com
+  photo_url: https://www.selikoff.net/wp-content/uploads/2019/05/jeanne-headshot.jpg
+  github: boyarsky
+  twitter: jeanneboyarsky
+  website: https://jeanneboyarsky.com
+  description: |
+    Jeanne is a Java developer and Java champion in NYC. She is one of the leaders of javasig.com and mentors a high school robotics team in her free time.

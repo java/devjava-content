@@ -1405,5 +1405,25 @@
   "MessageDigest":                                     "java.base/java/security/MessageDigest.html",
   "Security.getProviders()":                           "java.base/java/security/Security.html#getProviders()",
   "Security.addProvider(java.security.Provider)":      "java.base/java/security/Security.html#addProvider(java.security.Provider)",
-  "Security.insertProviderAt":                         "java.base/java/security/Security.html#insertProviderAt(java.security.Provider,int)"
+  "Security.insertProviderAt":                         "java.base/java/security/Security.html#insertProviderAt(java.security.Provider,int)",
+
+  "jakarta-ee":                                         "https://jakarta.ee",
+
+  "cert-808":                                           "https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-808",
+  "cert-809":                                           "https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-809",
+  "cert-811":                                           "https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-811",
+  "cert-819":                                           "https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-819",
+  "cert-829":                                           "https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-829",
+  "cert-900":                                           "https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-900",
+  "cert-oracle-university":                             "https://mylearn.oracle.com/ou/learning-path/become-a-java-se-17-developer/99487",
+  "cert-coderanch":                                     "https://coderanch.com/f/24/java-programmer-OCPJP",
+  "cert-wiley":                                         "https://www.amazon.com/Oracle-Certified-Professional-Developer-Certification/dp/111986464X",
+  "cert-mcgraw":                                        "https://www.amazon.com/Certified-Professional-Developer-1Z0-829-Programmers/dp/0137993641",
+  "cert-enthuware":                                     "https://enthuware.com/java-certification-mock-exams/oracle-certified-professional/ocp-java-17-exam-1z0-829"
+
+
+
+
+
+
 }

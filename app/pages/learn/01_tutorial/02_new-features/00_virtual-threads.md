@@ -358,15 +358,13 @@ public class PinningDemo {
 <a id="thread-locals">&nbsp;</a>
 ## Thread Locals
 
-A *thread-local variable* is an object whose `get` and `set` methods access a value that depends on the current thread. Why would you want such a thing instead of using a global or local variable? The classic application is a service that is not threadsafe, such as `SimpleDateFormat`, or that would suffer from contention, such as a random number generator. In these cases, a per-thread shared instance makes sense.
+A *thread-local variable* is an object whose `get` and `set` methods access a value that depends on the current thread. Why would you want such a thing instead of using a global or local variable? The classic application is a service that is not threadsafe, such as `SimpleDateFormat`, or that would suffer from contention, such as a random number generator. Per-thread instances can perform better than a global instance that is protected by a lock.
 
-Another common use for thread locals is to provide “implicit” context, such as a database connection, that is properly configured for each task. Instead of passing the context from one method to another, the task code simply reads the thread-local variable. This is actually hard to get right with thread pools, since you don't want another thread use your database. But tasks are mapped 1:1 to virtual threads, so a thread-local context makes sense. 
+Another common use for thread locals is to provide “implicit” context, such as a database connection, that is properly configured for each task. Instead of passing the context from one method to another, the task code simply reads the thread-local variable whenever it needs to access the database.
 
-An *inheritable thread-local variable* is a special kind of thread-local variable. When a new thread is started, it receives a copy of the parent's inheritable thread locals. This is just the behavior that you want for context information, but making these copies can be expensive. The copies are necessary because the child thread might mutate the thread-local values.
+Thread locals can be a problem when migrating to virtual threads. There will likely be far more virtual threads than threads in a thread pool, and now you have many more thread-local instances. In such a situation, you should rethink your sharing strategy.
 
-Such mutation is uncommon. Run with the VM flag `jdk.traceVirtualThreadLocals` to get a stack trace when a virtual thread mutates a thread-local variable.
-
-Resource-intensive thread locals can be a problem when migrating to virtual threads. There will likely be far more of them than threads in a thread pool, and now you have many more expensive instances. In such a situation, you should rethink your sharing strategy.
+To locate uses of thread locals in your app, run with the VM flag `jdk.traceVirtualThreadLocals`. You will get a stack trace when a virtual thread mutates a thread-local variable.
 
 <a id="conclusion">&nbsp;</a>
 ## Conclusion

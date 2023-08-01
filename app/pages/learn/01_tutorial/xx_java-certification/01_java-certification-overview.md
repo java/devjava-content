@@ -31,13 +31,13 @@ There's a third reason, related to learning - doing your job better. By studying
 <a id="cert-list">&nbsp;</a>
 ## What certification exams are available?
 
-There are currently six active Java certification exams. This article doesn't cover one of them: the [1Z0-900: Java EE 7 Application Developer exam](doc:cert-900) is from before the transfer to [Jakarta EE](doc-jakarta-ee). Let's explore the remaining five!
+There are currently six active Java certification exams. This article doesn't cover one of them: the [1Z0-900: Java EE 7 Application Developer exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-900) is from before the transfer to [Jakarta EE](https://jakarta.ee). Let's explore the remaining five!
 
-1. [1Z0-808: Java SE 8 Programmer I exam](doc:cert-808) - 56 questions, passing 65% - For Java 8, the exam was split into two parts. You earn a certification for each one. . Taking this first half gives you a more basic certification while you work towards the 809.
-2. [1Z0-809: Java SE 8 Programmer II exam](doc:cert-809) - 68 questions, passing 65% - This is the second half of the Java 8 exam.
-3. [1Z0-811: Java Foundations exam](doc:cert-811) - 60 questions, passing 65% - The foundations exam was introduced for those in Oracle Academy. It is far less common than the other exams. It uses Java 8 as well.
-4. [1Z0-819: Java SE 11 Developer exam](doc:cert-819) - 50 questions, passing 68% - For Java 11, the exam was launched in two parts like Java 8 (1Z0-815 and 1Z0-816). It was consolidated into a single exam, the 1Z0-819.  
-5. [1Z0-829: Java SE 17 Developer exam](doc:cert-829) - 50 questions, passing 68% - This Java 17 is the most recent certification exams available.
+1. [1Z0-808: Java SE 8 Programmer I exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-808) - 56 questions, passing 65% - For Java 8, the exam was split into two parts. You earn a certification for each one. . Taking this first half gives you a more basic certification while you work towards the 809.
+2. [1Z0-809: Java SE 8 Programmer II exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-809) - 68 questions, passing 65% - This is the second half of the Java 8 exam.
+3. [1Z0-811: Java Foundations exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-811) - 60 questions, passing 65% - The foundations exam was introduced for those in Oracle Academy. It is far less common than the other exams. It uses Java 8 as well.
+4. [1Z0-819: Java SE 11 Developer exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-819) - 50 questions, passing 68% - For Java 11, the exam was launched in two parts like Java 8 (1Z0-815 and 1Z0-816). It was consolidated into a single exam, the 1Z0-819.  
+5. [1Z0-829: Java SE 17 Developer exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-829) - 50 questions, passing 68% - This Java 17 is the most recent certification exams available.
 
 Most people start with the 1Z0-808 (if you want to get an easy certification faster and build on it) or 1Z0-829 (for the latest). It is very important to use study materials that match the exam you are studying for. As a result, those who hold Java 11 materials target the 1Z0-811 exam.
 
@@ -74,6 +74,6 @@ Your study materials will give your more details on what you specifically need t
 <a id="study">&nbsp;</a>
 ## How to study?
 
-If you subscribe to Oracle University, there is a [24 hour video class](doc:cert-oracle-university). If not, there are two books: [Wiley's Sybex imprint](doc:cert-wiley) (disclosure: I wrote this) and [McGraw-Hill's Oracle imprint](doc:cert-mcgraw).
+If you subscribe to Oracle University, there is a [24 hour video class](https://mylearn.oracle.com/ou/learning-path/become-a-java-se-17-developer/99487y). If not, there are two books: [Wiley's Sybex imprint](https://www.amazon.com/Oracle-Certified-Professional-Developer-Certification/dp/111986464X) (disclosure: I wrote this) and [McGraw-Hill's Oracle imprint](https://www.amazon.com/Certified-Professional-Developer-1Z0-829-Programmers/dp/0137993641).
 
-Regardless of which option you chose to study, I recommend the [Enthuware mock exams](doc:cert-enthuware). They are only $10 and you get 20 mock exams! Excellent practice after you study to get ready. 
+Regardless of which option you chose to study, I recommend the [Enthuware mock exams](https://enthuware.com/java-certification-mock-exams/oracle-certified-professional/ocp-java-17-exam-1z0-829). They are only $10 and you get 20 mock exams! Excellent practice after you study to get ready.  The OCP forum at [CodeRanch](https://coderanch.com/f/24/java-programmer-OCPJP) is also a great place to ask questions as you prepare for your certification.

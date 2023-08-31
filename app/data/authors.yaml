@@ -49,3 +49,12 @@
   website: https://jeanneboyarsky.com
   description: |
     Jeanne is a Java developer and Java champion in NYC. She is one of the leaders of javasig.com and mentors a high school robotics team in her free time.
+
+- name: Cay Horstmann
+  email: cay@horstmann.com
+  photo_url: https://horstmann.com/cay-pfh.jpg
+  github: cayhorstmann
+  twitter: cayhorstmann
+  website: https://horstmann.com
+  description: |
+    Cay Placeholder.

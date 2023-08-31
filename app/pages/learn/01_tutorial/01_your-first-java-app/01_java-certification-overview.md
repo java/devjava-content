@@ -1,5 +1,5 @@
 ---
-id: java-cert-overview
+id: certification.java-cert-overview
 title: Getting Started with Java Certification
 slug: learn/java-cert-overview
 type: tutorial

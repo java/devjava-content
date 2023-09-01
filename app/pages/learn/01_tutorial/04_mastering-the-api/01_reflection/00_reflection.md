@@ -21,11 +21,10 @@ outside in our garden, I should have worn sunscreen, or at least
 a hat. I had tried my hand at making my own bacon, not being able
 to find such delicacies on Crete, and the five hours of smoking
 in the Weber were put to good use writing a Java Specialists
-Newsletter about the
-[parallel streams and
-virtual threads](https://www.javaspecialists.eu/archive/Issue311-Virtual-Threads-and-Parallel-Streams.html "The Java Specialists' Newsletter Issue 311"). The reflection in the mirror blinked. I had spent
-enough time staring, and it was now time to start writing about 
-what I had just witnessed - reflection.
+Newsletter about [parallel streams and
+virtual threads](https://www.javaspecialists.eu/archive/Issue311-Virtual-Threads-and-Parallel-Streams.html "The Java Specialists' Newsletter Issue 311"). 
+The reflection in the mirror blinked. Enough time staring, it was
+time to start writing about what I had just witnessed - reflection.
 
 Java reflection allows an object to look in the mirror and discover
 what fields, methods, and constructors it has. We can read and

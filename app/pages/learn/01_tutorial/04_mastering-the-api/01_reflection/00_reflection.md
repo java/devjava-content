@@ -22,8 +22,7 @@ outside in our garden, I should have worn sunscreen, or at least
 a hat. I had tried my hand at making my own bacon, not being able
 to find such delicacies on Crete, and the five hours of smoking
 in the Weber were put to good use writing a Java Specialists
-Newsletter about [parallel streams and
-virtual threads](https://www.javaspecialists.eu/archive/Issue311-Virtual-Threads-and-Parallel-Streams.html "The Java Specialists' Newsletter Issue 311"). 
+Newsletter about parallel streams and virtual threads. 
 The reflection in the mirror blinked. Enough time staring, it was
 time to start writing about what I had just witnessed - reflection.
 
@@ -352,7 +351,3 @@ For many more deep dives into the Java Programming Language, be
 sure to subscribe to
 [The Java Specialists' Newsletter](https://www.javaspecialists.eu),
 a newsletter for anyone who wants to become more proficient in Java.
-
-Kind regards
-
-Heinz

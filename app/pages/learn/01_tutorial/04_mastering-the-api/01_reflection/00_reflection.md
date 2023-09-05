@@ -22,7 +22,7 @@ outside in our garden, I should have worn sunscreen, or at least
 a hat. I had tried my hand at making my own bacon, not being able
 to find such delicacies on Crete, and the five hours of smoking
 in the Weber were put to good use writing a Java Specialists
-Newsletter about parallel streams and virtual threads. 
+Newsletter about parallel streams and virtual threads (Issue 311). 
 The reflection in the mirror blinked. Enough time staring, it was
 time to start writing about what I had just witnessed - reflection.
 

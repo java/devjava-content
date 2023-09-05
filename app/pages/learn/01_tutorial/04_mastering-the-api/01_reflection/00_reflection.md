@@ -1,19 +1,20 @@
 ---
-id: reflection
+id: api.reflection
 title: "Introduction to java.lang.reflect.*"
 slug: learn/introduction_to_java_reflection
 type: tutorial
 category: api
-category_order: 4
-group: introduction_to_java_reflection
-layout: learn/tutorial-group-top.html
+category_order: 1
+layout: learn/tutorial.html
 subheader_select: tutorials
 main_css_id: learn
 description: "TODO"
-author: ["HeinzKabutz"]
+author: ["DrHeinzM.Kabutz"]
 ---
 
-# Reflection
+<a id="reflection">&nbsp;</a>
+
+## Reflection
 
 The face looking back from the mirror this morning told a story.
 I urgently needed a shave (and still do). And yesterday, whilst sitting

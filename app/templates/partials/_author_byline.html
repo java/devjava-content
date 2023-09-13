@@ -1,0 +1,13 @@
+
+This page was contributed by 
+
+{% if file.fm.author | length > 0 %}
+    {% for author in file.fm.author %}
+    <a href="/author/{{ author }}">{{ file.data.authorsMap[author].name }}</a> {% if not loop.last %}and{% endif %}
+    {% endfor %}
+{% else %}
+    <a href="/author/{{ file.fm.author }}">{{ file.data.authorsMap[file.fm.author].name }}</a>
+{% endif %}
+
+under the <a href="https://oss.oracle.com/licenses/upl/">UPL</a><br />
+

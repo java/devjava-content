@@ -24,7 +24,7 @@ toc:
 - Going Further {going-further}
 description: "Downloading and setting up the JDK, writing your first Java class, and creating your first Java application."
 last_update: 2022-10-29
-author: ["JoséPaumard"]
+author: ["JoséPaumard", "ChadArimura"]
 ---
 
 <a id="first-app">&nbsp;</a>

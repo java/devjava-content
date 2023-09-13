@@ -163,7 +163,15 @@ function pre_process_pages() {
 
         .pipe(data(function (file) {
             if (file.fm.author) {
-                authorsMap[file.fm.author].tutorials.push(file.fm.id);
+                if (file.fm.author.length > 1) {
+                    console.log("Adding tutorial " + file.fm.id + " to multiple authors: " + file.fm.author);
+                    for (const author of file.fm.author) {
+                        authorsMap[author].tutorials.push(file.fm.id);
+                    }
+                } else {
+                    console.log("Adding tutorial " + file.fm.id + " to single author: " + file.fm.author);
+                    authorsMap[file.fm.author].tutorials.push(file.fm.id);
+                }
             }
         }))
 }

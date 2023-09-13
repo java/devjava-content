@@ -20,7 +20,7 @@
     <h1>{{ file.fm.title_html | safe }}</h1>
 
     {% if file.fm.author %}
-        {% include "app/templates/partials/_author.html" %}
+        {% include "app/templates/partials/_author_byline.html" %}
     {% endif %}
 
     <p>{{ contents | safe }}</p>

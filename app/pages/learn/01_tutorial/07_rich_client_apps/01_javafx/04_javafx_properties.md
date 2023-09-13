@@ -26,15 +26,15 @@ byline: 'and is from <a href="https://link.springer.com/book/10.1007/978-1-4842-
 ## Introduction
 
 JavaFX property listeners that apply to object properties (not collections) come in two flavors: invalidation listeners and change listeners. Invalidation listeners fire when a property’s value is no longer valid. 
-For this example and the ones that follow, we’ll discuss the MyShapesProperties program, which is based on the previous `MyShapes` application. In this new program, we’ve added a second `Text` object placed in a `VBox layout` control below the rotating StackPane. 
-Below you can see the updated scene graph with the top-level `VBox`.
+For this example and the ones that follow, we’ll discuss the MyShapesProperties program, which is based on the previous `MyShapes` application. In this new program, we’ve added a second [`Text`](javafxdoc:Text) object placed in a [`VBox`](javafxdoc:VBox) layout control below the rotating [`StackPane`](javafxdoc:StackPane). 
+Below you can see the updated scene graph with the top-level [`VBox`](javafxdoc:VBox).
 
 [![MyShapesProperties scene graph](/assets/images/javafx/myshapes-properties.png)](/assets/images/javafx/myshapes-properties.png)
 <a id="invalidation-listeners">&nbsp;</a>
 ## Invalidation Listeners
 
 Invalidation listeners have a single method that you override with lambda expressions. Let’s show you the non-lambda expression first, so you can see the full method definition. 
-When you click the `StackPane`, the mouse click handler rotates the `StackPane` control as before. The second `Text` object displays the status of the `RotationTransition` animation, which is managed by the read-only status property. 
+When you click the [`StackPane`](javafxdoc:StackPane), the mouse click handler rotates the [`StackPane`](javafxdoc:StackPane) control as before. The second [`Text`](javafxdoc:Text) object displays the status of the [`RotationTransition`](javafxdoc:RotationTransition) animation, which is managed by the read-only status property. 
 You’ll see either RUNNING, PAUSED, or STOPPED. The figure below shows the animation paused.
 
 [![MyShapesProperties application with an invalidation listener](/assets/images/javafx/myshapes-properties-invalidation.png)](/assets/images/javafx/myshapes-properties-invalidation.png)
@@ -113,8 +113,8 @@ The simplest form of binding links the value of one property to the value of ano
 text2.rotateProperty().bind(stackPane.rotateProperty());
 ```
 
-This means any changes to `stackPane`’s rotation will immediately update text2’s rotate property. When this binding is set in the `MyShapesProperties` program, any clicks inside the `StackPane` initiate a rotate transition. 
-This makes both the `StackPane` and text2 components rotate together. The `StackPane` rotates because we start the `RotateTransition` defined for that node. The text2 node rotates because of the bind expression.
+This means any changes to `stackPane`’s rotation will immediately update text2’s rotate property. When this binding is set in the `MyShapesProperties` program, any clicks inside the [`StackPane`](javafxdoc:StackPane) initiate a rotate transition. 
+This makes both the [`StackPane`](javafxdoc:StackPane) and text2 components rotate together. The [`StackPane`](javafxdoc:StackPane) rotates because we start the `RotateTransition` defined for that node. The text2 node rotates because of the bind expression.
 
 Note that when you bind a property, you cannot explicitly set its value unless you unbind the property first.
 <a id="bidir-binding">&nbsp;</a>
@@ -132,14 +132,14 @@ Bidirectional binding is not completely symmetrical; the initial value of both p
 ## Fluent API and Bindings API
 
 The fluent and bindings APIs help you construct bind expressions when more than one property needs to participate in a binding or when it’s necessary to perform some sort of calculation or conversion. 
-For example, the following bind expression displays the rotation angle of the `StackPane` as it rotates from 0 to 360 degrees. The text property is a `String`, and the rotate property is a double. 
-The binding method `asString()` converts the double to `String`, formatting the number with a single digit to the right of the decimal point:
+For example, the following bind expression displays the rotation angle of the [`StackPane`](javafxdoc:StackPane) as it rotates from 0 to 360 degrees. The text property is a `String`, and the rotate property is a double. 
+The binding method `asString()` converts the double to [`String`](javadoc:String), formatting the number with a single digit to the right of the decimal point:
 
 ```java
 text2.textProperty().bind(stackPane.rotateProperty().asString("%.1f"));
 ```
 
-For a more complex example, let’s update `text2`’s stroke property (its color) depending on whether the animation is running or not. Here we construct a binding with `When` based on a ternary expression. 
+For a more complex example, let’s update `text2`’s stroke property (its color) depending on whether the animation is running or not. Here we construct a binding with [`When`](javafxdoc:When) based on a ternary expression. 
 This sets the stroke color to green when the animation is running and to red when the animation is stopped or paused:
 
 ```java

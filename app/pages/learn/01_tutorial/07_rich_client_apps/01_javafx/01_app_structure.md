@@ -28,12 +28,12 @@ byline: 'and is from <a href="https://link.springer.com/book/10.1007/978-1-4842-
 A JavaFX application is controlled by the JavaFX platform, a runtime system that builds your application object and constructs the `JavaFX Application Thread`. To build a JavaFX application, you must extend the `JavaFX Application` class.
 The JavaFX runtime system controls the Application lifecycle and invokes the Application `start()` method.
 
-JavaFX uses a theater metaphor: the top-level container is the `Stage` and is constructed by the platform for you. In desktop applications, the `Stage` is the window. Its appearance depends on the host system and varies among Mac OS X, Windows, and Linux platforms. 
+JavaFX uses a theater metaphor: the top-level container is the [`Stage`](javafxdoc:Stage) and is constructed by the platform for you. In desktop applications, the [`Stage`](javafxdoc:Stage) is the window. Its appearance depends on the host system and varies among Mac OS X, Windows, and Linux platforms. 
 Normally, the window is decorated with controls that resize, minimize, and quit your application. It’s also possible to construct undecorated windows. You can specialize the Application class for other environments, too. For example, with the `Gluon Mobile Application` framework, your program extends Mobile Application, an application class specifically written for mobile devices.
 <a id="single-threaded">&nbsp;</a>
 ## JavaFX Is Single-Threaded
 
-You must always construct and modify the `Stage` and its scene objects on the `JavaFX Application Thread`. Note that JavaFX (like `Swing`) is a single-threaded UI model. For the JavaFX developer, this is mostly a straightforward restriction. 
+You must always construct and modify the [`Stage`](javafxdoc:Stage) and its scene objects on the `JavaFX Application Thread`. Note that JavaFX (like `Swing`) is a single-threaded UI model. For the JavaFX developer, this is mostly a straightforward restriction. 
 As you create UI elements, respond to event handlers, manage dynamic content with animation, or make changes in the scene graph, work continues to execute on the JavaFX Application Thread.
 
 To keep the UI responsive, however, you should assign long-running work to background tasks in separate threads. In this case, work that modifies the UI must be separate from work being executed on a background thread. 
@@ -41,7 +41,7 @@ Fortunately, JavaFX has a well-developed concurrency API that helps developers a
 <a id="hierarchical-node-structure">&nbsp;</a>
 ## Hierarchical Node Structure
 
-Continuing with the theater metaphor, the `Stage` holds a scene. The scene consists of JavaFX elements such as the root, which is the top scene element and contains what is called the scene graph.
+Continuing with the theater metaphor, the [`Stage`](javafxdoc:Stage) holds a scene. The scene consists of JavaFX elements such as the root, which is the top scene element and contains what is called the scene graph.
 
 The scene graph is a strictly hierarchical structure of elements that visualize your application. These elements are called Nodes. A Node has exactly one parent (except the root node) and may contain other Nodes. Or, a Node can be a leaf node with no children. Nodes must be added to the scene graph in order to participate in the rendering of that scene. 
 Furthermore, a Node may be added only once to a scene, unless it is first removed and then added somewhere else.
@@ -54,10 +54,10 @@ as shown in the figure below. Coordinate values on the x-axis increase to the ri
 JavaFX also supports 3D graphics and represents the third dimension with z-axis values, providing depth. 
 JavaFX has an absolute coordinate system, in addition to local coordinate systems that are relative to the parent. In each case, the coordinate system’s origin is the upper-left corner of the parent. 
 In general, layout controls hide the complexities of component placement within the scene and manage the placement of its children for you. Component placement is based on the specific layout control and how you configure it.
-It’s also possible to nest layout controls. For example, you can place multiple VBox controls in an `HBox` or put an `AnchorPane` into one pane of a `SplitPane` control. Other parent nodes are more complex visual nodes, such as `TextField`, `TextArea`, and `Button`. 
-These nodes have managed subparts. For example, `Button` includes a labeled text part and optional graphic. This graphic can be any node type but is typically an image or icon.
+It’s also possible to nest layout controls. For example, you can place multiple VBox controls in an [`HBox`](javafxdoc:HBox) or put an [`AnchorPane`](javafxdoc:AnchorPane) into one pane of a [`SplitPane`](javafxdoc:SplitPane) control. Other parent nodes are more complex visual nodes, such as [`TextField`](javafxdoc:TextField), [`TextArea`](javafxdoc:TextArea), and [`Button`](javafxdoc:Button). 
+These nodes have managed subparts. For example, [`Button`](javafxdoc:Button) includes a labeled text part and optional graphic. This graphic can be any node type but is typically an image or icon.
 
-Recall that leaf nodes have no child nodes. Examples include `Shape` (such as `Rectangle`, `Ellipse`, `Line`, `Path`, and `Text`) and `ImageView`, a node for rendering an image.
+Recall that leaf nodes have no child nodes. Examples include [`Shape`](javafxdoc:Shape) (such as [`Rectangle`](javafxdoc:Rectangle), [`Ellipse`](javafxdoc:Ellipse), [`Line`](javafxdoc:Line), [`Path`](javafxdoc:Path), and [`Text`](javafxdoc:Text)) and [`ImageView`](javafxdoc:ImageView), a node for rendering an image.
 
 Just a word of warning: you should be using a plain text editor to create and save this file. Using a word processor will not work.
 <a id="shape">&nbsp;</a>
@@ -68,7 +68,7 @@ When you resize the window, the visible elements will remain centered in the res
 
 [![MyShapes application](/assets/images/javafx/myshapes-application.png)](/assets/images/javafx/myshapes-application.png)
 
-The source code for this application is in the `MyShapes` program. Class `MyShapes` is the main class and extends `Application`. The JavaFX runtime system instantiates `MyShapes` as well as the primary Stage, which it passes to the overridden `start()` method. The runtime system invokes the `start()` method for you.
+The source code for this application is in the `MyShapes` program. Class `MyShapes` is the main class and extends [`Application`](javafxdoc:Application). The JavaFX runtime system instantiates `MyShapes` as well as the primary Stage, which it passes to the overridden `start()` method. The runtime system invokes the `start()` method for you.
 
 ```java
 package org.modernclient;
@@ -110,14 +110,14 @@ Note the import statements that reference packages in `javafx.application`, `jav
 
 ---
 
-This program creates several nodes and adds them to a `StackPane` layout container. The program also creates the scene, configures the stage, and shows the stage. Let’s look at these steps in detail.
+This program creates several nodes and adds them to a [`StackPane`](javafxdoc:StackPane) layout container. The program also creates the scene, configures the stage, and shows the stage. Let’s look at these steps in detail.
 
-First, we create an `Ellipse` shape, providing a width and height in pixels. Since `Ellipse` extends `Shape`, we can also configure any `Shape` property. This includes fill, which lets you specify an interior paint value.
+First, we create an [`Ellipse`](javafxdoc:Ellipse) shape, providing a width and height in pixels. Since [`Ellipse`](javafxdoc:Ellipse) extends [`Shape`](javafxdoc:Shape), we can also configure any [`Shape`](javafxdoc:Shape) property. This includes fill, which lets you specify an interior paint value.
 <a id="color">&nbsp;</a>
 ## Color
 
-A `Shape`’s fill property can be a JavaFX color, a linear gradient, a radial gradient, or an image. Let’s briefly discuss color. You can specify colors in JavaFX several ways. 
-Here, we set the `Ellipse` fill property to `Color.LIGHTBLUE`. 
+A [`Shape`](javafxdoc:Shape)’s fill property can be a JavaFX color, a linear gradient, a radial gradient, or an image. Let’s briefly discuss color. You can specify colors in JavaFX several ways. 
+Here, we set the [`Ellipse`](javafxdoc:Ellipse) fill property to `Color.LIGHTBLUE`. 
 
 ```java
 // Create an Ellipse and set fill color
@@ -125,9 +125,9 @@ Ellipse ellipse = new Ellipse(110, 70);
 ellipse.setFill(Color.LIGHTBLUE);
 ```
 
-There are currently 147 predefined colors in the JavaFX Color class, named alphabetically from `ALICEBLUE` to `YELLOWGREEN`. However, you can also specify `Color` using web RGB values with either hexadecimal notation or decimal numbers. 
+There are currently 147 predefined colors in the JavaFX Color class, named alphabetically from `ALICEBLUE` to `YELLOWGREEN`. However, you can also specify [`Color`](javafxdoc:Color) using web RGB values with either hexadecimal notation or decimal numbers. 
 You can optionally provide an alpha value for transparency. Fully opaque is 1 and fully transparent is 0. A transparency of .5, for example, shows the color but lets the background color show through as well.
-Here are a few examples that set a shape’s fill with `Color`:
+Here are a few examples that set a shape’s fill with [`Color`](javafxdoc:Color):
 
 ```java
 ellipse.setFill(Color.LIGHTBLUE);              // Light blue, fully opaque
@@ -143,7 +143,7 @@ Notably, you can interpolate a color’s values, and that is how JavaFX construc
 <a id="text">&nbsp;</a>
 ## Text
 
-We next create a Text object. Text is also a `Shape` with additional properties, such as font, text alignment, text, and wrapping width. The constructor provides the text and the `setFont()` method sets its font.
+We next create a Text object. Text is also a [`Shape`](javafxdoc:Shape) with additional properties, such as font, text alignment, text, and wrapping width. The constructor provides the text and the `setFont()` method sets its font.
 
 ```java
 // Create a Text shape with font and size
@@ -156,12 +156,12 @@ text.setFont(new Font("Arial Bold", 24));
 Note that we created the ellipse and text nodes, but they are not yet in our scene graph. Before we add them to the scene, we must put these nodes in some kind of layout container. Layout controls are extremely important in managing your scene graph. 
 These controls not only arrange components for you but also respond to events such as resizing, the addition or removal of elements, and any changes to the sizes of one or more nodes in the scene graph.
 
-To show you just how important layout controls are, let’s replace the `StackPane` from the original example with a `Group` and specify the placement manually. 
-`Group` is a parent node that  manages its children but does not provide any layout capability. Here we create a group and add the ellipse and text elements with the constructor. We then specify group as the scene’s root node:
+To show you just how important layout controls are, let’s replace the [`StackPane`](javafxdoc:StackPane) from the original example with a [`Group`](javafxdoc:Group) and specify the placement manually. 
+[`Group`](javafxdoc:Group) is a parent node that  manages its children but does not provide any layout capability. Here we create a group and add the ellipse and text elements with the constructor. We then specify group as the scene’s root node:
 
 ```java
 Group group = new Group(ellipse, text);
-. . .
+...
 Scene scene = new Scene(group, 350, 230, Color.LIGHTYELLOW);
 ```
 

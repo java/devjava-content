@@ -38,7 +38,7 @@ Stop[] stops = new Stop[] { new Stop(0, Color.DODGERBLUE),
         new Stop(1.0, Color.LIGHTGREEN)};
 ```
 
-The `LinearGradient` constructor specifies the x-axis range followed by the y-axis range. The following linear gradient has a constant x-axis but varies its y-axis. This is called a vertical gradient.
+The [`LinearGradient`](javafxdoc:LinearGradient) constructor specifies the x-axis range followed by the y-axis range. The following linear gradient has a constant x-axis but varies its y-axis. This is called a vertical gradient.
 
 ```java
 // startX=0, startY=0, endX=0, endY=1
@@ -87,8 +87,7 @@ Here’s the code to add an action event handler to the text node:
 
 ```java 
 text.setOnMouseClicked(mouseEvent -> {
-System.out.println(mouseEvent.getSource().getClass()
-+ " clicked.");
+	System.out.println(mouseEvent.getSource().getClass() + " clicked.");
 });
 ```
 When the user clicks inside the text, the program displays the line `class javafx.scene.text.Text` clicked.
@@ -104,13 +103,13 @@ Let’s do something a bit more exciting and apply an animation to the `MyShape`
 ## Animation
 JavaFX makes animation very easy when you use the built-in transition APIs. Each JavaFX Transition type controls one or more Node (or Shape) properties. For example, the `FadeTransition` controls a node’s opacity, varying the property over time. To fade something out gradually, you change its opacity from fully opaque (1) to completely transparent (0). The `TranslateTransition` moves a node by modifying its translateX and translateY properties (or translateZ if you’re working in 3D).
 
-You can play multiple transitions in parallel with a `ParallelTransition` or sequentially with a `SequentialTransition`. To control timing between two sequential transitions, use `PauseTransition` or configure a delay before a transition begins with `Transition` method `setDelay()`. You can also define an action when a `Transition` completes using the `Transition` action event handler property `onFinished`.
+You can play multiple transitions in parallel with a [`ParallelTransition`](javafxdoc:ParallelTransition) or sequentially with a [`SequentialTransition`](javafxdoc:SequentialTransition). To control timing between two sequential transitions, use [`PauseTransition`](javafxdoc:PauseTransition) or configure a delay before a transition begins with [`Transition`](javafxdoc:Transition) method `setDelay()`. You can also define an action when a [`Transition`](javafxdoc:Transition) completes using the [`Transition`](javafxdoc:Transition) action event handler property `onFinished`.
 
-Transitions begin with method `play()` or `playFromStart()`. Method `play()` starts the transition at its current time; method `playFromStart()` always begins at time 0. Other methods include `stop()` and `pause()`. You can query a transition’s status with `getStatus()`, which returns one of the `Animation.Status` enum values: `RUNNING`, `PAUSED`, or `STOPPED`.
+Transitions begin with method `play()` or `playFromStart()`. Method `play()` starts the transition at its current time; method `playFromStart()` always begins at time 0. Other methods include `stop()` and `pause()`. You can query a transition’s status with `getStatus()`, which returns one of the [`Animation.Status`](javafxdoc:Animation.Status) enum values: `RUNNING`, `PAUSED`, or `STOPPED`.
 
 All transitions support the common properties `duration, autoReverse, cycleCount, onFinished, currentTime`, and either node or shape (for Shape-specific transitions).
 
-Let’s define a `RotateTransition` now for our `MyShapes` program. The rotation begins when a user clicks inside the window. 
+Let’s define a [`RotateTransition`](javafxdoc:RotateTransition) now for our `MyShapes` program. The rotation begins when a user clicks inside the window. 
 
 ```java
 public class MyShapes extends Application {
@@ -137,9 +136,9 @@ public class MyShapes extends Application {
 ```
 
 
-The `RotateTransition` constructor specifies a duration of 2500 milliseconds and applies the transition to the `StackPane` node. The rotation animation begins at angle 0 and proceeds linearly to angle 360, providing one full rotation. The animation starts when the user clicks anywhere inside the `StackPane` layout control.
+The [`RotateTransition`](javafxdoc:RotateTransition) constructor specifies a duration of 2500 milliseconds and applies the transition to the [`StackPane`](javafxdoc:StackPane) node. The rotation animation begins at angle 0 and proceeds linearly to angle 360, providing one full rotation. The animation starts when the user clicks anywhere inside the [`StackPane`](javafxdoc:StackPane) layout control.
 
-There are a few interesting things to notice in this example. First, because we define the transition on the `StackPane` node, the rotation applies to all of the `StackPane`’s children. This means that not only will the `Ellipse` and `Text` shapes rotate, but the drop shadow and reflection effects rotate, too.
+There are a few interesting things to notice in this example. First, because we define the transition on the [`StackPane`](javafxdoc:StackPane) node, the rotation applies to all of the [`StackPane`](javafxdoc:StackPane)’s children. This means that not only will the [`Ellipse`](javafxdoc:Ellipse) and [`Text`](javafxdoc:Text) shapes rotate, but the drop shadow and reflection effects rotate, too.
 
 Second, the event handler checks the transition status. If the animation is in progress (running), the event handler pauses the transition. If it’s not running, it starts it up with `play()`. Because `play()` starts at the transition’s current time, a `pause()` followed by `play()` resumes the transition where it was paused.
 

@@ -30,21 +30,21 @@ byline: 'and is from <a href="https://link.springer.com/book/10.1007/978-1-4842-
 
 It’s time to build a more interesting JavaFX application now, one that implements a master-detail view. As we show you this application, we’ll explain several JavaFX features that help you control the UI and keep your data and the application consistent.
 
-First, we use Scene Builder to construct and configure the UI. Our example includes a `Person` model class and an underlying `ObservableList` that holds data. The program lets users make changes, but we don’t persist any data. 
-JavaFX has `ObservableLists` that manage collections of data, and you can write listeners and bind expressions that respond to any data changes. The program uses a combination of event handlers and bind expressions to keep the application state consistent.
+First, we use Scene Builder to construct and configure the UI. Our example includes a `Person` model class and an underlying  [`ObservableList`](javafxdoc:ObservableList) that holds data. The program lets users make changes, but we don’t persist any data. 
+JavaFX has [ [`ObservableList`](javafxdoc:ObservableList)](javafxdoc:ObservableList)s that manage collections of data, and you can write listeners and bind expressions that respond to any data changes. The program uses a combination of event handlers and bind expressions to keep the application state consistent.
 <a id="master-detail-ui">&nbsp;</a>
 ## Master-Detail UI
 
-For the UI, we use a JavaFX ListView control in the left window (the master view) and a `Form` on the right (the detail view). In Scene Builder, we select an `AnchorPane` as the top-level component and the scene graph root. 
-A `SplitPane` layout pane divides the application view into two parts, and each part has `AnchorPane` as its main container. 
+For the UI, we use a JavaFX ListView control in the left window (the master view) and a Form on the right (the detail view). In Scene Builder, we select an  [`AnchorPane`](javafxdoc:AnchorPane) as the top-level component and the scene graph root. 
+A  [`SplitPane`](javafxdoc:SplitPane) layout pane divides the application view into two parts, and each part has  [`AnchorPane`](javafxdoc:AnchorPane) as its main container. 
 
 [![Person UI application](/assets/images/javafx/person-ui-app.png)](/assets/images/javafx/person-ui-app.png)
 
-The `ListView` control lets you perform selections for a `Person` object. Here, the first `Person` is selected, and the details of that `Person` appear in the form control on the right.
+The  [`ListView`](javafxdoc:ListView) control lets you perform selections for a `Person` object. Here, the first `Person` is selected, and the details of that `Person` appear in the form control on the right.
 The form control has the following layout:
-*	The form contains a `GridPane` (two columns by four rows) that holds `TextFields` for the firstname and lastname fields of `Person`.
-*	A `TextArea` holds the notes field for `Person`. Labels in the first column mark each of these controls.
-*	The bottom row of the `GridPane` consists of a `ButtonBar` that spans both columns and aligns on the right side by default. The `ButtonBar` sizes all of its buttons to the width of the widest button label so the buttons have a uniform size.
+*	The form contains a  [`GridPane`](javafxdoc:GridPane) (two columns by four rows) that holds  [`TextField`](javafxdoc:TextField)s for the firstname and lastname fields of `Person`.
+*	A  [`TextArea`](javafxdoc:TextArea) holds the notes field for `Person`. Labels in the first column mark each of these controls.
+*	The bottom row of the  [`GridPane`](javafxdoc:GridPane) consists of a  [`ButtonBar`](javafxdoc:ButtonBar) that spans both columns and aligns on the right side by default. The  [`ButtonBar`](javafxdoc:ButtonBar) sizes all of its buttons to the width of the widest button label so the buttons have a uniform size.
 *	The buttons let you perform New (create a `Person` and add that `Person` to the list), Update (edit a selected `Person`), and Delete (remove a selected `Person` from the list).
 *	Bind expressions query the state of the application and enable or disable the buttons.
 
@@ -132,15 +132,15 @@ public class Person {
 <a id="observable-lists">&nbsp;</a>
 ## Observable Lists
 
-When working with JavaFX collections, you’ll typically use `ObservableLists` that detect list changes with listeners. Furthermore, the JavaFX controls that display lists of data expect observable lists. 
+When working with JavaFX collections, you’ll typically use  [`ObservableList`](javafxdoc:ObservableList)s that detect list changes with listeners. Furthermore, the JavaFX controls that display lists of data expect observable lists. 
 These controls automatically update the UI in response to list modifications. We’ll explain some of these intricacies as we walk you through our example program.
 <a id="list-view-selection">&nbsp;</a>
 ## Implementing ListView Selection
 
-A `ListView` control displays items in an observable list and lets you select one or possibly multiple items. To display a selected `Person` in the form fields in the right view, you use a change listener for the `selectedItemProperty`. 
-This change listener is invoked each time the user either selects a different item from the `ListView` or deselects the selected item. You can use the mouse for selecting, as well as the arrow keys, Home (for the first item), and End (for the last item). 
+A  [`ListView`](javafxdoc:ListView) control displays items in an observable list and lets you select one or possibly multiple items. To display a selected `Person` in the form fields in the right view, you use a change listener for the `selectedItemProperty`. 
+This change listener is invoked each time the user either selects a different item from the  [`ListView`](javafxdoc:ListView) or deselects the selected item. You can use the mouse for selecting, as well as the arrow keys, Home (for the first item), and End (for the last item). 
 On a Mac, use Fn + Left Arrow for Home and Fn + Right Arrow for End. For deselecting (either Command-click for a Mac or Control-click on Linux or Windows), the new value is null, and we clear all the form control fields. 
-Below you can observe the `ListView` selection change listener.
+Below you can observe the  [`ListView`](javafxdoc:ListView) selection change listener.
 
 ```java
 listView.getSelectionModel().selectedItemProperty().addListener(
@@ -161,11 +161,11 @@ listView.getSelectionModel().selectedItemProperty().addListener(
 		});
 ```
 
-Boolean property `modifiedProperty` tracks whether the user has changed any of the three text controls in the form. We reset this flag after each `ListView` selection and use this property in a bind expression to control the Update button’s disable property.
+Boolean property `modifiedProperty` tracks whether the user has changed any of the three text controls in the form. We reset this flag after each  [`ListView`](javafxdoc:ListView) selection and use this property in a bind expression to control the Update button’s disable property.
 <a id="multiple-selection">&nbsp;</a>
 ## Using Multiple Selection
 
-By default, a `ListView` control implements single selection so at most one item can be selected. `ListView` also provides multiple selection, which you enable by configuring the selection mode, as follows:
+By default, a  [`ListView`](javafxdoc:ListView) control implements single selection so at most one item can be selected.  [`ListView`](javafxdoc:ListView) also provides multiple selection, which you enable by configuring the selection mode, as follows:
 
 ```java
 listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -186,8 +186,8 @@ Our Person UI application uses single selection mode for the ListView.
 <a id="list-view-sort">&nbsp;</a>
 ## ListView and Sort
 
-Suppose you want to sort the list of names by last name and then first name. JavaFX has several ways to sort lists. Since we need to keep names sorted, we’ll wrap the underlying `ObservableArrayList` in a `SortedList`. 
-To keep the list sorted in ListView, we invoke `ListView`’s setItems() method with the sorted list. A comparator specifies the ordering. 
+Suppose you want to sort the list of names by last name and then first name. JavaFX has several ways to sort lists. Since we need to keep names sorted, we’ll wrap the underlying `ObservableArrayList` in a  [`SortedList`](javafxdoc:SortedList). 
+To keep the list sorted in ListView, we invoke  [`ListView`](javafxdoc:ListView)’s setItems() method with the sorted list. A comparator specifies the ordering. 
 First, we compare each person’s last name for sorting and then the first names if necessary. To set the sorting, the `setComparator()` method uses an anonymous class or, more succinctly, a lambda expression:
 
 ```java
@@ -203,7 +203,7 @@ sortedList.setComparator((p1, p2) -> {
 listView.setItems(sortedList);
 ```
 
-Note that the comparator arguments p1 and p2 are inferred as `Person` types since `SortedList` is generic.
+Note that the comparator arguments p1 and p2 are inferred as `Person` types since  [`SortedList`](javafxdoc:SortedList) is generic.
 <a id="app-actions">&nbsp;</a>
 ## Person UI Application Actions
 
@@ -228,7 +228,7 @@ When mnemonic parsing is true, you can specify a keyboard shortcut to activate a
 
 ---
 
-You cannot update a `SortedList` directly, but you can apply changes to its underlying list (`ObservableList personList`). The `SortedList` always keeps its elements sorted whenever you add or delete items.
+You cannot update a  [`SortedList`](javafxdoc:SortedList) directly, but you can apply changes to its underlying list (`ObservableList personList`). The  [`SortedList`](javafxdoc:SortedList) always keeps its elements sorted whenever you add or delete items.
 
 Here is the event handler in the controller class:
 
@@ -239,7 +239,7 @@ private void removeButtonAction(ActionEvent actionEvent) {
 }
 ```
 
-This handler removes the selected `Person` object from the backing observable array list. The `ListView` control’s selection change listener sets `selectedPerson`.
+This handler removes the selected `Person` object from the backing observable array list. The  [`ListView`](javafxdoc:ListView) control’s selection change listener sets `selectedPerson`.
 
 Note that we don’t have to check `selectedPerson` against null here. Why not? You’ll see that we disable the Delete button when the `selectedItemProperty` is null. 
 This means the Delete button’s action event handler can never be invoked when the user deselects an element in the ListView control. Here’s the bind expression that controls the Delete button’s disable property:
@@ -254,7 +254,7 @@ You can therefore use them in bind expressions. The property that invokes `bind(
 
 ### Add a Person
 
-The New button adds a `Person` to the list and subsequently updates the `ListView` control. A new item is always sorted because the list re-sorts when elements are added to the wrapped list. 
+The New button adds a `Person` to the list and subsequently updates the  [`ListView`](javafxdoc:ListView) control. A new item is always sorted because the list re-sorts when elements are added to the wrapped list. 
 Here is the FXML that defines the New button. Similar to the Delete button, we define both the `fx:id` and `onAction` attributes:
 
 ```java
@@ -262,7 +262,7 @@ Here is the FXML that defines the New button. Similar to the Delete button, we d
 ```
 
 Under what circumstances should we disable the New button?
-*	When clicking New, no items in the `ListView` should be selected. Therefore, we disable the New button if the `selectedItemProperty` is not null. Note that you can deselect the selected item with Command-click or Control-click.
+*	When clicking New, no items in the  [`ListView`](javafxdoc:ListView) should be selected. Therefore, we disable the New button if the `selectedItemProperty` is not null. Note that you can deselect the selected item with Command-click or Control-click.
 *	We should not create a new `Person` if either the first or last name field is empty. So we disable the New button if either of these fields is empty. We do allow the Notes field to be empty, however.
 Here is the bind expression that implements these restrictions:
 
@@ -301,7 +301,7 @@ By default, a sorted list does not respond to individual array elements that cha
 There’s two ways to fix this. First is to remove the item and add it back again with the new values.
 
 The second way is to define an extractor for the underlying object. An extractor defines properties that should be observed when changes occur. Normally, changes to individual list elements are not observed. Observable objects returned by the extractor flag update changes in a list ChangeListener. 
-Thus, to make a `ListView` control display a properly sorted list after changes to individual elements, you need to define an `ObservableList` with an extractor.
+Thus, to make a  [`ListView`](javafxdoc:ListView) control display a properly sorted list after changes to individual elements, you need to define an  [`ObservableList`](javafxdoc:ObservableList) with an extractor.
 
 The benefit of extractors is that you only include the properties that affect sorting. In our example, properties firstname and lastname affect the list’s order. These properties should go in the extractor.
 
@@ -315,7 +315,7 @@ public class Person {
 }
 ```
 
-Now the controller class can use this extractor to declare an `ObservableList` called `personList`, as follows:
+Now the controller class can use this extractor to declare an  [`ObservableList`](javafxdoc:ObservableList) called `personList`, as follows:
 
 ```java
 private final ObservableList<Person> personList =
@@ -332,7 +332,7 @@ We initialize this Boolean to false in the JavaFX controller class, as follows:
 private final BooleanProperty modifiedProperty = new SimpleBooleanProperty(false);
 ```
 
-We reset this Boolean property to false in the `ListView` selection change listener. The `modifiedProperty` is set to true when a keystroke occurs in any of the three fields that can change: the first name, last name, and notes controls. 
+We reset this Boolean property to false in the  [`ListView`](javafxdoc:ListView) selection change listener. The `modifiedProperty` is set to true when a keystroke occurs in any of the three fields that can change: the first name, last name, and notes controls. 
 Here is the keystroke event handler, which is invoked when a key stroke is detected inside the focus for each of these three controls:
 
 ```java
@@ -342,7 +342,7 @@ private void handleKeyAction(KeyEvent keyEvent) {
 }
 ```
 
-Of course, the FXML markup must configure attribute `onKeyReleased` for all three text controls to invoke the keystroke event handler. Here is the FXML for the firstname `TextField`, which links the `handleKeyAction` event handler to a key release event for this control:
+Of course, the FXML markup must configure attribute `onKeyReleased` for all three text controls to invoke the keystroke event handler. Here is the FXML for the firstname  [`TextField`](javafxdoc:TextField), which links the `handleKeyAction` event handler to a key release event for this control:
 
 ```xml
 <TextField fx:id="firstnameTextField" onKeyReleased="#handleKeyAction" 
@@ -361,11 +361,11 @@ updateButton.disableProperty().bind(
             .or(lastnameTextField.textProperty().isEmpty())));
 ```
 
-Now let’s show you the Update button’s action event handler. This handler is invoked when the user clicks the Update button after selecting an item in the `ListView` control and making at least one change to any of the text fields.
+Now let’s show you the Update button’s action event handler. This handler is invoked when the user clicks the Update button after selecting an item in the  [`ListView`](javafxdoc:ListView) control and making at least one change to any of the text fields.
 
 
 But there is one more housekeeping chore to do. Before starting the update of the selected item with the values from the form controls, we must remove the listener on the `selectedItemProperty`. 
-Why? Recall that changes to the `firstname` or `lastname` properties will affect the list dynamically and possibly re-sort it. Furthermore, this may change `ListView`’s idea of the currently selected item and invoke the `ChangeListener`. 
+Why? Recall that changes to the `firstname` or `lastname` properties will affect the list dynamically and possibly re-sort it. Furthermore, this may change  [`ListView`](javafxdoc:ListView)’s idea of the currently selected item and invoke the `ChangeListener`. 
 To prevent this, we remove the listener during the update and add the listener back when the update finishes. During the update, the selected item remains unchanged (even if the list re-sorts). 
 Thus, we clear the `modifiedProperty` flag to ensure the Update button gets disabled:
 
@@ -409,7 +409,7 @@ public record Person (String firstname, String lastname, String notes) {
 }
 ```
 
-Note that we supply our own `toString()` implementation to replace the auto-generated `toString()`, since `ListView` uses this to display each `Person` object. 
+Note that we supply our own `toString()` implementation to replace the auto-generated `toString()`, since  [`ListView`](javafxdoc:ListView) uses this to display each `Person` object. 
 The generated accessor methods are `firstname()`, `lastname()`, and `notes()` to match the elements declared in the record header. We update our application to use these names instead of the conventional getter forms. 
 This affects the `selectedItemProperty` change listener and the sorted list comparator.
 

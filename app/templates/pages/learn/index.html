@@ -90,6 +90,18 @@
     </div>
 
     <div class="learn-group">
+        <h2>Rich Client Applications</h2>
+        <ul>
+            {% for tutorial in file.data.tutorials.javafx | sort(false, false, "category_order") %}
+            <li>
+                <a href="/{{ tutorial.path }}">{{ tutorial.title_html | safe }}</a><br />
+                <div class="desc">{{ tutorial.description_html | safe }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="learn-group">
         <h2>More Resources</h2>
         <ul>
             {% for tutorial in file.data.tutorials.resources | sort(false, false, "category_order") %}

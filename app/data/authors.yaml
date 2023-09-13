@@ -69,3 +69,29 @@
     a monthly newsletter that has been in publication since the end of 2000. In it, he explores
     many useful tips and tricks that have enthralled tens of thousands of enthusiastic fans for
     over two decades. He was one of the first [Java Champions](https://www.javachampions.org).
+
+- name: Paul Anderson
+  photo_url: https://asgteach.com/wp-content/uploads/2016/02/PaulAnderson-300x291.png
+  twitter: Paul_ASGTeach
+  website: https://asgteach.com/
+  description: |
+    Paul is a Java Champion and a member of the Oracle ACE Program. He is an experienced speaker, 
+    making the technical aspects of software engineering fun and understandable. 
+    He has conducted Technical Sessions and Tutorials at JavaOne, Devoxx, and NetBeans Day conferences
+    in San Francisco, Europe, and Latin America. Paul is also the author of LiveLesson videos on JavaFX
+    Programming and Java Reflection for Pearson Education. He has contributed articles to InformIT 
+    and is the co-author of eight textbooks on software programming.
+
+- name: Gail C. Anderson
+  photo_url: https://asgteach.com/wp-content/uploads/2016/02/GailAnderson.png
+  twitter: gail_asgteach
+  website: https://asgteach.com/
+  description: |
+    Gail is a Java Champion and a member of the Oracle ACE Program. She is Director of Research 
+    and founding member of the Anderson Software Group, a leading provider of training courses 
+    in Java, JavaFX, Python, Go, Modern C++, and other programming languages.  
+    Gail enjoys researching and writing about leading-edge Java technologies. Her current passion
+    includes JavaFX with GraalVM for cross-platform mobile applications. She is the co-author of 
+    nine textbooks on software programming. Most recently, she is a contributing author to 
+    The Definitive Guide to Modern Java Clients with JavaFX 17. Gail has presented at various 
+    Java conferences and JUGS including Devoxx, DevNexus, JCrete, and Oracle Code/JavaOne worldwide.

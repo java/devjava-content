@@ -13,6 +13,7 @@ subheader_select: tutorials
 main_css_id: learn
 description: "Learn to create simple JavaFX applications."
 author: ["GailC.Anderson", "PaulAnderson"]
+byline: 'and is from <a href="https://link.springer.com/book/10.1007/978-1-4842-7268-8">The Definitive Guide to Modern Java Clients with JavaFX 17</a> graciously contributed by Apress.'
 ---
 
 With the Java SDK and JavaFX installed on your system, let’s create some applications and explore the fundamentals of JavaFX. First, we’ll describe the basic structure of a JavaFX application along with selected features that make JavaFX a powerful choice for modern clients. We’ll show you how to create UIs that are appealing and responsive. We’ll look at FXML, the XML-based markup language that lets you define and configure your UI. We’ll also introduce Scene Builder, a stand-alone drag-and-drop utility for designing and configuring a JavaFX UI.

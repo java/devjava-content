@@ -54,5 +54,5 @@
   "Initializable":                                    "javafx/fxml/Initializable.html",
 
   "ObservableList":                                   "javafx/collections/ObservableList.html",
-  "SortedList":                                       "javafx/collections/transformation/SortedList.html",
+  "SortedList":                                       "javafx/collections/transformation/SortedList.html"
 }

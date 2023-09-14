@@ -1,58 +1,58 @@
 {
   "current_release":                                  "19",
 
-  "javafx-documentation":                             "https://openjfx.io/javadoc/@@CURRENT_RELEASE@@/javafx.graphics/",
-  "javafxdoc_root":                                   "https://openjfx.io/javadoc/@@CURRENT_RELEASE@@/javafx.graphics/",
+  "javafx-documentation":                             "https://openjfx.io/javadoc/@@CURRENT_RELEASE@@/",
+  "javafxdoc_root":                                   "https://openjfx.io/javadoc/@@CURRENT_RELEASE@@/",
 
-  "Application":                                      "javafx/application/Application.html",
+  "Application":                                      "javafx.graphics/javafx/application/Application.html",
 
-  "Scene":                                            "javafx/scene/Scene.html",
+  "Scene":                                            "javafx.graphics/javafx/scene/Scene.html",
 
-  "Stage":                                            "javafx/stage/Stage.html",
+  "Stage":                                            "javafx.graphics/javafx/stage/Stage.html",
 
-  "Group":                                            "javafx/scene/Group.html",
+  "Group":                                            "javafx.graphics/javafx/scene/Group.html",
 
-  "AnchorPane":                                       "javafx/scene/layout/AnchorPane.html",
-  "BorderPane":                                       "javafx/scene/layout/BorderPane.html",
+  "AnchorPane":                                       "javafx.graphics/javafx/scene/layout/AnchorPane.html",
+  "BorderPane":                                       "javafx.graphics/javafx/scene/layout/BorderPane.html",
 
-  "FlowPane":                                         "javafx/scene/layout/FlowPane.html",
-  "GridPane":                                         "javafx/scene/layout/GridPane.html",
-  "HBox":                                             "javafx/scene/layout/HBox.html",
-  "StackPane":                                        "javafx/scene/layout/StackPane.html",
-  "VBox":                                             "javafx/scene/layout/VBox.html",
+  "FlowPane":                                         "javafx.graphics/javafx/scene/layout/FlowPane.html",
+  "GridPane":                                         "javafx.graphics/javafx/scene/layout/GridPane.html",
+  "HBox":                                             "javafx.graphics/javafx/scene/layout/HBox.html",
+  "StackPane":                                        "javafx.graphics/javafx/scene/layout/StackPane.html",
+  "VBox":                                             "javafx.graphics/javafx/scene/layout/VBox.html",
 
-  "ImageView":                                        "javafx/scene/image/ImageView.html",
+  "ImageView":                                        "javafx.graphics/javafx/scene/image/ImageView.html",
 
-  "Color":                                            "javafx/scene/paint/Color.html",
-  "LinearGradient":                                   "javafx/scene/paint/LinearGradient.html",
+  "Color":                                            "javafx.graphics/javafx/scene/paint/Color.html",
+  "LinearGradient":                                   "javafx.graphics/javafx/scene/paint/LinearGradient.html",
 
-  "Ellipse":                                          "javafx/scene/shape/Ellipse.html",
-  "Line":                                             "javafx/scene/shape/Line.html",
-  "Path":                                             "javafx/scene/shape/Path.html",
-  "Rectangle":                                        "javafx/scene/shape/Rectangle.html",
-  "Shape":                                            "javafx/scene/shape/Shape.html",
-  "Text":                                             "javafx/scene/shape/Text.html",
+  "Ellipse":                                          "javafx.graphics/javafx/scene/shape/Ellipse.html",
+  "Line":                                             "javafx.graphics/javafx/scene/shape/Line.html",
+  "Path":                                             "javafx.graphics/javafx/scene/shape/Path.html",
+  "Rectangle":                                        "javafx.graphics/javafx/scene/shape/Rectangle.html",
+  "Shape":                                            "javafx.graphics/javafx/scene/shape/Shape.html",
+  "Text":                                             "javafx.graphics/javafx/scene/text/Text.html",
 
 
-  "Button":                                           "javafx/scene/control/Button.html",
-  "ButtonBar":                                        "javafx/scene/control/ButtonBar.html",
-  "ListView":                                         "javafx/scene/control/ListView.html",
-  "SplitPane":                                        "javafx/scene/control/SplitPane.html",
-  "TextField":                                        "javafx/scene/control/TextField.html",
-  "TextArea":                                         "javafx/scene/control/TextArea.html",
+  "Button":                                           "javafx.controls/javafx/scene/control/Button.html",
+  "ButtonBar":                                        "javafx.controls/javafx/scene/control/ButtonBar.html",
+  "ListView":                                         "javafx.controls/javafx/scene/control/ListView.html",
+  "SplitPane":                                        "javafx.controls/javafx/scene/control/SplitPane.html",
+  "TextField":                                        "javafx.controls/javafx/scene/control/TextField.html",
+  "TextArea":                                         "javafx.controls/javafx/scene/control/TextArea.html",
 
-  "Animation.Status":                                 "javafx/animation/Animation.Status.html",
-  "RotateTransition":                                 "javafx/animation/RotateTransition.html",
-  "ParallelTransition":                               "javafx/animation/ParallelTransition.html",
-  "PauseTransition":                                  "javafx/animation/PauseTransition.html",
-  "SequentialTransition":                             "javafx/animation/SequentialTransition.html",
-  "Transition":                                       "javafx/animation/Transition.html",
+  "Animation.Status":                                 "javafx.graphics/javafx/animation/Animation.Status.html",
+  "RotateTransition":                                 "javafx.graphics/javafx/animation/RotateTransition.html",
+  "ParallelTransition":                               "javafx.graphics/javafx/animation/ParallelTransition.html",
+  "PauseTransition":                                  "javafx.graphics/javafx/animation/PauseTransition.html",
+  "SequentialTransition":                             "javafx.graphics/javafx/animation/SequentialTransition.html",
+  "Transition":                                       "javafx.graphics/javafx/animation/Transition.html",
 
-  "When":                                             "javafx/beans/binding/When.html",
+  "When":                                             "javafx.base/javafx/beans/binding/When.html",
+  "ObservableList":                                   "javafx.base/javafx/collections/ObservableList.html",
+  "SortedList":                                       "javafx.base/javafx/collections/transformation/SortedList.html",
 
-  "FXMLLoader":                                       "javafx/fxml/FXMLLoader.html",
-  "Initializable":                                    "javafx/fxml/Initializable.html",
+  "FXMLLoader":                                       "javafx.fxml/javafx/fxml/FXMLLoader.html",
+  "Initializable":                                    "javafx.fxml/javafx/fxml/Initializable.html"
 
-  "ObservableList":                                   "javafx/collections/ObservableList.html",
-  "SortedList":                                       "javafx/collections/transformation/SortedList.html"
 }

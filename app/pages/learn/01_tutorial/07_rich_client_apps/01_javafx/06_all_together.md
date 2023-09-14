@@ -186,7 +186,7 @@ Our Person UI application uses single selection mode for the ListView.
 <a id="list-view-sort">&nbsp;</a>
 ## ListView and Sort
 
-Suppose you want to sort the list of names by last name and then first name. JavaFX has several ways to sort lists. Since we need to keep names sorted, we’ll wrap the underlying `ObservableArrayList` in a  [`SortedList`](javafxdoc:SortedList). 
+Suppose you want to sort the list of names by last name and then first name. JavaFX has several ways to sort lists. Since we need to keep names sorted, we’ll wrap the underlying `observableArrayList` in a  [`SortedList`](javafxdoc:SortedList). 
 To keep the list sorted in ListView, we invoke  [`ListView`](javafxdoc:ListView)’s setItems() method with the sorted list. A comparator specifies the ordering. 
 First, we compare each person’s last name for sorting and then the first names if necessary. To set the sorting, the `setComparator()` method uses an anonymous class or, more succinctly, a lambda expression:
 

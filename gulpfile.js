@@ -26,6 +26,8 @@ for (const author of authorsArray) {
 }
 
 var javadoc = require('./app/data/javadoc.json')
+var javafxdoc = require('./app/data/javafxdoc.json')
+
 
 function getAuthorID(name) {
     return name.replace(/\s/g, '')
@@ -145,6 +147,14 @@ function pre_process_pages() {
                             "path": processedLink,
                             "title_html": text
                         })
+                    } else if (link_id != null && javafxdoc[link_id[1]]) {
+                        console.log(javafxdoc[link_id[1]]);
+                        let processedLink = processDocLink(javafxdoc[link_id[1]]["link"]);
+                        let text = javafxdoc[link_id[1]]["text"]
+                        tutorials["tutorials"][group]["doc_links"].push({
+                            "path": processedLink,
+                            "title_html": text
+                        })
                     }
                     let page_id = link.match(/related_page:([\w|\.|-]+)/);
                     if (page_id != null && link_map.get(page_id[1])) {
@@ -208,6 +218,17 @@ function pages() {
                     processedHref = processDocLink(javadoc["javadoc_root"] + javadoc[javadoc_id[1]]);
                     if (processedHref.includes("undefined")) {
                         console.log("Javadoc " + javadoc_id[1] + " resolved to undefined");
+                    }
+                    return `<a href="${processedHref}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+                }
+            }
+
+            if (href.includes("javafxdoc:")) {
+                let javafxdoc_id = href.match(/javafxdoc:([\w\.\-(),]+)/)
+                if (javafxdoc_id != null) {
+                    processedHref = processDocLink(javafxdoc["javafxdoc_root"] + javafxdoc[javafxdoc_id[1]]);
+                    if (processedHref.includes("undefined")) {
+                        console.log("Javadoc " + javafxdoc_id[1] + " resolved to undefined");
                     }
                     return `<a href="${processedHref}" target="_blank" rel="noopener noreferrer">${text}</a>`;
                 }

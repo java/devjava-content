@@ -34,9 +34,9 @@ Let’s look at a few commonly used layout controls now to show you how JavaFX c
 <a id="stackpane">&nbsp;</a>
 ## StackPane
 
-A convenient and easy layout container is `StackPane`. This layout control stacks its children from back to front in the order that you add nodes. Note that we add the ellipse first so that it appears behind the text node. In the opposite order, the ellipse would obscure the text element.
+A convenient and easy layout container is [`StackPane`](javafxdoc:StackPane). This layout control stacks its children from back to front in the order that you add nodes. Note that we add the ellipse first so that it appears behind the text node. In the opposite order, the ellipse would obscure the text element.
 
-By default, `StackPane` centers all of its children. You can provide a different alignment for the children or apply an alignment to a specific node in the `StackPane`. For example,
+By default, [`StackPane`](javafxdoc:StackPane) centers all of its children. You can provide a different alignment for the children or apply an alignment to a specific node in the [`StackPane`](javafxdoc:StackPane). For example,
 
 ```java
 // align the text only
@@ -54,7 +54,7 @@ Although both the ellipse and the text appear at the bottom of the window, they 
 <a id="anchorpane">&nbsp;</a>
 ## AnchorPane
 
-`AnchorPane` manages its children according to configured anchor points, even when a container resizes. You specify an offset from the pane’s edge for a component. Here, we add a Label to an AnchorPane and anchor it to the lower-left side of the pane with a 10-pixel offset:
+[`AnchorPane`](javafxdoc:AnchorPane) manages its children according to configured anchor points, even when a container resizes. You specify an offset from the pane’s edge for a component. Here, we add a Label to an AnchorPane and anchor it to the lower-left side of the pane with a 10-pixel offset:
 ```java
 AnchorPane anchorPane = new AnchorPane();
 Label label = new Label("My Label");
@@ -63,12 +63,12 @@ AnchorPane.setLeftAnchor(label, 10.0);
 AnchorPane.setBottomAnchor(label, 10.0);
 ```
 
-`AnchorPane` is typically used as a top-level layout manager for controlling margins, even when the window is resized.
+[`AnchorPane`](javafxdoc:AnchorPane) is typically used as a top-level layout manager for controlling margins, even when the window is resized.
 <a id="gridpane">&nbsp;</a>
 ## GridPane
 
-`GridPane` lets you place child nodes in a flexibly sized two-dimensional grid. Components can span rows and/or columns, but the row size is consistent for all components in a given row. Similarly, the column’s width is consistent for a given column. 
-`GridPane` has specialized methods that add nodes to a particular cell designated by a column and row number. Optional arguments let you specify column and row span values. 
+[`GridPane`](javafxdoc:GridPane) lets you place child nodes in a flexibly sized two-dimensional grid. Components can span rows and/or columns, but the row size is consistent for all components in a given row. Similarly, the column’s width is consistent for a given column. 
+[`GridPane`](javafxdoc:GridPane) has specialized methods that add nodes to a particular cell designated by a column and row number. Optional arguments let you specify column and row span values. 
 For example, the first label here is placed in the cell corresponding to column 0 and row 0. The second label goes into the cell corresponding to column 1 and row 0, and it spans two columns (the second and third columns). We must also provide a row span value (here it is set to 1):
 
 ```java
@@ -77,22 +77,22 @@ gridPane.add(new Label("Label1"), 0, 0);
 gridPane.add(new Label("Label2 is very long"), 1, 0, 2, 1);
 ```
 
-`GridPane` is useful for laying out components in forms that accommodate columns or rows of various sizes. `GridPane` also allows nodes to span either multiple columns or rows.
-We use `GridPane` in our master-detail UI example (see _Putting It All Together_ section of this series).
+[`GridPane`](javafxdoc:GridPane) is useful for laying out components in forms that accommodate columns or rows of various sizes. [`GridPane`](javafxdoc:GridPane) also allows nodes to span either multiple columns or rows.
+We use [`GridPane`](javafxdoc:GridPane) in our master-detail UI example (see _Putting It All Together_ section of this series).
 <a id="flow-tile-pane">&nbsp;</a>
 ## FlowPane and TilePane
 
-`FlowPane` manages its children in either a horizontal or vertical flow. The default orientation is horizontal. You can specify the flow direction with the constructor or use method `setOrientation()`. Here, we specify a vertical orientation with the constructor:
+[`FlowPane`](javafxdoc:FlowPane) manages its children in either a horizontal or vertical flow. The default orientation is horizontal. You can specify the flow direction with the constructor or use method `setOrientation()`. Here, we specify a vertical orientation with the constructor:
 
 ```java
 FlowPane flowpane = new FlowPane(Orientation.VERTICAL);
 ```
-`FlowPane` wraps child nodes according to a configurable boundary. If you resize a pane that contains a `FlowPane`, the layout will adjust the flow as needed. The size of the cells depends on the size of the nodes, and it will not be a uniform grid unless all the nodes are the same size. This layout is convenient for nodes whose sizes can vary, such as `ImageView` nodes or shapes. `TilePane` is similar to `FlowPane`, except `TilePane` uses equal-sized cells.
+[`FlowPane`](javafxdoc:FlowPane) wraps child nodes according to a configurable boundary. If you resize a pane that contains a [`FlowPane`](javafxdoc:FlowPane), the layout will adjust the flow as needed. The size of the cells depends on the size of the nodes, and it will not be a uniform grid unless all the nodes are the same size. This layout is convenient for nodes whose sizes can vary, such as `ImageView` nodes or shapes. `TilePane` is similar to [`FlowPane`](javafxdoc:FlowPane), except `TilePane` uses equal-sized cells.
 <a id="borderpane">&nbsp;</a>
 ## BorderPane
 
-`BorderPane` is convenient for desktop applications with discreet sections, including a top toolbar (Top), a bottom status bar (Bottom), a center work area (Center), and two side areas (Right and Left). 
-Any of the five sections can be empty. Here is an example of a `BorderPane` with a rectangle in the center and a label at the top:
+[`BorderPane`](javafxdoc:BorderPane) is convenient for desktop applications with discreet sections, including a top toolbar (Top), a bottom status bar (Bottom), a center work area (Center), and two side areas (Right and Left). 
+Any of the five sections can be empty. Here is an example of a [`BorderPane`](javafxdoc:BorderPane) with a rectangle in the center and a label at the top:
 
 ```java
 BorderPane borderPane = new BorderPane();
@@ -104,17 +104,17 @@ borderPane.setCenter(rectangle);
 BorderPane.setAlignment(colorLabel, Pos.CENTER);
 BorderPane.setMargin(colorLabel, new Insets(20,10,5,10));
 ```
-Note that `BorderPane` uses a center alignment by default for the center area and a left alignment for the top. To keep the top area label centered, we configure its alignment with `Pos.CENTER`. We also set margins around the label with BorderPane static method `setMargin()`. The `Insets` constructor takes four values corresponding to the top, right, bottom, and left edges. Similar alignment and margin configurations apply to other layout components, too.
+Note that [`BorderPane`](javafxdoc:BorderPane) uses a center alignment by default for the center area and a left alignment for the top. To keep the top area label centered, we configure its alignment with `Pos.CENTER`. We also set margins around the label with BorderPane static method `setMargin()`. The `Insets` constructor takes four values corresponding to the top, right, bottom, and left edges. Similar alignment and margin configurations apply to other layout components, too.
 <a id="splitpane">&nbsp;</a>
 ## SplitPane
 
-`SplitPane` divides the layout space into multiple horizontally or vertically configured areas. The divider is movable, and you typically use other layout controls in each of `SplitPane`’s areas. 
-We use `SplitPane` in our master-detail UI example (checkout _Putting It All Together_ part of these series).
+[`SplitPane`](javafxdoc:SplitPane) divides the layout space into multiple horizontally or vertically configured areas. The divider is movable, and you typically use other layout controls in each of [`SplitPane`](javafxdoc:SplitPane)’s areas. 
+We use [`SplitPane`](javafxdoc:SplitPane) in our master-detail UI example (checkout _Putting It All Together_ part of these series).
 <a id="box-button">&nbsp;</a>
 ## HBox, VBox, and ButtonBar
 
-The `HBox` and `VBox` layout controls provide single horizontal or vertical placements for child nodes. You can nest `HBox` nodes inside a `VBox` for a grid-like effect or nest VBox nodes inside an HBox component. 
-`ButtonBar` is convenient for placing a row of buttons of equal size in a horizontal container.
+The [`HBox`](javafxdoc:HBox) and [`VBox`](javafxdoc:VBox) layout controls provide single horizontal or vertical placements for child nodes. You can nest [`HBox`](javafxdoc:HBox) nodes inside a [`VBox`](javafxdoc:VBox) for a grid-like effect or nest `VBox` nodes inside an `HBox` component. 
+[`ButtonBar`](javafxdoc:ButtonBar) is convenient for placing a row of buttons of equal size in a horizontal container.
 <a id="make-scene">&nbsp;</a>
 ## Make a Scene
 
@@ -153,8 +153,8 @@ public class MyShapes extends Application {
 }
 
 ```
-First, we construct the `Scene` and provide `stackPane` as the root node. We then specify its width and height in pixels and supply an optional fill argument for the background (`Color.LIGHTYELLOW`).
+First, we construct the [`Scene`](javafxdoc:Scene) and provide `stackPane` as the root node. We then specify its width and height in pixels and supply an optional fill argument for the background (`Color.LIGHTYELLOW`).
 What’s left is to configure the Stage. We provide a title, set the scene, and show the stage. The JavaFX runtime renders our scene.
-Below is a hierarchical view of the scene graph for our `MyShapes` application. The root node is the `StackPane`, which contains its two child nodes, `Ellipse` and `Text`.
+Below is a hierarchical view of the scene graph for our `MyShapes` application. The root node is the [`StackPane`](javafxdoc:StackPane), which contains its two child nodes, `Ellipse` and `Text`.
 
 [![MyShapes scene graph](/assets/images/javafx/myshapes-scene-graph.png)](/assets/images/javafx/myshapes-scene-graph.png)

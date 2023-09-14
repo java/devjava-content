@@ -15,7 +15,9 @@
 <div class="container">
     <h1>{{ author.name }}</h1>
 
-    <p><img src="{{ author.photo_url }}" alt="{{ author.name }}" class="author_image" /></p>
+    <div id="author_image">
+        <img src="{{ author.photo_url }}" alt="{{ author.name }}" id="author_image" />
+    </div>
 
     <p>{{ author.description }}</p>
 

@@ -1,7 +1,12 @@
 main#contribute {
 
-    img.author_image {
-        max-width: 200px;
+    img#author_image {
+        max-height: 200px;
+    }
+
+    div#author_image {
+        min-height: 200px;
+        margin: 0 0 20px 0;
     }
 
 }

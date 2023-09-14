@@ -21,9 +21,15 @@
     </p>
 
     {% for a in file.data.authorsArray %}
-    <p>
-        <a href="/author/{{ a.name | replace(" ", "") }}">{{ a.name }}</a>
-    </p>
+    <h3>{{ a.name }} (<a href="/author/{{ a.name | replace(" ", "") }}">view bio</a>)</h3>
+    
+    <ul>
+        {% for linkId in file.data.authorsMap[a.name | replace(" ", "")].tutorials %}
+        <li>
+            <a href="/{{ file.data.linkMap.get(linkId) }}">{{ file.data.linkTitleMap.get(file.data.linkMap.get(linkId)) }}</a>
+        </li>
+        {% endfor %}
+    </ul>
     {% endfor %}
 
 </div>

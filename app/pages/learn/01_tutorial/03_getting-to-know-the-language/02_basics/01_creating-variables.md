@@ -13,7 +13,6 @@ toc:
 - Variables {creating}
 - Naming Variables {naming}
 description: "Rules to name variables."
-author: ["ChadArimura"]
 last_update: 2021-09-23
 ---
 

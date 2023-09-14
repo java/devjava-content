@@ -19,7 +19,7 @@
         <img src="{{ author.photo_url }}" alt="{{ author.name }}" id="author_image" />
     </div>
 
-    <p>{{ author.description }}</p>
+    <p>{{ author.description | safe }}</p>
 
     <p>
         Website: <a href="{{ author.website }}">{{ author.website }}</a><br />

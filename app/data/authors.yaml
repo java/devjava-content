@@ -5,7 +5,9 @@
   twitter: venkat_s
   website: https://agiledeveloper.com/
   description: |
-    Venkat Placeholder.
+    Dr. Venkat Subramaniam is an award-winning author, founder of Agile Developer, Inc., and an instructional professor at the University of Houston. He has mentored tens of thousands of software developers in the US, Canada, Europe, and Asia, and is a regularly-invited speaker at several international conferences. Venkat helps his clients effectively apply and succeed with agile practices on their software projects.<br /><br />
+    
+    Venkat is a (co)author of multiple books, including the 2007 Jolt Productivity award winning book Practices of an Agile Developer. His latest book is Programming Kotlin: Create Elegant, Expressive, and Performant JVM and Android Applications. Venkat is a well-recognized person in the software communities. He was once a recipient of the MicroSoft MVP award. He has received JavaOne RockStar award three years in a row and was inducted into the Java Champions program in 2013 for his efforts in motivating and inspiring software developers around the world.
    
 - name: Jeanne Boyarsky
   email: nyjeanne@gmail.com
@@ -14,8 +16,12 @@
   twitter: jeanneboyarsky
   website: https://jeanneboyarsky.com
   description: |
-    Jeanne is a Java developer and Java champion in NYC. She is one of the leaders of javasig.com and mentors a high school robotics team in her free time.
+    Jeanne is a Java developer and Java champion in NYC. She works as a developer for a bank in New York City and serves as a 
+    moderator on CodeRanch which is the best java discussion forum on the web. She has moderated on topics including 
+    JDBC, Testing, IDEs, Process and Performance. She is one of the leaders of javasig.com and mentors a high school 
+    robotics team in her free time.
 
+    
 - name: Cay Horstmann
   email: cay@horstmann.com
   photo_url: https://horstmann.com/cay-pfh.jpg
@@ -23,7 +29,13 @@
   twitter: cayhorstmann
   website: https://horstmann.com
   description: |
-    Cay Placeholder.
+    I grew up in Northern Germany and attended the Christian-Albrechts-Universität in Kiel, a harbor town at the Baltic sea. 
+    I received a M.S. in computer science from Syracuse University, and a Ph.D. in mathematics from the University of 
+    Michigan in Ann Arbor. I taught computer science at San Jose State University for almost thirty years and held 
+    visiting appointments at universities in Germany, Switzerland, Vietnam, and Macau. I was a “serial entrepreneur” 
+    before that was a thing, including a stint as VP and CTO of a dot com startup that went from three people in a 
+    tiny office to a public company. In my copious spare time I write books and develop online courses for beginning 
+    and professional programmers.
 
 - name: Dr Heinz M. Kabutz
   email: heinz@javaspecialists.eu
@@ -32,10 +44,10 @@
   twitter: kabutz
   website: https://www.javaspecialists.eu
   description: |
-    Heinz is the author of [The Java Specialists' Newsletter](https://www.javaspecialists.eu),
+    Heinz is the author of <a href="https://www.javaspecialists.eu">The Java Specialists' Newsletter</a>,
     a monthly newsletter that has been in publication since the end of 2000. In it, he explores
     many useful tips and tricks that have enthralled tens of thousands of enthusiastic fans for
-    over two decades. He was one of the first [Java Champions](https://www.javachampions.org).
+    over two decades. He was one of the first <a href="https://www.javachampions.org">Java Champions</a>.
 
 - name: Paul Anderson
   photo_url: https://asgteach.com/wp-content/uploads/2016/02/PaulAnderson-300x291.png

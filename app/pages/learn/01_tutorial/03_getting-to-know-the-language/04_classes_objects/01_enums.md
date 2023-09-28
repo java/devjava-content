@@ -7,7 +7,7 @@ group: classes_objects
 layout: learn/tutorial-group.html
 subheader_select: tutorials
 main_css_id: learn
-description: "Working with enumerations."
+description: "Working with enums."
 last_update: 2023-09-28
 author: ["DanielSchmid"]
 ---

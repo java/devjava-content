@@ -113,7 +113,7 @@ System.out.println(DayOfWeek.MONDAY.ordinal());//0 because MONDAY is the first c
 
 Aside from instance methods, there are also static methods added to all enums.
 The method `values()` returns an array containing all instances of the enum and the method `valueOf(String)` can be used to get a specific instance by its name.
-```
+```java
 DayOfWeek[] days = DayOfWeek.values();//all days of the week
 DayOfWeek monday = DayOfWeek.valueOf("MONDAY");
 ```

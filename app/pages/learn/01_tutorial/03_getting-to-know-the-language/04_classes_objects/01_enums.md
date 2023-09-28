@@ -25,7 +25,7 @@ public enum DayOfWeek {
 }
 ```
 
-All enums implicitely extend `java.lang.Enum` and cannot have any subclasses.
+All enums implicitely extend [`java.lang.Enum`](javadoc:Enum) and cannot have any subclasses.
 
 ## Accessing and comparing enums
 The values of an enum can be used as constants.

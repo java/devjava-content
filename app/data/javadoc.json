@@ -1097,6 +1097,7 @@
   "Deque.push(E)":                                 "java.base/java/util/Deque.html#push(E)",
   "Deque.removeFirst()":                           "java.base/java/util/Deque.html#removeFirst()",
 
+  "Enum":                                          "java.base/java/lang/Enum.html",
   "Enumeration":                                   "java.base/java/util/Enumeration.html",
 
   "HashSet":                                       "java.base/java/util/HashSet.html",

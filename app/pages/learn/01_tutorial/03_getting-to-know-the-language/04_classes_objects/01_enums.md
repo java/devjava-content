@@ -1,6 +1,6 @@
 ---
 id: lang.classes-objects.enums
-title: Enumerations
+title: Enums
 slug: learn/classes-objects/enums
 type: tutorial-group
 group: classes_objects

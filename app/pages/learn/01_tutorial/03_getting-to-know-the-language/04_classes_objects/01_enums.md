@@ -7,34 +7,46 @@ group: classes_objects
 layout: learn/tutorial-group.html
 subheader_select: tutorials
 main_css_id: learn
+toc:
+- What are enums? {intro}
+- Accessing and comparing enums {accessing}
+- Adding members to enums {members}
+- Special methods {functionality}
+- Using enums for singletons {singletons}
+- Abstract methods in enums {abstract}
 description: "Working with enums."
 last_update: 2023-09-28
 author: ["DanielSchmid"]
 ---
+<a id="intro">&nbsp;</a>
 ## What are enums?
+
 Enums are classes where all instances are known to the compiler.
 They are used for creating types that can only have few possible values.
 
 Enums can be created similar to classes but use the `enum` keyword instead of `class`.
-In the body, there is a list of instances of the enum named enum constants which are seperated by `,`.
+In the body, there is a list of instances of the enum called enum constants which are seperated by `,`.
 No instances of the enum can be created outside of enum constants.
 
 ```java
 public enum DayOfWeek {
-	MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+    // enum constant are listed here:
+    MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
 ```
 
 All enums implicitely extend [`java.lang.Enum`](javadoc:Enum) and cannot have any subclasses.
 
+<a id="accessing">&nbsp;</a>
 ## Accessing and comparing enums
+
 The values of an enum can be used as constants.
 In order to check whether two instances of an enum are the same, the `==` operator can be used.
 ```java
 DayOfWeek weekStart = DayOfWeek.MONDAY;
 
 if (weekStart == DayOfWeek.MONDAY) {
-	System.out.println("The week starts on Monday.");
+    System.out.println("The week starts on Monday.");
 }
 ```
 
@@ -44,23 +56,23 @@ It is also possible to use `switch` for performing actions depending on the valu
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
 switch (someDay) {
-	case MONDAY:
-		System.out.println("The week just started.");
-		break;
-	case TUESDAY:
-	case WEDNESDAY:
-	case THURSDAY:
-		System.out.println("We are somewhere in the middle of the week.");
-		break;
-	case FRIDAY:
-		System.out.println("The weekend is near.");
-		break;
-	case SATURDAY:
-	case SUNDAY:
-		System.out.println("Weekend");
-		break;
-	default:
-		throw new AssertionError("Should not happen");
+    case MONDAY:
+        System.out.println("The week just started.");
+        break;
+    case TUESDAY:
+    case WEDNESDAY:
+    case THURSDAY:
+        System.out.println("We are somewhere in the middle of the week.");
+        break;
+    case FRIDAY:
+        System.out.println("The weekend is near.");
+        break;
+    case SATURDAY:
+    case SUNDAY:
+        System.out.println("Weekend");
+        break;
+    default:
+        throw new AssertionError("Should not happen");
 }
 ```
 
@@ -70,15 +82,16 @@ the compiler can check whether all values of the enum are handled.
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
 String text = switch (someDay) {
-	case MONDAY -> "The week just started.";
-	case TUESDAY, WEDNESDAY, THURSDAY -> "We are somewhere in the middle of the week.";
-	case FRIDAY -> "The weekend is near.";
-	case SATURDAY, SUNDAY -> "Weekend";
+    case MONDAY -> "The week just started.";
+    case TUESDAY, WEDNESDAY, THURSDAY -> "We are somewhere in the middle of the week.";
+    case FRIDAY -> "The weekend is near.";
+    case SATURDAY, SUNDAY -> "Weekend";
 };
 
 System.out.println(text);
 ```
 
+<a id="members">&nbsp;</a>
 ## Adding members to enums
 
 Just like classes, enums can have constructors, methods and fields.
@@ -87,63 +100,69 @@ Arguments to the constructor are passed in parenthesis after the declaration of 
 
 ```java
 public enum DayOfWeek {
-	MONDAY("MON"), TUESDAY("TUE"), WEDNESDAY("WED"), THURSDAY("THU"), FRIDAY("FRI"), SATURDAY("SAT"), SUNDAY("SUN");
-	
-	private final String abbreviation;
-	
-	DayOfWeek(String abbreviation) {
-		this.abbreviation = abbreviation;
-	}
-	
-	public String getAbbreviation() {
-		return abbreviation;
-	}
+    MONDAY("MON"), TUESDAY("TUE"), WEDNESDAY("WED"), THURSDAY("THU"), FRIDAY("FRI"), SATURDAY("SAT"), SUNDAY("SUN");
+    
+    private final String abbreviation;
+    
+    DayOfWeek(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+    
+    public String getAbbreviation() {
+        return abbreviation;
+    }
 }
 ```
 
+<a id="functionality">&nbsp;</a>
 ## Special methods
+
 All enums have a few methods that are added implicitely.
 
 For example, the method `name()` is present in all enum instances and can be used to get the name of the enum constant.
 Similarly, a method named `ordinal()` returns the position of the enum constant in the declaration.
 ```java
-System.out.println(DayOfWeek.MONDAY.name());//MONDAY
-System.out.println(DayOfWeek.MONDAY.ordinal());//0 because MONDAY is the first constant in the DayOfWeek enum
+System.out.println(DayOfWeek.MONDAY.name());    // prints "MONDAY"
+System.out.println(DayOfWeek.MONDAY.ordinal()); // prints "0" because MONDAY is the first constant in the DayOfWeek enum
 ```
 
 Aside from instance methods, there are also static methods added to all enums.
 The method `values()` returns an array containing all instances of the enum and the method `valueOf(String)` can be used to get a specific instance by its name.
 ```java
-DayOfWeek[] days = DayOfWeek.values();//all days of the week
+DayOfWeek[] days = DayOfWeek.values(); // all days of the week
 DayOfWeek monday = DayOfWeek.valueOf("MONDAY");
 ```
 
+<a id="singletons">&nbsp;</a>
 ## Using enums for singletons
+
 Since enums can only have a specific number of instances, it is possible to create a singleton by creating an enum with only a single enum constant.
 ```java
 public enum SomeSingleton {
-	INSTANCE;
-	//fields, methods, etc.
+    INSTANCE;
+    //fields, methods, etc.
 }
 ```
 
+<a id="abstract">&nbsp;</a>
 ## Abstract methods in enums
+
 Even though enums cannot be extended, they can still have `abstract` methods. In that case, an implementation must be present in each enum constant.
 ```java
 enum MyEnum {
-	A() {
-		@Override
-		void doSomething() {
-			System.out.println("a");
-		}
-	},
-	B() {
-		@Override
-		void doSomething() {
-			System.out.println("b");
-		}
-	};
-	
-	abstract void doSomething();
+    A() {
+        @Override
+        void doSomething() {
+            System.out.println("a");
+        }
+    },
+    B() {
+        @Override
+        void doSomething() {
+            System.out.println("b");
+        }
+    };
+    
+    abstract void doSomething();
 }
 ```

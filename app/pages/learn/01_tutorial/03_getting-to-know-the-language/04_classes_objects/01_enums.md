@@ -16,7 +16,7 @@ toc:
 - Abstract methods in enums {abstract}
 - Conclusion {conclusion}
 description: "Working with enums."
-last_update: 2023-09-28
+last_update: 2023-09-29
 author: ["DanielSchmid"]
 ---
 <a id="intro">&nbsp;</a>
@@ -189,13 +189,18 @@ enum MyEnum {
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
 
-All in all, enums provide a simple and safe way of limiting the instances of a type
-while preserving most of the flexibilities of classes.
+All in all, enums provide a simple and safe way of representing a fixed set of constants 
+while keeping most of the flexibilities of classes.
 
 However, care should be taken when using enums where the number (or names) of instances is subject to change.
-Whenever enum constants are changed, there may be compilation errors, runtime errors or other inconsistencies
-due to other code expecting the original version of the enum.
+Whenever enum constants are changed, other code expecting the old version of the enum might not work as expected.
+This may manifest in compilation errors (e.g. when referencing a removed enum constant),
+runtime errors (e.g. if there is a `default` case even though the new enum constant should be handled separately)
+or other inconsistencies (e.g. if the value of the enum was saved to a file which is then read and expecting that value to still exist).
+When changing enum constants, it is recommended to review all code using the enum.
 This is especially important in cases where the enum is also used by other people's code.
 
 Furthermore, it might be worth considering to use other options
-in case of many instances since listing many instances at a single location in code can be inflexible.
+in case of many instances since listing a lot of instances at a single location in code can be inflexible.
+For example, it may be better to use a configuration file for listing all instances
+and reading these configuration files in the program in cases like this.

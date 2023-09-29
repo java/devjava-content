@@ -9,11 +9,12 @@ subheader_select: tutorials
 main_css_id: learn
 toc:
 - What are enums? {intro}
-- Accessing and comparing enums {accessing}
+- Accessing, evaluating, and comparing enums {accessing}
 - Adding members to enums {members}
 - Special methods {functionality}
-- Using enums for singletons {singletons}
+- Using enums as singletons {singletons}
 - Abstract methods in enums {abstract}
+- Conclusion {conclusion}
 description: "Working with enums."
 last_update: 2023-09-28
 author: ["DanielSchmid"]
@@ -35,10 +36,10 @@ public enum DayOfWeek {
 }
 ```
 
-All enums implicitely extend [`java.lang.Enum`](javadoc:Enum) and cannot have any subclasses.
+All enums implicitly extend [`java.lang.Enum`](javadoc:Enum) and cannot have any subclasses.
 
 <a id="accessing">&nbsp;</a>
-## Accessing and comparing enums
+## Accessing, evaluating, and comparing enums
 
 The values of an enum can be used as constants.
 In order to check whether two instances of an enum are the same, the `==` operator can be used.
@@ -56,28 +57,22 @@ It is also possible to use `switch` for performing actions depending on the valu
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
 switch (someDay) {
-    case MONDAY:
+    case MONDAY ->
         System.out.println("The week just started.");
-        break;
-    case TUESDAY:
-    case WEDNESDAY:
-    case THURSDAY:
+    case TUESDAY, WEDNESDAY, THURSDAY ->
         System.out.println("We are somewhere in the middle of the week.");
-        break;
-    case FRIDAY:
+    case FRIDAY ->
         System.out.println("The weekend is near.");
-        break;
-    case SATURDAY:
-    case SUNDAY:
+    case SATURDAY, SUNDAY ->
         System.out.println("Weekend");
-        break;
-    default:
+    default ->
         throw new AssertionError("Should not happen");
 }
 ```
 
 With [Switch Expressions](id:lang.classes-objects.switch-expression),
 the compiler can check whether all values of the enum are handled.
+If any possible value is missing in a switch expression, there will be a compiler error.
 ```java
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
@@ -117,7 +112,7 @@ public enum DayOfWeek {
 <a id="functionality">&nbsp;</a>
 ## Special methods
 
-All enums have a few methods that are added implicitely.
+All enums have a few methods that are added implicitly.
 
 For example, the method `name()` is present in all enum instances and can be used to get the name of the enum constant.
 Similarly, a method named `ordinal()` returns the position of the enum constant in the declaration.
@@ -133,8 +128,32 @@ DayOfWeek[] days = DayOfWeek.values(); // all days of the week
 DayOfWeek monday = DayOfWeek.valueOf("MONDAY");
 ```
 
+Furthermore, enums implement the interface [`Comparable`](javadoc:Comparable).
+By default, enums are ordered according to their ordinal number
+i.e. in the order of occurrence of the enum constant.
+This allows for comparing instances of enums as well as sorting or searching.
+
+```java
+public void compareDayOfWeek(DayOfWeek dayOfWeek){
+    int comparison = dayOfWeek.compareTo(DayOfWeek.WEDNESDAY);
+    if ( comparison < 0) {
+        System.out.println("It's before the middle of the work week.");
+    } else if(comparison > 0){
+        System.out.println("It's after the middle of the work week.");
+    } else {
+        System.out.println("It's the middle of the work week.");
+    }
+}
+```
+
+```java
+List<DayOfWeek> days = new ArrayList<>(List.of(DayOfWeek.FRIDAY, DayOfWeek.TUESDAY, DayOfWeek.SATURDAY));
+Collections.sort(days);
+```
+
+
 <a id="singletons">&nbsp;</a>
-## Using enums for singletons
+## Using enums as singletons
 
 Since enums can only have a specific number of instances, it is possible to create a singleton by creating an enum with only a single enum constant.
 ```java
@@ -166,3 +185,17 @@ enum MyEnum {
     abstract void doSomething();
 }
 ```
+
+<a id="conclusion">&nbsp;</a>
+## Conclusion
+
+All in all, enums provide a simple and safe way of limiting the instances of a type
+while preserving most of the flexibilities of classes.
+
+However, care should be taken when using enums where the number (or names) of instances is subject to change.
+Whenever enum constants are changed, there may be compilation errors, runtime errors or other inconsistencies
+due to other code expecting the original version of the enum.
+This is especially important in cases where the enum is also used by other people's code.
+
+Furthermore, it might be worth considering to use other options
+in case of many instances since listing many instances at a single location in code can be inflexible.

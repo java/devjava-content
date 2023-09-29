@@ -1,9 +1,9 @@
 ---
-id: lang.classes-objects.enums
+id: lang.classes.enums
 title: Enums
 slug: learn/classes-objects/enums
 type: tutorial-group
-group: classes_objects
+group: classes-and-objects
 layout: learn/tutorial-group.html
 subheader_select: tutorials
 main_css_id: learn

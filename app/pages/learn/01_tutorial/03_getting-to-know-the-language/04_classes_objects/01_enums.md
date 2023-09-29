@@ -14,6 +14,7 @@ toc:
 - Special methods {functionality}
 - Using enums as singletons {singletons}
 - Abstract methods in enums {abstract}
+- Precautions {precautions}
 - Conclusion {conclusion}
 description: "Working with enums."
 last_update: 2023-09-29
@@ -73,6 +74,9 @@ switch (someDay) {
 With [Switch Expressions](id:lang.classes-objects.switch-expression),
 the compiler can check whether all values of the enum are handled.
 If any possible value is missing in a switch expression, there will be a compiler error.
+This is referred to as Exhaustiveness and can also be achieved with regular classes 
+through [Sealed Classes](https://openjdk.org/jeps/409).
+
 ```java
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
@@ -186,17 +190,15 @@ enum MyEnum {
 }
 ```
 
-<a id="conclusion">&nbsp;</a>
-## Conclusion
+<a id="changing-instances">&nbsp;</a>
+## Precautions
 
-All in all, enums provide a simple and safe way of representing a fixed set of constants 
-while keeping most of the flexibilities of classes.
-
-However, care should be taken when using enums where the number (or names) of instances is subject to change.
+Care should be taken when using enums where the number (or names) of instances is subject to change.
 Whenever enum constants are changed, other code expecting the old version of the enum might not work as expected.
 This may manifest in compilation errors (e.g. when referencing a removed enum constant),
 runtime errors (e.g. if there is a `default` case even though the new enum constant should be handled separately)
 or other inconsistencies (e.g. if the value of the enum was saved to a file which is then read and expecting that value to still exist).
+
 When changing enum constants, it is recommended to review all code using the enum.
 This is especially important in cases where the enum is also used by other people's code.
 
@@ -204,3 +206,10 @@ Furthermore, it might be worth considering to use other options
 in case of many instances since listing a lot of instances at a single location in code can be inflexible.
 For example, it may be better to use a configuration file for listing all instances
 and reading these configuration files in the program in cases like this.
+
+<a id="conclusion">&nbsp;</a>
+## Conclusion
+
+Enums provide a simple and safe way of representing a fixed set of constants while keeping most of the flexibilities of classes. They are another special type of class that can be used to write code that is elegant, readable, and maintainable, and work well with other newer modern features like [Switch Expressions](id:lang.classes-objects.switch-expression).
+
+To learn more, visit the javadoc [`java.lang.Enum`](javadoc:Enum).

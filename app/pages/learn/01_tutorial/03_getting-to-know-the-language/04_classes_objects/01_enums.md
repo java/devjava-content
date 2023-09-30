@@ -210,6 +210,6 @@ and reading these configuration files in the program in cases like this.
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
 
-Enums provide a simple and safe way of representing a fixed set of constants while keeping most of the flexibilities of classes. They are another special type of class that can be used to write code that is elegant, readable, and maintainable, and work well with other newer modern features like [Switch Expressions](id:lang.classes-objects.switch-expression).
+Enums provide a simple and safe way of representing a fixed set of constants while keeping most of the flexibilities of classes. They are a special type of class that can be used to write code that is elegant, readable, and maintainable, and work well with other newer modern features like [Switch Expressions](id:lang.classes-objects.switch-expression).
 
-To learn more, visit the javadoc [`java.lang.Enum`](javadoc:Enum).
+To learn more, visit the javadoc of [`java.lang.Enum`](javadoc:Enum).

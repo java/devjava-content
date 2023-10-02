@@ -74,3 +74,11 @@
     nine textbooks on software programming. Most recently, she is a contributing author to 
     The Definitive Guide to Modern Java Clients with JavaFX 17. Gail has presented at various 
     Java conferences and JUGS including Devoxx, DevNexus, JCrete, and Oracle Code/JavaOne worldwide.
+
+- name: Daniel Schmid
+  github: danthe1st
+  twitter: dan_the_1st
+  photo_url: https://danthe1st.github.io/img/Daniel.jpg
+  website: https://danthe1st.github.io/
+  description: |
+    Daniel is a Java Developer from Austria who is also managing the <a href="https://discordjug.net/">Discord Java Community</a>.

@@ -74,6 +74,6 @@ Your study materials will give your more details on what you specifically need t
 <a id="study">&nbsp;</a>
 ## How to study?
 
-If you subscribe to Oracle University, there is a [24 hour video class](https://mylearn.oracle.com/ou/learning-path/become-a-java-se-17-developer/99487y). If not, there are two books: [Wiley's Sybex imprint](https://www.amazon.com/Oracle-Certified-Professional-Developer-Certification/dp/111986464X) (disclosure: I wrote this) and [McGraw-Hill's Oracle imprint](https://www.amazon.com/Certified-Professional-Developer-1Z0-829-Programmers/dp/0137993641).
+If you subscribe to Oracle University, there is a [24 hour video class](https://mylearn.oracle.com/ou/learning-path/become-a-java-se-17-developer/99487y). If not, there are two books: [Wiley's Sybex imprint](https://www.amazon.com/Oracle-Certified-Professional-Developer-Certification/dp/111986464X) (disclosure: I wrote this) and [Pearson/Oracle Press](https://www.amazon.com/Certified-Professional-Developer-1Z0-829-Programmers/dp/0137993641).
 
 Regardless of which option you chose to study, I recommend the [Enthuware mock exams](https://enthuware.com/java-certification-mock-exams/oracle-certified-professional/ocp-java-17-exam-1z0-829). They are only $10 and you get 20 mock exams! Excellent practice after you study to get ready.  The OCP forum at [CodeRanch](https://coderanch.com/f/24/java-programmer-OCPJP) is also a great place to ask questions as you prepare for your certification.

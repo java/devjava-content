@@ -79,7 +79,7 @@
   "rfc-8017":                            "https://www.ietf.org/rfc/rfc8017.html",
   "ANSI-20X9.62":                        "https://standards.globalspec.com/std/1955141/ANSI%20X9.62",
 
-  "ide-eclipse":  "https://www.eclipse.org/",
+  "ide-eclipse":  "https://www.eclipseide.org/",
   "ide-netbeans": "https://netbeans.apache.org/",
   "ide-intellij": "https://www.jetbrains.com/idea/",
 

@@ -84,7 +84,7 @@ When the debugger stops on line 5, I see that part2 is the seven that I expected
 There are a number of reasons why you might want to use a debugger. Three of the most common are:
 
 1. Fixing broken code - The debugger allows you to see the values of variables as the code runs. This allows you to see where it stops behaving as expected. 
-2. Understanding unfamiliar code - Seeing the values of each variable as the code runs can help you understand it better
+2. Understanding unfamiliar code - Watching the values of each variable as the code runs can help you understand it better
 3. Tracing the path of the code - When stopping at a breakpoint, the debugger shows what classes/methods were called in order to get there. You can even click on them to see what the variables in scope at those points are.
 
 <a id="basic">&nbsp;</a>
@@ -123,7 +123,7 @@ Debuggers have many advanced techniques. Three common ones are:
 
 1. Conditional breakpoint - Normally, the debugger stops where you asked for a breakpoint. If you are in a loop or have a clue what values trigger the problem, you don't want that. A conditional breakpoint allows you to add a bit of Java code to your breakpoint so it will only stop when that condition is true. This approach avoids having to hit resume a lot of times until you get to the value you care about.
 2. Evaluation - Once you get to your breakpoint, you can write Java code to determine the state of affairs. For example, you can call methods on the available variables.
-3. Hot replacement - You can manually change the value of a variable in the debugger and let the code continue to run. It will use your new, updated value instead of the original one. This lets you explore the impact of a potential fix.
+3. Changing data - You can manually change the value of a variable in the debugger and let the code continue to run. It will use your new, updated value instead of the original one. This lets you explore the impact of a potential fix.
 
 <a id="docs">&nbsp;</a>
 ## Documentation

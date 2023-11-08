@@ -50,7 +50,7 @@ Even if `println()` does meet your needs at the moment, it won't forever. Learni
 <a id="unit">&nbsp;</a>
 ## Why not unit testing?
 
-Nothing is wrong with unit testing. Unit tests are great. They document expected behavior. They tell you if an unexpected value is returned. They help you understand the behavior of the code. And sometimes they can even give you big clues about what is wrong with the code. However, they don't tell you what is happening inside the broken code when it isn't returning the right value. For that, you use a debugger with the unit test to see what is going on inside the method. And once you fix your code, unit tests can help catch new bugs from being introduced!
+Unit testing is writing code to test small pieces of code at the click of a button. Nothing is wrong with unit testing. Unit tests are great. They document expected behavior. They tell you if an unexpected value is returned. They help you understand the behavior of the code. And sometimes they can even give you big clues about what is wrong with the code. However, they don't tell you what is happening inside the broken code when it isn't returning the right value. For that, you use a debugger with the unit test to see what is going on inside the method. And once you fix your code, unit tests can help catch new bugs from being introduced!
 
 ```java
 @Test

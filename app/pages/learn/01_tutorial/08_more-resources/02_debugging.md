@@ -39,7 +39,7 @@ When first learning how to code, we often write code like this to see what is go
 System.out.println(numCats);
 ```
 
-There's nothing wrong with using `println` (as long as you don't commit it). However, it can quickly get unmanagable in a more complicated program especally if you have multiple things to keep track of or a lot of loops. It can also be hard to find when there is a lot of logging in the application. (I used the stars and my initials to mitigate that, but still can get past the point where println is useful.)
+There's nothing wrong with using `println` (as long as you don't commit it). However, it can quickly get unmanagable in a more complicated program especally if you have multiple things to keep track of or a lot of loops. It can also be hard to find when there is a lot of logging in the application. (I used the stars and my initials to mitigate that, but still can get past the point where `println` is useful.)
 
 ```java
 System.out.println("*** JB i=%s numCats=%s numDogs=%s".formatted(i, numCats, numDogs));

@@ -64,7 +64,7 @@ void magic() {
 
 I've (improperly) implemented the magic method. It's supposed to multiply six times seven and get 42. However, that's not what happens. After (not) much investigation, I am baffled and realize I want to know what the values of `part1` and `part2` are on line 5.
 
-That's what a breakpoint is for. It lets me tell the debugger to pause the program there and let me poke around. How do I set a breakpoint you ask? In the left bar near your code, you can double click (or right click and chose to turn on the breakpoint.) A little circle will appear showing the breakpoint i set.
+That's what a breakpoint is for. It lets me tell the debugger to pause the program there and let me poke around. How do I set a breakpoint you ask? In the left bar near your code, you can double click (or right click and chose to turn on the breakpoint.) A little circle will appear showing the breakpoint I set.
 
 ```java
 public class Answer {
@@ -76,7 +76,7 @@ public class Answer {
 }
 ```
 
-When the debugger stops on line 5, I see that part2 is the seven that I expected. However part1 is five, not six. I found the bug! Thanks to the debugger allowing me to set a breakpoint.
+When the debugger stops on line 5, I see that `part2` is the seven that I expected. However `part1` is five, not six. I found the bug! Thanks to the debugger allowing me to set a breakpoint.
 
 <a id="usage">&nbsp;</a>
 ## How can debuggers be used?

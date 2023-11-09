@@ -30,6 +30,8 @@ You might be wondering why it is called "debugging". The term became popular in 
 
 A debugger is a tool in your IDE (integrated development environment) that lets you see the values of different variables at different points in the program. It's like a really powerful magnifying glass. While a few details vary between Eclipse/IntelliJ/NetBeans/VS Code, the concepts are the same.
 
+When you run your code, you can choose to launch it in regular/run mode or debug mode. This allows you to deicde when you want to debug.
+
 <a id="println">&nbsp;</a>
 ## Why not Println?
 
@@ -76,7 +78,7 @@ public class Answer {
 }
 ```
 
-When the debugger stops on line 5, I see that `part2` is the seven that I expected. However `part1` is five, not six. I found the bug! Thanks to the debugger allowing me to set a breakpoint.
+It is important to run the program in debug mode for the breakpoints to take effect. (Remember, if you don't run in debug mode, all breakpoints are ignored.) When the debugger stops on line 5, I see that `part2` is the seven that I expected. However `part1` is five, not six. I found the bug! Thanks to the debugger allowing me to set a breakpoint.
 
 <a id="usage">&nbsp;</a>
 ## How can debuggers be used?

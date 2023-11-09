@@ -84,7 +84,7 @@ When the debugger stops on line 5, I see that `part2` is the seven that I expect
 There are a number of reasons why you might want to use a debugger. Three of the most common are:
 
 1. Fixing broken code - The debugger allows you to see the values of variables as the code runs. This allows you to see where it stops behaving as expected. 
-2. Understanding unfamiliar code - Watching the values of each variable as the code runs can help you understand it better
+2. Understanding unfamiliar code - Watching the values of each variable as the code runs can help you understand it better.
 3. Tracing the path of the code - When stopping at a breakpoint, the debugger shows what classes/methods were called in order to get there. You can even click on them to see what the variables in scope at those points are.
 
 <a id="basic">&nbsp;</a>

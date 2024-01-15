@@ -23,7 +23,7 @@ The older versions of Java supported the Object-Oriented paradigm mixed with the
 
 Imperative style is where we tell what to do and also how to do it. Functional style is declarative in nature, where we tell what to do and delegate the how or the details to the underlying libraries. Imperative style code may be easier to write since most of us are very familiar with it. However, the code becomes verbose, complex, and hard to read. Functional style may be hard at first, mainly because most programmers are less familiar with it. In general, it's easier to read, understand, and change.  With practice, it becomes easier to write as well.
 
-In this tutorial series we will take a look at a number of common imperative style code and find a mapping or an equivalent functional style code that we can use instead. As you work with your code based, when you're ready to fix a bug or make an enhancement, you may find it useful to refactor some of the imperative style code to the functional style. You can use this tutorial as a guide to find the imperative to functional style mappings for some common situations.
+In this [tutorial series](id:refactoring) we will take a look at a number of common imperative style code and find a mapping or an equivalent functional style code that we can use instead. As you work with your code based, when you're ready to fix a bug or make an enhancement, you may find it useful to refactor some of the imperative style code to the functional style. You can use this tutorial as a guide to find the imperative to functional style mappings for some common situations.
 
 In this tutorial we'll focus on simple loops. 
 

@@ -20,7 +20,7 @@ author: ["VenkatSubramaniam"]
 <a id="transforming">&nbsp;</a>
 ## Transforming while Iterating
 
-In the previous articles in this series we looked at converting loops with `if` or conditional statements in the imperative style to the functional style. In this article we'll see how to convert an imperative style iteration that transforms data to the functional style. In addition, we'll also refactor code that mixes transforming data with code that picks select elements before the transformation.
+In the previous articles in this [tutorial series](id:refactoring) we looked at converting loops with `if` or conditional statements in the imperative style to the functional style. In this article we'll see how to convert an imperative style iteration that transforms data to the functional style. In addition, we'll also refactor code that mixes transforming data with code that picks select elements before the transformation.
 
 Anytime we are transforming data in an imperative style loop, we can use the `map()` function in the functional style. Let's see how.
 

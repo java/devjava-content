@@ -20,7 +20,7 @@ author: ["VenkatSubramaniam"]
 <a id="foreach">&nbsp;</a>
 ## Iterating with foreach
 
-In the previous articles in this series we looked at converting loops written in the imperative style to the functional style. In this article we'll see how to convert an imperative style iteration using `foreach` to the functional style. In addition, we'll also see how to pick select elements using `if` transforms to the functional style.
+In the previous articles in this [tutorial series](id:refactoring) we looked at converting loops written in the imperative style to the functional style. In this article we'll see how to convert an imperative style iteration using `foreach` to the functional style. In addition, we'll also see how to pick select elements using `if` transforms to the functional style.
 
 Java 5 introduced the very popular `foreach` syntax. For example, to iterate over a collection of `String`s representing names, we'd write something like `for(String name: names)`. Under the hood, the `foreach` is converted, at the bytecode level, to use an `Iterator`&mdash;while the iterator tells us there is another element, fetch the next element for processing. In other words, the `foreach` is a nice concise syntax sugar for iteration with a `while` loop over the elements provided by an `Iterator`. We can convert a `foreach` into the functional style quite easily. Let's see how.
 

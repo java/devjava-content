@@ -20,7 +20,7 @@ author: ["VenkatSubramaniam"]
 <a id="steps">&nbsp;</a>
 ## Iterating with Steps
 
-In the previous article in this series we looked at converting simple loops written in the imperative style to the functional style. In this article we'll see how to take on loops that are a bit more complex&mdash;when we have to step over some values in an interval.
+In the previous article in this [tutorial series](id:refactoring) we looked at converting simple loops written in the imperative style to the functional style. In this article we'll see how to take on loops that are a bit more complex&mdash;when we have to step over some values in an interval.
 
 When looping over a range of values, one at a time, the `range()` method of `IntStream` came in handy to implement in the functional style. This method returns a stream that will generate one value at a time for values within the specified range. At first thought, to skip some values we may be tempted to use the `filter()` method on the stream. However, there's a simpler solution, the `iterate()` method of `IntStream`.
 

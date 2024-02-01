@@ -1,8 +1,8 @@
-# Dev.java
+# Contributing to Dev.java
 
-[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle.
+[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle. We accept contributions from community members through this repo. [Click here](https://dev.java/authors) for examples of contributed content.
 
-We [recently announced](https://inside.java) that we are accepting contributions to Dev.java. This repository contains a lightweight JavaScript toolchain to build the site into static HTML and guidelines for contributing to it.
+This repo contains the contribution guidelines as well as a lightweight JavaScript toolchain to build the site into static HTML.
 
 Here are the sections of this document:
 
@@ -11,6 +11,7 @@ Here are the sections of this document:
     * [Content Lifecycle](#content-lifecycle)
     * [Content Proposal](#content-proposal)
     * [GitHub Workflow](#github-workflow)
+    * [Content License](#content-license)
 * [Building the Site](#building-the-site)
 * [Working with Content](#working-with-content)
 
@@ -69,6 +70,10 @@ Once your proposal has been moved to the `accepted` stage, you can begin working
 1. Create your content (see the [Working with Content](#working-with-content) section below)
 1. Submit a pull request back to this repo
 
+
+### Contributor Agreement and License
+
+Contributors must sign the OCA which will be verified once there is a pull request created. Contributed content is made available under the [UPL license](https://oss.oracle.com/licenses/upl/). You can find examples [here](https://dev.java/authors).
 
 
 ## Building the Site

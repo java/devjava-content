@@ -62,7 +62,7 @@ All content must start with a Content Proposal. This will be in the form of a Gi
 
 ### GitHub Workflow
 
-Once your proposal has been moved to the `accepted` stage, you can begin working on your content. Here are the steps to do this:
+Once your proposal has been moved to the `approved` stage, you can begin working on your content. Here are the steps to do this:
 
 1. Fork this repo
 1. Create a branch off of `main` for each piece of content

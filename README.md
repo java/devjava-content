@@ -73,7 +73,7 @@ Once your proposal has been moved to the `accepted` stage, you can begin working
 
 ### Content License
 
-Contributors must sign the OCA which will be verified once there is a pull request created. Contributed content is made available under the [UPL license](https://oss.oracle.com/licenses/upl/). You can find examples [here](https://dev.java/authors).
+Contributors must sign the Oracle Contributor Agreement ([OCA](https://oca.opensource.oracle.com/)) which will be verified once there is a pull request created. Contributed content is made available under the [UPL license](https://oss.oracle.com/licenses/upl/). You can find examples [here](https://dev.java/authors).
 
 
 ## Building the Site

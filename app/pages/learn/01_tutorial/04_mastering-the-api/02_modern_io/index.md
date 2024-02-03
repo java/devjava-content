@@ -46,7 +46,7 @@ try (Stream<String> lines = Files.lines(path))
 }
 ```
 
-Also use `Files.lines` if you can naturally process lines with stream operations (such as `map`, `filter`) .
+Also use `Files.lines` if you can naturally process lines with stream operations (such as `map`, `filter`).
 
 Note that the stream returned by `Files.lines` needs to be closed. To ensure that this happens, use a `try`-with-resources statement, as in the preceding code snippet.
 
@@ -57,6 +57,10 @@ To split your input into something else than lines, use a `java.util.Scanner`. F
 ```
 Stream<String> tokens = new Scanner(path).useDelimiter("\\PL+").tokens();
 ```
+
+The `Scanner` class also has methods for reading numbers, but it is generally simpler to read the input as one string per line, or a single string, and then parse it. 
+
+Be careful when parsing numbers from text files, since their format may be locale-dependent. For example, the input `100.000` is 100.0 in the US locale but 100000.0 in the German locale. Use `java.text.NumberFormat` for locale-specific parsing. Alternatively, you may be able to use `Integer.parseInt`/`Double.parseDouble`.
 
 ## Writing Text Files
 
@@ -74,26 +78,23 @@ List<String> lines = . . .;
 Files.write(path, lines);
 ```
 
-For more general output, use a `PrintWriter` so that you can use the `printf` method:
+For more general output, use a `PrintWriter` if you want to use the `printf` method:
 
 ```
 var writer = new PrintWriter(path.toFile());
-writer.printf("Hello, %s, next year you'll be %d years old!%n", name, age + 1);
+writer.printf(locale, "Hello, %s, next year you'll be %d years old!%n", name, age + 1);
 ```
+
+Note that `printf` is locale-specific. When writing numbers, be sure to write them in the appropriate format. Instead of using `printf`, consider `java.text.NumberFormat` or `Integer.toString`/`Double.toString`.
 
 Weirdly enough, as of Java 21, there is no `PrintWriter` constructor with a `Path` parameter.
 
-The `BufferedWriter` class can only write strings without formatting them. That is ok if you use the `String.formatted` method:
+If you don't use `printf`, you can use the `BufferedWriter` class and write strings with the `write` method. 
 
 ```
 var writer = Files.newBufferedWriter(path);
-writer.write("Hello, %s, next year you'll be %d years old!%n".formatted(name, age + 1));
-```
-
-Or, with the `FMT` template (which is still in preview):
-
-```
-writer.write(FMT."Hello, %s\{name}, next year you'll be %d\{age + 1} years old!%n");
+writer.write(line); // Does not write a line separator
+writer.newLine(); 
 ```
 
 Remember to close the `writer` when you are done.
@@ -134,7 +135,7 @@ OutputStream out = Files.newOutputStream(path);
 in.transferTo(out);
 ```
 
-Nowadays, there is no need to read or write bytes, or chunks of bytes, in a loop.
+Note that no loop is required if you simply want to read all bytes of an input stream. 
 
 But do you really need an input stream? Many APIs give you the option to read from a file or URL. 
 
@@ -189,7 +190,7 @@ try (Stream<Path> entries = Files.walk(pathToDirectory)) {
 Here are the other methods for traversing directory entries:
 
 * An overloaded version of `Files.walk` lets you limit the depth of the traversed tree.
-* Two `Files.walkFileTree` methods provide more control over the iteration process, by notifying a `FileVisitor` when a directory is visited for the first and last time. This can be occasionally useful, in particularly for emptying and deleting a tree of directories. See the tutorial [=https://dev.java/learn/java-io/file-system/walking-tree/ Walking the File Tree](null) for details. Unless you need this control, use the simpler `Files.walk` method.
+* Two `Files.walkFileTree` methods provide more control over the iteration process, by notifying a `FileVisitor` when a directory is visited for the first and last time. This can be occasionally useful, in particularly for emptying and deleting a tree of directories. See the tutorial [Walking the File Tree](https://dev.java/learn/java-io/file-system/walking-tree) for details. Unless you need this control, use the simpler `Files.walk` method.
 * The `Files.find` method is just like `Files.walk`, but you provide a filter that inspects each path and its `BasicFileAttributes`. This is slightly more efficient than reading the attributes separately for each file.
 * Two `Files.newDirectoryStream` methods yields `DirectoryStream` instances, which can be used in enhanced `for` loops. There is no advantage over using `Files.list`. 
 * The legacy `File.list` or `File.listFiles` methods return file names or `File` objects. These are now obsolete.

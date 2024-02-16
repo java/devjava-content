@@ -20,7 +20,6 @@
     moderator on CodeRanch which is the best java discussion forum on the web. She has moderated on topics including 
     JDBC, Testing, IDEs, Process and Performance. She is one of the leaders of javasig.com and mentors a high school 
     robotics team in her free time.
-
     
 - name: Cay Horstmann
   email: cay@horstmann.com
@@ -93,3 +92,11 @@
     Marit is a Software Developer, a Java Champion and works as a Developer Advocate at JetBrains.
     She speaks at international conferences (including JavaZone, Devoxx, Voxxed Days, JSpring, JFall, JFokus and GOTO), local JUGs, podcasts and webinars, 
     and has contributed to the book “97 Things Every Java Programmer Should Know” (O’Reilly Media).
+
+- name: Nataliia Dziubenko
+  github: smthelusive
+  twitter: worth_exploring
+  photo_url: https://nataliiadziubenko.com/assets/images/nataliia.png
+  website: https://medium.com/@nataliiadziubenko
+  description: |
+    Nataliia is a Software Engineer passionate about Java & JVM.

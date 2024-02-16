@@ -20,7 +20,6 @@
     moderator on CodeRanch which is the best java discussion forum on the web. She has moderated on topics including 
     JDBC, Testing, IDEs, Process and Performance. She is one of the leaders of javasig.com and mentors a high school 
     robotics team in her free time.
-
     
 - name: Cay Horstmann
   email: cay@horstmann.com
@@ -104,3 +103,11 @@
     Connor is a Java Developer and high school student from Germany with four years of programming experience.
     He is a top helper and community lead in Together Java, one of the largest Java communities on Discord, with over 30,000 users. 
     Connor has worked on various Java projects, including Discord bots, Minecraft plugins and JavaFX applications.
+
+- name: Nataliia Dziubenko
+  github: smthelusive
+  twitter: worth_exploring
+  photo_url: https://nataliiadziubenko.com/assets/images/nataliia.png
+  website: https://medium.com/@nataliiadziubenko
+  description: |
+    Nataliia is a Software Engineer passionate about Java & JVM.

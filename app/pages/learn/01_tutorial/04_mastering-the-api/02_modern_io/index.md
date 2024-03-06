@@ -10,7 +10,7 @@ This article focuses on tasks that application programmers are likely to encount
 
 The Java API supports many other tasks, which are explained in detail in the [Java I/O API tutorial](https://dev.java/learn/java-io/).
 
-Modern, at the time of this writing, means features that are out of preview in Java 21. In particular:
+This article focuses on API improvements since Java 8. In particular:
 
 * UTF-8 is the default for I/O since Java 18 ([JEP 400](https://openjdk.org/jeps/400))
 * The `java.nio.file.Files` class, which first appeared in Java 7, added useful methods in Java 8, 11, and 12
@@ -30,6 +30,8 @@ Here, `path` is an instance of `java.nio.Path`, obtained like this:
 ```
 var path = Path.of("/usr/share/dict/words");
 ```
+
+Before Java 18, you were strongly encouraged to specify the character encoding with any file operations that read or write strings. Nowadays, by far the most common character encoding is UTF-8, but for backwards compatibility, Java used the "platform encoding", which can be a legacy encoding on Windows. To ensure portability, text I/O operations needed parameters `StandardCharsets.UTF_8`. This is no longer necessary.
 
 If you want the file as a sequence of lines, call
 
@@ -200,8 +202,12 @@ Here are the other methods for traversing directory entries:
 Ever since Java 1.1, the `ZipInputStream` and `ZipOutputStream` classes provide an API for processing zip files. But the API is a bit clunky. Java 8 introduced a much nicer *zip file system*:
 
 ```
-FileSystem fs = FileSystems.newFileSystem(pathToZipFile);
+try (FileSystem fs = FileSystems.newFileSystem(pathToZipFile)) {
+   . . .
+}
 ```
+
+The `try`-with-resources statement ensures that the `close` method is called after the zip file operations. That method updates the zip file to reflect any changes in the file system.
 
 You can then use the methods of the `Files` class. Here we get a list of all files in the zip file:
 
@@ -218,14 +224,6 @@ String contents = Files.readString(fs.getPath("/LICENSE"));
 ```
 
 You can remove files with `Files.delete`. To add or replace files, simply use `Files.writeString` or `Files.write`.
-
-You must close the file system so that the changes are written to the zip file. Call
-
-```
-fs.close();
-```
-
-or use a `try`-with-resources statement.
 
 ### Creating Temporary Files and Directories
 

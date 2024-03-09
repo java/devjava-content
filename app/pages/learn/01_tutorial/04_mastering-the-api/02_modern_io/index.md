@@ -5,7 +5,7 @@ This article focuses on tasks that application programmers are likely to encount
 * Reading and writing text files
 * Reading text, images, JSON from the web
 * Visiting files in a directory
-* Reading a zip file
+* Reading a ZIP file
 * Creating a temporary file or directory
 
 The Java API supports many other tasks, which are explained in detail in the [Java I/O API tutorial](https://dev.java/learn/java-io/).
@@ -21,13 +21,13 @@ This article focuses on API improvements since Java 8. In particular:
 
 Tou can read a text file into a string like this:
 
-```
+```java
 String content = Files.readString(path);
 ```
 
 Here, `path` is an instance of `java.nio.Path`, obtained like this:
 
-```
+```java
 var path = Path.of("/usr/share/dict/words");
 ```
 
@@ -35,28 +35,25 @@ Before Java 18, you were strongly encouraged to specify the character encoding w
 
 If you want the file as a sequence of lines, call
 
-```
+```java
 List<String> lines = Files.readAllLines(path);
 ```
 
 If the file is large, process the lines lazily as a `Stream<String>`:
 
-```
-try (Stream<String> lines = Files.lines(path)) 
-{
-   . . .
+```java
+try (Stream<String> lines = Files.lines(path)) {
+    . . .
 }
 ```
 
-Also use `Files.lines` if you can naturally process lines with stream operations (such as `map`, `filter`).
-
-Note that the stream returned by `Files.lines` needs to be closed. To ensure that this happens, use a `try`-with-resources statement, as in the preceding code snippet.
+Also use `Files.lines` if you can naturally process lines with stream operations (such as `map`, `filter`). Note that the stream returned by `Files.lines` needs to be closed. To ensure that this happens, use a `try`-with-resources statement, as in the preceding code snippet.
 
 There is no longer a good reason to use the `readLine` method of `java.io.BufferedReader`.
 
 To split your input into something else than lines, use a `java.util.Scanner`. For example, here is how you can read words, separated by non-letters:
 
-```
+```java
 Stream<String> tokens = new Scanner(path).useDelimiter("\\PL+").tokens();
 ```
 
@@ -68,21 +65,21 @@ Be careful when parsing numbers from text files, since their format may be local
 
 You can write a string to a text file with a single call:
 
-```
+```java
 String content = . . .;
 Files.writeString(path, content);
 ```
 
 If you have a list of lines rather than a single string, use:
 
-```
+```java
 List<String> lines = . . .;
 Files.write(path, lines);
 ```
 
 For more general output, use a `PrintWriter` if you want to use the `printf` method:
 
-```
+```java
 var writer = new PrintWriter(path.toFile());
 writer.printf(locale, "Hello, %s, next year you'll be %d years old!%n", name, age + 1);
 ```
@@ -93,7 +90,7 @@ Weirdly enough, as of Java 21, there is no `PrintWriter` constructor with a `Pat
 
 If you don't use `printf`, you can use the `BufferedWriter` class and write strings with the `write` method. 
 
-```
+```java
 var writer = Files.newBufferedWriter(path);
 writer.write(line); // Does not write a line separator
 writer.newLine(); 
@@ -107,32 +104,32 @@ Perhaps the most common reason to use a stream is to read something from a web s
 
 If you need to set request headers or read response headers, use the `HttpClient`:
 
-```
+```java
 HttpClient client = HttpClient.newBuilder().build();
 HttpRequest request = HttpRequest.newBuilder()
-   .uri(URI.create("https://horstmann.com/index.html"))
-   .GET()
-   .build();
+    .uri(URI.create("https://horstmann.com/index.html"))
+    .GET()
+    .build();
 HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 String result = response.body();
 ```
 
 That is overkill if all you want is the data. Instead, use:
 
-```
+```java
 InputStream in = new URI("https://horstmann.com/index.html").toURL().openStream();
 ```
 
 Then read the data into a byte array and optionally turn them into a string:
 
-```
+```java
 byte[] bytes = in.readAllBytes();
 String result = new String(bytes);
 ```
 
 Or transfer the data to an output stream:
 
-```
+```java
 OutputStream out = Files.newOutputStream(path);
 in.transferTo(out);
 ```
@@ -143,14 +140,14 @@ But do you really need an input stream? Many APIs give you the option to read fr
 
 Your favorite JSON library is likely to have methods for reading from a file or URL. For example, with [Jackson jr](https://github.com/FasterXML/jackson-jr):
 
-```
+```java
 URL url = new URI("https://dog.ceo/api/breeds/image/random").toURL();
 Map<String, Object> result = JSON.std.mapFrom(url);
 ```
 
 Here is how to read the dog image from the preceding call:
 
-```
+```java
 url = new URI(result.get("message").toString()).toURL();
 BufferedImage img = javax.imageio.ImageIO.read(url)
 ```
@@ -165,10 +162,9 @@ The `java.nio.file.Files` class provides a comprehensive set of file operations,
 
 For most situations you can use one of two methods. The `Files.list` method visits all entries (files, subdirectories, symbolic links) of a directory.
 
-```
-try (Stream<Path> entries = Files.list(pathToDirectory)) 
-{
-   . . .
+```java
+try (Stream<Path> entries = Files.list(pathToDirectory)) {
+    . . .
 }
 ```
 
@@ -176,16 +172,16 @@ Use a `try`-with-resources statement to ensure that the stream object, which kee
 
 If you also want to visit the entries of descendant directories, instead use the method
 
-```
+```java
 Stream<Path> entries = Files.walk(pathToDirectory);
 ```
 
 Then simply use stream methods to home in on the entries that you are interested in, and to collect the results:
 
-```
+```java
 try (Stream<Path> entries = Files.walk(pathToDirectory)) {
-   List<Path> htmlFiles = entries.filter(p -> p.toString().endsWith("html")).toList();
-   . . .
+    List<Path> htmlFiles = entries.filter(p -> p.toString().endsWith("html")).toList();
+    . . .
 }
 ```
 
@@ -197,29 +193,29 @@ Here are the other methods for traversing directory entries:
 * Two `Files.newDirectoryStream` methods yields `DirectoryStream` instances, which can be used in enhanced `for` loops. There is no advantage over using `Files.list`. 
 * The legacy `File.list` or `File.listFiles` methods return file names or `File` objects. These are now obsolete.
 
-### Working with Zip Files
+### Working with ZIP Files
 
-Ever since Java 1.1, the `ZipInputStream` and `ZipOutputStream` classes provide an API for processing zip files. But the API is a bit clunky. Java 8 introduced a much nicer *zip file system*:
+Ever since Java 1.1, the `ZipInputStream` and `ZipOutputStream` classes provide an API for processing ZIP files. But the API is a bit clunky. Java 8 introduced a much nicer *ZIP file system*:
 
-```
+```java
 try (FileSystem fs = FileSystems.newFileSystem(pathToZipFile)) {
-   . . .
+    . . .
 }
 ```
 
-The `try`-with-resources statement ensures that the `close` method is called after the zip file operations. That method updates the zip file to reflect any changes in the file system.
+The `try`-with-resources statement ensures that the `close` method is called after the ZIP file operations. That method updates the ZIP file to reflect any changes in the file system.
 
-You can then use the methods of the `Files` class. Here we get a list of all files in the zip file:
+You can then use the methods of the `Files` class. Here we get a list of all files in the ZIP file:
 
-```
+```java
 try (Stream<Path> entries = Files.walk(fs.getPath("/"))) {
-   List<Path> filesInZip = entries.filter(Files::isRegularFile).toList();
+    List<Path> filesInZip = entries.filter(Files::isRegularFile).toList();
 }
 ```
 
 To read the file contents, just use `Files.readString` or `Files.readAllBytes`:
 
-```
+```java
 String contents = Files.readString(fs.getPath("/LICENSE"));
 ```
 
@@ -231,7 +227,7 @@ Fairly often, I need to collect user input, produce files, and run an external p
 
 The calls
 
-```
+```java
 Path filePath = Files.createTempFile("myapp", ".txt");
 Path dirPath = Files.createTempDirectory("myapp");
 ```
@@ -246,6 +242,6 @@ Web searches and AI chats can suggest needlessly complex code for common I/O ope
 2. You may not even need a stream, reader or writer.
 3. Become familiar with the `Files` methods for creating, copying, moving, and deleting files and directories.
 4. Use `Files.list` or `Files.walk` to traverse directory entries.
-5. Use a zip file system for processing zip files.
+5. Use a ZIP file system for processing ZIP files.
 6. Stay away from the legacy `File` class.
 

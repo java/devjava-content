@@ -98,7 +98,7 @@ As you start typing, you’ll notice that IntelliJ IDEA gives you [code completi
 
 [![Code completion](/assets/images/intellij-idea/code-completion2.png)](/assets/images/intellij-idea/code-completion2.png)
 
-IntelliJ IDEA will show you if you’ve typed or selected something that doesn’t compile, or if it sees any other problems. If you press **Alt+Enter** it will offer options to fix the problem. You can use **F2** to move to the next problem, and **Shift+F2** to go to the previous problem. IntelliJ IDEA will help you keep your code green, by offering suggestions that are context-sensitive.
+IntelliJ IDEA will show you if you’ve typed or selected something that doesn’t compile, or if it sees any other problems. If you press **Alt+Enter** it will offer options to fix the problem. You can use **F2** to move to the next problem, and **Shift+F2** to go to the previous problem. IntelliJ IDEA will help you make sure that your syntax is correct and your code can be compiled, by offering suggestions that are context-sensitive.
 
 [![Suggestions](/assets/images/intellij-idea/alt-enter.png)](/assets/images/intellij-idea/alt-enter.png)
 

@@ -21,30 +21,29 @@ toc:
 - Refactoring code
 - Documenting code
 - Searching and navigating
-- Version Control
 - Evolving the project
 - More information
 description: "IntelliJ IDEA is the most used Java IDE and helps you develop your Maven and Gradle Java projects faster."
 last_update: 2024-03-12
 ---
 
-An IDE (Integrated Development Environment) allows you to quickly build applications, by integrating a source-code editor with the ability to compile and run your code, as well as integration with any other tools you’ll need for software development, including build tools, testing and debugging tools, version control, databases, and so on. And finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
+An IDE (Integrated Development Environment) allows you to quickly build applications, by integrating a source-code editor with the ability to compile and run your code, as well as integration with  tools you’ll need for software development, including build tools, testing and debugging tools, version control, and so on. And finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
 
-IntelliJ IDEA is the [most widely used IDE for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide). It has out-of-the-box integrations with all the tools a Java developer will need for software development, with no need to install any additional plugins to get started.
+IntelliJ IDEA is the [most widely used IDE for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide). It has out-of-the-box integrations with the tools a Java developer will need for software development, with no need to install any additional plugins to get started.
 IntelliJ IDEA is available in two editions:
-- **_IntelliJ IDEA Community Edition_** - free and open-source, licensed under Apache 2.0. It provides all the basic features for Java and Kotlin development.
+- **_IntelliJ IDEA Community Edition_** - free and open-source. It provides all the basic features for Java development.
 - **_IntelliJ IDEA Ultimate_** - commercial, distributed with a 30-day trial period. It provides additional tools and features for web and enterprise development.
 
 ## Installing IntelliJ IDEA
 To install IntelliJ IDEA, download the version you want to use from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions. For more information on installing IntelliJ IDEA on your OS, see [the documentation](https://www.jetbrains.com/help/idea/installation-guide.html#standalone).
 
-When you launch IntelliJ IDEA for the first time, you’ll see the **Welcome** screen. From here, you create a new project, open an existing project, or get a project from a version control system.
+When you launch IntelliJ IDEA for the first time, you’ll see the **Welcome** screen. From here, you create a new project, open an existing project, or get a project from a version control system (like GitHub).
 
 [![Welcome screen](/assets/images/intellij-idea/welcome-screen.png)](/assets/images/intellij-idea/welcome-screen.png)
 
 There is no need to install any additional plugins to get started; the most common integrations are already available as part of the IDE or as bundled plugins. Of course, you can [customize the IDE](https://www.jetbrains.com/help/idea/run-for-the-first-time.html#select-ui-theme) further, or [install additional plugins](https://www.jetbrains.com/help/idea/run-for-the-first-time.html#additional_plugins) if you really want to.
 
-You will need to install a JDK, if you don’t already have one installed. You can take care of that when creating a project.
+You will need to install a JDK, if you don’t already have one installed. You can do this yourself, as described in [Getting Started with Java](https://dev.java/learn/getting-started/#setting-up-jdk), or you can do so in IntelliJ IDEA when creating a new project, without having to switch from your IDE and other tools (such as your browser, file system, etc.) to download and configure a JDK.
 
 ## Creating a new project
 As mentioned above, we can create a new project from the **Welcome** screen. Alternatively, we can go to **File | New | Project** in the main menu.
@@ -53,7 +52,7 @@ As mentioned above, we can create a new project from the **Welcome** screen. Alt
 
 In the **New Project** wizard, make sure that **New Project** is selected on the left hand side.
 
-Give your project a name (for example `java-demo`), make sure the selected **Language** is `Java`, and select the **Build system** you prefer. For example, let’s create a Maven project.
+Give your project a name (for example `java-demo`), make sure the selected **Language** is `Java`, and select the **Build system** you prefer. For example, let’s create a Maven project. A build tool, like Maven or Gradle, helps you build your project, and manage any dependencies, like additional libraries you want to use in your Java code.
 
 [![New Project](/assets/images/intellij-idea/new-project.png)](/assets/images/intellij-idea/new-project.png)
 
@@ -81,10 +80,12 @@ To simplify the view on your project, for example to focus on the package struct
 
 [![Project view](/assets/images/intellij-idea/project-view.png)](/assets/images/intellij-idea/project-view.png)
 
-Let’s add some code. We’ll start by creating a new class. In the **Project** tool window on the left, select the directory `src/main/java`. Add a new Java file using the shortcut **⌘N** (on macOS) or **Alt+Insert** (on Windows/Linux). Alternatively, right-click the **Project** tool window to open the context menu and select **New | Java class**. Name this class `Main`.
+Let’s add some code. We’ll start by creating a new class. In the **Project** tool window on the left, select the directory `src/main/java`. Add a new Java file using the shortcut **⌘N** (on macOS) or **Alt+Insert** (on Windows/Linux). Alternatively, right-click the **Project** tool window to open the context menu and select **New | Java class**. Name this class `HelloWorld`.
+
+[![New Java class](/assets/images/intellij-idea/new-java-class.png)](/assets/images/intellij-idea/new-java-class.png)
 
 ## Writing and editing code
-Inside the class `Main`, we will write the main method, which is where execution of our Java program will start.
+Inside the class `HelloWorld`, we will write the main method, which is where execution of our Java program will start.
 The classic way to write a main method in Java is:
 ```shell
 public static void main(String[] args) {
@@ -113,8 +114,6 @@ Now we can write the desired code inside the main method. We can use another liv
 
 [![Hello World](/assets/images/intellij-idea/hello-world.png)](/assets/images/intellij-idea/hello-world.png)
 
-There are several predefined live templates, and you can also [create your own](https://www.jetbrains.com/help/idea/creating-and-editing-live-templates.html).
-
 IntelliJ IDEA will manage the formatting of your code as you write it. If needed, you can explicitly reformat the code, using the shortcut **⌘⌥L** (on macOS) or **Ctrl+Alt+L** (on Windows/Linux).
 
 ## Running your application
@@ -124,7 +123,7 @@ You can run our application directly from the editor, by clicking the green run 
 
 Alternatively, we can run our application using the green Run button in the top right corner, or using the shortcut **⌃R** (on macOS) or **Ctrl+F10** (on Windows/Linux) to run the latest file.
 
-[![Run](/assets/images/intellij-idea/run-button.png)](/assets/images/intellij-idea/run-button.png)
+[![Run](/assets/images/intellij-idea/run.png)](/assets/images/intellij-idea/run.png)
 
 If we want to pass arguments to our application, we can do so in our [Run Configurations](https://www.jetbrains.com/help/idea/run-debug-configuration.html).
 
@@ -148,7 +147,7 @@ If JUnit5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 lib
 
 [![Create test - Fix](/assets/images/intellij-idea/create-test-fix.png)](/assets/images/intellij-idea/create-test-fix.png)
 
-Note that JUnit5 dependencies are added to the pom.xml.
+Note that the JUnit5 dependency is added to the pom.xml.
 
 [![JUnit5 dependencies](/assets/images/intellij-idea/junit5-dependencies.png)](/assets/images/intellij-idea/junit5-dependencies.png)
 
@@ -157,7 +156,7 @@ Go back to the test file to add tests. We can let IntelliJ IDEA help us generate
 In our test class, we can select **Run All Tests** (**⌃⇧R** on macOS or **Ctrl+Shift+F10** on Windows/Linux).
 While it’s nice to see our tests pass, we also want to make sure that they fail when something is wrong. Make some changes to your code that will make your tests fail, and run them again to see them fail. Revert those changes to see them pass again.
 
-We can view the code and tests side by side. To do so, click on the tab with the test file, and select **Move and Split right**.
+We can view the code and tests side by side. To do so, click on the tab with the test file, and select **Move and Split right**. This can be especially helpful if you're doing [test-driven development (TDD)](https://martinfowler.com/bliki/TestDrivenDevelopment.html).
 
 ## Debugging
 We might want to see how our code runs, either to help us understand how it works and/or when we need to fix a bug. We can run our code through the [debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to see the state of our variables at different times, and the call stack - or the order in which methods are called when the program executes. To do so, we must first add a [breakpoint](https://www.jetbrains.com/help/idea/using-breakpoints.html) to the code.
@@ -165,6 +164,8 @@ We might want to see how our code runs, either to help us understand how it work
 To add a breakpoint, click the gutter at the line of code where you want execution to stop. Alternatively, place the caret at the line and press **⌃F8** (on macOS) or **Ctrl+F8** (on Windows/Linux). We can run our test or application using the **Debug** option.
 
 Execution will stop at the breakpoint, so we can investigate the state of our application. We can see current values of variables and objects. We can evaluate an expression, to see its current value and look at more details. We can even change the expressions to evaluate different results. We can continue execution by either stepping into a method to see what happens inside a called method (using the shortcut **F7**) or stepping over a line to go to the next line even if a method is called (using the shortcut **F8**), depending on what we’re interested in. Finally, we can resume the program to finish the execution of the test.
+
+For more information on debugging, see [Debugging in Java](https://dev.java/learn/debugging/)
 
 ## Refactoring code
 
@@ -193,25 +194,10 @@ Open Find in Files from the main menu using **Edit | Find | Find in Files**, or 
 
 [![Find in Files](/assets/images/intellij-idea/search-everywhere.png)](/assets/images/intellij-idea/find-in-files.png)
 
-## Version Control
-Once you have finished a piece of code (and the related tests and documentation), you might want to commit your code. IntelliJ IDEA offers integration with version control systems, like Git.
-
-If you haven’t set up version control for your project, you’ll need to do that first. You can enable VCS from the main menu using **VCS | Enable Version Control Integration**.
-
-[![Enable Version Control Integration](/assets/images/intellij-idea/enable-vcs-popup.png)](/assets/images/intellij-idea/enable-vcs-popup.png)
-
-In the popup that opens, select your preferred version control system.
-
-[![VCS Enable menu](/assets/images/intellij-idea/vcs-enable-menu.png)](/assets/images/intellij-idea/vcs-enable-menu.png)
-
-To use Git, you may need to [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) on your machine first.
-
-To commit your code, open the commit tool window using the shortcut **⌘0** (on macOS) or **Alt+0** (on Windows/Linux), select the code to commit, write a commit message, and click **Commit** or **Commit and Push**, depending on whether you want to push to your remote repository straight away.
-
 ## Evolving the project
 In the future, you might want to add functionality to your project. We’ve seen how intelliJ IDEA can help you with code suggestions and completion while writing code, running your application, adding tests and using the debugger to help figure out how code is run, refactoring code, and more.
 
-You may want to upgrade the version of Java your project uses, or any dependencies used in your project. You can manage and update your dependencies using the [Package Search](https://www.jetbrains.com/help/idea/package-search.html) plugin, see information about any known vulnerabilities in your dependencies using the [Package Checker](https://www.jetbrains.com/help/idea/package-analysis.html) plugin, and even see whether you’re using the vulnerable API using the [Vulnerable API usage](https://www.jetbrains.com/help/idea/package-analysis.html#find-vulnerable-api) inspection. You can use [the Migrate refactoring](https://www.jetbrains.com/help/idea/migrate.html) to help update your code to new versions if needed.
+You may want to upgrade the version of Java your project uses, or any dependencies used in your project.
 
 IntelliJ IDEA continues to improve and evolve, adding new features and offering new integration. This includes inspections for new Java language features. [Feedback is welcome](https://youtrack.jetbrains.com/issues/IDEA).
 

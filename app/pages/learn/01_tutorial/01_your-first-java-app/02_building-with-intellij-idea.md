@@ -87,7 +87,7 @@ Let’s add some code. We’ll start by creating a new class. In the **Project**
 ## Writing and editing code
 Inside the class `HelloWorld`, we will write the main method, which is where execution of our Java program will start.
 The classic way to write a main method in Java is:
-```shell
+```java
 public static void main(String[] args) {
   
 }

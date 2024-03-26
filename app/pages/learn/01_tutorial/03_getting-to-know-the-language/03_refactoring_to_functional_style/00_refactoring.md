@@ -23,4 +23,5 @@ In this series we cover the following conversions from the imperative to the fun
 | [Converting Loops with Steps](id:refactoring.loops.withsteps) | `for(...i = i + ...)` | `iterate()` with `takeWhile()` |
 | [Converting foreach with if](id:refactoring.foreach.withif) | `foreach(...) { if... }` | `stream()` with `filter()` |
 | [Converting Iteration with transformation](id:refactoring.iteration.withtransformation) | `foreach(...) { ...transformation... }` | `stream()` with `map()` |
+| [Converting to Streams](id:refactoring.to.streams) | `File read operation` | `Files.lines()` |
 

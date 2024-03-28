@@ -29,7 +29,7 @@ last_update: 2024-03-12
 
 An IDE (Integrated Development Environment) allows you to quickly build applications, by integrating a source-code editor with the ability to compile and run your code, as well as integration with  tools you’ll need for software development, including build tools, testing and debugging tools, version control, and so on. And finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
 
-IntelliJ IDEA is the [most widely used IDE for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide). It has out-of-the-box integrations with the tools a Java developer will need for software development, with no need to install any additional plugins to get started.
+IntelliJ IDEA is one of the [most widely used IDE for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide). It has out-of-the-box integrations with the tools a Java developer will need to start coding immediately, with no need to install any additional plugins.
 IntelliJ IDEA is available in two editions:
 - **_IntelliJ IDEA Community Edition_** - free and open-source. It provides all the basic features for Java development.
 - **_IntelliJ IDEA Ultimate_** - commercial, distributed with a 30-day trial period. It provides additional tools and features for web and enterprise development.
@@ -156,8 +156,6 @@ Go back to the test file to add tests. We can let IntelliJ IDEA help us generate
 In our test class, we can select **Run All Tests** (**⌃⇧R** on macOS or **Ctrl+Shift+F10** on Windows/Linux).
 While it’s nice to see our tests pass, we also want to make sure that they fail when something is wrong. Make some changes to your code that will make your tests fail, and run them again to see them fail. Revert those changes to see them pass again.
 
-We can view the code and tests side by side. To do so, click on the tab with the test file, and select **Move and Split right**. This can be especially helpful if you're doing [test-driven development (TDD)](https://martinfowler.com/bliki/TestDrivenDevelopment.html).
-
 ## Debugging
 We might want to see how our code runs, either to help us understand how it works and/or when we need to fix a bug. We can run our code through the [debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to see the state of our variables at different times, and the call stack - or the order in which methods are called when the program executes. To do so, we must first add a [breakpoint](https://www.jetbrains.com/help/idea/using-breakpoints.html) to the code.
 
@@ -195,9 +193,9 @@ Open Find in Files from the main menu using **Edit | Find | Find in Files**, or 
 [![Find in Files](/assets/images/intellij-idea/search-everywhere.png)](/assets/images/intellij-idea/find-in-files.png)
 
 ## Evolving the project
-In the future, you might want to add functionality to your project. We’ve seen how intelliJ IDEA can help you with code suggestions and completion while writing code, running your application, adding tests and using the debugger to help figure out how code is run, refactoring code, and more.
+In this article, we’ve seen how IntelliJ IDEA can help you with code suggestions and completion while writing code, running your application, adding tests and using the debugger to help figure out how code is run, refactoring code, and more.
 
-You may want to upgrade the version of Java your project uses, or any dependencies used in your project.
+In the future, you might want to add more functionality to your project, and upgrade the Java version your project uses to take advantage of cool new language features.
 
 IntelliJ IDEA continues to improve and evolve, adding new features and offering new integration. This includes inspections for new Java language features. [Feedback is welcome](https://youtrack.jetbrains.com/issues/IDEA).
 

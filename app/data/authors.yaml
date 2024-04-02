@@ -82,3 +82,14 @@
   website: https://danthe1st.github.io/
   description: |
     Daniel is a Java Developer from Austria who is also managing the <a href="https://discordjug.net/">Discord Java Community</a>.
+
+- name: Marit van Dijk
+  email: mlvandijk@gmail.com
+  photo_url: https://maritvandijk.com/wp-content/uploads/2022/08/cropped-marit-van-dijk-1.jpeg
+  github: mlvandijk
+  twitter: MaritvanDijk77
+  website: https://maritvandijk.com
+  description: |
+    Marit is a Software Developer, a Java Champion and works as a Developer Advocate at JetBrains.
+    She speaks at international conferences (including JavaZone, Devoxx, Voxxed Days, JSpring, JFall, JFokus and GOTO), local JUGs, podcasts and webinars, 
+    and has contributed to the book “97 Things Every Java Programmer Should Know” (O’Reilly Media).

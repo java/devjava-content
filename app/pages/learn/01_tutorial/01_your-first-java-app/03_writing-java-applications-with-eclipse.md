@@ -52,7 +52,7 @@ This opens a dialog similar to the project creation dialog. It allows specifying
 <a id="content_assist">&nbsp;</a>
 ## Content Assist
 
-Eclipse can help you write Java code by automatically completing parts of it. When pressing the key combination `Ctrl`+`Space` (or `Alt`+`/` on chinese systems or `⌘`+`/` on chinese MacOS systems) while editing Java code, Eclipse automatically suggests ways to complete the code. These suggestions can be confirmed by pressing `Enter` or double-clicking on the suggestions.
+Eclipse can help you write Java code by automatically completing parts of it. When pressing the key combination `Ctrl`+`Space` (or `⌘`+`Space` on MacOS or `Alt`+`/` on chinese systems) while editing Java code, Eclipse automatically suggests ways to complete the code. These suggestions can be confirmed by pressing `Enter` or double-clicking on the suggestions.
 
 For example, typing `main` in a class followed by pressing `Ctrl`+`Space` suggests adding a main method.  
 [![Content assist suggesting a main method](/assets/images/eclipse/content_assist_main.png)](/assets/images/eclipse/content_assist_main.png)

@@ -9,7 +9,7 @@ subheader_select: tutorials
 main_css_id: learn
 toc:
 - Introduction and Installation {intro}
-- creating Java projects {creating}
+- Creating Java projects {creating}
 - Content Assist {content_assist}
 - Dealing with compilation errors and warnings {errors}
 - Running a program {run}
@@ -35,10 +35,10 @@ Upon selecting a workspace, it will show a Welcome screen presenting you with mu
 This article will show you how to create Java projects manually so you can close the welcome-screen by clicking on the `Hide` button on the top right of the Welcome tab.
 
 <a id="creating">&nbsp;</a>
-## creating Java projects
+## Creating Java projects
 
 After installing Eclipse, you should have an empty workspace. In order to create a new Java project, click on the `File`-toolbar on the top left corner of the Eclipse window and select `New` > `Java Project`.  
-[![`File` > `New` > `Java Project`](/assets/images/eclipse/file_create_project.png)](/assets/images/eclipse/file_create_project.png)
+[![File > New > Java Project](/assets/images/eclipse/file_create_project.png)](/assets/images/eclipse/file_create_project.png)
 
 This will then open up a dialog that allows configuring information about the project. You will need to enter a name next to `Project name:` at the top. For example, you can choose the name `HelloWorld`. In the `Module` section at the bottom, disable the option `Create module-info.java file`. If necessary, it is possible to configure a custom Java installation in the `JRE` box.  
 [![Java project creation dialog](/assets/images/eclipse/create_java_project.gif)](/assets/images/eclipse/create_java_project.gif)
@@ -85,27 +85,26 @@ In order to run a Java application, you first need to have a class with a `main`
 [![Run As > Java application in the editor](/assets/images/eclipse/run_as_editor.png)](/assets/images/eclipse/run_as_editor.png)  
 [![Run As > Java application in the editor](/assets/images/eclipse/run_as_package_explorer.png)](/assets/images/eclipse/run_as_package_explorer.png)
 
-Alternatively, you can run the application using the Run [![Run button](/assets/images/eclipse/run_button.png)](/assets/images/eclipse/run_button.png) in the toolbar. [![Run button in toolbar](/assets/images/eclipse/run_buttons_toolbar.png)](/assets/images/eclipse/run_buttons_toolbar.png)
+Alternatively, you can run the application using the Run [![Run button](/assets/images/eclipse/run_button.png)](/assets/images/eclipse/run_button.png) button in the toolbar. [![Run button in toolbar](/assets/images/eclipse/run_buttons_toolbar.png)](/assets/images/eclipse/run_buttons_toolbar.png)
 
 When running the program, Eclipse should show the output of the program in the `Console` view.  
 [![Program with output in console](/assets/images/eclipse/console_output.png)](/assets/images/eclipse/console_output.png)
-
 
 <a id="debugging">&nbsp;</a>
 ## Debugging in Eclipse
 
 When a program doesn't do what you expect it to do, you might want to debug it. The process of debugging is explained in [this article](/learn/debugging). Eclipse provides a lot of functionality making it easy to debug Java applications.
 
-In order to debug an application, you need to set a breakpoint. When the execution hits that breakpoint the program will temporarily stop ("suspend") and allow you to inspect its current state and step through the program. To set a breakpoint, you need to double-click on the area to the left of the line you want to stop execution at. After doing that, a blue dot should appear there.  
+In order to debug an application, you need to set a breakpoint. When the execution hits that breakpoint, the program will temporarily stop ("suspend"), allow you to inspect its current state and step through the program. To set a breakpoint, you need to double-click on the area to the left of the line you want to stop execution at. After doing that, a blue dot should appear there.  
 [![A breakpoint next to source code](/assets/images/eclipse/breakpoint.png)](/assets/images/eclipse/breakpoint.png)
 
-When running a program normally, the program will ignore all breakpoints. For debugging, you need to run the program in debug mode. This can be done by clicking on the green button with the bug icon next to the run button or using `Debug As` > `Java Application`.  
-[![The debug button next to run buttons](/assets/images/eclipse/debug_button.png)](/assets/images/eclipse/debug_button.png)
+When running a program normally, it will ignore all breakpoints. For debugging, you need to run the program in debug mode. This can be done by clicking on the green button with the bug icon [![The debug button](/assets/images/eclipse/debug_button.png)](/assets/images/eclipse/debug_button.png) next to the run button or using `Debug As` > `Java Application`.  
+[![The debug button next to run buttons](/assets/images/eclipse/debug_button_in_toolbar.png)](/assets/images/eclipse/debug_button_in_toolbar.png)
 
 When the execution hits a breakpoint in debug mode, Eclipse will ask you to switch to the Debug perspective. This perspective gives you more information about the program you are currently debugging so you likely want to do this and click on the `Switch` button.  
 [![Eclipse asking to switch to the Debug perspective](/assets/images/eclipse/debug_perspective_switch.png)](/assets/images/eclipse/debug_perspective_switch.png)
 
-Upon opening the debug perspective, you should still see your code in the middle. However, there should be one line with a green background. This indicates the next line the program would execute. On the right side, you should see a `Variables` view containing a list of variables and their current values.
+Upon opening the debug perspective, you should still see your code in the middle. However, there should be one line with a green background next to the breakpoint. This indicates the next line the program would execute. On the right side, you should see a `Variables` view containing a list of variables and their current values.
 [![The debug perspective](/assets/images/eclipse/debug_perspective.png)](/assets/images/eclipse/debug_perspective.png)
 
 While the program is suspended, you can tell it how to continue executing using buttons in the toolbar at the top.

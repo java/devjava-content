@@ -95,13 +95,13 @@ When running the program, Eclipse should show the output of the program in the `
 
 When a program doesn't do what you expect it to do, you might want to debug it. The process of debugging is explained in [this article](/learn/debugging). Eclipse provides a lot of functionality making it easy to debug Java applications.
 
-In order to debug an application, you need to set a breakpoint. When the execution hits that breakpoint, the program will temporarily stop ("suspend"), allow you to inspect its current state and step through the program. To set a breakpoint, you need to double-click on the area to the left of the line you want to stop execution at. After doing that, a blue dot should appear there.  
+In order to debug an application, you need to set a breakpoint. When the program gets to executing the line with the breakpoint, it will temporarily stop ("suspend"), allow you to inspect its current state and step through the program. To set a breakpoint, you need to double-click on the area to the left of the line you want to suspend the program at. After doing that, a blue dot should appear there.  
 [![A breakpoint next to source code](/assets/images/eclipse/breakpoint.png)](/assets/images/eclipse/breakpoint.png)
 
 When running a program normally, it will ignore all breakpoints. For debugging, you need to run the program in debug mode. This can be done by clicking on the green button with the bug icon [![The debug button](/assets/images/eclipse/debug_button.png)](/assets/images/eclipse/debug_button.png) next to the run button or using `Debug As` > `Java Application`.  
 [![The debug button next to run buttons](/assets/images/eclipse/debug_button_in_toolbar.png)](/assets/images/eclipse/debug_button_in_toolbar.png)
 
-When the execution hits a breakpoint in debug mode, Eclipse will ask you to switch to the Debug perspective. This perspective gives you more information about the program you are currently debugging so you likely want to do this and click on the `Switch` button.  
+When the program execution gets to a breakpoint in debug mode, Eclipse will ask you to switch to the Debug perspective. This perspective gives you more information about the program you are currently debugging so you likely want to do this and click on the `Switch` button.  
 [![Eclipse asking to switch to the Debug perspective](/assets/images/eclipse/debug_perspective_switch.png)](/assets/images/eclipse/debug_perspective_switch.png)
 
 Upon opening the debug perspective, you should still see your code in the middle. However, there should be one line with a green background next to the breakpoint. This indicates the next line the program would execute. On the right side, you should see a `Variables` view containing a list of variables and their current values.
@@ -109,4 +109,4 @@ Upon opening the debug perspective, you should still see your code in the middle
 
 While the program is suspended, you can tell it how to continue executing using buttons in the toolbar at the top.
 [![Buttons for controlling execution flows in the toolbar](/assets/images/eclipse/debug_toolbar_buttons.png)](/assets/images/eclipse/debug_toolbar_buttons.png)
-You can execute one line using `Step Over` [![Step Over button](/assets/images/eclipse/debug_step_over.png)](/assets/images/eclipse/debug_step_over.png) (`F6`), go into a method using `Step Into` [![Step Into button](/assets/images/eclipse/debug_step_into.png)](/assets/images/eclipse/debug_step_into.png) (F5) or continue execution until the next breakpoint with `Resume` [![Resume button](/assets/images/eclipse/debug_resume.png)](/assets/images/eclipse/debug_resume.png) (`F8`).
+You can execute one line using `Step Over` [![Step Over button](/assets/images/eclipse/debug_step_over.png)](/assets/images/eclipse/debug_step_over.png) (`F6`), go into a method using `Step Into` [![Step Into button](/assets/images/eclipse/debug_step_into.png)](/assets/images/eclipse/debug_step_into.png) (F5) or continue executing the program until the next breakpoint with `Resume` [![Resume button](/assets/images/eclipse/debug_resume.png)](/assets/images/eclipse/debug_resume.png) (`F8`).

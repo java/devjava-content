@@ -12,6 +12,7 @@ more_learning:
     - H_XxH66lm3U
     - 70_B2DyM8mU
 toc:
+- Overview
 - Installing IntelliJ IDEA
 - Creating a new project
 - Writing and editing code
@@ -21,39 +22,38 @@ toc:
 - Refactoring code
 - Documenting code
 - Searching and navigating
-- Evolving the project
-- More information
+- Summary
 description: "Learn how to code, run, test, debug and document a Java application faster in IntelliJ IDEA."
-last_update: 2024-04-03
+last_update: 2024-04-04
 author: ["MaritvanDijk"]
 ---
 
+## Overview
 An IDE (Integrated Development Environment) allows you to quickly build applications, by integrating a source-code editor with the ability to compile and run your code, as well as integration with  tools you’ll need for software development, including build tools, testing and debugging tools, version control, and so on. And finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
 
-IntelliJ IDEA is one of the [most widely used IDE for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide). It has out-of-the-box integrations with the tools a Java developer will need to start coding immediately, with no need to install any additional plugins.
-IntelliJ IDEA is available in two editions:
+One of the [most widely used integrated development environments (IDEs)](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide) for Java is IntelliJ IDEA. Its user-friendly interface, rich feature set, and vast ecosystem make it an ideal environment for beginners to learn and grow as developers. In this tutorial you’ll learn how to use some of its features to simplify your development process and accelerate your learning curve with Java programming.
+
+## Installing IntelliJ IDEA
+To install IntelliJ IDEA, download the version you want to use from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions.
+Note that IntelliJ IDEA is available in two editions:
 - **_IntelliJ IDEA Community Edition_** - free and open-source. It provides all the basic features for Java development.
 - **_IntelliJ IDEA Ultimate_** - commercial, distributed with a 30-day trial period. It provides additional tools and features for web and enterprise development.
 
-## Installing IntelliJ IDEA
-To install IntelliJ IDEA, download the version you want to use from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions. For more information on installing IntelliJ IDEA on your OS, see [the documentation](https://www.jetbrains.com/help/idea/installation-guide.html#standalone).
+For this tutorial, you can download the Community Edition. For more information on installing IntelliJ IDEA on your OS, see [the documentation](https://www.jetbrains.com/help/idea/installation-guide.html#standalone).
 
 When you launch IntelliJ IDEA for the first time, you’ll see the **Welcome** screen. From here, you create a new project, open an existing project, or get a project from a version control system (like GitHub).
 
 [![Welcome screen](/assets/images/intellij-idea/welcome-screen.png)](/assets/images/intellij-idea/welcome-screen.png)
 
-There is no need to install any additional plugins to get started; the most common integrations are already available as part of the IDE or as bundled plugins. Of course, you can [customize the IDE](https://www.jetbrains.com/help/idea/run-for-the-first-time.html#select-ui-theme) further, or [install additional plugins](https://www.jetbrains.com/help/idea/run-for-the-first-time.html#additional_plugins) if you really want to.
-
-You will need to install a JDK, if you don’t already have one installed. You can do this yourself, as described in [Getting Started with Java](https://dev.java/learn/getting-started/#setting-up-jdk), or you can do so in IntelliJ IDEA when creating a new project, without having to switch from your IDE and other tools (such as your browser, file system, etc.) to download and configure a JDK.
+To start working with Java, you will need to install a JDK. You can do this yourself, as described in [Getting Started with Java](https://dev.java/learn/getting-started/#setting-up-jdk), or you can do so in IntelliJ IDEA when creating a new project, without having to switch from your IDE and other tools (such as your browser, file system, etc.) to download and configure a JDK.
 
 ## Creating a new project
-As mentioned above, we can create a new project from the **Welcome** screen. Alternatively, we can go to **File | New | Project** in the main menu.
+We can create a new project from the **Welcome** screen, or we can go to **File | New | Project** in the main menu.
 
 [![New Project menu](/assets/images/intellij-idea/new-project-menu.png)](/assets/images/intellij-idea/new-project-menu.png)
 
-In the **New Project** wizard, make sure that **New Project** is selected on the left hand side.
-
-Give your project a name (for example `java-demo`) and make sure the selected **Language** is `Java`. Next, we'll select a **Build system**. IntelliJ IDEA supports both Maven and Gradle, the most used build systems for Java. A build tool, like Maven or Gradle, helps you to build your project, and manage any dependencies (like additional libraries) that you want to use in your Java code. Using a build tool will also make it easier to share your application and build it on a different machine. If you don't want to use either, you can use the IntelliJ build system. In this tutorial, let’s create a Maven project.
+In the **New Project** wizard, make sure that **Java** is selected on the left hand side, and give your project a name (for example, `java-demo`).
+Next, we'll select a **Build system**. IntelliJ IDEA supports both Maven and Gradle; the most used build systems for Java. A build tool, like Maven or Gradle, helps you to build your project, and manage any dependencies (like additional libraries) that you want to use in your Java code. Using a build tool will also make it easier to share your application and build it on a different machine. If you don't want to use either, you can use the IntelliJ build system. In this tutorial, let’s create a Maven project.
 
 [![New Project](/assets/images/intellij-idea/new-project.png)](/assets/images/intellij-idea/new-project.png)
 
@@ -84,7 +84,7 @@ Let’s add some code. We’ll start by creating a new class. In the **Project**
 [![New Java class](/assets/images/intellij-idea/new-java-class.png)](/assets/images/intellij-idea/new-java-class.png)
 
 ## Writing and editing code
-Inside the class `HelloWorld`, we will write the main method, which is where execution of our Java program will start.
+Inside the class `HelloWorld`, we will write the main method; which is where execution of our Java program will start.
 The classic way to write a main method in Java is:
 ```java
 public static void main(String[] args) {
@@ -156,11 +156,11 @@ We can select a **Testing library** in the **Create test** popup.
 
 [![Create test](/assets/images/intellij-idea/create-test.png)](/assets/images/intellij-idea/create-test.png)
 
-IntelliJ IDEA supports multiple testing libraries, including [JUnit5](https://junit.org/junit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module”. Click **Fix** to have IntelliJ IDEA fix this for you.
+IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/JUnit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module”. Click **Fix** to have IntelliJ IDEA fix this for you.
 
-Note that the JUnit5 dependency is added to the `pom.xml` in the `<dependencies>` section.
+Note that the JUnit 5 dependency `junit-jupiter` is added to the `pom.xml` in the `<dependencies>` section.
 
-[![JUnit5 dependencies](/assets/images/intellij-idea/junit5-dependencies.png)](/assets/images/intellij-idea/junit5-dependencies.png)
+[![JUnit5 dependencies](/assets/images/intellij-idea/JUnit5-dependencies.png)](/assets/images/intellij-idea/JUnit5-dependencies.png)
 
 Go back to the test file to add tests. We can let IntelliJ IDEA help us generate our test for us. In the test class, we can use **Generate** (**⌘N** on macOS or **Alt+Insert** on Windows/Linux) and select **Test Method** to add a test. Give the test a name that explains the intended behavior, and add the relevant test code.
 
@@ -256,14 +256,7 @@ Open Find in Files from the main menu using **Edit | Find | Find in Files**, or 
 
 [![Find in Files](/assets/images/intellij-idea/find-in-files.png)](/assets/images/intellij-idea/find-in-files.png)
 
-## Evolving the project
+## Summary
 In this article, we’ve seen how IntelliJ IDEA can help you with code suggestions and completion while writing code, running your application, adding tests and using the debugger to help figure out how code is run, refactoring code, and more.
 
-In the future, you might want to add more functionality to your project, and upgrade the Java version your project uses to take advantage of cool new language features.
-
-IntelliJ IDEA continues to improve and evolve, adding new features and offering new integration. This includes inspections for new Java language features. [Feedback is welcome](https://youtrack.jetbrains.com/issues/IDEA).
-
-[IntelliJ IDEA Community Edition](https://github.com/JetBrains/intellij-community) is an open-source project, and community contributions are welcome. Check the [contribution guide](https://github.com/JetBrains/intellij-community/blob/master/CONTRIBUTING.md) to contribute to IntelliJ IDEA, or the [IntelliJ Platform](https://plugins.jetbrains.com/docs/intellij/intellij-platform.html).
-
-## More information
-For more information on IntelliJ IDEA, have a look at the [documentation](https://www.jetbrains.com/help/idea/getting-started.html), the [blog](https://blog.jetbrains.com/idea/), the [YouTube channel](https://www.youtube.com/intellijidea), or the [guide](https://www.jetbrains.com/guide/java/).
+IntelliJ IDEA continues to improve and evolve, adding new features and offering new integration. You can sharpen your coding skills by taking a look at the [documentation](https://www.jetbrains.com/help/idea/getting-started.html), [blog](https://blog.jetbrains.com/idea/), [YouTube channel](https://www.youtube.com/intellijidea), or [guide](https://www.jetbrains.com/guide/java/).

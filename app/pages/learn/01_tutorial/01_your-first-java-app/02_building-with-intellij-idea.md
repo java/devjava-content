@@ -156,7 +156,7 @@ We can select a **Testing library** in the **Create test** popup.
 
 [![Create test](/assets/images/intellij-idea/create-test.png)](/assets/images/intellij-idea/create-test.png)
 
-IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/JUnit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module”. Click **Fix** to have IntelliJ IDEA fix this for you.
+IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/junit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module”. Click **Fix** to have IntelliJ IDEA fix this for you.
 
 Note that the JUnit 5 dependency `junit-jupiter` is added to the `pom.xml` in the `<dependencies>` section.
 

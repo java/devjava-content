@@ -12,27 +12,29 @@ more_learning:
     - H_XxH66lm3U
     - 70_B2DyM8mU
 toc:
-- Overview
-- Installing IntelliJ IDEA
-- Creating a new project
-- Writing and editing code
-- Running your application
-- Testing
-- Debugging
-- Refactoring code
-- Documenting code
-- Searching and navigating
-- Summary
+- Overview {overview}
+- Installing IntelliJ IDEA {install}
+- Creating a new project {new}
+- Writing and editing code {edit}
+- Running your application {run}
+- Testing {test}
+- Debugging {debug}
+- Refactoring code {refactor}
+- Documenting code {document}
+- Searching and navigating {navigation}
+- Summary {summary}
 description: "Learn how to code, run, test, debug and document a Java application faster in IntelliJ IDEA."
 last_update: 2024-04-04
 author: ["MaritvanDijk"]
 ---
 
+<a id="overview">&nbsp;</a>
 ## Overview
 An IDE (Integrated Development Environment) allows you to quickly build applications, by integrating a source-code editor with the ability to compile and run your code, as well as integration with  tools you’ll need for software development, including build tools, testing and debugging tools, version control, and so on. And finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
 
 One of the [most widely used integrated development environments (IDEs)](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide) for Java is IntelliJ IDEA. Its user-friendly interface, rich feature set, and vast ecosystem make it an ideal environment for beginners to learn and grow as developers. In this tutorial you’ll learn how to use some of its features to simplify your development process and accelerate your learning curve with Java programming.
 
+<a id="install">&nbsp;</a>
 ## Installing IntelliJ IDEA
 To install IntelliJ IDEA, download the version you want to use from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions.
 Note that IntelliJ IDEA is available in two editions:
@@ -47,6 +49,7 @@ When you launch IntelliJ IDEA for the first time, you’ll see the **Welcome** s
 
 To start working with Java, you will need to install a JDK. You can do this yourself, as described in [Getting Started with Java](https://dev.java/learn/getting-started/#setting-up-jdk), or you can do so in IntelliJ IDEA when creating a new project, without having to switch from your IDE and other tools (such as your browser, file system, etc.) to download and configure a JDK.
 
+<a id="new">&nbsp;</a>
 ## Creating a new project
 We can create a new project from the **Welcome** screen, or we can go to **File | New | Project** in the main menu.
 
@@ -83,6 +86,7 @@ Let’s add some code. We’ll start by creating a new class. In the **Project**
 
 [![New Java class](/assets/images/intellij-idea/new-java-class.png)](/assets/images/intellij-idea/new-java-class.png)
 
+<a id="edit">&nbsp;</a>
 ## Writing and editing code
 Inside the class `HelloWorld`, we will write the main method; which is where execution of our Java program will start.
 The classic way to write a main method in Java is:
@@ -115,6 +119,7 @@ To speed up development, we can also [generate code](https://www.jetbrains.com/h
 
 IntelliJ IDEA will manage the formatting of your code as you write it. If needed, you can explicitly reformat the code, using the shortcut **⌘⌥L** (on macOS) or **Ctrl+Alt+L** (on Windows/Linux).
 
+<a id="run">&nbsp;</a>
 ## Running your application
 A major benefit of using an IDE is that you can directly run your code without having to first manually compile it on the command line.
 
@@ -134,6 +139,7 @@ Edit the **Run/Debug Configurations** in the popup.
 
 [![Run / Debug Configuration](/assets/images/intellij-idea/run-config.png)](/assets/images/intellij-idea/run-config.png)
 
+<a id="test">&nbsp;</a>
 ## Testing
 Testing your code helps you to verify that the code does what you expect it to do. You can run your application and test it yourself, or add automated tests that can verify your code for you. Thinking about what to test and how, can help you to break a problem up into smaller pieces. This will help you get a better solution faster!
 
@@ -196,6 +202,7 @@ In our test class, we can select **Run All Tests** (**⌃⇧R** on macOS or **Ct
 
 In our example, we see that the second tests fails. We expected to get the value `0` as the average of an empty array, but got `NaN` (not a number) instead. Let's find out why, using the debugger.
 
+<a id="debug">&nbsp;</a>
 ## Debugging
 We might want to see how our code runs, either to help us understand how it works and/or when we need to fix a bug or failing test, like the one above. We can run our code through the [debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to see the state of our variables at different times, and the call stack - the order in which methods are called when the program executes. To do so, we must first add a [breakpoint](https://www.jetbrains.com/help/idea/using-breakpoints.html) to the code.
 
@@ -228,6 +235,7 @@ Now, when we run our tests, we see that they pass.
 
 For more information on debugging, see [Debugging in Java](https://dev.java/learn/debugging/)
 
+<a id="refactor">&nbsp;</a>
 ## Refactoring code
 
 While working with the code, we may want to make small improvements without changing the functionality. We can use [refactoring](https://www.jetbrains.com/help/idea/refactoring-source-code.html) to reshape the code. We can rename classes, variables and methods using **Refactor | Rename** (**⇧F6** on macOS, or **Shift+F6** on Windows/Linux).
@@ -240,11 +248,13 @@ Pull up the refactoring menu to see what is possible, using the shortcut **⌃T*
 
 [![Refactoring](/assets/images/intellij-idea/refactor.gif)](/assets/images/intellij-idea/refactor.gif)
 
+<a id="document">&nbsp;</a>
 ## Documenting code
 We can add documentation to our code. IntelliJ IDEA provides completion for documentation comments, which is enabled by default. Type `/**` before a declaration and press **Enter**. IntelliJ IDEA auto-completes the documentation comment for you.
 
 We can make the Javadoc comments easier to read by selecting Reader Mode. We can toggle to reader mode in the editor using **^⌥Q** (on macOS) or **Ctrl+Alt+Q** (on Windows/Linux). Right-click the icon in the gutter to select **Render All Doc Comments** if you want all comments to show in reader mode.
 
+<a id="navigation">&nbsp;</a>
 ## Searching and navigating
 IntelliJ IDEA also helps us by providing ways to navigate around our codebase, for example by going backwards and forwards between files, finding usages and declarations, finding interfaces and their implementations, viewing recently opened files and location, or even opening a window by name.
 
@@ -256,6 +266,7 @@ Open Find in Files from the main menu using **Edit | Find | Find in Files**, or 
 
 [![Find in Files](/assets/images/intellij-idea/find-in-files.png)](/assets/images/intellij-idea/find-in-files.png)
 
+<a id="summary">&nbsp;</a>
 ## Summary
 In this article, we’ve seen how IntelliJ IDEA can help you with code suggestions and completion while writing code, running your application, adding tests and using the debugger to help figure out how code is run, refactoring code, and more.
 

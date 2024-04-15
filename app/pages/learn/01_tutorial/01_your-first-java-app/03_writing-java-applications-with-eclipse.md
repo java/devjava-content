@@ -14,8 +14,11 @@ toc:
 - Dealing with compilation errors and warnings {errors}
 - Running a program {run}
 - Debugging {debugging}
+- Generating code {generating}
+- Refactoring {refactoring}
+- Summary {summary}
 description: "Installing and getting started with the Eclipse IDE for developing Java applications"
-last_update: 2024-04-02
+last_update: 2024-04-15
 author: ["DanielSchmid"]
 ---
 <a id="intro">&nbsp;</a>
@@ -52,7 +55,7 @@ This opens a dialog similar to the project creation dialog. It allows specifying
 <a id="content_assist">&nbsp;</a>
 ## Content Assist
 
-Eclipse can help you write Java code by automatically completing parts of it. When pressing the key combination `Ctrl`+`Space` (or `⌘`+`Space` on MacOS or `Alt`+`/` on chinese systems) while editing Java code, Eclipse automatically suggests ways to complete the code. These suggestions can be confirmed by pressing `Enter` or double-clicking on the suggestions.
+Eclipse can help you write Java code by automatically completing parts of it. When pressing the key combination `Ctrl`+`Space` (or `⌘`+`Space` on macOS or `Alt`+`/` on chinese systems) while editing Java code, Eclipse automatically suggests ways to complete the code. These suggestions can be confirmed by pressing `Enter` or double-clicking on the suggestions.
 
 For example, typing `main` in a class followed by pressing `Ctrl`+`Space` suggests adding a main method.  
 [![Content assist suggesting a main method](/assets/images/eclipse/content_assist_main.png)](/assets/images/eclipse/content_assist_main.png)
@@ -110,3 +113,182 @@ Upon opening the debug perspective, you should still see your code in the middle
 While the program is suspended, you can tell it how to continue executing using buttons in the toolbar at the top.
 [![Buttons for controlling execution flows in the toolbar](/assets/images/eclipse/debug_toolbar_buttons.png)](/assets/images/eclipse/debug_toolbar_buttons.png)
 You can execute one line using `Step Over` [![Step Over button](/assets/images/eclipse/debug_step_over.png)](/assets/images/eclipse/debug_step_over.png) (`F6`), go into a method using `Step Into` [![Step Into button](/assets/images/eclipse/debug_step_into.png)](/assets/images/eclipse/debug_step_into.png) (F5) or continue executing the program until the next breakpoint with `Resume` [![Resume button](/assets/images/eclipse/debug_resume.png)](/assets/images/eclipse/debug_resume.png) (`F8`).
+
+<a id="generating">&nbsp;</a>
+## Generating code
+
+Sometimes you might need to write repetitive code that doesn't contain much business logic and can be generated using information from existing code. An example of this is getters/setters or `equals`/`hashCode`/`toString` methods which typically just need to access some fields. While it is often preferable to use [records](/learn/records), Eclipse allows comes with functionality to generate these pieces of repetitive code.
+
+In order to do this, you first need to create a class with some fields you want to generate these methods for. In this example, we will create a `Person` class that stores the first name, last name and age of a person.
+```java
+public class Person {
+	private String firstName;
+	private String lastName;
+	private int age;
+	//we want to generate code here
+	
+}
+```
+
+When right-clicking in that class, there is an option called `Source` providing various ways to generate code. Here, we can select `Generate Getters and Setters...` in order to generate accessor methods for the fields in the `Person` class.  
+[![Generate Getters and Setters](/assets/images/eclipse/context_generate_getters_setters.png)](/assets/images/eclipse/context_generate_getters_setters.png)
+
+This option should open up a new window allowing us to configure which fields we want to generate accessors for. In order to create accessors for all fields, use the `Select All` button. and click `Generate` on the bottom right.  
+[![Generate Getters and Setters](/assets/images/eclipse/getter_setter_modal.png)](/assets/images/eclipse/getter_setter_modal.png)
+
+After doing this, the class should look as follows:
+```java
+public class Person {
+	private String firstName;
+	private String lastName;
+	private int age;
+	//we want to generate code here
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+}
+```
+
+Similarly, it is possible to generate the `hashCode` and `equals` methods using the menu `Source` > `Generate hashCode() and equals()...`.  
+[![Generate hashCode and equals](/assets/images/eclipse/context_generate_hashcode_equals.png)](/assets/images/eclipse/generate_hashcode_equals.png)
+
+This also opens a window which allows to select the fields to include in the `hashCode` and `equals` methods.  
+[![Selecting fields to use in hashCode and equals](/assets/images/eclipse/hashcode_equals_modal.png)](/assets/images/eclipse/hashcode_equals_modal.png)
+
+After clicking `Generate`, Eclipse automatically adds these methods to the class.
+```java
+import java.util.Objects;
+
+public class Person {
+	private String firstName;
+	private String lastName;
+	private int age;
+	//we want to generate code here
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, firstName, lastName);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return age == other.age && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(lastName, other.lastName);
+	}
+	
+}
+```
+
+Another method that is often generated is `toString()` which returns a `String` representation of the object.
+To generate that method, select `Generate toString()...` in the `Source` menu.  
+[![Generate toString](/assets/images/eclipse/context_tostring.png)](/assets/images/eclipse/context_tostring.png)
+
+As before, this opens a window allowing to specify options on how exactly the code should be generated.
+[![Options for toString](/assets/images/eclipse/tostring_options.png)](/assets/images/eclipse/tostring_options.png)
+
+Using the `Generate` button, Eclipse generates the `toString` method as it did with the other methods before.
+```java
+import java.util.Objects;
+
+public class Person {
+	private String firstName;
+	private String lastName;
+	private int age;
+	//we want to generate code here
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, firstName, lastName);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return age == other.age && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(lastName, other.lastName);
+	}
+	@Override
+	public String toString() {
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + "]";
+	}
+	
+}
+```
+
+
+<a id="refactoring">&nbsp;</a>
+## Refactoring
+
+When working on Java applications, it is often necessary to change existing code in various ways while preserving functionality. Eclipse supports developers doing that by providing various refactoring options. An example of that is renaming class, methods or fields. This can be done by clicking on a class, method or variable name, right-clicking and selecting `Refactor` > `Rename`.  
+[![Rename context menu](/assets/images/eclipse/context_rename.png)](/assets/images/eclipse/context_rename.png)
+
+It is then possible to change to name to something different and confirming it using the `Enter` key. This also updates all references to the renamed element.  
+[![Renaming a class name](/assets/images/eclipse/rename_box.png)](/assets/images/eclipse/rename_box.png)
+[![Renaming a class name](/assets/images/eclipse/rename_different_text.png)](/assets/images/eclipse/rename_different_text.png)
+
+
+<a id="summary">&nbsp;</a>
+## Summary
+
+As you can see, the Eclipse IDE provides a lot of tools that help developers writing Java applications. While this article shows some, Eclipse comes with many more features which can be especially useful when working on bigger applications. If you are interested in reading more, check out the [Java Development user guide](https://help.eclipse.org/latest/index.jsp?nav=%2F1).

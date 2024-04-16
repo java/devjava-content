@@ -94,9 +94,9 @@ When running the program, Eclipse should show the output of the program in the `
 [![Program with output in console](/assets/images/eclipse/console_output.png)](/assets/images/eclipse/console_output.png)
 
 <a id="debugging">&nbsp;</a>
-## Debugging in Eclipse
+## Debugging
 
-When a program doesn't do what you expect it to do, you might want to debug it. The process of debugging is explained in [this article](/learn/debugging). Eclipse provides a lot of functionality making it easy to debug Java applications.
+When a program doesn't do what you expect it to do, you might want to debug it. The process of debugging is explained in [this article](id:debugging). Eclipse provides a lot of functionality making it easy to debug Java applications.
 
 In order to debug an application, you need to set a breakpoint. When the program gets to executing the line with the breakpoint, it will temporarily stop ("suspend"), allow you to inspect its current state and step through the program. To set a breakpoint, you need to double-click on the area to the left of the line you want to suspend the program at. After doing that, a blue dot should appear there.  
 [![A breakpoint next to source code](/assets/images/eclipse/breakpoint.png)](/assets/images/eclipse/breakpoint.png)

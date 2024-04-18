@@ -166,7 +166,7 @@ IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://j
 
 Note that the JUnit 5 dependency `junit-jupiter` is added to the `pom.xml` in the `<dependencies>` section.
 
-[![JUnit5 dependencies](/assets/images/intellij-idea/JUnit5-dependencies.png)](/assets/images/intellij-idea/JUnit5-dependencies.png)
+[![JUnit5 dependencies](/assets/images/intellij-idea/junit5-dependencies.png)](/assets/images/intellij-idea/JUnit5-dependencies.png)
 
 Go back to the test file to add tests. We can let IntelliJ IDEA help us generate our test for us. In the test class, we can use **Generate** (**⌘N** on macOS or **Alt+Insert** on Windows/Linux) and select **Test Method** to add a test. Give the test a name that explains the intended behavior, and add the relevant test code.
 

@@ -100,4 +100,4 @@ Not only does the `lines()` method provide a stream of data over the contents of
 <a id="mappings">&nbsp;</a>
 ## Mappings
 
-Any where you're working with a collection of data from an external resource, ask if there is a way to get a stream of data over the contents of that resource. The chances are that you may find a function for that within the JDK or a third-party library. Once we get a stream, we can use the highly effective functional operators like `filter()`, `map()`, etc. to fluently iterate over the collection of data that's part of the resource.
+Whenever you're working with a collection of data from an external resource, ask if there is a way to get a stream of data over the contents of that resource. The chances are that you may find a function for that within the JDK or a third-party library. Once we get a stream, we can use the highly effective functional operators like `filter()`, `map()`, etc. to fluently iterate over the collection of data that's part of the resource.

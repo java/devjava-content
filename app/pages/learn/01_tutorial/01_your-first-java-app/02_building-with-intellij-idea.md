@@ -162,7 +162,7 @@ public class Calculator {
     }
 }
 ```
-IntelliJ IDEA makes it easy to add tests to your code. You can navigate to the test for a particular class using the shortcut **⇧⌘T** on macOS or **Ctrl+Shift+T** on Windows/Linux. If no test class exists yet, IntelliJ IDEA will create one for you. This class will be created in the `src/main/java` directory.
+IntelliJ IDEA makes it easy to add tests to your code. You can navigate to the test for a particular class using the shortcut **⇧⌘T** on macOS or **Ctrl+Shift+T** on Windows/Linux. If no test class exists yet, IntelliJ IDEA will create one for you. This class will be created in the `src/test/java` directory.
 We can select a **Testing library** in the **Create test** popup.
 
 [![Create test](/assets/images/intellij-idea/create-test.png)](/assets/images/intellij-idea/create-test.png)
@@ -170,6 +170,7 @@ We can select a **Testing library** in the **Create test** popup.
 IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/junit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module”. Click **Fix** to have IntelliJ IDEA fix this for you.
 
 Note that the JUnit 5 dependency `junit-jupiter` is added to the `pom.xml` in the `<dependencies>` section.
+To make sure the dependencies work correctly in your project, **Load Maven Changes** by clicking the popup in the top right corner, or using the shortcut **⇧⌘I** (on macOS) or **Ctrl+Shift+O** (on Windows/Linux).
 
 [![JUnit5 dependencies](/assets/images/intellij-idea/junit5-dependencies.png)](/assets/images/intellij-idea/junit5-dependencies.png)
 
@@ -211,9 +212,9 @@ In our example, we see that the second tests fails. We expected to get the value
 ## Debugging
 We might want to see how our code runs, either to help us understand how it works and/or when we need to fix a bug or failing test, like the one above. We can run our code through the [debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to see the state of our variables at different times, and the call stack - the order in which methods are called when the program executes. To do so, we must first add a [breakpoint](https://www.jetbrains.com/help/idea/using-breakpoints.html) to the code.
 
-To add a breakpoint, click the gutter at the line of code where you want execution to stop. Alternatively, place the caret at the line and press **⌃F8** (on macOS) or **Ctrl+F8** (on Windows/Linux). We can run our test or application using the **Debug** option.
+To add a breakpoint, click the gutter at the line of code where you want execution to stop. Alternatively, place the caret at the line and press **⌃F8** (on macOS) or **Ctrl+F8** (on Windows/Linux). We can run our test or application using the **Debug** option; either by right-clicking the **Run** button in the gutter and selecting the **Debug** option from the list, or by selecting the **Debug** button at the top right.
 
-Execution will stop at the breakpoint, so we can investigate the state of our application. We can see current values of variables and objects. We can evaluate an expression, to see its current value and look at more details. We can even change the expressions to evaluate different results. We can continue execution by either stepping into a method to see what happens inside a called method (using the shortcut **F7**, or the corresponding button in the *Debug* tool window) or stepping over a line to go to the next line even if a method is called (using the shortcut **F8**, or the corresponding button in the *Debug* tool window), depending on what we’re interested in. Finally, we can resume the program to finish the execution of the test.
+Execution will stop at the breakpoint, so we can investigate the state of our application. We can see the current values of variables and objects. We can evaluate an expression, to see its current value and look at more details. We can even change the expressions to evaluate different results. We can continue execution by either stepping into a method to see what happens inside a called method (using the shortcut **F7**, or the corresponding button in the **Debug** tool window) or stepping over a line to go to the next line even if a method is called (using the shortcut **F8**, or the corresponding button in the **Debug** tool window), depending on what we’re interested in. Finally, we can resume the program to finish the execution of the test.
 
 Let's debug the failing test from the previous section. In the code, place a breakpoint on line 4. Run the failing test through the debugger. Step over the code until you get to line 8, and observe the values of the variables. When we get to line 8, select `sum / numbers.length`, right-click to open the context menu and select **Evaluate Expression**. Press **Enter** to evaluate the selected expression. We see that `sum / numbers.length` results in a `java.lang.ArithmeticException: / by zero`. The empty array has a length of `0` and Java does not allow dividing by zero. 
 When we evaluate `(double) sum / numbers.length` we get the result `NaN`. We expected `0`, so our test fails.
@@ -266,11 +267,11 @@ IntelliJ IDEA provides a way for you to easily understand and read JavaDoc comme
 ## Searching and navigating
 IntelliJ IDEA also helps us by providing ways to navigate around our codebase, for example by going backwards and forwards between files, finding usages and declarations, finding interfaces and their implementations, viewing recently opened files and location, or even opening a window by name.
 
-One popular way to search is [search everywhere](https://www.jetbrains.com/help/idea/searching-everywhere.html) (using **Shift** twice). Search everywhere allows you to search your project files and directories, as well as your project settings and IntelliJ IDEA settings.
+One popular way to search is [Search Everywhere](https://www.jetbrains.com/help/idea/searching-everywhere.html) (using **Shift** twice). Search everywhere allows you to search your project files and directories, as well as your project settings and IntelliJ IDEA settings.
 
 [![Search everywhere](/assets/images/intellij-idea/search-everywhere.png)](/assets/images/intellij-idea/search-everywhere.png)
 
-Open Find in Files from the main menu using **Edit | Find | Find in Files**, or by using the shortcut **⌘⇧F** (on macOS) or **Ctrl+Shift+F** (on Windows/Linux). You can narrow down the results from **In Project** to **Module**, **Directory**, or **Scope**.
+Another popular way to search is [Find in Files](https://www.jetbrains.com/help/idea/finding-and-replacing-text-in-project.html#find_in_project). Open **Find in Files** from the main menu using **Edit | Find | Find in Files**, or by using the shortcut **⌘⇧F** (on macOS) or **Ctrl+Shift+F** (on Windows/Linux). You can narrow down the results from **In Project** to **Module**, **Directory**, or **Scope**.
 
 [![Find in Files](/assets/images/intellij-idea/find-in-files.png)](/assets/images/intellij-idea/find-in-files.png)
 

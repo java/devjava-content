@@ -44,8 +44,8 @@ public class Sample {
 
         while((line = reader.readLine()) != null) {
           if(line.contains(wordOfInterest)) {
-                  count++;
-                }
+            count++;
+          }
         }
 
         System.out.println(String.format("Found %d lines with the word %s", count, wordOfInterest));
@@ -61,9 +61,9 @@ public class Sample {
 In order to make it easy to work with this example, we look for the number of lines with the word "public" in the same source file as the code resides. You may change the value of the `filePath` to refer to a different file and/or the value of the `wordOfInterest` to something else if you like.
 
 
-There are two major parts in this example. We use the `BufferedReader` to access the contents of the file we're interested in looking into. Then, in the `while` loop we check each line to see if it contains the desired word and, if so, increment the `count` to indicate we found another line with the word. Let's examine the two parts, with the second one first.
+There are two major parts in this example. We use the `BufferedReader` returned by the `newBufferedReader()` method to access the contents of the file we're interested in looking into. Then, in the `while` loop we check each line to see if it contains the desired word and, if so, increment the `count` to indicate we found another line with the word. Let's examine the two parts, with the second one first.
 
-Looking closely at the loop, from our discussions in the previous articles, we can recognize that the presence of `if` is a sign that we may use the `filter()` operation if we can write the code as a functional pipeline. Once we filter out or select the lines with the desired word, we can count the number of lines, using the `count()` method of stream. You're most likely curious and bursting to ask,  "but, where's the stream?" To answer that question, let's take a look at the first part of the code.
+Looking closely at the loop, from our discussions in the previous articles, we can recognize that the presence of `if` is a sign that we may use the `filter()` operation if we can write the code as a functional pipeline. Once we filter out or select the lines with the desired word, we can count the number of lines, using the `count()` method of stream. You're most likely curious and bursting to ask, "but, where's the Stream?" To answer that question, let's take a look at the first part of the code.
 
 The data, that is the lines of text, is coming from the file whose path is provided in the variable `filePath`. We're reading the data using the `BufferedReader`'s `readLine()` method and the imperative style to iterate over each line of text. In order to use the functional pipeline, with the operations like `filter()` we need a `Stream` of data. Hence the question, "is it possible to get a stream of data for the contents in  a file?"
 

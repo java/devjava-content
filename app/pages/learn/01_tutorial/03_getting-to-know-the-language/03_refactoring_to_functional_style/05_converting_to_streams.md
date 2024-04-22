@@ -30,23 +30,22 @@ Suppose we want to iterate over a file and count the number of lines with one or
 
 ```java
 //Sample.java
-import java.util.*;
-import java.io.*;
+import java.nio.file.*;
 
 public class Sample {
   public static void main(String[] args) {
     try {
-      final var filePath = "./Sample.java";    
+      final var filePath = "./Sample.java";
       final var wordOfInterest = "public";
 
-      try (var reader = new BufferedReader(new FileReader(filePath))) {
+      try (var reader = Files.newBufferedReader(Paths.get(filePath))) {
         String line = "";
         long count = 0;
 
         while((line = reader.readLine()) != null) {
           if(line.contains(wordOfInterest)) {
-	          count++;
-	        }
+                  count++;
+                }
         }
 
         System.out.println(String.format("Found %d lines with the word %s", count, wordOfInterest));

@@ -45,8 +45,8 @@ public class Sample {
 
         while((line = reader.readLine()) != null) {
           if(line.contains(wordOfInterest)) {
-	    count++;
-	  }
+	          count++;
+	        }
         }
 
         System.out.println(String.format("Found %d lines with the word %s", count, wordOfInterest));

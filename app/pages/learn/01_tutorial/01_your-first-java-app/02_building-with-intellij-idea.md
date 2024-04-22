@@ -23,14 +23,14 @@ toc:
 - Documenting code {document}
 - Searching and navigating {navigation}
 - Summary {summary}
-description: "Learn how to code, run, test, debug and document a Java application faster in IntelliJ IDEA."
-last_update: 2024-04-04
+description: "Learn how to code, run, test, debug and document a Java application in IntelliJ IDEA."
+last_update: 2024-04-22
 author: ["MaritvanDijk"]
 ---
 
 <a id="overview">&nbsp;</a>
 ## Overview
-An IDE (Integrated Development Environment) allows you to quickly build applications, by integrating a source-code editor with the ability to compile and run your code, as well as integration with  tools you’ll need for software development, including build tools, testing and debugging tools, version control, and so on. And finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
+An IDE (Integrated Development Environment) allows you to quickly create applications, by combining a source-code editor with the ability to compile and run your code, as well as integration with build, test and debug tools, version control systems, and so on. Finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
 
 One of the [most widely used integrated development environments (IDEs)](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide) for Java is IntelliJ IDEA. Its user-friendly interface, rich feature set, and vast ecosystem make it an ideal environment for beginners to learn and grow as developers. In this tutorial you’ll learn how to use some of its features to simplify your development process and accelerate your learning curve with Java programming.
 
@@ -78,26 +78,31 @@ IntelliJ IDEA will create a project for you, with a basic `pom.xml` and a defaul
 
 We can see the project structure in the [Project tool window](https://www.jetbrains.com/help/idea/project-tool-window.html) on the left. The `.idea` folder contains your project configuration. The `src` folder contains your code. When you expand that folder, you'll see that IntelliJ IDEA has created a `main` folder for your Java code and a `test` folder for your tests.
 
-To simplify the view on your project, for example to focus on the package structure, click the title bar to select the desired view from the list.
-
-[![Project view](/assets/images/intellij-idea/project-view.png)](/assets/images/intellij-idea/project-view.png)
-
-Let’s add some code. We’ll start by creating a new class. In the **Project** tool window on the left, select the directory `src/main/java`. Add a new Java file using the shortcut **⌘N** (on macOS) or **Alt+Insert** (on Windows/Linux). Alternatively, right-click the **Project** tool window to open the context menu and select **New | Java class**. Name this class `HelloWorld`.
+Let’s add some code by creating a new class. 
+* In the **Project** tool window on the left, select the directory `src/main/java`. 
+* To add a new Java class, right-click the **Project** tool window to open the context menu and select **New | Java class**. 
+* Name this class `HelloWorld`.
 
 [![New Java class](/assets/images/intellij-idea/new-java-class.png)](/assets/images/intellij-idea/new-java-class.png)
 
+---
+**IDE TIP**
+
+You can add a new Java file using the shortcut **⌘N** (on macOS) or **Alt+Insert** (on Windows/Linux).
+
+---
+
 <a id="edit">&nbsp;</a>
 ## Writing and editing code
-Inside the class `HelloWorld`, we will write the main method; which is where execution of our Java program will start.
-The classic way to write a main method in Java is:
+The entrypoint to execute your `HelloWorld` Java program is the main method. Add the main method by typing:
 ```java
 public static void main(String[] args) {
   
 }
 ```
-Add a main method to your HelloWorld class. Type the code, rather than pasting it; this will help you get more familiar with the syntax.
+I recommend that you type the code, rather than pasting, as that will help you get more familiar with the syntax.
 
-Once you've added the main method, let's also add code to print "Hello World!":
+To keep things simple, let's make our program print `Hello World!` to the console and move the cursor to a new line, by adding `System.out.println("Hello World!");` to the method body:
 
 ```java
 public static void main(String[] args) {
@@ -113,7 +118,7 @@ IntelliJ IDEA will show you if you’ve typed or selected something that doesn�
 
 [![Suggestions](/assets/images/intellij-idea/alt-enter.png)](/assets/images/intellij-idea/alt-enter.png)
 
-To speed up development, we can also [generate code](https://www.jetbrains.com/help/idea/generating-code.html). IntelliJ IDEA can generate constructors, getters and setters, toString(), equals() and hashCode() methods, and more.
+To speed up development, we can also [generate code](https://www.jetbrains.com/help/idea/generating-code.html). IntelliJ IDEA can generate constructors, getters and setters, `toString()`, `equals()` and `hashCode()` methods, and more.
 
 [![Generate code](/assets/images/intellij-idea/generate-code.png)](/assets/images/intellij-idea/generate-code.png)
 
@@ -123,7 +128,7 @@ IntelliJ IDEA will manage the formatting of your code as you write it. If needed
 ## Running your application
 A major benefit of using an IDE is that you can directly run your code without having to first manually compile it on the command line.
 
-You can run our application directly from the editor, by clicking the green run button in the gutter near the class declaration, or using the shortcut **⌃⇧R** (on macOS) or **Ctrl+Shift+F10** (on Windows/Linux).
+You can run the `HelloWorld` application directly from the editor, by clicking the green run button in the gutter near the class declaration, or using the shortcut **⌃⇧R** (on macOS) or **Ctrl+Shift+F10** (on Windows/Linux).
 
 Alternatively, we can run our application using the green Run button in the top right corner, or using the shortcut **⌃R** (on macOS) or **Ctrl+F10** (on Windows/Linux) to run the latest file.
 
@@ -135,7 +140,7 @@ To edit your run configurations, select the configuration in the run/debug confi
 
 [![Edit Configurations](/assets/images/intellij-idea/edit-configurations.png)](/assets/images/intellij-idea/edit-configurations.png)
 
-Edit the **Run/Debug Configurations** in the popup.
+The popup **Run/Debug Configurations** appears and there you can modify JVM options, add program arguments and many more.
 
 [![Run / Debug Configuration](/assets/images/intellij-idea/run-config.png)](/assets/images/intellij-idea/run-config.png)
 
@@ -143,11 +148,11 @@ Edit the **Run/Debug Configurations** in the popup.
 ## Testing
 Testing your code helps you to verify that the code does what you expect it to do. You can run your application and test it yourself, or add automated tests that can verify your code for you. Thinking about what to test and how, can help you to break a problem up into smaller pieces. This will help you get a better solution faster!
 
-For example, let's say we have the following method that calculates the average of a list of values, and we want to make sure the average is calculated correctly:
+For example, let's say we have a `Calculator` class containing the following method that calculates the average of a list of values, and we want to make sure the average is calculated correctly:
 ```java
-public class Average {
+public class Calculator {
 
-    public static double calculateAverage(int[] numbers) {
+    public static double average(int[] numbers) {
         int sum = 0;
         for (int number : numbers) {
             sum += number;
@@ -166,22 +171,22 @@ IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://j
 
 Note that the JUnit 5 dependency `junit-jupiter` is added to the `pom.xml` in the `<dependencies>` section.
 
-[![JUnit5 dependencies](/assets/images/intellij-idea/junit5-dependencies.png)](/assets/images/intellij-idea/JUnit5-dependencies.png)
+[![JUnit5 dependencies](/assets/images/intellij-idea/junit5-dependencies.png)](/assets/images/intellij-idea/junit5-dependencies.png)
 
 Go back to the test file to add tests. We can let IntelliJ IDEA help us generate our test for us. In the test class, we can use **Generate** (**⌘N** on macOS or **Alt+Insert** on Windows/Linux) and select **Test Method** to add a test. Give the test a name that explains the intended behavior, and add the relevant test code.
 
-For example, let's make sure that the method `calculateAverage()` correctly calculates the average for an array of positive numbers, and returns `0` for an empty array. You might want to add additional tests, for example, including negative numbers.
+For example, let's make sure that the method `average()` correctly calculates the average for an array of positive numbers, and returns `0` for an empty array. You might want to add additional tests for different scenarios, such as an array of negative numbers, a mix of positive and negative numbers, etc.
 ```java
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AverageTest {
+public class CalculatorTest {
 
     @Test
     void shouldCalculateAverageOfPositiveNumbers() {
         int[] numbers = {1, 2, 3, 4, 5};
         
-        double actualAverage = Average.calculateAverage(numbers);
+        double actualAverage = Calculator.average(numbers);
         
         double expectedAverage = 3.0;
         assertEquals(expectedAverage, actualAverage);
@@ -191,7 +196,7 @@ public class AverageTest {
     void shouldReturnZeroAverageForEmptyArray() {
         int[] numbers = {};
         
-        double actualAverage = Average.calculateAverage(numbers);
+        double actualAverage = Calculator.average(numbers);
         
         double expectedAverage = 0;
         assertEquals(expectedAverage, actualAverage);
@@ -210,15 +215,16 @@ To add a breakpoint, click the gutter at the line of code where you want executi
 
 Execution will stop at the breakpoint, so we can investigate the state of our application. We can see current values of variables and objects. We can evaluate an expression, to see its current value and look at more details. We can even change the expressions to evaluate different results. We can continue execution by either stepping into a method to see what happens inside a called method (using the shortcut **F7**, or the corresponding button in the *Debug* tool window) or stepping over a line to go to the next line even if a method is called (using the shortcut **F8**, or the corresponding button in the *Debug* tool window), depending on what we’re interested in. Finally, we can resume the program to finish the execution of the test.
 
-Let's debug the failing test from the previous section. In the code, place a breakpoint on line 4. Run the failing test through the debugger. Step over the code until you get to line 8, and observe the values of the variables. When we get to line 8, select `sum / numbers.length`, right-click to open the context menu and select **Evaluate Expression**. Press **Enter** to evaluate the selected expression. We see that `sum / numbers.length` results in a `java.lang.ArithmeticException: / by zero`. The empty array has a length of `0` and Java does not allow dividing by zero. When we try to cast this Exception to a `(double)` we get `NaN`; an exception is not a number.
+Let's debug the failing test from the previous section. In the code, place a breakpoint on line 4. Run the failing test through the debugger. Step over the code until you get to line 8, and observe the values of the variables. When we get to line 8, select `sum / numbers.length`, right-click to open the context menu and select **Evaluate Expression**. Press **Enter** to evaluate the selected expression. We see that `sum / numbers.length` results in a `java.lang.ArithmeticException: / by zero`. The empty array has a length of `0` and Java does not allow dividing by zero. 
+When we evaluate `(double) sum / numbers.length` we get the result `NaN`. We expected `0`, so our test fails.
 
 [![Debugging](/assets/images/intellij-idea/debug.gif)](/assets/images/intellij-idea/debug.gif)
 
-Let's fix our code by immediately returning `0` as the average of an empty array:
+As we didn't consider this scenario in our initial implementation, we can fix this by changing our method to return `0` when an empty array is given as input:
 ```java
-public class Average {
+public class Calculator {
 
-    public static double calculateAverage(int[] numbers) {
+    public static double average(int[] numbers) {
         if (numbers.length == 0) {
             return 0;
         }
@@ -238,11 +244,13 @@ For more information on debugging, see [Debugging in Java](https://dev.java/lear
 <a id="refactor">&nbsp;</a>
 ## Refactoring code
 
-While working with the code, we may want to make small improvements without changing the functionality. We can use [refactoring](https://www.jetbrains.com/help/idea/refactoring-source-code.html) to reshape the code. We can rename classes, variables and methods using **Refactor | Rename** (**⇧F6** on macOS, or **Shift+F6** on Windows/Linux).
+While working with our code, we may want to make small improvements without changing the functionality. We can use [refactoring](https://www.jetbrains.com/help/idea/refactoring-source-code.html) to reshape the code. 
 
-We can inline variables (**⌘⌥N** on macOS, or **Ctrl+Alt+N** on Windows/Linux), or extract variables (**⌘⌥V** on macOS, or **Ctrl+Alt+V** on Windows/Linux) as needed.
+* We can rename classes, variables and methods using **Refactor | Rename** (**⇧F6** on macOS, or **Shift+F6** on Windows/Linux).
+* We can inline variables (**⌘⌥N** on macOS, or **Ctrl+Alt+N** on Windows/Linux), or extract variables (**⌘⌥V** on macOS, or **Ctrl+Alt+V** on Windows/Linux) as needed.
+* We can break long methods into smaller parts by extracting a method (**⌘⌥M** on macOS, or **Ctrl+Alt+M** on Windows/Linux) and giving it a meaningful name. 
 
-We can break long methods into smaller parts by extracting a method (**⌘⌥M** on macOS, or **Ctrl+Alt+M** on Windows/Linux) and giving it a meaningful name. We can refactor the code to a more familiar style, or to use new idioms and language features.
+All these options help us refactor our code to a more familiar style, or to use new idioms and language features.
 
 Pull up the refactoring menu to see what is possible, using the shortcut **⌃T** (on macOS) or **Ctrl+Alt+Shift+T** (on Windows/Linux).
 
@@ -252,7 +260,7 @@ Pull up the refactoring menu to see what is possible, using the shortcut **⌃T*
 ## Documenting code
 We can add documentation to our code. IntelliJ IDEA provides completion for documentation comments, which is enabled by default. Type `/**` before a declaration and press **Enter**. IntelliJ IDEA auto-completes the documentation comment for you.
 
-We can make the Javadoc comments easier to read by selecting Reader Mode. We can toggle to reader mode in the editor using **^⌥Q** (on macOS) or **Ctrl+Alt+Q** (on Windows/Linux). Right-click the icon in the gutter to select **Render All Doc Comments** if you want all comments to show in reader mode.
+IntelliJ IDEA provides a way for you to easily understand and read JavaDoc comments by selecting _Reader Mode_. **Toggle Reader Mode** in the editor using **^⌥Q** (on macOS) or **Ctrl+Alt+Q** (on Windows/Linux). Right-click the icon in the gutter to select **Render All Doc Comments** if you want all comments to show in reader mode.
 
 <a id="navigation">&nbsp;</a>
 ## Searching and navigating

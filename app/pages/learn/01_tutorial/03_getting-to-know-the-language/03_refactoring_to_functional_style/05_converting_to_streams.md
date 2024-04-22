@@ -38,7 +38,7 @@ public class Sample {
       final var filePath = "./Sample.java";
       final var wordOfInterest = "public";
 
-      try (var reader = Files.newBufferedReader(Paths.get(filePath))) {
+      try (var reader = Files.newBufferedReader(Path.of(filePath))) {
         String line = "";
         long count = 0;
 
@@ -73,25 +73,26 @@ An easy way to turn the contents of a file into a stream of data is using the `l
 
 ```java
 //Sample.java
-import java.util.*;
 import java.nio.file.*;
 
 public class Sample {
   public static void main(String[] args) {
     try {
-      final var filePath = "./Sample.java";    
+      final var filePath = "./Sample.java";
       final var wordOfInterest = "public";
 
-      long count = Files.lines(Paths.get(filePath))
-        .filter(line -> line.contains(wordOfInterest))
-        .count();
+      try(var stream = Files.lines(Path.of(filePath))) {
+        long count = stream.filter(line -> line.contains(wordOfInterest))
+          .count();
 
-      System.out.println(String.format("Found %d lines with the word %s", count, wordOfInterest));
+        System.out.println(String.format("Found %d lines with the word %s", count, wordOfInterest));
+      }
     } catch(Exception ex) {
       System.out.println("ERROR: " + ex.getMessage());
     }
   }
 }
+
 ```
 
 Not only does the `lines()` method provide a stream of data over the contents of a file, it remove so much of the cruft around reading the lines. Instead of the external iterator where we fetched one line at a time, the stream makes it possible to use the internal iterator where we can focus on what to do for each line of text as it emerges in the stream's pipeline.

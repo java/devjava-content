@@ -1,6 +1,6 @@
 ---
 id: refactoring.to.streams
-title: Converting to Streams
+title: Converting Data Sources to Streams
 slug: learn/refactoring-to-functional-style/convertingtostreams
 type: tutorial-group
 group: refactoring-to-functional-style
@@ -11,7 +11,7 @@ toc:
 - Thinking in Streams {streams}
 - From Imperative to Functional Style {imperativetofunctional}
 - Mappings {mappings}
-description: "Converting to use the Streams API."
+description: "Converting Data Sources to Streams."
 last_update: 2024-03-25
 author: ["VenkatSubramaniam"]
 ---

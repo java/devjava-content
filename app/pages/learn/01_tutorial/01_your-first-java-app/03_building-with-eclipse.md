@@ -38,7 +38,7 @@ Upon selecting a workspace, it will show a Welcome screen presenting you with mu
 
 [![Workspace selection](/assets/images/eclipse/welcome.png)](/assets/images/eclipse/welcome.png)
 
-This article will show you how to create Java projects manually so you can close the welcome-screen by clicking on the `Hide` button on the top right of the Welcome tab.
+This article will show you how to create Java projects manually so you can close this Welcome screen by clicking on the `Hide` button on the top right of the Welcome tab.
 
 <a id="creating">&nbsp;</a>
 ## Creating a Java Project
@@ -62,7 +62,7 @@ This opens a dialog similar to the project creation dialog. It allows specifying
 <a id="content_assist">&nbsp;</a>
 ## Content Assist
 
-Eclipse can help you write Java code by automatically completing parts of it. When pressing the key combination `Ctrl`+`Space` (or `⌘`+`Space` on macOS or `Alt`+`/` on chinese systems) while editing Java code, Eclipse automatically suggests ways to complete the code. These suggestions can be confirmed by pressing `Enter` or double-clicking on the suggestions.
+Eclipse can help you write Java code by automatically completing parts of it. When pressing the key combination `Ctrl`+`Space` (or `⌘`+`Space` on macOS or `Alt`+`/` on Chinese systems) while editing Java code, Eclipse automatically suggests ways to complete the code. These suggestions can be confirmed by pressing `Enter` or double-clicking on the suggestions.
 
 For example, typing `main` in a class followed by pressing `Ctrl`+`Space` suggests adding a main method.
 

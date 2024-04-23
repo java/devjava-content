@@ -34,7 +34,7 @@ After installing Eclipse, you can select a workspace. The workspace is the direc
 
 [![Workspace selection](/assets/images/eclipse/workspace_selection.png)](/assets/images/eclipse/workspace_selection.png)
 
-Upon selecting a workspace, it will show a Welcome screen presenting you with mutliple options. For example, there is an option giving you an interactive tutorial showing you how to create a simple Hello-World application.
+Upon selecting a workspace, it will show a Welcome screen presenting you with mutliple options. For example, there is an option to start an interactive tutorial that shows you how to create a simple Hello-World application.
 
 [![Workspace selection](/assets/images/eclipse/welcome.png)](/assets/images/eclipse/welcome.png)
 
@@ -97,7 +97,7 @@ When running the program, Eclipse should show the output of the program in the `
 <a id="errors">&nbsp;</a>
 ## Dealing with Compilation Errors and Warnings
 
-When Eclipse detects a compilation error, the relevant lines are underlined in red. When hovering over the line with the error or the error icon to the left of the said line, Eclipse provides information about what went wrong and also suggests how to fix the error. However, in many cases there are multiple ways to get rid of the error. You need to carefully check whether the suggestions are actually matching what you want to do. After all, IDEs cannot predict your intent.
+When Eclipse detects a compilation error, the relevant lines are underlined in red. When hovering over the line with the error or the error icon to the left of the said line, Eclipse provides information about what went wrong and also suggests Quick Fixes which can fix the error. However, in many cases, there are multiple ways to get rid of the error. You need to carefully check whether the suggestions are actually matching what you want to do. After all, IDEs cannot predict your intent.
 
 [![Compilation error due to calling a non-existing method](/assets/images/eclipse/compilation_error.png)](/assets/images/eclipse/compilation_error.png)
 
@@ -136,7 +136,7 @@ Upon opening the debug perspective, you should still see your code in the middle
 
 While the program is suspended, you can tell it how to continue executing using buttons in the toolbar at the top.
 [![Buttons for controlling execution flows in the toolbar](/assets/images/eclipse/debug_toolbar_buttons.png)](/assets/images/eclipse/debug_toolbar_buttons.png)
-You can execute one line using `Step Over` [![Step Over button](/assets/images/eclipse/debug_step_over.png)](/assets/images/eclipse/debug_step_over.png) (`F6`), go into a method using `Step Into` [![Step Into button](/assets/images/eclipse/debug_step_into.png)](/assets/images/eclipse/debug_step_into.png) (F5) or continue executing the program until the next breakpoint with `Resume` [![Resume button](/assets/images/eclipse/debug_resume.png)](/assets/images/eclipse/debug_resume.png) (`F8`).
+You can execute one line using `Step Over` [![Step Over button](/assets/images/eclipse/debug_step_over.png)](/assets/images/eclipse/debug_step_over.png) (`F6`), go into a method using `Step Into` [![Step Into button](/assets/images/eclipse/debug_step_into.png)](/assets/images/eclipse/debug_step_into.png) (`F5`) or continue executing the program until the next breakpoint with `Resume` [![Resume button](/assets/images/eclipse/debug_resume.png)](/assets/images/eclipse/debug_resume.png) (`F8`).
 
 <a id="generating">&nbsp;</a>
 ## Generating Code
@@ -323,4 +323,4 @@ It is then possible to change to name to something different and confirming it u
 <a id="summary">&nbsp;</a>
 ## Summary
 
-As you can see, the Eclipse IDE provides a lot of tools that help developers writing Java applications. While this article shows some, Eclipse comes with many more features which can be especially useful when working on bigger applications. If you are interested in reading more, check out the [Java Development user guide](https://help.eclipse.org/latest/index.jsp?nav=%2F1).
+As you can see, the Eclipse IDE provides a lot of tools that help developers write Java applications. While this article shows some, Eclipse comes with many more features that can be especially useful when working on bigger applications. If you are interested in reading more, check out the [Java Development user guide](https://help.eclipse.org/latest/index.jsp?nav=%2F1).

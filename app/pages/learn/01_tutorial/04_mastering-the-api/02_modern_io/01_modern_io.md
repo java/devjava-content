@@ -1,4 +1,20 @@
-# Common I/O Tasks in Modern Java
+---
+id: api.modernio
+title: "Common I/O Tasks in Modern Java"
+type: tutorial
+category: api
+category_order: 2
+layout: learn/tutorial.html
+subheader_select: tutorials
+main_css_id: learn
+last_update: 2024-04-24
+description: "This article focuses on tasks that application programmers are likely to encounter, particularly in web applications, such as reading and writing text files, reading text, images, JSON from the web, and more."
+author: ["CayHorstmann"]
+---
+
+<a id="commonio">&nbsp;</a>
+
+## Introduction
 
 This article focuses on tasks that application programmers are likely to encounter, particularly in web applications, such as: 
 

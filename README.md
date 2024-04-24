@@ -91,10 +91,8 @@ A browser should launch viewing [https://localhost:3000](https://localhost:3000)
 
 You should then be able to open a browser and visit [https://localhost:3000](https://localhost:3000)
 
-In order to automatically update the site when editing an article, it is possible to mount a volume:
+(if you want to mount a volume to automatically refresh the page as you type add option `-v $PWD/app:/app/app` to your `docker run` command above)
 
-1. `docker build --tag devjava .`
-1. `docker run --publish 3000:3000 --rm -v $PWD/app:/app/app devjava`
 
 ## Working with Content
 

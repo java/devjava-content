@@ -87,7 +87,7 @@ A browser should launch viewing [https://localhost:3000](https://localhost:3000)
 ### Option 2: Use Docker
 
 1. `docker build --tag devjava .`
-1. `docker run --publish 3000:3000 --rm devjava`
+1. `docker run --publish 3000:3000 --init -it --rm devjava`
 
 You should then be able to open a browser and visit [https://localhost:3000](https://localhost:3000)
 

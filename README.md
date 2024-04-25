@@ -91,7 +91,7 @@ A browser should launch viewing [https://localhost:3000](https://localhost:3000)
 
 You should then be able to open a browser and visit [https://localhost:3000](https://localhost:3000)
 
-(if you want to mount a volume to automatically refresh the page as you type add option `-v $PWD/app:/app/app` to your `docker run` command above)
+(For a more dynamic development experience avoiding a Docker build after every change, you can mount the local /app folder to the container by adding option `-v $PWD/app:/app/app` to your `docker run` command. Note: $PWD may not work in Windows.)
 
 
 ## Working with Content

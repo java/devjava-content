@@ -86,10 +86,12 @@ A browser should launch viewing [https://localhost:3000](https://localhost:3000)
 
 ### Option 2: Use Docker
 
-1. docker build --tag devjava .
-1. docker run --publish 3000:3000 devjava
+1. `docker build --tag devjava .`
+1. `docker run --publish 3000:3000 --init -it --rm devjava`
 
 You should then be able to open a browser and visit [https://localhost:3000](https://localhost:3000)
+
+(For a more dynamic development experience avoiding a Docker build after every change, you can mount the local /app folder to the container by adding option `-v $PWD/app:/app/app` to your `docker run` command. Note: $PWD may not work in Windows.)
 
 
 ## Working with Content

@@ -35,7 +35,7 @@ This article focuses on API improvements since Java 8. In particular:
 
 ## Reading Text Files
 
-Tou can read a text file into a string like this:
+You can read a text file into a string like this:
 
 ```java
 String content = Files.readString(path);
@@ -172,7 +172,7 @@ This is better than passing an input stream to the `read` method, because the li
 
 ## The Files API
 
-The `java.nio.file.Files` class provides a comprehensive set of file operations, such as creating, copying, moving, and deleting fies and directories. The [File System Basics](https://dev.java/learn/java-io/file-system/) tutorial provides a thorough description. In this section, I highlight a few common tasks.
+The `java.nio.file.Files` class provides a comprehensive set of file operations, such as creating, copying, moving, and deleting files and directories. The [File System Basics](https://dev.java/learn/java-io/file-system/) tutorial provides a thorough description. In this section, I highlight a few common tasks.
 
 ### Traversing Entries in Directories and Subdirectories
 

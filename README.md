@@ -1,8 +1,6 @@
 # Dev.java
 
-[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle.
-
-We [recently announced](https://inside.java) that we are accepting contributions to Dev.java. This repository contains a lightweight JavaScript toolchain to build the site into static HTML and guidelines for contributing to it.
+[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle. This repository contains a lightweight JavaScript toolchain to build the site into static HTML and guidelines for contributing to it.
 
 Here are the sections of this document:
 

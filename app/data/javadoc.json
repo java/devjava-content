@@ -940,6 +940,7 @@
   "Throwable.getCause()":                            "java.base/java/lang/Throwable.html#getCause()",
   "Throwable.getStackTrace()":                       "java.base/java/lang/Throwable.html#getStackTrace()",
   "Throwable.getSuppressed()":                       "java.base/java/lang/Throwable.html#getSuppressed()",
+  "Throwable.printStackTrace()":                     "java.base/java/lang/Throwable.html#printStackTrace()",
 
   "Error":                                           "java.base/java/lang/Error.html",
   "Exception":                                       "java.base/java/lang/Exception.html",

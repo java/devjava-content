@@ -16,19 +16,19 @@ toc:
 - Reading bigger stack traces {bigger}
 - Summary {summary}
 description: "This article explains what stack traces are as well as how they can be read."
-last_update: 2024-04-26
+last_update: 2024-04-27
 author: ["DanielSchmid"]
 ---
 
 <a id="intro">&nbsp;</a>
 ## What is a stack trace?
 
-When an exception occurs in a Java program, a stack trace is often printed to the console. These stack traces often look scary, especially with complex frameworks but actually provide a lot of useful information for solving the issue causing the exeption. Specifically, stack traces show where exactly and exception occured and how the Java program got to that point.
+When an exception occurs in a Java program, a stack trace is often printed to the console. These stack traces often look scary, especially with complex frameworks but actually provide a lot of useful information for solving the issue causing the exeption. Specifically, stack traces show what exception occured as well as where exactly that happened and how the Java program got to that point.
 
 <a id="simple">&nbsp;</a>
 ## A simple stack trace
 
-Before coming to complex stack traces, we first investigate a stack trace originating from a very simple application.
+Before coming to complex stack traces, we first investigate a stack trace originating from a very simple Java application.
 
 ```java
 package com.example.someapplication;
@@ -44,14 +44,15 @@ public class StackTraceDemo {
 }
 ```
 
-Running this class results in the following output:
-```
+Running this class results in the following output.
+
+```none
 Exception in thread "main" java.lang.IllegalStateException: This is for demonstration.
 	at com.example.someapplication.StackTraceDemo.someMethod(StackTraceDemo.java:9)
 	at com.example.someapplication.StackTraceDemo.main(StackTraceDemo.java:5)
 ```
 
-First of all, Java tells us that we got an exception in a thread called `main`. As we haven't used anything related starting other threads, this is the only application thread in this example. In applications involving multiple thread, the thread name can be a useful piece of diagnostic information. This part may be omitted or look different depending on what printed the stack trace.
+First of all, Java tells us that we got an exception in a thread called `main`. As we haven't used anything related to starting other threads, this is the only application thread in this example. In applications involving multiple threads, the thread name can be a useful piece of diagnostic information. This part may be omitted or look different depending on what printed the stack trace.
 
 After the thread name, the full class name of the exception is shown. As we have thrown an `IllegalStateException` in our example, this is `java.lang.IllegalStateException`. If a message is associated with the exception, that message is included in the stack trace as well. In our case, we passed the message `This is for demonstration.` to the `IllegalStateException` constructor resulting in that text being part of the stack trace.
 
@@ -62,7 +63,7 @@ Now, just from the stack trace, we can see where the exception was originating f
 <a id="printing">&nbsp;</a>
 ## Printing stack traces
 
-Sometimes, it is necessary to print the stack trace to the console or some other location when catching an exception without re-throwing it. For doing that, we can make use of the [`printStackTrace`](javadoc:Throwable.printStackTrace()) method. Calling that method prints the stack trace of a given exception to `System.err`. We can adapt our previous program to do catch the exception and print 
+Sometimes, it is necessary to print the stack trace to the console or some other location when catching an exception without re-throwing it. For doing that, we can make use of the [`printStackTrace`](javadoc:Throwable.printStackTrace()) method. Calling that method prints the stack trace of a given exception to `System.err`. We can adapt our previous program to do catch the exception and print the stack trace by ourselves.
 
 ```java
 package com.example.someapplication;
@@ -74,8 +75,8 @@ public class StackTraceDemo {
         } catch(IllegalStateException e) {
             System.out.println("An exception occured.");
             e.printStackTrace();
-            System.out.println("We printed the stack trace.");
         }
+        System.out.println("The program is finished.");
     }
     
     private static void someMethod() {
@@ -86,12 +87,12 @@ public class StackTraceDemo {
 
 This will print the following to the console:
 
-```
+```none
 An exception occured.
 java.lang.IllegalStateException: This is for demonstration.
 	at com.example.someapplication.StackTraceDemo.someMethod(StackTraceDemo.java:15)
 	at com.example.someapplication.StackTraceDemo.main(StackTraceDemo.java:6)
-We printed the stack trace.
+The program is finished.
 ```
 
 As the stack trace was printed to `System.err`, it will be displayed in red or highlighted in some way with most IDEs. If we want to print it to a different location, we can pass a [`PrintWriter`](javadoc:PrintWriter) or [`PrintStream`](javadoc:PrintStream) to the overloads of `printStackTrace`. For example, we could change `e.printStackTrace();` to `e.printStackTrace(System.out);` in order to print the stack trace to `System.out`.
@@ -125,7 +126,7 @@ public class StackTraceDemo {
 
 When the stack trace of that exception is then printed, we can not only see information about the `RuntimeException` but also about the original `IllegalStateException`.
 
-```
+```none
 Exception in thread "main" java.lang.RuntimeException: java.lang.IllegalStateException: This is for demonstration.
 	at com.example.someapplication.StackTraceDemo.someMethod(StackTraceDemo.java:12)
 	at com.example.someapplication.StackTraceDemo.main(StackTraceDemo.java:5)
@@ -143,11 +144,6 @@ Here, we can see that the `RuntimeException` was "Caused by" an `IllegalStateExc
 As with exceptions causing other exceptions, it is also possible that [an exception suppresses another](/learn/exceptions/catching-handling/#suppressed). Consider the following example.
 
 ```java
-package com.example.someapplication;
-
-import java.io.Closeable;
-import java.io.IOException;
-
 package com.example.someapplication;
 
 import java.io.Closeable;
@@ -176,7 +172,7 @@ class UnclosableResource implements Closeable {
 
 Here, the `IOException` thrown in `UnclosableResource#close` is suppressed by the `IllegalStateException` thrown in `someMethod`. The stack trace printed by this application includes information about both exceptions.
 
-```
+```none
 Exception in thread "main" java.lang.IllegalStateException: This is for demonstration.
 	at com.example.someapplication.StackTraceDemo.someMethod(StackTraceDemo.java:14)
 	at com.example.someapplication.StackTraceDemo.main(StackTraceDemo.java:9)
@@ -188,9 +184,11 @@ Exception in thread "main" java.lang.IllegalStateException: This is for demonstr
 <a id="bigger">&nbsp;</a>
 ## Reading bigger stack traces
 
-Especially when using complex libraries and frameworks, it is possible that stack traces become fairly long as there are often multiple `Caused By` sections. When that happens, it's important to know which part of the stack trace to focus on. If multiple exceptions are thrown and printed in short succession, it's often the first exception that is causing the other issues. As you want to know what originally caused the exception to happen, you typically want to first take a look at the last `Caused By` section. There may be many lines in the `Caused By` section related to framework code. As the problem is likely within your code, you should focus on the lines corresponding to classes/methods that are part of your code which you can see using the package name. However, you shouldn't forget that other parts of the stack trace may be important as well. If the last `Caused By` section doesn't contain anything about your application code, you might want to take a look at the `Caused By` sections before. Aside from that, the name of the exeption and the message may contain important information. Let's inspect an example of what that could look like.
+Especially when using complex libraries and frameworks, it is possible that stack traces become fairly long as there are often multiple `Caused By` sections. When that happens, it's important to know which part of the stack trace to focus on. If multiple exceptions are thrown and printed in short succession, it's often the first exception that is causing the other issues. As you want to know what originally caused the exception to happen, you typically want to first take a look at the last `Caused By` section of the first exception.
 
-```
+There may be many lines in the `Caused By` section related to framework code. As the problem is likely within your code, you should focus on the lines corresponding to classes/methods that are part of your code which you can see using the package name. However, you shouldn't forget that other parts of the stack trace may be important as well. If the last `Caused By` section doesn't contain anything about your application code, you might want to take a look at the `Caused By` sections before. Aside from that, the name of the exeption and the message often contain important information as well. Let's inspect an example of what that could look like.
+
+```none
 com.someframework.utils.ValidationException: java.lang.IllegalArgumentException: argument cannot be empty string!
 	at com.someframework.utils.SomeFrameworkClass.getOtherClass(SomeFrameworkClass.java:8)
 	at com.example.someapplication.StackTraceDemo.doSomething(StackTraceDemo.java:18)
@@ -214,7 +212,7 @@ Caused by: java.lang.NullPointerException: Cannot invoke "com.someframework.util
 
 First, we can see that two exceptions occured after each other. We first have a `ValidationException` which is then followed by a `FrameworkException`. We first inspect the last `Caused By` section of the first exception.
 
-```
+```none
 Caused by: java.lang.IllegalArgumentException: argument cannot be empty string!
 	at com.someframework.utils.SomeFrameworkClass.validate(SomeFrameworkClass.java:15)
 	at com.someframework.utils.SomeFrameworkClass.getOtherClass(SomeFrameworkClass.java:6)
@@ -223,7 +221,7 @@ Caused by: java.lang.IllegalArgumentException: argument cannot be empty string!
 
 From its message, we can see that the exception occured because some argument should not be empty. However, all lines in that stack trace seem to come from the framework as we can see from the package name starting with `com.someframwork` which is (in this example) not the code we are working on. Due to this, we look at what was printed before the `Caused By` section.
 
-```
+```none
 com.someframework.utils.ValidationException: java.lang.IllegalArgumentException: argument cannot be empty string!
 	at com.someframework.utils.SomeFrameworkClass.getOtherClass(SomeFrameworkClass.java:8)
 	at com.example.someapplication.StackTraceDemo.doSomething(StackTraceDemo.java:18)
@@ -267,7 +265,7 @@ Indeed, in this line we are passing an empty `String` to `frameworkObject.getOth
 <a id="summary">&nbsp;</a>
 ## Summary
 
-Even if stack traces may look intiminating at first, they are just a lot of diagnostic information helping you to find what caused the exception. As this information is often helpful in finding what caused the issue, you should typically not just ignore exceptions and maybe add a `System.err.println("An error occured");`. Instead, either wrap the exception in another exception so that information about the original exception is preserved in a `Caused By` section or (if you actually want to continue executing after the exception occured) print the stack trace using the [`printStackTrace`](javadoc:Throwable.printStackTrace()) method.
+Even if stack traces may look intiminating at first, they are just a lot of diagnostic information helping you to find what caused the exception. As this information is often helpful in finding what caused the issue, you should typically not just ignore exceptions by adding a `System.err.println("An error occured");` or similar. Instead, either wrap the exception in another exception so that information about the original exception is preserved in a `Caused By` section or (if you actually want to continue executing after the exception occured) print the stack trace using the [`printStackTrace`](javadoc:Throwable.printStackTrace()) method.
 
 ```java
 try {

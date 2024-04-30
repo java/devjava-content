@@ -1,6 +1,8 @@
-# Dev.java
+# Contributing to Dev.java
 
-[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle. This repository contains a lightweight JavaScript toolchain to build the site into static HTML and guidelines for contributing to it.
+[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle. We accept contributions from community members through this repository. [Click here](https://dev.java/authors) for examples of contributed content.
+
+This repository contains the contribution guidelines as well as a lightweight JavaScript toolchain to build the site into static HTML.
 
 Here are the sections of this document:
 
@@ -9,6 +11,7 @@ Here are the sections of this document:
     * [Content Lifecycle](#content-lifecycle)
     * [Content Proposal](#content-proposal)
     * [GitHub Workflow](#github-workflow)
+    * [Content License](#content-license)
 * [Building the Site](#building-the-site)
 * [Working with Content](#working-with-content)
 
@@ -59,7 +62,7 @@ All content must start with a Content Proposal. This will be in the form of a Gi
 
 ### GitHub Workflow
 
-Once your proposal has been moved to the `accepted` stage, you can begin working on your content. Here are the steps to do this:
+Once your proposal has been moved to the `approved` stage, you can begin working on your content. Here are the steps to do this:
 
 1. Fork this repo
 1. Create a branch off of `main` for each piece of content
@@ -67,6 +70,10 @@ Once your proposal has been moved to the `accepted` stage, you can begin working
 1. Create your content (see the [Working with Content](#working-with-content) section below)
 1. Submit a pull request back to this repo
 
+
+### Content License
+
+Contributors must sign the [Oracle Contributor Agreement](https://oca.opensource.oracle.com/) which will be verified once there is a pull request created. Contributed content is made available under the [UPL license](https://oss.oracle.com/licenses/upl/). You can find examples [here](https://dev.java/authors).
 
 
 ## Building the Site

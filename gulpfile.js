@@ -415,10 +415,10 @@ function serve(done) {
         }
     });
 
-    watch("app/**/*.md", {}, series(build));
-    watch("app/**/*.html", {}, series(build));
-    watch("app/scss/*.scss", {}, series(build));
-    watch("site/**/", {}, browserSync.reload());
+    watch("app/**/*.md", {interval: 1000, usePolling: true}, series(build));
+    watch("app/**/*.html", {interval: 1000, usePolling: true}, series(build));
+    watch("app/scss/*.scss", {interval: 1000, usePolling: true}, series(build));
+    watch("site/**/", {interval: 1000, usePolling: true}, browserSync.reload());
     done();
 }
 

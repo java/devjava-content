@@ -1,8 +1,8 @@
 # Contributing to Dev.java
 
-[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle. We accept contributions from community members through this repo. [Click here](https://dev.java/authors) for examples of contributed content.
+[Dev.java](https://dev.java) is the official website for the Java platform and language maintained by the Java Platform Group at Oracle. We accept contributions from community members through this repository. [Click here](https://dev.java/authors) for examples of contributed content.
 
-This repo contains the contribution guidelines as well as a lightweight JavaScript toolchain to build the site into static HTML.
+This repository contains the contribution guidelines as well as a lightweight JavaScript toolchain to build the site into static HTML.
 
 Here are the sections of this document:
 
@@ -91,10 +91,12 @@ A browser should launch viewing [https://localhost:3000](https://localhost:3000)
 
 ### Option 2: Use Docker
 
-1. docker build --tag devjava .
-1. docker run --publish 3000:3000 devjava
+1. `docker build --tag devjava .`
+1. `docker run --publish 3000:3000 --init -it --rm devjava`
 
 You should then be able to open a browser and visit [https://localhost:3000](https://localhost:3000)
+
+(For a more dynamic development experience avoiding a Docker build after every change, you can mount the local /app folder to the container by adding option `-v $PWD/app:/app/app` to your `docker run` command. Note: $PWD may not work in Windows.)
 
 
 ## Working with Content

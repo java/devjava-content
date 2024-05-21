@@ -8,10 +8,10 @@ category_order: 1
 layout: learn/tutorial.html
 subheader_select: tutorials
 main_css_id: learn
-description: "What is Method Handle mechanism, how is it different from Reflection API, and what tooling does it provide."
+description: "What is method handle mechanism, how is it different from Reflection API, and what tooling does it provide."
 author: ["NataliiaDziubenko"]
 toc:
-  - What are Method Handles {intro}
+  - What are method handles {intro}
   - Access checking {access}
   - Method handle lookup {lookup}
   - Method type {methodtype}
@@ -27,15 +27,15 @@ last_update: 2024-05-04
 ---
 
 <a id="intro">&nbsp;</a>
-## What are Method Handles
-Method Handles are a low level mechanism used for method lookup and invocation. It is often compared to reflection,
-because both the Reflection API and Method Handles provide means to invoke methods and constructors and access fields.
+## What are method handles
+Method handles are a low level mechanism used for method lookup and invocation. It is often compared to reflection,
+because both the Reflection API and method handles provide means to invoke methods and constructors and access fields.
 
-What exactly is a Method Handle? It's a direct reference to a method, constructor, or field, which can be invoked.
+What exactly is a method handle? It's a direct reference to a method, constructor, or field, which can be invoked.
 The Method Handle API allows manipulations on top of simple pointer to the method, that allow us to insert or reorder the
 arguments, or transform the return values, for example.
 
-Let's take a closer look at what Method Handle mechanism can provide and how we can effectively use it.
+Let's take a closer look at what method handle mechanism can provide and how we can effectively use it.
 
 <a id="access">&nbsp;</a>
 ## Access checking
@@ -88,8 +88,8 @@ use [`Lookup.findVirtual`](javadoc:MethodHandles.Lookup.findVirtual(Class,String
 following arguments: a `Class`, where the method is located, a method name represented as a `String`, and a `MethodType`
 instance.
 
-In the example below, we are looking up an instance method [`String.replace`](javadoc:String.replace(char,char)), which
-accepts two `char` arguments and returns a `String`:
+In the example below, we are using `Lookup.findVirtual` method to look up an instance method
+[`String.replace`](javadoc:String.replace(char,char)), which accepts two `char` arguments and returns a `String`:
 
 ```java
 MethodHandles.Lookup lookup = MethodHandles.lookup();
@@ -97,8 +97,8 @@ MethodType replaceMethodType = MethodType.methodType(String.class, char.class, c
 MethodHandle replaceMethodHandle = lookup.findVirtual(String.class, "replace", replaceMethodType);
 ```
 
-In the next example, we are looking up a static method [`String.valueOf`](javadoc:String.valueOf(Object)), which accepts
-an `Object` and returns a `String`:
+In the next example, we are using `Lookup.findStatic` to look up a static method
+[`String.valueOf`](javadoc:String.valueOf(Object)), which accepts an `Object` and returns a `String`:
 
 ```java
 MethodType valueOfMethodType = MethodType.methodType(String.class, Object.class);
@@ -257,10 +257,10 @@ several examples.
 The [`MethodHandles.catchException`](javadoc:MethodHandles.catchException(MethodHandle,Class,MethodHandle)) method can
 wrap a given method handle inside a provided exception handler method handle.
 
-Say, we have a method `problematicMethod` that does some job, and a method `exceptionHandler` that handles a particular
-exception [`IllegalArgumentException`](javadoc:IllegalArgumentException). The exception handler method must return the
-same type as the original method. The first argument it accepts is a `Throwable` that we're interested in, after which
-follow the rest of the arguments that we've originally accepted:
+Say, we have a method `problematicMethod` that performs some business logic, and a method `exceptionHandler` that handles
+a particular exception [`IllegalArgumentException`](javadoc:IllegalArgumentException). The exception handler method must
+return the same type as the original method. The first argument it accepts is a `Throwable` that we're interested in,
+after which follow the rest of the arguments that we've originally accepted:
 
 ```java
 public static int problematicMethod(String argument) throws IllegalArgumentException {
@@ -549,9 +549,9 @@ System.out.println(getSomeUppercaseString.invoke()); // outputs: "MUMMY"
 
 <a id="vsreflection">&nbsp;</a>
 ## Method Handles vs Reflection API
-Method Handles were introduced in [JDK7](https://docs.oracle.com/javase/7/docs/index.html) as a tool to assist
+Method handles were introduced in [JDK7](https://docs.oracle.com/javase/7/docs/index.html) as a tool to assist
 compiler and language runtime developers. They were never meant to replace reflection. The Reflection API offers something
-that Method Handles cannot, which is listing the class members and inspecting their properties. Method Handles, on the
+that method handles cannot, which is listing the class members and inspecting their properties. Method handles, on the
 other hand, can be transformed and manipulated in a way that is not possible with Reflection API.
 
 When it comes to method invocation, there are differences related to access checking and security considerations. The
@@ -612,7 +612,7 @@ Field field = MethodHandles.reflectAs(Field.class, getterMethodHandle); // same 
 
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
-In this tutorial, we have looked into the Method Handle mechanism and learned how to efficiently use it. We now know,
+In this tutorial, we have looked into the method handle mechanism and learned how to efficiently use it. We now know,
 that method handles provide means for efficient method invocation, but this mechanism is not meant to replace the
 Reflection API.
 

@@ -10,27 +10,24 @@ layout: learn/tutorial.html
 subheader_select: tutorials
 main_css_id: learn
 description: "Learn to create advanced JavaFX animations"
-last_update: 2024-05-17
+last_update: 2024-05-22
 ---
 
 The [javafx.animation](javafxdoc:AnimationPackageSummary) package offers a simple framework for creating animations and transitions in a JavaFX application.
-It operates on the principle of [WritableValue\<T\>](javafxdoc:WritableValue) which are used across JavaFX.
+It operates on the principle of [`WritableValue\<T\>`](javafxdoc:WritableValue), which is used across JavaFX. `WritableValue<T>` is an interface that wraps a value that can be read and set.
+It is commonly used for storing properties in JavaFX UI elements, like `width` or `height` in the [`Rectangle`](javafxdoc:Rectangle) shape.
 It additionally provides a variety of built-in transitions for common effects, support for parallel and sequential transitions, and the ability to handle events upon animation completion.
-I will go through all types of animations, starting with `Animation` and its subclasses `Transition` and `Timeline`, before representing a lower level animation with `AnimationTimer`.
+The article goes through all types of animations, starting with `Animation` and its subclasses `Transition` and `Timeline`, before representing a lower level animation with `AnimationTimer`.
 While `Transition` provides a simpler and more user-friendly way to create animations, `Timeline` offers greater flexibility and is suitable for more complex animations.
 In contrast, `AnimationTimer` is designed for frame-by-frame updates and does not make use of `WritableValue<T>`.
 
-## WritableValue
-`WritableValue<T>` is an interface that wraps a value that can be read and set. It is commonly used for storing properties in JavaFX UI elements, like
-`width` or `height` in the [Rectangle](javafxdoc:Rectangle) shape.
-
 ## Animation
 
-The [Animation](javafxdoc:Animation) abstract class provides the core functionality for `Transition` and `Timeline` animations.
+The abstract class [`Animation`](javafxdoc:Animation) provides the core functionality for `Transition` and `Timeline` animations and can't be implemented directly.
 
 An `Animation` consists of multiple properties:
 - The `targetFramerate` is the maximum framerate (frames per second) at which this `Animation` will run.
-- The `currentTime` is the current point in time in the `Animation` as a [Duration](javafx:Duration).
+- The `currentTime` is the current point in time in the `Animation` as a [`Duration`](javafx:Duration).
 - The `rate` defines the direction and speed at which the `Animation` is expected to be played. It supports both positive and negative numbers.
 - The `cycleCount` defines the number of cycles of this `Animation`. It can't be changed while running and must be positive.
 - The `cycleDuration` is the `Duration` of one cycle of this `Animation`. It is the time it takes to play from start to end of the `Animation` **at the default rate of 1.0**.
@@ -41,14 +38,14 @@ An `Animation` consists of multiple properties:
 - The `status` represents the current state of the `Animation`, possible states are `PAUSED`, `RUNNING` and `STOPPED`.
 
 Additionally, it provides several useful methods, like `play()`, `playFrom(String cuePoint)`, `pause()`, `stop()` and more to control the animations flow.
-A quick look into the JavaDocs provides a great overview of its functionalities.
+A quick look into [its documentation](javafxdoc:Animation) provides a great overview of its functionalities.
 
 ## Transition
-The [Transition](javafxdoc:Transition) abstract class serves as the foundational class for all transitions, presenting a common form of `Animation`.
-JavaFX provides a variety of built-in transitions for common [Node](javafxdoc:Node) and [Shape](javafxdoc:Shape) properties.
+The [`Transition`](javafxdoc:Transition) abstract class serves as the foundational class for all transitions, presenting a common form of `Animation`.
+JavaFX provides a variety of built-in transitions for common [`Node`](javafxdoc:Node) and [`Shape`](javafxdoc:Shape) properties.
 
 ### Fade Transition
-The [FadeTransition](javafxdoc:FadeTransition) creates a fade effect. 
+The [`FadeTransition`](javafxdoc:FadeTransition) creates a fade effect. 
 This is done by updating the `opacity` property of the `Node` at regular intervals.
 
 ![FadeTransition](/assets/images/javafx/animation/transition/fade-example.gif)
@@ -62,9 +59,10 @@ transition.setInterpolator(Interpolator.LINEAR);
 
 transition.play();
 ```
+(For a complete guide on setting up a JavaFX application, refer to this article: [JavaFX Application Basic Structure By Example](https://dev.java/learn/javafx/structure/))
 
 ### Fill Transition
-The [FillTransition](javafxdoc:FillTransition) creates an animation, that changes the filling of a shape. 
+The [`FillTransition`](javafxdoc:FillTransition) creates an animation, that changes the filling of a shape. 
 This is done by updating the `fill` property of the `Shape` at regular intervals.
 
 ![FillTransition](/assets/images/javafx/animation/transition/fill-example.gif)
@@ -80,8 +78,8 @@ transition.play();
 ```
 
 ### Translate Transition
-The [TranslateTransition](javafxdoc:TranslateTransition) creates a move/translate animation from one position to another in a straight line.
-This is done by updating the `translateX`, `translateY` and `translateZ` properties of the `Node` at regular interval.
+The [`TranslateTransition`](javafxdoc:TranslateTransition) creates a move/translate animation from one position to another in a straight line.
+This is done by updating the `translateX`, `translateY` and `translateZ` properties of the `Node` at regular intervals.
 
 ![TranslateTransition](/assets/images/javafx/animation/transition/translate-example.gif)
 ```java
@@ -96,8 +94,8 @@ transition.play();
 ```
 
 ### Path Transition
-The [PathTransition](javafxdoc:PathTransition) creates a move animation using a complex predefined path specified by a sequence of shapes.
-The translation along the path is done by updating the `translateX` and `translateY` properties of the `Node`, and the `rotate` variable will get updated if `orientation` is set to `OrientationType.ORTHOGONAL_TO_TANGENT`, at regular interval.
+The [`PathTransition`](javafxdoc:PathTransition) creates a move animation using a complex predefined path specified by a sequence of shapes.
+The translation along the path is done by updating the `translateX` and `translateY` properties of the `Node`, and the `rotate` variable will get updated if `orientation` is set to `OrientationType.ORTHOGONAL_TO_TANGENT`, at regular intervals.
 
 ![PathTransition](/assets/images/javafx/animation/transition/path-example.gif)
 ```java
@@ -114,8 +112,8 @@ transition.play();
 ```
 
 ### Rotate Transition
-The [RotateTransition](javafxdoc:RotateTransition) creates a rotation animation. 
-This is done by updating the `rotate` property of the `Node` at regular interval. 
+The [`RotateTransition`](javafxdoc:RotateTransition) creates a rotation animation. 
+This is done by updating the `rotate` property of the `Node` at regular intervals. 
 The angle value is specified in degrees.
 
 ![RotateTransition](/assets/images/javafx/animation/transition/rotate-example.gif)
@@ -132,8 +130,8 @@ transition.play();
 ```
 
 ### Scale Transition
-The [ScaleTransition](javafxdoc:ScaleTransition) creates a scale animation, that changes the size of a node. 
-This is done by updating the `scaleX`, `scaleY` and `scaleZ` properties of the `Node` at regular interval.
+The [`ScaleTransition`](javafxdoc:ScaleTransition) creates a scale animation, that changes the size of a node. 
+This is done by updating the `scaleX`, `scaleY` and `scaleZ` properties of the `Node` at regular intervals.
 
 ![ScaleTransition](/assets/images/javafx/animation/transition/scale-example.gif)
 ```java
@@ -148,7 +146,7 @@ transition.play();
 ```
 
 ### Stroke Transition
-The [StrokeTransition](javafxdoc:StrokeTransition) creates an animation, that changes the stroke color of a shape. 
+The [`StrokeTransition`](javafxdoc:StrokeTransition) creates an animation, that changes the stroke color of a shape. 
 This is done by updating the `stroke` property of the `Shape` at regular intervals.
 
 ![StrokeTransition](/assets/images/javafx/animation/transition/stroke-example.gif)
@@ -164,11 +162,42 @@ transition.setInterpolator(Interpolator.LINEAR);
 transition.play();
 ```
 
+### Sequential Transition
+The [`SequentialTransition`](javafxdoc:SequentialTransition) plays a series of animations in sequential order.
+It is not recommended to contain an `Animation` that is not the last one with `Duration.INDEFINITE` as this will block all later animations in the sequence.
+
 ### Pause Transition
-The [PauseTransition](javafxdoc:PauseTransition) executes an `Animation.onFinished` at the end of its execution.
+The [`PauseTransition`](javafxdoc:PauseTransition) creates a pause for a specified `duration`.
+This behavior is useful to create a delay in a `SequentialTransition` in which no properties change.
+
+![PauseTransition](/assets/images/javafx/animation/transition/pause-example.gif)
+```java
+Circle circle = new Circle(150, 150, 20, Color.GREEN);
+circle.setStrokeWidth(5);
+
+ScaleTransition smaller = new ScaleTransition(Duration.seconds(1.5));
+smaller.setToX(0.25);
+smaller.setToY(0.25);
+smaller.setInterpolator(Interpolator.LINEAR);
+
+ScaleTransition larger = new ScaleTransition(Duration.seconds(1.5));
+larger.setToX(1);
+larger.setToY(1);
+larger.setInterpolator(Interpolator.LINEAR);
+
+SequentialTransition transition = new SequentialTransition(
+        circle,
+        smaller,
+        new PauseTransition(Duration.seconds(2)),
+        larger
+);
+transition.play();
+```
+Note that this code doesn't set the target `Node` in the transitions itself, but instead in the `SequentialTransition` which is the parent transition here.
+It is going to automatically use the target `Node` for child transitions that have no `Node` specified themselves.
 
 ### Parallel Transition
-The [ParallelTransition](javafxdoc:ParallelTransition) plays a list of animations in parallel.
+The [`ParallelTransition`](javafxdoc:ParallelTransition) plays a group of animations in parallel.
 
 ![ParallelTransition](/assets/images/javafx/animation/transition/parallel-example.gif)
 ```java
@@ -188,26 +217,22 @@ rotate.setInterpolator(Interpolator.LINEAR);
 ParallelTransition transition = new ParallelTransition(rectangle, translate, rotate);
 transition.play();
 ```
-### Sequential Transition
-The [SequentialTransition](javafxdoc:SequentialTransition) plays a list of animations in sequential order. 
-It is not recommended to contain an `Animation`, which is not the last one, with `Duration.INDEFINITE` as this will block all later animations in the sequence.
 
 ## Timeline
-A [Timeline](javafxdoc:Timeline) is used to define a free form `Animation` on any `WritableValue<T>`. It is helpful if none of the built-in transitions operate on the required properties.
+A [`Timeline`](javafxdoc:Timeline) is used to define a free form `Animation` on any `WritableValue<T>`. It is helpful if none of the built-in transitions operate on the required properties.
+It consists of a sequential series of `KeyFrame`s, each of which encapsulates a moment in time. Collectively they specify how target properties evolve over the entire duration.
 
-It consists of a sequential series of `KeyFrame`s.
-Each `KeyFrame` encapsulates a moment in time (**Cue Point**), and collectively specify how target properties evolve over the entire duration.
-
-> **Warning:** A running Timeline is being referenced from the FX runtime. Infinite Timeline might result in a memory leak if not stopped properly. All the objects with animated properties would not be garbage collected.
+> **Warning:** A running `Timeline` is being referenced from the FX runtime. In an infinite timeline, 
+> the objects with animated properties would not be garbage collected, which might result in a memory leak.
+> Therefore, ensure you stop the timeline instance when it is no longer needed.
 
 ### KeyFrame
-A [KeyFrame](javafxdoc:KeyFrame) represents a specific moment in an animation sequence (**Cue Point**) and comprises a collection of `KeyValue` instances that change from start to the given `Duration`.
-
+A [`KeyFrame`](javafxdoc:KeyFrame) represents a specific moment in an animation sequence (**Cue Point**) and comprises a collection of `KeyValue` instances that change over the given `Duration`.
 A KeyFrame can have a name which then can be used to identify this `KeyFrame` in an animation, for example for starting from this specific `KeyFrame` using `playFrom(String cuePoint)`.
 It is also possible to provide an `onFinished` implementation, which will be invoked when hitting this cue point.
 
 ### KeyValue
-A [KeyValue](javafxdoc:KeyValue) establishes a mapping between a `WritableValue<T>` and a target value of type `T`. This is used to define the change of a value.
+A [`KeyValue`](javafxdoc:KeyValue) establishes a mapping between a `WritableValue<T>` and a target value of type `T`. This is used to define the change of a value.
 An `Interpolator` can be additionally defined to set the rate of change for this value. The `KeyValue` class is immutable.
 
 ### Example
@@ -225,41 +250,63 @@ timeline.play();
 ```
 
 ## Interpolator
-The [Interpolator](javafxdoc:Interpolator) abstract class defines the rate of change at which values change over time, influencing the smoothness of animations.
+The [`Interpolator`](javafxdoc:Interpolator) abstract class defines the rate of change at which values change over time, influencing the smoothness of animations.
+There are several built-in implementations for common interpolation techniques.
 
-It provides several built-in implementations:
-- [Interpolator.DISCRETE](javafxdoc:Interpolator.DISCRETE): The `DISCRETE` interpolator creates a **sudden** transition between values without any intermediate steps.
-- [Interpolator.LINEAR](javafxdoc:Interpolator.LINEAR): The `LINEAR` interpolator produces a **constant** rate of change between values over time.
-- [Interpolator.EASE_IN](javafxdoc:Interpolator.EASE_IN): The `EASE_IN` interpolator starts the animation slowly and accelerates as it progresses.
-- [Interpolator.EASE_OUT](javafxdoc:Interpolator.EASE_OUT): The `EASE_OUT` interpolator starts quickly and slows down as it progresses.
-- [Interpolator.EASE_BOTH](javafxdoc:Interpolator.EASE_BOTH): The `EASE_BOTH` interpolator starts slowly, accelerates in the middle and slows down towards the end. It combines the characteristics of `EASE_IN` and `EASE_OUT`.
+**Note:** By default, all transitions, excluding `ParallelTransition` and `SequentialTransition`, utilize the `Interpolator#EASE_BOTH`.
 
-Additionally, there are two static factory methods for [SPLINE](javafxdoc:Interpolator.SPLINE) and [TANGENT](javafxdoc:Interpolator.TANGENT) interpolation.
+Here is a visualization of the `Interpolator` using the example from [`Timeline`](#example):
 
-[//]: # (ToDo: sync gifs)
-Here is a visualization of the Interpolator using the example from [Timeline](#example):
 ### Discrete
+The [`Interpolator.DISCRETE`](javafxdoc:Interpolator.DISCRETE) interpolator creates a **sudden** transition between values without any intermediate steps.
+
 ![Discrete](/assets/images/javafx/animation/interpolator/discrete-example.gif)
+
+```java
+Circle circle = new Circle(50, 150, 10, Color.GREEN);
+
+KeyValue x = new KeyValue(circle.translateXProperty(), 200, Interpolator.DISCRETE);
+KeyFrame frame = new KeyFrame(Duration.seconds(5), x);
+Timeline timeline = new Timeline(frame);
+
+timeline.play();
+```
 ### Linear
+The [`Interpolator.LINEAR`](javafxdoc:Interpolator.LINEAR) interpolator produces a **constant** rate of change between values over time.
+
 ![Linear](/assets/images/javafx/animation/interpolator/linear-example.gif)
+
 ### Ease In
+The [`Interpolator.EASE_IN`](javafxdoc:Interpolator.EASE_IN) interpolator starts the animation slowly and accelerates as it progresses.
+
 ![EaseIn](/assets/images/javafx/animation/interpolator/ease-in-example.gif)
+
 ### Ease Out
+The [`Interpolator.EASE_OUT`](javafxdoc:Interpolator.EASE_OUT) interpolator starts quickly and slows down as it progresses.
+
 ![EaseOut](/assets/images/javafx/animation/interpolator/ease-out-example.gif)
+
 ### Ease Both
+The [`Interpolator.EASE_BOTH`](javafxdoc:Interpolator.EASE_BOTH) interpolator starts slowly, accelerates in the middle and slows down towards the end. 
+It combines the characteristics of `EASE_IN` and `EASE_OUT`.
+
 ![EaseBoth](/assets/images/javafx/animation/interpolator/ease-both-example.gif)
 
-## AnimationTimer
+Additionally, there are two static factory methods for [`Interpolator.SPLINE`](javafxdoc:Interpolator.SPLINE) and [`Interpolator.TANGENT`](javafxdoc:Interpolator.TANGENT) interpolation.
 
-The [AnimationTimer](javafxdoc:AnimationTimer) abstract class provides the lowest level option to create an animation.
+## Animation Timer
+
+The [`AnimationTimer`](javafxdoc:AnimationTimer) abstract class provides the lowest level option to create an animation.
 The `handle(long now)` method gets called in each frame while it is active. The timestamp `now` is the time of the current frame in nanoseconds and will be the same for all `AnimationTimer`s called during that frame.
 Additionally, the `AnimationTimer` adds `start()` and `stop()` methods to handle the lifetime of the animation.
 
-**Note:** The `handle` method will be called in the **JavaFX Application Thread** and thus shouldn't do heavy computations.
+**Note:** The `handle` method will be called in the **JavaFX Application Thread**, so it should avoid long-running and blocking operations.
+To maintain a smooth frame rate of 30 frames per second, the whole JavaFX application ideally allocates no more than 33 milliseconds per frame.
 
 
 ## Conclusion
-The `javafx.animation` package offers a simple framework for creating dynamic animations within JavaFX applications.
-From the foundational `AnimationTimer` and `Animation` classes to the more specialized `Transition` and `Timeline` classes,
-each component provides unique capabilities for creating animations. Additionally, you are provided with various
-common `Interpolator` implementations.
+In this tutorial, you've explored the `javafx.animation` package and learned how to create dynamic animations within JavaFX applications.
+We started by understanding the base `Animation` class, and then moved on to `Transition` and `Timeline` classes, which provide different ways
+to create and control animations. Additionally, you have learnt how to control the progression of an animation via several `Interpolator` examples.
+Finally, we covered the `AnimationTimer` class, which allows for animations with precise frame-by-frame updates. With these tools, you are now
+equipped to create rich animations in your JavaFX applications.

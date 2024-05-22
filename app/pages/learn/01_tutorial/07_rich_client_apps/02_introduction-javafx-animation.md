@@ -14,7 +14,7 @@ last_update: 2024-05-22
 ---
 
 The [javafx.animation](javafxdoc:AnimationPackageSummary) package offers a simple framework for creating animations and transitions in a JavaFX application.
-It operates on the principle of [`WritableValue\<T\>`](javafxdoc:WritableValue), which is used across JavaFX. `WritableValue<T>` is an interface that wraps a value that can be read and set.
+It operates on the principle of [`WritableValue<T>`](javafxdoc:WritableValue), which is used across JavaFX. `WritableValue<T>` is an interface that wraps a value that can be read and set.
 It is commonly used for storing properties in JavaFX UI elements, like `width` or `height` in the [`Rectangle`](javafxdoc:Rectangle) shape.
 It additionally provides a variety of built-in transitions for common effects, support for parallel and sequential transitions, and the ability to handle events upon animation completion.
 The article goes through all types of animations, starting with `Animation` and its subclasses `Transition` and `Timeline`, before representing a lower level animation with `AnimationTimer`.
@@ -23,7 +23,7 @@ In contrast, `AnimationTimer` is designed for frame-by-frame updates and does no
 
 ## Animation
 
-The abstract class [`Animation`](javafxdoc:Animation) provides the core functionality for `Transition` and `Timeline` animations and can't be implemented directly.
+The abstract class [`Animation`](javafxdoc:Animation) provides the core functionality for `Transition` and `Timeline` animations and can't be extended directly.
 
 An `Animation` consists of multiple properties:
 - The `targetFramerate` is the maximum framerate (frames per second) at which this `Animation` will run.
@@ -59,7 +59,7 @@ transition.setInterpolator(Interpolator.LINEAR);
 
 transition.play();
 ```
-(For a complete guide on setting up a JavaFX application, refer to this article: [JavaFX Application Basic Structure By Example](https://dev.java/learn/javafx/structure/))
+(For a complete guide on setting up a JavaFX application, refer to this article: [JavaFX Application Basic Structure By Example](id:javafx.fundamentals.structure))
 
 ### Fill Transition
 The [`FillTransition`](javafxdoc:FillTransition) creates an animation, that changes the filling of a shape. 

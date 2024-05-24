@@ -29,7 +29,7 @@ last_update: 2024-05-04
 <a id="intro">&nbsp;</a>
 ## What are method handles
 Method handles are a low level mechanism used for method lookup and invocation. It is often compared to reflection,
-because both the Reflection API and method handles provide means to invoke methods and constructors and access fields.
+because both the Reflection API and method handles provide means to invoke methods, constructors and access fields.
 
 What exactly is a method handle? It's a direct reference to a method, constructor, or field, which can be invoked.
 The Method Handle API allows manipulations on top of simple pointer to the method, that allow us to insert or reorder the
@@ -43,7 +43,7 @@ The access checking for method handle invocations is done differently compared t
 each call results in access checks for the caller. For method handles, the access is only checked when the method handle
 is created.
 
-It is important to keep in mind, that if the method handle is created within a context where it can access non-public
+It is important to keep in mind that if the method handle is created within a context where it can access non-public
 members, when passed outside, it can still access those non-public members. As a result, non-public members can
 potentially be accessed from code where they shouldn't be accessible. It's a developer's responsibility to keep such
 method handles private to their context. Alternatively, the method handle can be created with access limitations right
@@ -51,7 +51,7 @@ away using the appropriate lookup object.
 
 <a id="lookup">&nbsp;</a>
 ## Method handle lookup
-To create a method handle, we first need to create a [`Lookup`](javadoc:Lookup) object, which acts as a factory for
+To create a method handle we first need to create a [`Lookup`](javadoc:Lookup) object, which acts as a factory for
 creating method handles. Depending on how the lookup object itself or the method handles are going to be used, we can
 decide whether we should limit its access level.
 
@@ -73,7 +73,7 @@ MethodHandles.Lookup lookup = MethodHandles.lookup();
 
 <a id="methodtype">&nbsp;</a>
 ## Method type
-To be able to look up a method handle, we also need to provide the type information of the method or field. The method
+Tolook up a method handle we also need to provide the type information of the method or field. The method
 type information is represented as [`MethodType`](javadoc:MethodType) object. To instantiate a `MethodType`,
 we have to provide the return type as the first parameter followed by all the argument types:
 
@@ -85,7 +85,7 @@ MethodType methodType = MethodType.methodType(int.class /* the method returns in
 Having the `Lookup` and the `MethodType` instances, we can look up the method handle. For instance methods, we should
 use [`Lookup.findVirtual`](javadoc:MethodHandles.Lookup.findVirtual(Class,String,MethodType)), and for static methods
 [`Lookup.findStatic`](javadoc:MethodHandles.Lookup.findStatic(Class,String,MethodType)). Both these methods accept the
-following arguments: a `Class`, where the method is located, a method name represented as a `String`, and a `MethodType`
+following arguments: a `Class` where the method is located, a method name represented as a `String`, and a `MethodType`
 instance.
 
 In the example below, we are using `Lookup.findVirtual` method to look up an instance method
@@ -409,7 +409,7 @@ If we try to pass the arguments that are already prefilled, we will fail with a 
 
 ### Filter arguments
 We can use [`MethodHandles.filterArguments`](javadoc:MethodHandles.filterArguments(MethodHandle,int,MethodHandle...))
-to apply transformations to the arguments before invocation of the target method handle. To make it work, we have to provide:
+to apply transformations to arguments before invocation of the target method handle. To make it work, we have to provide:
 
 - The target method handle;
 - The position of the first argument to transform;
@@ -418,7 +418,7 @@ to apply transformations to the arguments before invocation of the target method
 If certain arguments don't require transformation, we can skip them by passing `null`. It's also possible to skip the
 rest of the arguments entirely if we only need to transform a subset of them.
 
-Let's take a look at the following example.
+Let's reuse the method handle from the previous section and filter some its arguments before its invocation.
 
 ```java
 MethodHandle targetMethodHandle = lookup.findStatic(Example.class, "test",
@@ -433,7 +433,7 @@ private static boolean negate(boolean original) {
 }
 ```
 
-Let's also create a method that increments any given integer value:
+and also construct a method that increments any given integer value:
 
 ```java
 private static int increment(int original) {
@@ -441,16 +441,18 @@ private static int increment(int original) {
 }
 ```
 
-Method handles for these transformation methods:
+We can obtain method handles for these transformation methods:
 
 ```java
 MethodHandle negate = lookup.findStatic(Example.class, "negate", MethodType.methodType(boolean.class, boolean.class));
 MethodHandle increment = lookup.findStatic(Example.class, "increment", MethodType.methodType(int.class, int.class));
 ```
 
-Now we can create a new method handle with transformations applied to two of the original arguments:
+and use them to get a new method handle having filtered arguments:
 
 ```java
+// applies filter 'increment' to argument at index 0, 'negate' to the last argument, 
+// and passes the result to 'targetMethodHandle'
 MethodHandle withFilters = MethodHandles.filterArguments(targetMethodHandle, 0, increment, null, null, negate);
 withFilters.invoke(3, "abc", 5L, false); // outputs "4abc5true"
 ```

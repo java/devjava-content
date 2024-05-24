@@ -31,7 +31,7 @@ last_update: 2024-05-04
 Method handles are a low level mechanism used for method lookup and invocation. It is often compared to reflection,
 because both the Reflection API and method handles provide means to invoke methods, constructors and access fields.
 
-What exactly is a method handle? It's a direct reference to a method, constructor, or field, which can be invoked.
+What exactly is a method handle? It's a directly invocable reference to an underlying method, constructor, or field.
 The Method Handle API allows manipulations on top of simple pointer to the method, that allow us to insert or reorder the
 arguments, or transform the return values, for example.
 
@@ -618,11 +618,9 @@ In this tutorial, we have looked into the method handle mechanism and learned ho
 that method handles provide means for efficient method invocation, but this mechanism is not meant to replace the
 Reflection API.
 
-The biggest differences are:
+Method handles offer a performance advantage for method invocation due to a different access checking approach. However,
+since access is checked only on method handle creation, method handles should be passed around with caution.
 
-- Access checking happens only on method handle creation, which means that method handles should be passed around with
-  caution.
-- Method invocation is more performant with method handles due to a different access checking approach.
-- Method handles don't provide any tooling for listing the class members and inspecting their properties.
-- Method handles make it easy to wrap the direct pointers to methods and fields into more complicated logic which
-  includes argument and return value manipulations.
+Unlike the Reflection API, method handles don't provide any tooling for listing class members and inspecting their properties.
+On the other hand, the Method Handle API allows us to wrap direct pointers to methods and fields into more complex
+logic, such as argument and return value manipulations.

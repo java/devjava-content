@@ -73,7 +73,7 @@ MethodHandles.Lookup lookup = MethodHandles.lookup();
 
 <a id="methodtype">&nbsp;</a>
 ## Method type
-Tolook up a method handle we also need to provide the type information of the method or field. The method
+To look up a method handle we also need to provide the type information of the method or field. The method
 type information is represented as [`MethodType`](javadoc:MethodType) object. To instantiate a `MethodType`,
 we have to provide the return type as the first parameter followed by all the argument types:
 

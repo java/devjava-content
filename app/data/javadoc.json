@@ -156,8 +156,8 @@
 
   "Long":                                "java.base/java/lang/Long.html",
   "Long.compareTo(Long)":                "java.base/java/lang/Long.html#compareTo(java.lang.Long)",
-  "Long.compareUnsigned(int,int)":       "java.base/java/lang/Long.html#compareUnsigned(int,int)",
-  "Long.divideUnsigned(int,int)":        "java.base/java/lang/Long.html#divideUnsigned(int,int)",
+  "Long.compareUnsigned(long,long)":       "java.base/java/lang/Long.html#compareUnsigned(long,long)",
+  "Long.divideUnsigned(long,long)":        "java.base/java/lang/Long.html#divideUnsigned(long,long)",
 
   "Arrays":                              "java.base/java/util/Arrays.html",
   "Arrays.asList()":                     "java.base/java/util/Arrays.html#asList(T...)",

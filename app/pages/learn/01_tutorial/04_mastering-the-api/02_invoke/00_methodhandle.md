@@ -470,7 +470,7 @@ private static void target(int ignored, int sum, int a, int b) {
 }
 ```
 
-Using `foldArguments` we can pre-process subset of its arguments and insert the resulting value as another
+Using `foldArguments` we can pre-process a subset of its arguments and insert the resulting value as another
 argument and proceed to execution of the `target` method.
 
 In our example, we have arguments `int a, int b` at the end. We can pre-process any amount of arguments, but they all

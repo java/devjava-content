@@ -258,7 +258,7 @@ The [`MethodHandles.catchException`](javadoc:MethodHandles.catchException(Method
 wrap a given method handle inside a provided exception handler method handle.
 
 Say, we have a method `problematicMethod` that performs some business logic, and a method `exceptionHandler` that handles
-a particular exception [`IllegalArgumentException`](javadoc:IllegalArgumentException). The exception handler method must
+a particular [`IllegalArgumentException`](javadoc:IllegalArgumentException). The exception handler method must
 return the same type as the original method. The first argument it accepts is a `Throwable` that we're interested in,
 after which follow the rest of the arguments that we've originally accepted:
 

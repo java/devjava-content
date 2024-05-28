@@ -84,7 +84,7 @@ MethodType methodType = MethodType.methodType(int.class /* the method returns in
 
 Having the `Lookup` and the `MethodType` instances, we can look up the method handle. For instance methods, we should
 use [`Lookup.findVirtual`](javadoc:MethodHandles.Lookup.findVirtual(Class,String,MethodType)), and for static methods
-[`Lookup.findStatic`](javadoc:MethodHandles.Lookup.findStatic(Class,String,MethodType)). Both these methods accept the
+[`Lookup.findStatic`](javadoc:MethodHandles.Lookup.findStatic(Class,String,MethodType)). Both of these methods accept the
 following arguments: a `Class` where the method is located, a method name represented as a `String`, and a `MethodType`
 instance.
 

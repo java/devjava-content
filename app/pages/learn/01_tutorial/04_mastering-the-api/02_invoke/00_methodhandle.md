@@ -57,7 +57,7 @@ decide whether we should limit its access level.
 
 For example, if we create a method handle pointing to a private method and that method handle is accessible from outside,
 so is the private method. Normally we would like to avoid that. One way is to make the lookup object and method handle
-`private` too. Another option is to create the lookup object using [`MethodHandles.publicLookup`](javadoc:MethodHandles.publicLookup())
+`private` too. Another option is to create the lookup object using the [`MethodHandles.publicLookup`](javadoc:MethodHandles.publicLookup())
 method, so it will only be able to search for public members in public classes within packages that are exported unconditionally:
 
 ```java

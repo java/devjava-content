@@ -518,8 +518,7 @@ for a result placeholder in `target` method argument list.
 Similarly to arguments, we can use an adapter that will apply transformations to the return value.
 
 Let's imagine a situation where we have a method that returns a `String`, and we would like to channel any returned
-value from this method into another method that replaces character `d` with `m` and brings the resulting value to the
-uppercase.
+value from this method into another method that replaces character `d` with `m` and uppercases the resulting value.
 
 Here's the method handle for the `getSomeString` method which always returns the value `"dummy"`:
 

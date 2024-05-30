@@ -8,7 +8,7 @@ category_order: 1
 layout: learn/tutorial.html
 subheader_select: tutorials
 main_css_id: learn
-description: "What is method handle mechanism, how is it different from Reflection API, and what tooling does it provide."
+description: "What are method handles, how are they different from the Reflection API, and what tooling do they provide?"
 author: ["NataliiaDziubenko"]
 toc:
   - What are method handles {intro}
@@ -28,14 +28,14 @@ last_update: 2024-05-04
 
 <a id="intro">&nbsp;</a>
 ## What are method handles
-Method handles are a low level mechanism used for method lookup and invocation. It is often compared to reflection,
-because both the Reflection API and method handles provide means to invoke methods, constructors and access fields.
+Method handles are a low-level mechanism used for method lookup and invocation. They are often compared to reflection,
+because both the Reflection API and method handles provide a means to invoke methods, constructors, and access fields.
 
 What exactly is a method handle? It's a directly invocable reference to an underlying method, constructor, or field.
-The Method Handle API allows manipulations on top of simple pointer to the method, that allow us to insert or reorder the
-arguments, or transform the return values, for example.
+The Method Handle API allows manipulations on top of a simple pointer to the method that allows us to insert or reorder the
+arguments, transform the return values, etc.
 
-Let's take a closer look at what method handle mechanism can provide and how we can effectively use it.
+Let's take a closer look at what method handles can provide and how we can effectively use them.
 
 <a id="access">&nbsp;</a>
 ## Access checking
@@ -55,8 +55,8 @@ To create a method handle we first need to create a [`Lookup`](javadoc:Lookup) o
 creating method handles. Depending on how the lookup object itself or the method handles are going to be used, we can
 decide whether we should limit its access level.
 
-For example, if we create a method handle pointing to a private method and that method handle is accessible from outside,
-so is the private method. Normally we would like to avoid that. One way is to make the lookup object and method handle
+For example, if we create a method handle pointing to a private method and that method handle is accessible from the outside,
+then the private method is as well. Normally we would like to avoid that. One way is to make the lookup object and method handle
 `private` too. Another option is to create the lookup object using the [`MethodHandles.publicLookup`](javadoc:MethodHandles.publicLookup())
 method, so it will only be able to search for public members in public classes within packages that are exported unconditionally:
 
@@ -138,7 +138,7 @@ String result = (String) replaceMethodHandle.invoke((Object)"dummy", (Object)'d'
 ```
 
 One other alternative to invoke a method handle is to use [`MethodHandle.invokeWithArguments`](javadoc:MethodHandle.invokeWithArguments(Object...)).
-The result of this method invocation is equivalent to `invoke`, with the only difference that all the arguments can be
+The result of this method invocation is equivalent to `invoke`, with the only difference being that all the arguments can be
 provided as an array or list of objects.
 
 One interesting feature of this method is that if the number of provided arguments exceeds the expected number, all the
@@ -147,8 +147,8 @@ leftover arguments will be squashed into the last argument, which will be treate
 <a id="fields">&nbsp;</a>
 ## Accessing fields
 It is possible to create method handles that have read or write access to fields. For instance fields, this is
-facilitated by [`findGetter`](javadoc:MethodHandles.Lookup.findGetter(Class,String,Class)) and
-[`findSetter`](javadoc:MethodHandles.Lookup.findSetter(Class,String,Class)) methods, and for static fields, by
+facilitated by the [`findGetter`](javadoc:MethodHandles.Lookup.findGetter(Class,String,Class)) and
+[`findSetter`](javadoc:MethodHandles.Lookup.findSetter(Class,String,Class)) methods, and for static fields, by the 
 [`findStaticGetter`](javadoc:MethodHandles.Lookup.findStaticGetter(Class,String,Class)) and
 [`findStaticSetter`](javadoc:MethodHandles.Lookup.findStaticSetter(Class,String,Class)) methods. We don't need to provide
 a `MethodType` instance; instead, we should provide a single type, which is the type of the field.
@@ -534,7 +534,7 @@ private static String resultTransform(String value) {
 }
 ```
 
-Here is the method handle for our transformator method:
+Here is the method handle for our transformer method:
 
 ```java
 MethodHandle resultTransform = lookup.findStatic(Example.class, "resultTransform", MethodType.methodType(String.class, String.class));
@@ -614,7 +614,7 @@ Field field = MethodHandles.reflectAs(Field.class, getterMethodHandle); // same 
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
 In this tutorial, we have looked into the method handle mechanism and learned how to efficiently use it. We now know,
-that method handles provide means for efficient method invocation, but this mechanism is not meant to replace the
+that method handles provide a means for efficient method invocation, but this mechanism is not meant to replace the
 Reflection API.
 
 Method handles offer a performance advantage for method invocation due to a different access checking approach. However,

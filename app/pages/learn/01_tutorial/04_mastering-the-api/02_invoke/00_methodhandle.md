@@ -8,7 +8,7 @@ category_order: 1
 layout: learn/tutorial.html
 subheader_select: tutorials
 main_css_id: learn
-description: "What are method handles, how are they different from the Reflection API, and what tooling do they provide?"
+description: "Method handles, how they are different from the Reflection API, and the tooling they provide."
 author: ["NataliiaDziubenko"]
 toc:
   - What are method handles {intro}
@@ -23,7 +23,7 @@ toc:
   - Method Handles vs Reflection API {vsreflection}
   - Conversion between Reflection API and method handles {unreflect}
   - Conclusion {conclusion}
-last_update: 2024-05-04
+last_update: 2024-05-30
 ---
 
 <a id="intro">&nbsp;</a>
@@ -132,8 +132,6 @@ handle with adjusted types that would strictly match the types of provided argum
 invoke the adjusted method handle using `invokeExact`.
 
 ```java
-MethodType replaceMethodType = MethodType.methodType(String.class, char.class, char.class);
-MethodHandle replaceMethodHandle = lookup.findVirtual(String.class, "replace", replaceMethodType);
 String result = (String) replaceMethodHandle.invoke((Object)"dummy", (Object)'d', (Object)'m'); // would fail with `invokeExact`
 ```
 
@@ -418,14 +416,14 @@ to apply transformations to arguments before invocation of the target method han
 If certain arguments don't require transformation, we can skip them by passing `null`. It's also possible to skip the
 rest of the arguments entirely if we only need to transform a subset of them.
 
-Let's reuse the method handle from the previous section and filter some its arguments before its invocation.
+Let's reuse the method handle from the previous section and filter some of its arguments before invocation.
 
 ```java
 MethodHandle targetMethodHandle = lookup.findStatic(Example.class, "test",
         MethodType.methodType(void.class, int.class, String.class, long.class, boolean.class));
 ```
 
-Let's create a method that transforms any `boolean` value by negating it:
+Then we create a method that transforms any `boolean` value by negating it:
 
 ```java
 private static boolean negate(boolean original) {
@@ -448,7 +446,7 @@ MethodHandle negate = lookup.findStatic(Example.class, "negate", MethodType.meth
 MethodHandle increment = lookup.findStatic(Example.class, "increment", MethodType.methodType(int.class, int.class));
 ```
 
-and use them to get a new method handle having filtered arguments:
+and use them to get a new method handle having filtered the arguments:
 
 ```java
 // applies filter 'increment' to argument at index 0, 'negate' to the last argument, 
@@ -471,7 +469,7 @@ private static void target(int ignored, int sum, int a, int b) {
 ```
 
 Using `foldArguments` we can pre-process a subset of its arguments and insert the resulting value as another
-argument and proceed to execution of the `target` method.
+argument and proceed to the execution of the `target` method.
 
 In our example, we have arguments `int a, int b` at the end. We can pre-process any amount of arguments, but they all
 must be at the end. Let's say, we would like to calculate a sum of these two values `a` and `b`, so let's create a method
@@ -499,10 +497,9 @@ MethodHandle preProcessedArguments = MethodHandles.foldArguments(targetMethodHan
 ```
 
 The `foldArguments` method accepts:
-- Target method handle, in our case the one pointing to `target` method;
-- `int` number specifying the starting position of arguments related to folding. In our case, the `sum` argument
-  is located at position `1`, so we passed `1`. If we skip this argument, `pos` will default to `0`.
-- Combiner method handle, in our case it's the one pointing to `sum` method.
+- `MethodHandle` *target*: The target method handle, in our case the one pointing to the `target` method.
+- `int` *pos*: An integer specifying the starting position of arguments related to folding. In our case, the `sum` argument is located at position `1`, so we passed `1`. If we skip this argument, `pos` will default to `0`.
+- `MethodHandle` *combiner*: The combiner method handle, in our case the one pointing to the `sum` method.
 
 At the end, we can invoke the resulting method handle and pass all the arguments except `sum` which is going to be
 pre-calculated:
@@ -512,7 +509,7 @@ preProcessedArguments.invokeExact(10000, 1, 2); // outputs: "1 + 2 equals 3 and 
 ```
 
 It is possible that the combiner method processes values but doesn't return anything. In this case, there is no need
-for a result placeholder in `target` method argument list.
+for a result placeholder in the `target` method argument list.
 
 ### Filter return value
 Similarly to arguments, we can use an adapter that will apply transformations to the return value.
@@ -551,15 +548,19 @@ System.out.println(getSomeUppercaseString.invoke()); // outputs: "MUMMY"
 <a id="vsreflection">&nbsp;</a>
 ## Method Handles vs Reflection API
 Method handles were introduced in [JDK7](https://docs.oracle.com/javase/7/docs/index.html) as a tool to assist
-compiler and language runtime developers. They were never meant to replace reflection. The Reflection API offers something
+compiler and language runtime developers. They were never meant to replace reflection. 
+
+[The Reflection API](id:api.reflection) offers something
 that method handles cannot, which is listing the class members and inspecting their properties. Method handles, on the
-other hand, can be transformed and manipulated in a way that is not possible with Reflection API.
+other hand, can be transformed and manipulated in a way that is not possible with the Reflection API.
 
 When it comes to method invocation, there are differences related to access checking and security considerations. The
 Reflection API performs access checking against every caller, on every call, while for method handles, access is
 checked only during construction. This makes invocation through method handles faster than through reflection.
 However, certain precautions have to be taken so the method handle is not passed to the code where it shouldn't be
 accessible.
+
+You can learn more about Reflection in [this tutorial](id:api.reflection).
 
 <a id="unreflect">&nbsp;</a>
 ## Conversion between Reflection API and method handles
@@ -613,8 +614,7 @@ Field field = MethodHandles.reflectAs(Field.class, getterMethodHandle); // same 
 
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
-In this tutorial, we have looked into the method handle mechanism and learned how to efficiently use it. We now know,
-that method handles provide a means for efficient method invocation, but this mechanism is not meant to replace the
+In this tutorial, we have looked into the method handle mechanism and learned how to efficiently use it. We now know that method handles provide a means for efficient method invocation, but this mechanism is not meant to replace the
 Reflection API.
 
 Method handles offer a performance advantage for method invocation due to a different access checking approach. However,

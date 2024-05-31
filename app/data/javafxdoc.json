@@ -1,8 +1,8 @@
 {
-  "current_release":                                  "19",
+  "current_release":                                "21.0.1",
+  "release_uuid":                                     "e5ab43c6aed54893b0840c1f2dcfca4d",
 
-  "javafx-documentation":                             "https://openjfx.io/javadoc/@@CURRENT_RELEASE@@/",
-  "javafxdoc_root":                                   "https://openjfx.io/javadoc/@@CURRENT_RELEASE@@/",
+  "javafxdoc_root":                                   "https://download.java.net/java/GA/javafx@@CURRENT_RELEASE@@/@@RELEASE_UUID@@/docs/api/",
 
   "Application":                                      "javafx.graphics/javafx/application/Application.html",
 
@@ -54,7 +54,6 @@
 
   "FXMLLoader":                                       "javafx.fxml/javafx/fxml/FXMLLoader.html",
   "Initializable":                                    "javafx.fxml/javafx/fxml/Initializable.html",
-
   "AnimationPackageSummary":                          "javafx.graphics/javafx/animation/package-summary",
   "WritableValue":                                    "javafx.base/javafx/beans/value/WritableValue",
   "Animation":                                        "javafx.graphics/javafx/animation/Animation",

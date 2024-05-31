@@ -53,6 +53,29 @@
   "SortedList":                                       "javafx.base/javafx/collections/transformation/SortedList.html",
 
   "FXMLLoader":                                       "javafx.fxml/javafx/fxml/FXMLLoader.html",
-  "Initializable":                                    "javafx.fxml/javafx/fxml/Initializable.html"
+  "Initializable":                                    "javafx.fxml/javafx/fxml/Initializable.html",
 
+  "AnimationPackageSummary":                          "javafx.graphics/javafx/animation/package-summary",
+  "WritableValue":                                    "javafx.base/javafx/beans/value/WritableValue",
+  "Animation":                                        "javafx.graphics/javafx/animation/Animation",
+  "Duration":                                         "javafx.base/javafx/util/Duration",
+  "Node":                                             "javafx.graphics/javafx/scene/Node",
+  "FadeTransition":                                   "javafx.graphics/javafx/animation/FadeTransition",
+  "FillTransition":                                   "javafx.graphics/javafx/animation/FillTransition",
+  "PathTransition":                                   "javafx.graphics/javafx/animation/PathTransition",
+  "ScaleTransition":                                  "javafx.graphics/javafx/animation/ScaleTransition",
+  "StrokeTransition":                                 "javafx.graphics/javafx/animation/StrokeTransition",
+  "TranslateTransition":                              "javafx.graphics/javafx/animation/TranslateTransition",
+  "Timeline":                                         "javafx.graphics/javafx/animation/Timeline",
+  "KeyFrame":                                         "javafx.graphics/javafx/animation/KeyFrame",
+  "KeyValue":                                         "javafx.graphics/javafx/animation/KeyValue",
+  "Interpolator":                                     "javafx.graphics/javafx/animation/Interpolator",
+  "Interpolator.DISCRETE":                            "javafx.graphics/javafx/animation/Interpolator#DISCRETE",
+  "Interpolator.LINEAR":                              "javafx.graphics/javafx/animation/Interpolator#LINEAR",
+  "Interpolator.EASE_IN":                             "javafx.graphics/javafx/animation/Interpolator#EASE_IN",
+  "Interpolator.EASE_OUT":                            "javafx.graphics/javafx/animation/Interpolator#EASE_OUT",
+  "Interpolator.EASE_BOTH":                           "javafx.graphics/javafx/animation/Interpolator#EASE_BOTH",
+  "Interpolator.SPLINE":                              "javafx.graphics/javafx/animation/Interpolator#SPLINE(double,double,double,double)",
+  "Interpolator.TANGENT":                             "javafx.graphics/javafx/animation/Interpolator#TANGENT(javafx.util.Duration,double,javafx.util.Duration,double)",
+  "AnimationTimer":                                   "javafx.graphics/javafx/animation/AnimationTimer"
 }

@@ -10,8 +10,10 @@ layout: learn/tutorial.html
 subheader_select: tutorials
 main_css_id: learn
 description: "Learn to create advanced JavaFX animations"
-last_update: 2024-05-22
+last_update: 2024-05-31
+author: ["ConnorSchweighöfer"]
 ---
+<br>
 
 The [javafx.animation](javafxdoc:AnimationPackageSummary) package offers a simple framework for creating animations and transitions in a JavaFX application.
 It operates on the principle of [`WritableValue<T>`](javafxdoc:WritableValue), which is used across JavaFX. `WritableValue<T>` is an interface that wraps a value that can be read and set.

@@ -17,7 +17,8 @@ The [javafx.animation](javafxdoc:AnimationPackageSummary) package offers a simpl
 It operates on the principle of [`WritableValue<T>`](javafxdoc:WritableValue), which is used across JavaFX. `WritableValue<T>` is an interface that wraps a value that can be read and set.
 It is commonly used for storing properties in JavaFX UI elements, like `width` or `height` in the [`Rectangle`](javafxdoc:Rectangle) shape.
 It additionally provides a variety of built-in transitions for common effects, support for parallel and sequential transitions, and the ability to handle events upon animation completion.
-The article goes through all types of animations, starting with `Animation` and its subclasses `Transition` and `Timeline`, before representing a lower level animation with `AnimationTimer`.
+
+This article goes through all types of animations, starting with `Animation` and its subclasses `Transition` and `Timeline`, before representing a lower level animation with `AnimationTimer`.
 While `Transition` provides a simpler and more user-friendly way to create animations, `Timeline` offers greater flexibility and is suitable for more complex animations.
 In contrast, `AnimationTimer` is designed for frame-by-frame updates and does not make use of `WritableValue<T>`.
 

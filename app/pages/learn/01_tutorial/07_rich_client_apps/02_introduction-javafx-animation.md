@@ -194,8 +194,8 @@ SequentialTransition transition = new SequentialTransition(
 );
 transition.play();
 ```
-Note that this code doesn't set the target `Node` in the transitions itself, but instead in the `SequentialTransition` which is the parent transition here.
-It is going to automatically use the target `Node` for child transitions that have no `Node` specified themselves.
+Note that this code only sets a `Node` on the `SequentialTransition`, which is the parent transition here, and not on the individual child transitions.
+They will implicitly use their parent transition's `Node`.
 
 ### Parallel Transition
 The [`ParallelTransition`](javafxdoc:ParallelTransition) plays a group of animations in parallel.

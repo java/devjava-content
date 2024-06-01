@@ -226,9 +226,9 @@ function pages() {
             if (href.includes("javafxdoc:")) {
                 let javafxdoc_id = href.match(/javafxdoc:([\w\.\-(),]+)/)
                 if (javafxdoc_id != null) {
-                    processedHref = processDocLink(javafxdoc["javafxdoc_root"] + javafxdoc[javafxdoc_id[1]]);
+                    processedHref = processJavaFxDocLink(javafxdoc["javafxdoc_root"] + javafxdoc[javafxdoc_id[1]]);
                     if (processedHref.includes("undefined")) {
-                        console.log("Javadoc " + javafxdoc_id[1] + " resolved to undefined");
+                        console.log("JavaFX Javadoc " + javafxdoc_id[1] + " resolved to undefined");
                     }
                     return `<a href="${processedHref}" target="_blank" rel="noopener noreferrer">${text}</a>`;
                 }
@@ -400,6 +400,10 @@ function writeFile(path, contents, cb) {
 
 function processDocLink(link) {
     return link.replace("@@CURRENT_RELEASE@@", javadoc[`current_release`]);
+}
+
+function processJavaFxDocLink(link) {
+    return link.replace("@@CURRENT_RELEASE@@", javafxdoc[`current_release`]).replace("@@RELEASE_UUID@@", javafxdoc[`release_uuid`]);
 }
 
 

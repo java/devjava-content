@@ -282,7 +282,7 @@ other exceptions if they arise.
 MethodHandles.Lookup lookup = MethodHandles.lookup();
 MethodHandle methodHandle = lookup.findStatic(Example.class, "problematicMethod", MethodType.methodType(int.class, String.class));
 MethodHandle handler = lookup.findStatic(Example.class, "exceptionHandler",
-MethodType.methodType(int.class, IllegalArgumentException.class, String.class));
+        MethodType.methodType(int.class, IllegalArgumentException.class, String.class));
 MethodHandle wrapped = MethodHandles.catchException(methodHandle, IllegalArgumentException.class, handler);
 
 System.out.println(wrapped.invoke("valid")); // outputs "1"
@@ -464,7 +464,7 @@ Let's assume that we have a `target` method:
 
 ```java
 private static void target(int ignored, int sum, int a, int b) {
-    System.out.printf("%s + %s equals %s and %s is ignored%n", a, b, sum, ignored);
+    System.out.printf("%d + %d equals %d and %d is ignored%n", a, b, sum, ignored);
 }
 ```
 

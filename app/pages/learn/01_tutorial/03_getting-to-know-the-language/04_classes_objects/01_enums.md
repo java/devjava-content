@@ -17,7 +17,7 @@ toc:
 - Precautions {precautions}
 - Conclusion {conclusion}
 description: "Working with enums."
-last_update: 2023-09-29
+last_update: 2024-06-28
 author: ["DanielSchmid"]
 ---
 <a id="intro">&nbsp;</a>
@@ -32,7 +32,7 @@ No instances of the enum can be created outside of enum constants.
 
 ```java
 public enum DayOfWeek {
-    // enum constant are listed here:
+    // enum constants are listed here:
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
 }
 ```
@@ -74,8 +74,8 @@ switch (someDay) {
 With [Switch Expressions](id:lang.classes-objects.switch-expression),
 the compiler can check whether all values of the enum are handled.
 If any possible value is missing in a switch expression, there will be a compiler error.
-This is referred to as Exhaustiveness and can also be achieved with regular classes 
-through [Sealed Classes](https://openjdk.org/jeps/409).
+This is referred to as exhaustiveness checking and can also be achieved with regular classes
+through [Sealed Classes](https://openjdk.org/jeps/409) and [Patternmatching](/learn/pattern-matching/#switch).
 
 ```java
 DayOfWeek someDay = DayOfWeek.FRIDAY;
@@ -99,7 +99,8 @@ Arguments to the constructor are passed in parenthesis after the declaration of 
 
 ```java
 public enum DayOfWeek {
-    MONDAY("MON"), TUESDAY("TUE"), WEDNESDAY("WED"), THURSDAY("THU"), FRIDAY("FRI"), SATURDAY("SAT"), SUNDAY("SUN");
+    MONDAY("MON"), TUESDAY("TUE"), WEDNESDAY("WED"), THURSDAY("THU"), FRIDAY("FRI"),
+    SATURDAY("SAT"), SUNDAY("SUN");
     
     private final String abbreviation;
     
@@ -140,9 +141,9 @@ This allows for comparing instances of enums as well as sorting or searching.
 ```java
 public void compareDayOfWeek(DayOfWeek dayOfWeek){
     int comparison = dayOfWeek.compareTo(DayOfWeek.WEDNESDAY);
-    if ( comparison < 0) {
+    if (comparison < 0) {
         System.out.println("It's before the middle of the work week.");
-    } else if(comparison > 0){
+    } else if (comparison > 0) {
         System.out.println("It's after the middle of the work week.");
     } else {
         System.out.println("It's the middle of the work week.");
@@ -210,6 +211,6 @@ and reading these configuration files in the program in cases like this.
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
 
-Enums provide a simple and safe way of representing a fixed set of constants while keeping most of the flexibilities of classes. They are a special type of class that can be used to write code that is elegant, readable, and maintainable, and work well with other newer modern features like [Switch Expressions](id:lang.classes-objects.switch-expression). Another special class is the Record class introduced in Java 19. Visit our [Records tutorial](id:lang.records) to learn more.
+Enums provide a simple and safe way of representing a fixed set of constants while keeping most of the flexibilities of classes. They are a special type of class that can be used to write code that is elegant, readable, maintainable and works well with other modern Java features like [Switch Expressions](id:lang.classes-objects.switch-expression). Another special class is the Record class introduced in Java 19. Visit our [Records tutorial](id:lang.records) to learn more.
 
 To learn more about enums, visit the [`java.lang.Enum`](javadoc:Enum) javadoc.

@@ -17,7 +17,7 @@ toc:
 - Precautions {precautions}
 - Conclusion {conclusion}
 description: "Working with enums."
-last_update: 2024-06-28
+last_update: 2024-07-08
 author: ["DanielSchmid"]
 ---
 <a id="intro">&nbsp;</a>
@@ -71,11 +71,11 @@ switch (someDay) {
 }
 ```
 
-With [Switch Expressions](id:lang.classes-objects.switch-expression),
+With [switch expressions](id:lang.classes-objects.switch-expression),
 the compiler can check whether all values of the enum are handled.
 If any possible value is missing in a switch expression, there will be a compiler error.
 This is referred to as exhaustiveness checking and can also be achieved with regular classes
-through [Sealed Classes](https://openjdk.org/jeps/409) and [Patternmatching](/learn/pattern-matching/#switch).
+through [sealed classes](https://openjdk.org/jeps/409) and [patternmatching](/learn/pattern-matching/#switch).
 
 ```java
 DayOfWeek someDay = DayOfWeek.FRIDAY;

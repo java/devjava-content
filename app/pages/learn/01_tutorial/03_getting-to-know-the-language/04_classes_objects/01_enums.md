@@ -75,7 +75,7 @@ With [switch expressions](id:lang.classes-objects.switch-expression),
 the compiler can check whether all values of the enum are handled.
 If any possible value is missing in a switch expression, there will be a compiler error.
 This is referred to as exhaustiveness checking and can also be achieved with regular classes
-through [sealed classes](https://openjdk.org/jeps/409) and [patternmatching](/learn/pattern-matching/#switch).
+through [sealed classes](https://openjdk.org/jeps/409) and [pattern matching](/learn/pattern-matching/#switch).
 
 ```java
 DayOfWeek someDay = DayOfWeek.FRIDAY;

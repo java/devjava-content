@@ -8,6 +8,7 @@ layout: learn/tutorial.html
 subheader_select: tutorials
 main_css_id: learn
 last_update: 2024-04-24
+last_review: 2024-08-05
 description: "This article focuses on tasks that application programmers are likely to encounter, particularly in web applications, such as reading and writing text files, reading text, images, JSON from the web, and more."
 author: ["CayHorstmann"]
 ---
@@ -146,8 +147,9 @@ String result = new String(bytes);
 Or transfer the data to an output stream:
 
 ```java
-OutputStream out = Files.newOutputStream(path);
-in.transferTo(out);
+try(OutputStream out = Files.newOutputStream(path)) {
+    in.transferTo(out);
+}
 ```
 
 Note that no loop is required if you simply want to read all bytes of an input stream. 
@@ -206,7 +208,7 @@ Here are the other methods for traversing directory entries:
 * An overloaded version of `Files.walk` lets you limit the depth of the traversed tree.
 * Two `Files.walkFileTree` methods provide more control over the iteration process, by notifying a `FileVisitor` when a directory is visited for the first and last time. This can be occasionally useful, in particularly for emptying and deleting a tree of directories. See the tutorial [Walking the File Tree](https://dev.java/learn/java-io/file-system/walking-tree) for details. Unless you need this control, use the simpler `Files.walk` method.
 * The `Files.find` method is just like `Files.walk`, but you provide a filter that inspects each path and its `BasicFileAttributes`. This is slightly more efficient than reading the attributes separately for each file.
-* Two `Files.newDirectoryStream` methods yields `DirectoryStream` instances, which can be used in enhanced `for` loops. There is no advantage over using `Files.list`. 
+* Two `Files.newDirectoryStream` methods yield `DirectoryStream` instances, which can be used in enhanced `for` loops. There is no advantage over using `Files.list`. 
 * The legacy `File.list` or `File.listFiles` methods return file names or `File` objects. These are now obsolete.
 
 ### Working with ZIP Files

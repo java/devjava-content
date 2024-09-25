@@ -77,6 +77,7 @@ If any possible value is missing in a switch expression, there will be a compile
 This is referred to as exhaustiveness checking and can also be achieved with regular classes
 through [sealed classes](https://openjdk.org/jeps/409) and [pattern matching](/learn/pattern-matching/#switch).
 
+
 ```java
 DayOfWeek someDay = DayOfWeek.FRIDAY;
 
@@ -211,6 +212,6 @@ and reading these configuration files in the program in cases like this.
 <a id="conclusion">&nbsp;</a>
 ## Conclusion
 
-Enums provide a simple and safe way of representing a fixed set of constants while keeping most of the flexibilities of classes. They are a special type of class that can be used to write code that is elegant, readable, maintainable and works well with other modern Java features like [Switch Expressions](id:lang.classes-objects.switch-expression). Another special class is the Record class introduced in Java 19. Visit our [Records tutorial](id:lang.records) to learn more.
+Enums provide a simple and safe way of representing a fixed set of constants while keeping most of the flexibilities of classes. They are a special type of class that can be used to write code that is elegant, readable, maintainable and works well with other modern Java features like [switch expressions](id:lang.classes-objects.switch-expression). Another special class is the Record class introduced in Java 19. Visit our [records tutorial](id:lang.records) to learn more.
 
 To learn more about enums, visit the [`java.lang.Enum`](javadoc:Enum) javadoc.

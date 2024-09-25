@@ -27,6 +27,7 @@ for (const author of authorsArray) {
 
 var javadoc = require('./app/data/javadoc.json')
 var javafxdoc = require('./app/data/javafxdoc.json')
+var jep = require('./app/data/jep.json')
 
 
 function getAuthorID(name) {
@@ -251,7 +252,37 @@ function pages() {
                 }
             }
 
+            if (href.includes("jep:")) {
+                let jep_id = href.match(/jep:([\d]+)/);
+                if (jep_id != null) {
+                    if (jep[jep_id[1]] == undefined) {
+                        console.log("JEP " + jep_id[1] + " is not defined");
+                    } else {
+                        processedHref = jep["root"] + jep_id[1];
+                        let anchor = href.match(/#[\w|-]+/);
+                        if (anchor) {
+                            processedHref = processedHref + anchor;
+                        }
+                        if (jep[jep_id[1]]["status"] == "preview" && jep[jep_id[1]]["version"] != javadoc["current_release"]) {
+                            console.log(
+                                "Current release is " + javadoc["current_release"] + ", JEP " + jep_id[1] +
+                                " is a preview of " + jep[jep_id[1]]["version"] + " and still referenced");
+                        }
+                        if (jep[jep_id[1]]["status"] == "incubator" && jep[jep_id[1]]["version"] != javadoc["current_release"]) {
+                            console.log(
+                                "Current release is " + javadoc["current_release"] + ", JEP " + jep_id[1] +
+                                " is an incubator of " + jep[jep_id[1]]["version"] + " and still referenced");
+                        }
+                        if (jep[jep_id[1]]["title"]) {
+                            text = "JEP " + jep_id[1] + ": " + jep[jep_id[1]]["title"];
+                        } else {
+                            text = "JEP " + jep_id[1] + ": " + jep[jep_id[1]];
+                        }
 
+                        return `<a href="${processedHref}" target="_blank" rel="noopener noreferrer">${text}</a>`;
+                    }
+                }
+            }
 
             if (title) {
                 link = `<a href="${processedHref}" title="${title}">${text}</a>`;

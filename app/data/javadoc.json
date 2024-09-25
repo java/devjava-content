@@ -1,8 +1,10 @@
 {
-  "current_release":                     "22",
+  "current_release":                     "23",
 
   "java-documentation":                  "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/",
+  "java-documentation-summary":          "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/api/java.naming/module-summary.html",
   "javadoc_root":                        "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/api/",
+  "jdk-release-note":                    "https://www.oracle.com/java/technologies/javase/jdk-relnotes-index.html",
 
   "security-standard-names":             "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/security/standard-names.html",
   "jre-jdk-cryptoroadmap":               "https://www.java.com/en/jre-jdk-cryptoroadmap.html",
@@ -145,21 +147,12 @@
   "Cloneable":                           "java.base/java/lang/Cloneable.html",
   "CloneNotSupportedException":          "java.base/java/lang/CloneNotSupportedException.html",
 
-  "Class":                               "java.base/java/lang/Class.html",
-  "Class.getFields()":                   "java.base/java/lang/Class.html#getFields()",
-  "Class.getInterfaces()":               "java.base/java/lang/Class.html#getInterfaces()",
-  "Class.getMethods()":                  "java.base/java/lang/Class.html#getMethods()",
-  "Class.getSimpleName()":               "java.base/java/lang/Class.html#getSimpleName()",
-  "Class.getSuperclass()":               "java.base/java/lang/Class.html#getSuperclass()",
-  "Class.isAnnotation()":                "java.base/java/lang/Class.html#isAnnotation()",
-  "Class.isEnum()":                      "java.base/java/lang/Class.html#isEnum()",
-  "Class.isInterface()":                 "java.base/java/lang/Class.html#isInterface()",
-
   "Record":                              "java.base/java/lang/Record.html",
 
   "System":                                                           "java.base/java/lang/System.html",
   "System.out":                                                       "java.base/java/lang/System.html#out",
   "System.arraycopy(java.lang.Object,int,java.lang.Object,int,int)":  "java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)",
+  "System.console()":                                                 "java.base/java/lang/System.html#console()",
 
   "Long":                                "java.base/java/lang/Long.html",
   "Long.compareTo(Long)":                "java.base/java/lang/Long.html#compareTo(java.lang.Long)",
@@ -420,9 +413,7 @@
 
   "FileTime":                            "java.base/java/nio/file/attribute/FileTime.html",
 
-  "Iterable":                                       "java.base/java/lang/Iterable.html",
-  "Iterable.forEach()":                             "java.base/java/lang/Iterable.html#forEach(java.util.function.Consumer)",
-  "Iterable.iterator()":                            "java.base/java/lang/Iterable.html#iterator()",
+  "Console":                             "java.base/java/io/Console.html",
 
   "Path":                                           "java.base/java/nio/file/Path.html",
   "Path.toFile()":                                  "java.base/java/nio/file/Path.html#toFile()",
@@ -519,7 +510,9 @@
   "String.regionMatches(int,String,int,int)":         "java.base/java/lang/String.html#regionMatches(int,java.lang.String,int,int)",
   "String.equals(Object)":                            "java.base/java/lang/String.html#equals(java.lang.Object)",
   "String.regionMatches(boolean,int,String,int,int)": "java.base/java/lang/String.html#regionMatches(boolean,int,java.lang.String,int,int)",
-  "String.join(CharSequence,CharSequence)":           "java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence)",
+  "String.join(CharSequence,CharSequence)":           "java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...)",
+  "String.join(CharSequence,Iterable)":               "java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.Iterable)",
+  "String.valueOf(Object)":                           "java.base/java/lang/String.html#valueOf(java.lang.Object)",
 
   "StringIndexOutOfBoundsException":            "java.base/java/lang/StringIndexOutOfBoundsException.html",
 
@@ -528,8 +521,8 @@
 
   "StringBuilder":                          "java.base/java/lang/StringBuilder.html",
   "StringBuilder()":                        "java.base/java/lang/StringBuilder.html#%3Cinit%3E()",
-  "StringBuilder(CharSequence)":            "java/lang/StringBuilder.html#%3Cinit%3E(java.lang.CharSequence)",
-  "StringBuilder(String)":                  "java/lang/StringBuilder.html#%3Cinit%3E(java.lang.String)",
+  "StringBuilder(CharSequence)":            "java.base/java/lang/StringBuilder.html#%3Cinit%3E(java.lang.CharSequence)",
+  "StringBuilder(String)":                  "java.base/java/lang/StringBuilder.html#%3Cinit%3E(java.lang.String)",
   "StringBuilder(int)":                     "java.base/java/lang/StringBuilder.html#%3Cinit%3E(int)",
   "StringBuilder.length()":                 "java.base/java/lang/StringBuilder.html#length()",
   "StringBuilder.capacity()":               "java.base/java/lang/StringBuilder.html#capacity()",
@@ -570,6 +563,7 @@
   "Externalizable":                      "java.base/java/io/Externalizable.html",
 
   "Writer":                              "java.base/java/io/Writer.html",
+  "FileWriter":                          "java.base/java/io/FileWriter.html",
   "FileReader":                          "java.base/java/io/FileReader.html",
   "FilterWriter":                        "java.base/java/io/FilterWriter.html",
   "CharArrayReader":                     "java.base/java/io/CharArrayReader.html",
@@ -941,7 +935,8 @@
   "TimeZone.toZoneId()":                             "java.base/java/util/TimeZone.html#toZoneId()",
 
   "DateTimeParseException":                          "java.base/java/time/format/DateTimeParseException.html",
-  "DateTimeException":                               "java.base/java/time/format/DateTimeException.html",
+
+  "DateTimeException":                               "java.base/java/time/DateTimeException.html",
 
   "DecimalFormat":                                   "java.base/java/text/DecimalFormat.html",
 
@@ -1067,9 +1062,6 @@
   "RetentionPolicy.RUNTIME":                       "java.base/java/lang/annotation/RetentionPolicy.html#RUNTIME",
   "RetentionPolicy.SOURCE":                        "java.base/java/lang/annotation/RetentionPolicy.html#SOURCE",
   "Target":                                        "java.base/java/lang/annotation/Target.html",
-  "AnnotatedElement":                              "java.base/java/lang/reflect/AnnotatedElement.html",
-  "AnnotatedElement.getAnnotation(Class)":         "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotation(java.lang.Class)",
-  "AnnotatedElement.getAnnotationsByType(Class)":  "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotationsByType(java.lang.Class)",
 
   "IllegalArgumentException":                      "java.base/java/lang/IllegalArgumentException.html",
   "IllegalStateException":                         "java.base/java/lang/IllegalStateException.html",
@@ -1080,11 +1072,19 @@
   "ArrayDeque":                                    "java.base/java/util/ArrayDeque.html",
 
   "Iterator":                                      "java.base/java/util/Iterator.html",
+  "Iterator.hasNext()":                            "java.base/java/util/Iterator.html#hasNext()",
+  "Iterator.next()":                               "java.base/java/util/Iterator.html#next()",
+  "Iterator.remove()":                             "java.base/java/util/Iterator.html#remove()",
   "Iterator.forEachRemaining(Consumer)":           "java.base/java/util/Iterator.html#forEachRemaining(java.util.function.Consumer)",
+
+  "Iterable":                                       "java.base/java/lang/Iterable.html",
+  "Iterable.forEach()":                             "java.base/java/lang/Iterable.html#forEach(java.util.function.Consumer)",
+  "Iterable.iterator()":                            "java.base/java/lang/Iterable.html#iterator()",
 
   "Collection":                                    "java.base/java/util/Collection.html",
   "Collection.removeIf(Predicate)":                "java.base/java/util/Collection.html#removeIf(java.util.function.Predicate)",
   "Collection.add(E)":                             "java.base/java/util/Collection.html#add(E)",
+  "Collection.remove(Object)":                     "java.base/java/util/Collection.html#remove(java.lang.Object)",
   "Collection.addAll(Collection)":                 "java.base/java/util/Collection.html#addAll(java.util.Collection)",
   "Collection.clear()":                            "java.base/java/util/Collection.html#clear()",
   "Collection.contains(Object)":                   "java.base/java/util/Collection.html#contains(java.lang.Object)",
@@ -1137,11 +1137,6 @@
   "Hashtable":                                     "java.base/java/util/Hashtable.html",
 
   "IdentityHashMap":                               "java.base/java/util/IdentityHashMap.html",
-
-  "Iterator":                                      "java.base/java/util/Iterator.html",
-  "Iterator.hasNext()":                            "java.base/java/util/Iterator.html#hasNext()",
-  "Iterator.next()":                               "java.base/java/util/Iterator.html#next()",
-  "Iterator.remove()":                             "java.base/java/util/Iterator.html#remove()",
 
   "LinkedHashMap":                                 "java.base/java/util/LinkedHashMap.html",
 
@@ -1223,6 +1218,9 @@
   "NavigableMap.subMap(K,boolean,K,boolean)":      "java.base/java/util/NavigableMap.html#subMap(K,boolean,K,boolean)",
   "NavigableMap.tailMap(K)":                       "java.base/java/util/NavigableMap.html#tailMap(K)",
 
+  "ConcurrentMap":                                 "java.base/java/util/concurrent/ConcurrentMap.html",
+  "ConcurrentMap.putIfAbsent()":                   "java.base/java/util/concurrent/ConcurrentMap.html#putIfAbsent()",
+
   "NavigableSet":                                  "java.base/java/util/NavigableSet.html",
   "NavigableSet.ceiling(E)":                       "java.base/java/util/NavigableSet.html#ceiling(E)",
   "NavigableSet.descendingIterator()":             "java.base/java/util/NavigableSet.html#descendingIterator()",
@@ -1286,6 +1284,7 @@
   "NumberFormatException":                         "java.base/java/lang/NumberFormatException.html",
   "OutOfMemoryError":                              "java.base/java/lang/OutOfMemoryError.html",
 
+  "Character.UnicodeBlock":                       "java.base/java/lang/Character.UnicodeBlock.html",
   "Character.toString(int)":                       "java.base/java/lang/Character.html#toString(int)",
 
   "Charset":                                       "java.base/java/nio/charset/Charset.html",
@@ -1448,6 +1447,157 @@
   "MBeanServerConnection":                             "java.management/javax/management/MBeanServerConnection.html",
   "SimpleFileServer":                                  "jdk.httpserver/com/sun/net/httpserver/SimpleFileServer",
 
-  "Method":                "java.base/java/lang/reflect/Method.html",
-  "Method.invoke()":       "java.base/java/lang/reflect/Method.html#invoke(java.lang.Object,java.lang.Object...)"
+  "Lookup":                                                          "java.base/java/lang/invoke/MethodHandles.Lookup.html",
+  "MethodType":                                                      "java.base/java/lang/invoke/MethodType.html",
+  "MethodHandles":                                                   "java.base/java/lang/invoke/MethodHandles.html",
+  "MethodHandles.Lookup.findVirtual(Class,String,MethodType)":       "java.base/java/lang/invoke/MethodHandles.Lookup.html#findVirtual(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)",
+  "MethodHandles.Lookup.findStatic(Class,String,MethodType)":        "java.base/java/lang/invoke/MethodHandles.Lookup.html#findStatic(java.lang.Class,java.lang.String,java.lang.invoke.MethodType)",
+  "MethodHandles.Lookup.findConstructor(Class,MethodType)":          "java.base/java/lang/invoke/MethodHandles.Lookup.html#findConstructor(java.lang.Class,java.lang.invoke.MethodType)",
+  "MethodHandles.Lookup.findGetter(Class,String,Class)":             "java.base/java/lang/invoke/MethodHandles.Lookup.html#findGetter(java.lang.Class,java.lang.String,java.lang.Class)",
+  "MethodHandles.Lookup.findSetter(Class,String,Class)":             "java.base/java/lang/invoke/MethodHandles.Lookup.html#findSetter(java.lang.Class,java.lang.String,java.lang.Class)",
+  "MethodHandles.Lookup.findStaticGetter(Class,String,Class)":       "java.base/java/lang/invoke/MethodHandles.Lookup.html#findStaticGetter(java.lang.Class,java.lang.String,java.lang.Class)",
+  "MethodHandles.Lookup.findStaticSetter(Class,String,Class)":       "java.base/java/lang/invoke/MethodHandles.Lookup.html#findStaticSetter(java.lang.Class,java.lang.String,java.lang.Class)",
+  "MethodHandles.Lookup.findVarHandle(Class,String,Class)":          "java.base/java/lang/invoke/MethodHandles.Lookup.html#findVarHandle(java.lang.Class,java.lang.String,java.lang.Class)",
+  "MethodHandles.Lookup.findStaticVarHandle(Class,String,Class)":    "java.base/java/lang/invoke/MethodHandles.Lookup.html#findStaticVarHandle(java.lang.Class,java.lang.String,java.lang.Class)",
+  "MethodHandles.Lookup.unreflect(Method)":                          "java.base/java/lang/invoke/MethodHandles.Lookup.html#unreflect(java.lang.reflect.Method)",
+  "MethodHandles.publicLookup()":                                    "java.base/java/lang/invoke/MethodHandles.html#publicLookup()",
+  "MethodHandles.tryFinally(MethodHandle,MethodHandle)":             "java.base/java/lang/invoke/MethodHandles.html#tryFinally(java.lang.invoke.MethodHandle,java.lang.invoke.MethodHandle)",
+  "MethodHandles.permuteArguments(MethodHandle,MethodType,int...)":  "java.base/java/lang/invoke/MethodHandles.html#permuteArguments(java.lang.invoke.MethodHandle,java.lang.invoke.MethodType,int...)",
+  "MethodHandles.insertArguments(MethodHandle,int,Object...)":       "java.base/java/lang/invoke/MethodHandles.html#insertArguments(java.lang.invoke.MethodHandle,int,java.lang.Object...)",
+  "MethodHandles.filterArguments(MethodHandle,int,MethodHandle...)": "java.base/java/lang/invoke/MethodHandles.html#filterArguments(java.lang.invoke.MethodHandle,int,java.lang.invoke.MethodHandle...)",
+  "MethodHandles.foldArguments(MethodHandle,int,MethodHandle)":      "java.base/java/lang/invoke/MethodHandles.html#foldArguments(java.lang.invoke.MethodHandle,int,java.lang.invoke.MethodHandle)",
+  "MethodHandles.reflectAs(Class,MethodHandle)":                     "java.base/java/lang/invoke/MethodHandles.html#reflectAs(java.lang.Class,java.lang.invoke.MethodHandle)",
+  "MethodHandles.arrayConstructor(Class)":                           "java.base/java/lang/invoke/MethodHandles.html#arrayConstructor(java.lang.Class)",
+  "MethodHandles.arrayElementSetter(Class)":                         "java.base/java/lang/invoke/MethodHandles.html#arrayElementSetter(java.lang.Class)",
+  "MethodHandles.arrayElementGetter(Class)":                         "java.base/java/lang/invoke/MethodHandles.html#arrayElementGetter(java.lang.Class)",
+  "MethodHandles.catchException(MethodHandle,Class,MethodHandle)":   "java.base/java/lang/invoke/MethodHandles.html#catchException(java.lang.invoke.MethodHandle,java.lang.Class,java.lang.invoke.MethodHandle)",
+  "MethodHandles.arrayLength(Class)":                                "java.base/java/lang/invoke/MethodHandles.html#arrayLength(java.lang.Class)",
+  "MethodHandle.invoke(Object...)":                                  "java.base/java/lang/invoke/MethodHandle.html#invoke(java.lang.Object...)",
+  "MethodHandle.invokeExact(Object...)":                             "java.base/java/lang/invoke/MethodHandle.html#invokeExact(java.lang.Object...)",
+  "MethodHandle.invokeWithArguments(Object...)":                     "java.base/java/lang/invoke/MethodHandle.html#invokeWithArguments(java.lang.Object...)",
+  "MethodHandle.asType(MethodType)":                                 "java.base/java/lang/invoke/MethodHandle.html#asType(java.lang.invoke.MethodType)",
+  "VarHandle":                                                       "java.base/java/lang/invoke/VarHandle.html",
+  "WrongMethodTypeException":                                        "java.base/java/lang/invoke/WrongMethodTypeException.html",
+
+  "ReflectPermission":                                 "java.base/java/lang/reflect/ReflectPermission.html",
+
+  "java.lang.reflect":                                 "java.base/java/lang/reflect/package-summary.html",
+
+  "Class":                                             "java.base/java/lang/Class.html",
+  "Class.getFields()":                                 "java.base/java/lang/Class.html#getFields()",
+  "Class.getInterfaces()":                             "java.base/java/lang/Class.html#getInterfaces()",
+  "Class.getMethods()":                                "java.base/java/lang/Class.html#getMethods()",
+  "Class.getSimpleName()":                             "java.base/java/lang/Class.html#getSimpleName()",
+  "Class.getSuperclass()":                             "java.base/java/lang/Class.html#getSuperclass()",
+  "Class.isAnnotation()":                              "java.base/java/lang/Class.html#isAnnotation()",
+  "Class.isEnum()":                                    "java.base/java/lang/Class.html#isEnum()",
+  "Class.isInterface()":                               "java.base/java/lang/Class.html#isInterface()",
+  "Class.toString()":                                  "java.base/java/lang/Class.html#toString()",
+  "Class.forName(String)":                             "java.base/java/lang/Class.html#forName(java.lang.String)",
+  "Class.getName()":                                   "java.base/java/lang/Class.html#getName()",
+  "Class.getCanonicalName()":                          "java.base/java/lang/Class.html#getCanonicalName()",
+  "Class.getTypeName()":                               "java.base/java/lang/Class.html#getTypeName()",
+  "Class.forPrimitiveName()":                          "java.base/java/lang/Class.html#forPrimitiveName()",
+  "Class.getClasses()":                                "java.base/java/lang/Class.html#getClasses()",
+  "Class.getEnclosingClass()":                         "java.base/java/lang/Class.html#getEnclosingClass()",
+  "Class.getDeclaredClasses()":                        "java.base/java/lang/Class.html#getDeclaredClasses()",
+  "Class.getDeclaringClass()":                         "java.base/java/lang/Class.html#getDeclaringClass()",
+  "Class.getModifiers()":                              "java.base/java/lang/Class.html#getModifiers()",
+  "Class.getDeclaredField(String)":                    "java.base/java/lang/Class.html#getDeclaredField(java.lang.String)",
+  "Class.getField(String)":                            "java.base/java/lang/Class.html#getField(java.lang.String)",
+  "Class.getDeclaredFields()":                         "java.base/java/lang/Class.html#getDeclaredFields()",
+  "Class.getDeclaredMethod(String,Class...)":          "java.base/java/lang/Class.html#getDeclaredMethod(java.lang.String,java.lang.Class...)",
+  "Class.getMethod(String,Class...)":                  "java.base/java/lang/Class.html#getMethod(java.lang.String,java.lang.Class...)",
+  "Class.getDeclaredMethods()":                        "java.base/java/lang/Class.html#getDeclaredMethods()",
+  "Class.getDeclaredConstructor(Class...)":            "java.base/java/lang/Class.html#getDeclaredConstructor(java.lang.Class...)",
+  "Class.getConstructor(Class...)":                    "java.base/java/lang/Class.html#getConstructor(java.lang.Class...)",
+  "Class.getDeclaredConstructors()":                   "java.base/java/lang/Class.html#getDeclaredConstructors()",
+  "Class.getConstructors()":                           "java.base/java/lang/Class.html#getConstructors()",
+  "Class.newInstance()":                               "java.base/java/lang/Class.html#newInstance()",
+  "Class.isRecord()":                                  "java.base/java/lang/Class.html#isRecord()",
+  "Class.getEnumConstants()":                          "java.base/java/lang/Class.html#getEnumConstants()",
+  "Class.isArray()":                                   "java.base/java/lang/Class.html#isArray()",
+  "Class.getComponentType()":                          "java.base/java/lang/Class.html#getComponentType()",
+
+  "Void":                                              "java.base/java/lang/Void.html",
+  "Void.TYPE":                                         "java.base/java/lang/Void.html#TYPE",
+
+  "Type":                                              "java.base/java/lang/reflect/Type.html",
+  "Type.getTypeName()":                                "java.base/java/lang/reflect/Type.html#getTypeName()",
+
+  "Member":                                            "java.base/java/lang/reflect/Member.html",
+  "Member.accessFlags()":                              "java.base/java/lang/reflect/Member.html#accessFlags()",
+  "Member.getDeclaringClass()":                        "java.base/java/lang/reflect/Member.html#getDeclaringClass()",
+
+  "Field":                                             "java.base/java/lang/reflect/Field.html",
+  "Field.getFields()":                                 "java.base/java/lang/reflect/Field.html#getFields()",
+  "Field.getType()":                                   "java.base/java/lang/reflect/Field.html#getType()",
+  "Field.getGenericType()":                            "java.base/java/lang/reflect/Field.html#getGenericType()",
+  "Field.getModifiers()":                              "java.base/java/lang/reflect/Field.html#getModifiers()",
+  "Field.accessFlags()":                               "java.base/java/lang/reflect/Field.html#accessFlags()",
+  "Field.get(Object)":                                 "java.base/java/lang/reflect/Field.html#get(java.lang.Object)",
+  "Field.set(Object,Object)":                          "java.base/java/lang/reflect/Field.html#set(java.lang.Object,java.lang.Object)",
+  "Field.setInt(Object,int)":                          "java.base/java/lang/reflect/Field.html#setInt(java.lang.Object,int)",
+  "Field.getInt(Object)":                              "java.base/java/lang/reflect/Field.html#getInt(java.lang.Object)",
+  "Field.setAccessible()":                             "java.base/java/lang/reflect/Field.html#setAccessible()",
+  "Field.isEnumConstant()":                            "java.base/java/lang/reflect/Field.html#isEnumConstant()",
+
+  "Method":                                            "java.base/java/lang/reflect/Method.html",
+  "Method.invoke(Object,Object...)":                   "java.base/java/lang/reflect/Method.html#invoke(java.lang.Object,java.lang.Object...)",
+  "Method.invoke()":                                   "java.base/java/lang/reflect/Method.html#invoke()",
+  "Method.getReturnType()":                            "java.base/java/lang/reflect/Method.html#getReturnType()",
+  "Method.getGenericReturnType()":                     "java.base/java/lang/reflect/Method.html#getGenericReturnType()",
+  "Method.getGenericExceptionTypes()":                 "java.base/java/lang/reflect/Method.html#getGenericExceptionTypes()",
+  "Method.getModifiers()":                             "java.base/java/lang/reflect/Method.html#getModifiers()",
+  "Method.setAccessible(boolean)":                     "java.base/java/lang/reflect/Method.html#setAccessible(boolean)",
+
+  "Constructor":                                       "java.base/java/lang/reflect/Constructor.html",
+  "Constructor.newInstance()":                         "java.base/java/lang/reflect/Constructor.html#newInstance()",
+  "Constructor.getParameterTypes()":                   "java.base/java/lang/reflect/Constructor.html#getParameterTypes()",
+  "Constructor.getGenericParameterTypes()":            "java.base/java/lang/reflect/Constructor.html#getGenericParameterTypes()",
+
+  "RecordComponent":                                   "java.base/java/lang/reflect/RecordComponent.html",
+  "RecordComponent.getDeclaringRecord()":              "java.base/java/lang/reflect/RecordComponent.html#getDeclaringRecord()",
+  "RecordComponent.getAccessor()":                     "java.base/java/lang/reflect/RecordComponent.html#getAccessor()",
+  "RecordComponent.getName()":                         "java.base/java/lang/reflect/RecordComponent.html#getName()",
+  "RecordComponent.getType()":                         "java.base/java/lang/reflect/RecordComponent.html#getType()",
+  "RecordComponent.getGenericType()":                  "java.base/java/lang/reflect/RecordComponent.html#getGenericType()",
+
+  "Array":                                             "java.base/java/lang/reflect/Array.html",
+  "Array.newInstance()":                               "java.base/java/lang/reflect/Array.html#newInstance()",
+  "Array.newInstance(Class,int)":                      "java.base/java/lang/reflect/Array.html#newInstance(java.lang.Class,int)",
+  "Array.getLength(Object)":                           "java.base/java/lang/reflect/Array.html#getLength(java.lang.Object)",
+  "Array.set(Object,int,Object)":                      "java.base/java/lang/reflect/Array.html#set(java.lang.Object,int,java.lang.Object)",
+  "Array.get(Object,int)":                             "java.base/java/lang/reflect/Array.html#set(java.lang.Object,int)",
+  "Array.setDouble(Object,int,double)":                "java.base/java/lang/reflect/Array.html#setDouble(java.lang.Object,int,double)",
+  "Array.getDouble(Object,int)":                       "java.base/java/lang/reflect/Array.html#getDouble(java.lang.Object,int)",
+
+  "AnnotatedElement":                                  "java.base/java/lang/reflect/AnnotatedElement.html",
+  "AnnotatedElement.getDeclaredAnnotations()":         "java.base/java/lang/reflect/AnnotatedElement.html#getDeclaredAnnotations()",
+  "AnnotatedElement.getAnnotations()":                 "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotations()",
+  "AnnotatedElement.isAnnotationPresent(Class)":       "java.base/java/lang/reflect/AnnotatedElement.html#isAnnotationPresent(java.lang.Class)",
+  "AnnotatedElement.getAnnotation(Class)":             "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotation(java.lang.Class)",
+  "AnnotatedElement.getDeclaredAnnotation(Class)":     "java.base/java/lang/reflect/AnnotatedElement.html#getDeclaredAnnotation(java.lang.Class)",
+  "AnnotatedElement.getAnnotationsByType(Class)":      "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotationsByType(java.lang.Class)",
+
+  "AnnotatedType":                                     "java.base/java/lang/reflect/AnnotatedType.html",
+
+  "Proxy":                                              "java.base/java/lang/reflect/Proxy.html",
+
+  "Executable":                                        "java.base/java/lang/reflect/Executable.html",
+  "Executable.getParameters()":                        "java.base/java/lang/reflect/Executable.html#getParameters()",
+
+  "AccessFlag":                                        "java.base/java/lang/reflect/AccessFlag.html",
+
+  "Modifier":                                          "java.base/java/lang/reflect/Modifier.html",
+
+  "ClassNotFoundException":                            "java.base/java/lang/ClassNotFoundException.html",
+  "InstantiationException":                            "java.base/java/lang/InstantiationException.html",
+  "InvocationTargetException":                         "java.base/java/lang/reflect/InvocationTargetException.html",
+  "InvocationTargetException.getTargetException()":    "java.base/java/lang/reflect/InvocationTargetException.html#getTargetException()",
+
+  "jdk.jshell":                                                      "jdk.jshell/module-summary.html",
+
+  "jdeps-man":                                         "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jdeps.html#options-to-filter-classes-to-be-analyzed",
+  "jlink-man":                                         "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jlink.html"
 }

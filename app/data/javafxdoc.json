@@ -1,6 +1,6 @@
 {
-  "current_release":                                "21.0.1",
-  "release_uuid":                                     "e5ab43c6aed54893b0840c1f2dcfca4d",
+  "current_release":                                "23",
+  "release_uuid":                                     "343fae14109c42b09c0437fc90a10d4b",
 
   "javafxdoc_root":                                   "https://download.java.net/java/GA/javafx@@CURRENT_RELEASE@@/@@RELEASE_UUID@@/docs/api/",
 

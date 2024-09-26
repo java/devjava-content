@@ -1,0 +1,73 @@
+{
+  "root": "https://openjdk.org/jeps/",
+
+  "1":   "JDK Enhancement-Proposal & Roadmap Process",
+  "11":  "Incubator Modules",
+  "12":  "Preview Features",
+
+  "110": "HTTP/2 Client (Incubator)",
+
+  "220": "Modular Run-Time Images",
+  "225": "Javadoc Search",
+  "286": "Local-Variable Type Inference",
+
+  "310": "Application Class-Data Sharing",
+  "321": "HTTP Client",
+  "325": "Switch Expressions (Preview)",
+  "326": "Raw String Literals (Preview)",
+  "328": "Flight Recorder",
+  "333": "ZGC: A Scalable Low-Latency Garbage Collector (Experimental)",
+  "345": "NUMA-Aware Memory Allocation for G1",
+  "346": "Promptly Return Unused Committed Memory from G1",
+  "349": "JFR Event Streaming",
+  "354": "Switch Expressions (Second Preview)",
+  "357": "Migrate from Mercurial to Git",
+  "358": "Helpful NullPointerExceptions",
+  "361": "Switch Expressions",
+  "363": "Remove the Concurrent Mark Sweep (CMS) Garbage Collector",
+  "369": "Migrate to GitHub",
+  "372": "Remove the Nashorn JavaScript Engine",
+  "374": "Disable and Deprecate Biased Locking",
+  "376": "ZGC: Concurrent Thread-Stack Processing",
+  "377": "ZGC: A Scalable Low-Latency Garbage Collector (Production)",
+  "384": "Records (Second Preview)",
+  "387": "Elastic Metaspace",
+  "391": "macOS/AArch64 Port",
+  "395": "Records",
+  "397": "Sealed Classes (Second Preview)",
+  "398": "Deprecate the Applet for Removal",
+
+  "400": "UTF-8 by Default",
+  "407": "Remove RMI Activation",
+  "408": "Simple Web Server",
+  "409": "Sealed Classes",
+  "411": "Deprecate the Security Manager for Removal",
+  "413": "Code Snippets in Java API Documentation",
+  "415": "Context-Specific Deserialization Filters",
+  "416": "Reimplement Core Reflection with Method Handle",
+  "418": "Internet-Address Resolution API",
+  "421": "Deprecate Finalization for Removal",
+  "445": {
+    "title": "Implicitly Declared Classes and Instance Main Methods (Second Preview)",
+    "status": "preview",
+    "version": "22"
+  },
+  "460": {
+    "title": "Vector API (Seventh Incubator)",
+    "status": "incubator",
+    "version": "22"
+  },
+  "463": {
+    "title": "Implicitly Declared Classes and Instance Main Methods (Second Preview)",
+    "status": "preview",
+    "version": "22"
+  },
+
+  "481": {
+    "title": "Scoped Values (Third Preview)",
+    "status": "preview",
+    "version": "22"
+  },
+
+  "8300604": "JEP draft: Preview Features: A Look Back, and A Look Ahead"
+}

@@ -7,11 +7,11 @@ subheader_select: innovation
 
 ## Amber
 
-The goal of Project Amber is to explore and incubate smaller, productivity-oriented Java language features that have been accepted as candidate JEPs under the [OpenJDK JEP process](https://openjdk.java.net/jeps/1). This Project is sponsored by the [Compiler Group](https://openjdk.java.net/groups/compiler/).
+The goal of Project Amber is to explore and incubate smaller, productivity-oriented Java language features that have been accepted as candidate JEPs under [JDK Enhancement-Proposal & Roadmap Process](jep:1). This Project is sponsored by the [Compiler Group](https://openjdk.org/groups/compiler/).
 
-Most Project Amber features go through at least one round of Preview before becoming an official part of Java SE. See [JEP 12](https://openjdk.java.net/jeps/12) for an explanation of the Preview process, and [our tutorial](id:new_features.using_preview) on how to use preview features. For a given feature, there are separate JEPs for each round of preview and for final standardization.
+Most Project Amber features go through at least one round of Preview before becoming an official part of Java SE. See [Preview Features](jep:12) for an explanation of the Preview process, and [our tutorial](id:new_features.using_preview) on how to use preview features. For a given feature, there are separate JEPs for each round of preview and for final standardization.
 
-Learn more at Project Amber's [Wiki](https://openjdk.java.net/projects/amber/), as well as Inside.java's [Amber page](https://inside.java/tag/amber).
+Learn more at Project Amber's [Wiki](https://openjdk.org/projects/amber/), as well as Inside.java's [Amber page](https://inside.java/tag/amber).
 
 ## Loom
 
@@ -23,7 +23,7 @@ Project Loom is to intended to explore, incubate and deliver Java VM features an
 
 This OpenJDK project is sponsored by the HotSpot Group.
 
-Learn more at Project Loom's [Wiki](https://wiki.openjdk.java.net/display/loom/Main), as well as Inside.java's [Loom page](https://inside.java/tag/loom).
+Learn more at Project Loom's [Wiki](https://wiki.openjdk.org/display/loom/Main), as well as Inside.java's [Loom page](https://inside.java/tag/loom).
 
 ## Panama
 
@@ -43,7 +43,7 @@ To this end, Project Panama will include most or all of these components:
 * tooling or wrapper interposition for safety
 * exploratory work with difficult-to-integrate native libraries
 
-Learn more at Project Panama's [Wiki](https://openjdk.java.net/projects/panama/), as well as Inside.java's [Panama page](https://inside.java/tag/panama).
+Learn more at Project Panama's [Wiki](https://openjdk.org/projects/panama/), as well as Inside.java's [Panama page](https://inside.java/tag/panama).
 
 
 ## Valhalla
@@ -58,7 +58,7 @@ The three main goals are:
 
 A number of people describe Valhalla recently as being "primarily about performance".  While it is understandable why people might come to that conclusion -- many of the motivations for Valhalla are, in fact, rooted in performance considerations -- this characterization misses something very important.  Yes, performance is an important part of the story -- but so are safety, abstraction, encapsulation, expressiveness, maintainability, and compatible library evolution.
 
-Learn more at the Valhalla Project [Wiki](https://wiki.openjdk.java.net/display/valhalla/Main), as well as Inside.java's [Valhalla page](https://inside.java/tag/valhalla).
+Learn more at the Valhalla Project [Wiki](https://wiki.openjdk.org/display/valhalla/Main), as well as Inside.java's [Valhalla page](https://inside.java/tag/valhalla).
 
 
 ## ZGC
@@ -81,5 +81,5 @@ At a glance, ZGC is:
 At its core, ZGC is a concurrent garbage collector, meaning all heavy lifting work is done while Java threads continue to execute. This greatly limits the impact garbage collection will have on your application's response time.
 
 
-Learn more at the ZGC [Wiki](https://wiki.openjdk.java.net/display/zgc/Main), as well as Inside.java's [GC page](https://inside.java/tag/gc).
+Learn more at the ZGC [Wiki](https://wiki.openjdk.org/display/zgc/Main), as well as Inside.java's [GC page](https://inside.java/tag/gc).
 

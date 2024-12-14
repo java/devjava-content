@@ -172,9 +172,8 @@ IntelliJ IDEA makes it easy to add tests to your code. You can navigate to the t
 We can select a **Testing library** in the **Create test** popup.
 
 [![Create test](/assets/images/intellij-idea/create-test.png)](/assets/images/intellij-idea/create-test.png)
-[![Create test](/assets/images/intellij-idea/create-test.png)](/assets/images/intellij-idea/create-test.png)
 
-IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/junit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module”. Click **Fix** to have IntelliJ IDEA fix this for you.
+IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/junit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module.” Click **Fix** to have IntelliJ IDEA fix this for you.
 
 Note that the JUnit 5 dependency `junit-jupiter` is added to the `pom.xml` in the `<dependencies>` section.
 To make sure the dependencies work correctly in your project, **Load Maven Changes** by clicking the popup in the top right corner, or using the shortcut **⇧⌘I** (on macOS) or **Ctrl+Shift+O** (on Windows/Linux).

@@ -437,7 +437,7 @@ A common mistake made by beginner programmers is to try and run the `java` launc
 Exception in thread "main" java.lang.NoSuchMethodError: main
 ```
 
-The Java VM requires that the class you execute with it have a `main` method at which to begin execution of your application. A Closer Look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#anchor_7) section discusses the main method in detail.
+The Java VM requires that the class you execute with it have a `main` method at which to begin execution of your application. A Closer Look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#adding-code) section discusses the main method in detail.
 
 #### Error Messages on UNIX Systems
 
@@ -473,7 +473,7 @@ A common mistake made by beginner programmers is to try and run the java launche
 Exception in thread "main" java.lang.NoSuchMethodError: main
 ```
 
-The Java VM requires that the class you execute with it have a main method at which to begin execution of your application. A Closer Look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#anchor_7) section discusses the main method in detail.
+The Java VM requires that the class you execute with it have a main method at which to begin execution of your application. A Closer Look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#adding-code) section discusses the main method in detail.
 
 
 <a id="going-further">&nbsp;</a>

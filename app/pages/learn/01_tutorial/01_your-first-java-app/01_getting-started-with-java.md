@@ -12,21 +12,22 @@ more_learning:
     - 0mo7rEwGaHk
     - NA-sB3zvluE
 toc:
-- Elements of a Java Application {first-app}
-- Compiling and Executing Java Code {compiling-executing}
-- Creating a First Java Class {first-class}
-- Preparing the Compilation of your First Class {first-compilation}
-- Setting up a Java Development Kit {setting-up-jdk}
-- Compiling your First Class {compiling}
-- Adding Code to Your Class to Run it {adding-code}
-- Running the Hello World Program as a Single File Application {single-file-app}
-- Common Problems and Their Solutions {common-problems}
-- Going Further {going-further}
+  - Elements of a Java Application {first-app}
+  - Compiling and Executing Java Code {compiling-executing}
+  - Creating a First Java Class {first-class}
+  - Preparing the Compilation of your First Class {first-compilation}
+  - Setting up a Java Development Kit {setting-up-jdk}
+  - Compiling your First Class {compiling}
+  - Adding Code to Your Class to Run it {adding-code}
+  - Running the Hello World Program as a Single File Application {single-file-app}
+  - Common Problems and Their Solutions {common-problems}
+  - Going Further {going-further}
 description: "Downloading and setting up the JDK, writing your first Java class, and creating your first Java application."
 last_update: 2022-10-29
 ---
 
 <a id="first-app">&nbsp;</a>
+
 ## Elements of a Java Application
 
 I understand that you are eager to type some code in your editor and run it to see your first Java application in action! Do not worry, your expectation will be fulfilled by the end of this tutorial. But before we move on, I would like to do through several elements that you need to know to fully understand what you are doing.
@@ -34,6 +35,7 @@ I understand that you are eager to type some code in your editor and run it to s
 Even if you are familiar with some other programming language, know about compilation, know what an executable file is you may be interested in the following because Java works in a way that differs from C or C++.
 
 <a id="compiling-executing">&nbsp;</a>
+
 ## Compiling and Executing Java Code
 
 There are several steps that you need to follow to create a Java application. This tutorial shows you how to create a very simple Java application. If you need to create an enterprise application, the creation process is more complex but at its core you will find these simple steps.
@@ -55,6 +57,7 @@ Once the compiler produced the binary file that you need, you can execute this b
 Note that starting with Java SE 11 you can also merge these two steps into one, by executing a `.java` file directly. You can use these feature only if you are executing a program that is written in a single file. This way of executing your java application does not work if your java code spans more than one file.
 
 <a id="first-class">&nbsp;</a>
+
 ## Creating a First Java Class
 
 The first step you need to know is that the Java code you are writing is saved in plain text files. In this tutorial, your application will be written in a single text file. Larger applications may require thousands of such files.
@@ -77,6 +80,7 @@ If you are following this example to the letter, you should save the `MyFirstCla
 Just a word of warning: you should be using a plain text editor to create and save this file. Using a word processor will not work.
 
 <a id="first-compilation">&nbsp;</a>
+
 ## Preparing the Compilation of your First Class
 
 Compiling is the second step you need to follow after the creation of your first class. It consists of transforming the Java code you wrote in your `MyFirstClass.java` file into another format that can be executed. The result of this transformation will be stored in another file created by the compiler. The name of this file will be `MyFirstClass.class`.
@@ -92,6 +96,7 @@ The JRE stands for Java Runtime Environment. It is a subset of the JDK that is n
 You may also have heard about J2EE, Java EE or Jakarta EE. All these acronyms refer to the Java Enterprise Edition. It is a set of tools and libraries to create enterprise-class applications. Java EE is different from the JDK and is outside the scope of this tutorial. You do not need Java EE to compile and run the simple application we are creating in this tutorial.
 
 <a id="setting-up-jdk">&nbsp;</a>
+
 ## Setting up a Java Development Kit
 
 You can download the JDK from different places. There is a one-stop page that always refers to the latest version of the JDK: https://jdk.java.net/. Selecting the latest "Ready for use" JDK version takes you to a page where you can download the version of the JDK you need.
@@ -255,8 +260,8 @@ Your shell should print the complete path to the `java` executable file in the `
 /Users/javauser/jdk/jdk-19.jdk/Contents/Home/bin/java
 ```
 
-
 <a id="compiling">&nbsp;</a>
+
 ## Compiling your First Class
 
 Once you have properly set up your JDK; the `JAVA_HOME` variable and the `PATH` variable, you are ready to compile your first class.
@@ -287,6 +292,7 @@ Two things may happen at this point. You may have error messages telling you tha
 If the compiler remains silent and does not complain about anything: congratulations! It means that your Java code has been properly compiled. Checking the content of the directory again should show a new file in it: `MyFirstClass.class`
 
 <a id="adding-code">&nbsp;</a>
+
 ## Adding Code to Your Class to Run it
 
 So far your class is empty; there is no executable code in it. If you were able to compile it properly then you can advance to the next step and execute some code.
@@ -309,12 +315,13 @@ There is technical code in this class that may not be very clear to you. Do not 
 Make sure that the compiler created the `MyFirstClass.class` for you. To run it, all you need to type is the following command:
 
 ```shell
-> java MyFirstClass
+> javac MyFirstClass.java
 ```
 
 This should print _Hello, World!_ on the console. If this is the case: congratulations! You have been able to run your first Java program!
 
 <a id="single-file-app">&nbsp;</a>
+
 ## Running the Hello World Program as a Single File Application
 
 Starting with Java SE 11, you can run a Java application without going through the compilation step, as long as the program is written in a single file. This is the case of this simple _Hello, World!_ application.
@@ -322,12 +329,13 @@ Starting with Java SE 11, you can run a Java application without going through t
 You can just type the following:
 
 ```shell
-> java MyFirstClass.java
+> java MyFirstClass
 ```
 
 And it will print the _Hello, World!_ message on the console.
 
 <a id="common-problems">&nbsp;</a>
+
 ## Common Problems and Their Solutions
 
 ### Compiler Problems
@@ -475,8 +483,8 @@ Exception in thread "main" java.lang.NoSuchMethodError: main
 
 The Java VM requires that the class you execute with it have a main method at which to begin execution of your application. A Closer Look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#anchor_7) section discusses the main method in detail.
 
-
 <a id="going-further">&nbsp;</a>
+
 ## Going Further
 
 This first Java program showed you the basic steps every Java developer follows to run an application.

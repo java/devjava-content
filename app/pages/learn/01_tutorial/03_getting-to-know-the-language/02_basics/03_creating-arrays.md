@@ -209,6 +209,64 @@ Mr. Smith
 Ms. Jones
 ```
 
+<a id="jagged">&nbsp;</a>
+## Working with Jagged Arrays
+
+A **jagged array** (an array of arrays) in Java lets each row have a different length. For example, one row might have 3 elements while another has 2. To create a jagged array, first declare the outer array with a size but no specified inner lengths, then assign each sub-array its own size.
+
+---
+
+## Step 1 – Declare the jagged array
+```java
+int[][] jaggedArray = new int[3][];
+```
+
+## Step 2 – Initialize each row with different sizes or values
+```java
+jaggedArray[0] = new int[] {1, 2, 3};
+jaggedArray[1] = new int[] {4, 5};
+jaggedArray[2] = new int[] {6, 7, 8, 9};
+```
+Each assignment gives a different length (3, 2, and 4 elements respectively) for rows 0, 1, and 2.
+
+## Step 3 – Use nested loops to print all elements
+
+```java
+System.out.println("Jagged array elements:");
+for (int i = 0; i < jaggedArray.length; i++) {
+    for (int j = 0; j < jaggedArray[i].length; j++) {
+        System.out.print(jaggedArray[i][j] + " ");
+    }
+    System.out.println();
+}
+```
+This will print every element in the jagged array in row-major order.
+
+## Step 4 – Print array lengths
+```java
+System.out.println("Outer array length: " + jaggedArray.length);
+for (int i = 0; i < jaggedArray.length; i++) {
+    System.out.println("Length of row " + i + ": " + jaggedArray[i].length);
+}
+```
+This outputs the size of the outer array and each inner row length, confirming the structure of the jagged array.
+
+### Output:
+```java
+Jagged array elements:
+1 2 3 
+4 5 
+6 7 8 9 
+Outer array length: 3
+Length of row 0: 3
+Length of row 1: 2
+Length of row 2: 4
+
+```
+
+
+
+
 Finally, you can use the built-in `length` property to determine the size of any array. The following code prints the array's size to standard output:
 
 ```java

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/prism.css">
+  <script src="/assets/js/prism.js"></script>
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target="#current-tutorial" >
+  <!-- TOP NAVIGATION BAR -->
+  <header>
+
+    <div id="skip-link">
+      <a class="skip-to-content-link" href="#main-content">
+        Skip to content
+      </a>
+    </div>
+    <nav class="navbar navbar-expand-lg justify-content-between">
+      <div class="container-fluid">
+        <div id="navbar-logo">
+          <a href="/"><img src="/assets/images/java-logo-vector.png" id="logo" alt="Java Home" /></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+          </svg>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link active" href="/learn">Learn</a></li>
+            <li class="nav-item"><a class="nav-link " href="/download">Download</a></li>
+            <li class="nav-item"><a class="nav-link " href="/community">Community</a></li>
+            <li class="nav-item"><a class="nav-link " href="/contribute">Contribute</a></li>
+            <li class="nav-item"><a class="nav-link " href="/news">News</a></li>
+            <li class="nav-item"><a class="nav-link " href="/future">Future</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container-fluid" id="subheader">
+    
+<ul class="nav">
+    <li class="nav-item"><a class="nav-link active" href="/learn/">Tutorials</a></li>
+    <li class="nav-item"><a class="nav-link " href="/learn/watchlisten/">Watch & Listen</a></li>
+    <li class="nav-item"><a class="nav-link " href="/learn/faq/">FAQ</a></li>
+    <li class="nav-item"><a class="nav-link " href="/learn/ou/">Oracle University</a></li>
+</ul>
+
+  </div>
+
+
+  <!--// SUB NAV -->
+
+  <main id="learn">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container" id="main-content">
+
+    <div id="bread-crumb">
+    <a href="/">Home</a> >
+    <a href="/learn">Tutorials</a> >
+    
+    <a href="/learn/language-basics/">
+        Java Language Basics
+    </a> >
+    
+    Creating Arrays in Your Programs
+</div>
+
+    
+    <div class="row justify-content-evenly" id="tutorial-nav">
+
+    
+    <div class="col-3 item" id="previous_tutorial">
+
+        <div class="header">
+            <b>Previous in the Series</b>
+        </div>
+        <div class="name">
+            <a href="/learn/language-basics/primitive-types/">Creating Primitive Type Variables in Your Programs</a>
+        </div>
+    </div>
+    <span class="left-arrow">&#x279C;</span>
+    
+
+    <div class="col-3 item" id="current_tutorial">
+        <div class="header">
+            <b>Current Tutorial</b>
+        </div>
+        <div class="name">Creating Arrays in Your Programs</div>
+    </div>
+
+    
+    <span class="right-arrow">&#x279C;</span>
+    <div class="col-3 item" id="end">
+        That's the end of the series!
+    </div>
+
+    
+
+</div>
+
+
+<div class="row" id="tutorial-nav-mobile">
+    
+    <p>
+        <b>Previous in the Series: </b> <a href="/learn/language-basics/primitive-types/">Creating Primitive Type Variables in Your Programs</a>
+    </p>
+    
+
+    
+</div>
+
+    
+
+
+    <h1>Creating Arrays in Your Programs</h1>
+
+    
+
+    <div class="row">
+        <div id="content" class="col-9">
+            <div class="line-numbers">
+                <p><a id="intro">&nbsp;</a></p>
+<h2 id="arrays">Arrays</h2>
+<p>An <em>array</em> is a container object that holds a fixed number of values of a single type. The length of an array is established when the array is created. After creation, its length is fixed. You have seen an example of arrays already, in the main method of the &quot;Hello World!&quot; application. This section discusses arrays in greater detail.</p>
+<figure>
+<p align="center">
+    <img src="/assets/images/language-basics/01_array.png"
+        alt="An array of 8 elements."
+        width="60%"/>
+</p>
+<figcaption align="center">An array of 8 elements.</figcaption>
+</figure>
+
+<p>Each item in an array is called an <em>element</em>, and each element is accessed by its numerical <em>index</em>. As shown in the preceding illustration, numbering begins with 0. The 6th element, for example, would therefore be accessed at index 5.</p>
+<p>The following program, <code>ArrayDemo</code>, creates an array of integers, puts some values in the array, and prints each value to standard output.</p>
+<pre><code class="language-java">class ArrayDemo {
+    public static void main(String[] args) {
+        // declares an array of integers
+        int[] anArray;
+
+        // allocates memory for 10 integers
+        anArray = new int[10];
+
+        // initialize first element
+        anArray[0] = 100;
+        // initialize second element
+        anArray[1] = 200;
+        // and so forth
+        anArray[2] = 300;
+        anArray[3] = 400;
+        anArray[4] = 500;
+        anArray[5] = 600;
+        anArray[6] = 700;
+        anArray[7] = 800;
+        anArray[8] = 900;
+        anArray[9] = 1000;
+
+        System.out.println(&quot;Element at index 0: &quot;
+                           + anArray[0]);
+        System.out.println(&quot;Element at index 1: &quot;
+                           + anArray[1]);
+        System.out.println(&quot;Element at index 2: &quot;
+                           + anArray[2]);
+        System.out.println(&quot;Element at index 3: &quot;
+                           + anArray[3]);
+        System.out.println(&quot;Element at index 4: &quot;
+                           + anArray[4]);
+        System.out.println(&quot;Element at index 5: &quot;
+                           + anArray[5]);
+        System.out.println(&quot;Element at index 6: &quot;
+                           + anArray[6]);
+        System.out.println(&quot;Element at index 7: &quot;
+                           + anArray[7]);
+        System.out.println(&quot;Element at index 8: &quot;
+                           + anArray[8]);
+        System.out.println(&quot;Element at index 9: &quot;
+                           + anArray[9]);
+    }
+}
+</code></pre>
+<p>The output from this program is:</p>
+<pre><code class="language-shell">Element at index 0: 100
+Element at index 1: 200
+Element at index 2: 300
+Element at index 3: 400
+Element at index 4: 500
+Element at index 5: 600
+Element at index 6: 700
+Element at index 7: 800
+Element at index 8: 900
+Element at index 9: 1000
+</code></pre>
+<p>In a real-world programming situation, you would probably use one of the supported looping constructs to iterate through each element of the array, rather than write each line individually as in the preceding example. However, the example clearly illustrates the array syntax. You will learn about the various looping constructs (for, while, and do-while) in the <a href="/undefined">Control Flow</a> section.</p>
+<p><a id="declaring">&nbsp;</a></p>
+<h2 id="declaring-a-variable-to-refer-to-an-array">Declaring a Variable to Refer to an Array</h2>
+<p>The preceding program declares an array (named <code>anArray</code>) with the following line of code:</p>
+<pre><code class="language-java">// declares an array of integers
+int[] anArray;
+</code></pre>
+<p>Like declarations for variables of other types, an array declaration has two components: the array&#39;s type and the array&#39;s name. An array&#39;s type is written as <code>type[]</code>, where <code>type</code> is the data type of the contained elements; the brackets are special symbols indicating that this variable holds an array. The size of the array is not part of its type (which is why the brackets are empty). An array&#39;s name can be anything you want, provided that it follows the rules and conventions as discussed in the <a href="/undefined">Classes</a> section. As with variables of other types, the declaration does not actually create an array; it simply tells the compiler that this variable will hold an array of the specified type.</p>
+<p>Similarly, you can declare arrays of other types:</p>
+<pre><code class="language-java">byte[] anArrayOfBytes;
+short[] anArrayOfShorts;
+long[] anArrayOfLongs;
+float[] anArrayOfFloats;
+double[] anArrayOfDoubles;
+boolean[] anArrayOfBooleans;
+char[] anArrayOfChars;
+String[] anArrayOfStrings;
+</code></pre>
+<p>You can also place the brackets after the array&#39;s name:</p>
+<pre><code class="language-java">// this form is discouraged
+float anArrayOfFloats[];
+</code></pre>
+<p>However, convention discourages this form; the brackets identify the array type and should appear with the type designation.</p>
+<p><a id="creating-initializing-accessing">&nbsp;</a></p>
+<h2 id="creating-initializing-and-accessing-an-array">Creating, Initializing, and Accessing an Array</h2>
+<p>One way to create an array is with the <code>new</code> operator. The next statement in the <code>ArrayDemo</code> program allocates an array with enough memory for 10 integer elements and assigns the array to the <code>anArray</code> variable.</p>
+<pre><code class="language-java">// create an array of integers
+anArray = new int[10];
+</code></pre>
+<p>If this statement is missing, then the compiler prints an error like the following, and compilation fails:</p>
+<pre><code class="language-shell">ArrayDemo.java:4: Variable anArray may not have been initialized.
+</code></pre>
+<p>The next few lines assign values to each element of the array:</p>
+<pre><code class="language-java">anArray[0] = 100; // initialize first element
+anArray[1] = 200; // initialize second element
+anArray[2] = 300; // and so forth
+</code></pre>
+<p>Each array element is accessed by its numerical index:</p>
+<pre><code class="language-java">System.out.println(&quot;Element 1 at index 0: &quot; + anArray[0]);
+System.out.println(&quot;Element 2 at index 1: &quot; + anArray[1]);
+System.out.println(&quot;Element 3 at index 2: &quot; + anArray[2]);
+</code></pre>
+<p>Alternatively, you can use the shortcut syntax to create and initialize an array:</p>
+<pre><code class="language-java">int[] anArray = {
+    100, 200, 300,
+    400, 500, 600,
+    700, 800, 900, 1000
+};
+</code></pre>
+<p>Here the length of the array is determined by the number of values provided between braces and separated by commas.</p>
+<p>You can also declare an array of arrays (also known as a multidimensional array) by using two or more sets of brackets, such as <code>String[][]</code> names. Each element, therefore, must be accessed by a corresponding number of index values.</p>
+<p>In the Java programming language, a multidimensional array is an array whose components are themselves arrays. This is unlike arrays in C or Fortran. A consequence of this is that the rows are allowed to vary in length, as shown in the following <code>MultiDimArrayDemo</code> program:</p>
+<pre><code class="language-java">class MultiDimArrayDemo {
+    public static void main(String[] args) {
+        String[][] names = {
+            {&quot;Mr. &quot;, &quot;Mrs. &quot;, &quot;Ms. &quot;},
+            {&quot;Smith&quot;, &quot;Jones&quot;}
+        };
+        // Mr. Smith
+        System.out.println(names[0][0] + names[1][0]);
+        // Ms. Jones
+        System.out.println(names[0][2] + names[1][1]);
+    }
+}
+</code></pre>
+<p>The output from this program is:</p>
+<pre><code class="language-shell">Mr. Smith
+Ms. Jones
+</code></pre>
+                <h3 id="working-with-jagged-arrays">Working with Jagged Arrays</h3>
+                <p>To create non-rectangular arrays (where inner arrays have different lengths), allocate each dimension separately:</p>
+                <pre><code class="language-java">// Declare outer array with fixed size
+int[][] jagged = new int[3][];
+
+// Initialize inner arrays with different lengths
+jagged[0] = new int[2];  // First row: 2 columns
+jagged[1] = new int[3];  // Second row: 3 columns
+jagged[2] = new int[1];  // Third row: 1 column
+
+// Assign values
+jagged[0][1] = 5;  // Row 0, Column 1
+jagged[1][2] = 9;  // Row 1, Column 2
+</code></pre>
+
+                <h3 id="using-the-length-property">Using the <code>length</code> Property</h3>
+                <p>For multidimensional arrays, use the <code>length</code> property at each dimension:</p>
+                <pre><code class="language-java">System.out.println(jagged.length);     // 3 (outer array size)
+System.out.println(jagged[0].length);  // 2 (first inner array size)
+System.out.println(jagged[1].length);  // 3 (second inner array size)
+</code></pre>
+                <p><strong>Important:</strong> Accessing <code>jagged[0][2]</code> would throw <code>ArrayIndexOutOfBoundsException</code> since the first inner array only has indices 0-1.</p>
+
+                <h3 id="dynamic-initialization">Dynamic Initialization</h3>
+                <p>Combine declaration and initialization for jagged arrays:</p>
+                <pre><code class="language-java">int[][] matrix = {
+    {1, 2},          // Row 0
+    {3, 4, 5},       // Row 1
+    {6, 7, 8, 9}     // Row 2
+};
+</code></pre>
+<p>Finally, you can use the built-in <code>length</code> property to determine the size of any array. The following code prints the array&#39;s size to standard output:</p>
+<pre><code class="language-java">System.out.println(anArray.length);
+</code></pre>
+<p><a id="copying">&nbsp;</a></p>
+<h2 id="copying-arrays">Copying Arrays</h2>
+<p>The <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/lang/System.html" target="_blank" rel="noopener noreferrer"><code>System</code></a> class has an <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)" target="_blank" rel="noopener noreferrer"><code>arraycopy()</code></a> method that you can use to efficiently copy data from one array into another:</p>
+<pre><code class="language-java">public static void arraycopy(Object src, int srcPos,
+                             Object dest, int destPos, int length)
+</code></pre>
+<p>The two <code>Object</code> arguments specify the array to copy from and the array to copy to. The three <code>int</code> arguments specify the starting position in the source array, the starting position in the destination array, and the number of array elements to copy.</p>
+<p>The following program, <code>ArrayCopyDemo</code>, declares an array of <code>String</code> elements. It uses the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)" target="_blank" rel="noopener noreferrer"><code>System.arraycopy()</code></a> method to copy a subsequence of array components into a second array:</p>
+<pre><code class="language-java">class ArrayCopyDemo {
+    public static void main(String[] args) {
+        String[] copyFrom = {
+            &quot;Affogato&quot;, &quot;Americano&quot;, &quot;Cappuccino&quot;, &quot;Corretto&quot;, &quot;Cortado&quot;,
+            &quot;Doppio&quot;, &quot;Espresso&quot;, &quot;Frappucino&quot;, &quot;Freddo&quot;, &quot;Lungo&quot;, &quot;Macchiato&quot;,
+            &quot;Marocchino&quot;, &quot;Ristretto&quot; };
+
+        String[] copyTo = new String[7];
+        System.arraycopy(copyFrom, 2, copyTo, 0, 7);
+        for (String coffee : copyTo) {
+            System.out.print(coffee + &quot; &quot;);
+        }
+    }
+}
+</code></pre>
+<p>The output from this program is:</p>
+<pre><code class="language-shell">Cappuccino Corretto Cortado Doppio Espresso Frappucino Freddo
+</code></pre>
+<p><a id="manipulating">&nbsp;</a></p>
+<h2 id="array-manipulations">Array Manipulations</h2>
+<p>Arrays are a powerful and useful concept used in programming. Java SE provides methods to perform some of the most common manipulations related to arrays. For instance, the <code>ArrayCopyDemo</code> example uses the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)" target="_blank" rel="noopener noreferrer"><code>arraycopy()</code></a> method of the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/lang/System.html" target="_blank" rel="noopener noreferrer"><code>System</code></a> class instead of manually iterating through the elements of the source array and placing each one into the destination array. This is performed behind the scenes, enabling the developer to use just one line of code to call the method.</p>
+<p>For your convenience, Java SE provides several methods for performing array manipulations (common tasks, such as copying, sorting and searching arrays) in the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html" target="_blank" rel="noopener noreferrer"><code>java.util.Arrays</code></a> class. For instance, the previous example can be modified to use the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html" target="_blank" rel="noopener noreferrer"><code>java.util.Arrays</code></a> method of the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html" target="_blank" rel="noopener noreferrer"><code>java.util.Arrays</code></a> class, as you can see in the <code>ArrayCopyOfDemo</code> example. The difference is that using the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html" target="_blank" rel="noopener noreferrer"><code>java.util.Arrays</code></a> method does not require you to create the destination array before calling the method, because the destination array is returned by the method:</p>
+<pre><code class="language-java">class ArrayCopyOfDemo {
+    public static void main(String[] args) {
+        String[] copyFrom = {
+            &quot;Affogato&quot;, &quot;Americano&quot;, &quot;Cappuccino&quot;, &quot;Corretto&quot;, &quot;Cortado&quot;,
+            &quot;Doppio&quot;, &quot;Espresso&quot;, &quot;Frappucino&quot;, &quot;Freddo&quot;, &quot;Lungo&quot;, &quot;Macchiato&quot;,
+            &quot;Marocchino&quot;, &quot;Ristretto&quot; };
+
+        String[] copyTo = java.util.Arrays.copyOfRange(copyFrom, 2, 9);
+        for (String coffee : copyTo) {
+            System.out.print(coffee + &quot; &quot;);
+        }
+    }
+}
+</code></pre>
+<p>As you can see, the output from this program is the same, although it requires fewer lines of code. Note that the second parameter of the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html" target="_blank" rel="noopener noreferrer"><code>java.util.Arrays</code></a> method is the initial index of the range to be copied, inclusively, while the third parameter is the final index of the range to be copied, exclusively. In this example, the range to be copied does not include the array element at index 9 (which contains the string <code>Lungo</code>).</p>
+<p>Some other useful operations provided by methods in the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html" target="_blank" rel="noopener noreferrer"><code>java.util.Arrays</code></a> class are:</p>
+<ul>
+<li>Searching an array for a specific value to get the index at which it is placed (the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html#binarySearch(int%5B%5D,int)" target="_blank" rel="noopener noreferrer"><code>binarySearch()</code></a> method).</li>
+<li>Comparing two arrays to determine if they are equal or not (the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html#equals(int%5B%5D,int%5B%5D)" target="_blank" rel="noopener noreferrer"><code>equals()</code></a> method).</li>
+<li>Filling an array to place a specific value at each index (the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html#fill(int%5B%5D,int)" target="_blank" rel="noopener noreferrer"><code>fill()</code></a> method).</li>
+<li>Sorting an array into ascending order. This can be done either sequentially, using the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html#sort(int%5B%5D)" target="_blank" rel="noopener noreferrer"><code>sort()</code></a> method, or concurrently, using the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html#parallelSort(int%5B%5D)" target="_blank" rel="noopener noreferrer"><code>parallelSort()</code></a> method introduced in Java SE 8. Parallel sorting of large arrays on multiprocessor systems is faster than sequential array sorting.</li>
+<li>Creating a stream that uses an array as its source (the <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html#stream(int%5B%5D)" target="_blank" rel="noopener noreferrer"><code>stream()</code></a> method). For example, the following statement prints the contents of the <code>copyTo</code> array in the same way as in the previous example:</li>
+</ul>
+<pre><code class="language-java">java.util.Arrays.stream(copyTo).map(coffee -&gt; coffee + &quot; &quot;).forEach(System.out::print);
+</code></pre>
+<p>See Aggregate Operations for more information about streams.</p>
+<ul>
+<li>Converting an array to a string. The <a href="https://docs.oracle.com/en/java/javase/23/docs/api/java.base/java/util/Arrays.html#toString(int%5B%5D)" target="_blank" rel="noopener noreferrer"><code>toString()</code></a> method converts each element of the array to a string, separates them with commas, then surrounds them with brackets. For example, the following statement converts the <code>copyTo</code> array to a string and prints it:</li>
+</ul>
+<pre><code class="language-java">System.out.println(java.util.Arrays.toString(copyTo));
+</code></pre>
+<p>This statement prints the following:</p>
+<pre><code class="language-shell">[Cappuccino, Corretto, Cortado, Doppio, Espresso, Frappucino, Freddo]
+</code></pre>
+<p><a id="wrapping-up">&nbsp;</a></p>
+<h2 id="wrapping-up-variables-and-arrays">Wrapping-up Variables and Arrays</h2>
+<p>The Java programming language uses both &quot;fields&quot; and &quot;variables&quot; as part of its terminology. Instance variables (non-static fields) are unique to each instance of a class. Class variables (static fields) are fields declared with the static modifier; there is exactly one copy of a class variable, regardless of how many times the class has been instantiated. Local variables store temporary state inside a method. Parameters are variables that provide extra information to a method; both local variables and parameters are always classified as &quot;variables&quot; (not &quot;fields&quot;). When naming your fields or variables, there are rules and conventions that you should (or must) follow.</p>
+<p>The eight primitive data types are: <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>boolean</code>, and <code>char</code>. The <code>java.lang.String</code> class represents character strings. The compiler will assign a reasonable default value for fields of the above types; for local variables, a default value is never assigned.</p>
+<p>A literal is the source code representation of a fixed value. An array is a container object that holds a fixed number of values of a single type. The length of an array is established when the array is created. After creation, its length is fixed.</p>
+
+
+                
+            </div>
+        </div>
+
+        <div id="sidemenu" class="col-3">
+            
+<div class="sticky-top">
+    <div id="toc">
+        <div>
+            <h3>In this tutorial</h3>
+        </div>
+        <div id="current-tutorial" class="list-group">
+            
+            <a href="#intro" class="list-group-item list-group-item-action active">Arrays</a>
+            
+            <a href="#declaring" class="list-group-item list-group-item-action ">Declaring a Variable to Refer to an Array</a>
+            
+            <a href="#creating-initializing-accessing" class="list-group-item list-group-item-action ">Creating, Initializing, and Accessing an Array</a>
+            
+            <a href="#copying" class="list-group-item list-group-item-action ">Copying Arrays</a>
+            
+            <a href="#manipulating" class="list-group-item list-group-item-action ">Array Manipulations</a>
+            
+            <a href="#wrapping-up" class="list-group-item list-group-item-action ">Wrapping-up</a>
+            
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <br />
+
+    
+	<p class="update"><span class="text">Last update:</span> <span class="date">August 27, 2022</span></p>
+
+
+
+    <br />
+
+    
+    <div class="row justify-content-evenly" id="tutorial-nav">
+
+    
+    <div class="col-3 item" id="previous_tutorial">
+
+        <div class="header">
+            <b>Previous in the Series</b>
+        </div>
+        <div class="name">
+            <a href="/learn/language-basics/primitive-types/">Creating Primitive Type Variables in Your Programs</a>
+        </div>
+    </div>
+    <span class="left-arrow">&#x279C;</span>
+    
+
+    <div class="col-3 item" id="current_tutorial">
+        <div class="header">
+            <b>Current Tutorial</b>
+        </div>
+        <div class="name">Creating Arrays in Your Programs</div>
+    </div>
+
+    
+    <span class="right-arrow">&#x279C;</span>
+    <div class="col-3 item" id="end">
+        That's the end of the series!
+    </div>
+
+    
+
+</div>
+
+
+<div class="row" id="tutorial-nav-mobile">
+    
+    <p>
+        <b>Previous in the Series: </b> <a href="/learn/language-basics/primitive-types/">Creating Primitive Type Variables in Your Programs</a>
+    </p>
+    
+
+    
+</div>
+
+    
+
+    <div id="bread-crumb">
+    <a href="/">Home</a> >
+    <a href="/learn">Tutorials</a> >
+    
+    <a href="/learn/language-basics/">
+        Java Language Basics
+    </a> >
+    
+    Creating Arrays in Your Programs
+</div>
+
+</div>
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container-fluid text-center" id="outer">
+
+      <div class="container-fluid text-start" id="nav">
+        <div class="row">
+
+          <div class="col">
+            <b id="about">About</b><br /><br />
+            <ul aria-labelledby="about">
+              <li><a href="https://www.oracle.com/java/" aria-label="Oracle Java website">About Java</a><br /></li>
+              <li><a href="https://openjdk.java.net/" aria-label="Open JDK website">About OpenJDK</a><br /></li>
+              <li><a href="/learn/getting-started" aria-label="Geting started with Java">Getting Started</a><br /></li>
+              <li><a href="https://www.oracle.com/java/java-se-subscription/" aria-label="Oracle SE subscription">Oracle Java SE Subscription</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="downloadsLabel">Downloads</b><br /><br />
+            <ul aria-labelledby="downloadsLabel">
+              <li><a href="https://www.oracle.com/java/technologies/javase-downloads.html" aria-label="All releases">All Releases</a><br /></li>
+              <li><a href="https://github.com/openjdk/jdk" aria-label="GitHub OpenJDK repositories">Source Code</a><br /></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="learningJava">Learning Java</b><br /><br />
+            <ul aria-labelledby="learningJava">
+              <li><a href="https://docs.oracle.com/en/java/" aria-label="Documentation on the Oracle website">Documentation</a><br /></li>
+              <li><a href="https://docs.oracle.com/en/java/javase/19/docs/api/index.html" aria-label="API documentation for Java 18">Java 19 API Docs</a><br /></li>
+              <li><a href="/learn/" aria-label="Tutorials">Tutorials</a><br /></li>
+              <li><a href="/learn/faq/" aria-label="Frequently Asked Questions">FAQ</a><br /></li>
+              <li><a href="https://www.youtube.com/java" aria-label="Java on YouTube">Java YouTube</a><br /></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="community">Community</b><br /><br />
+            <ul aria-labelledby="community">
+              <li><a href="/community/jugs/" aria-label="Java USer Groups">Java User Groups</a><br /></li>
+              <li><a href="/community/events/" aria-label="Java Conferences">Java Conferences</a><br /></li>
+              <li><a href="/contribute/" aria-label="Contributing">Contributing</a><br /></li>
+            </ul>
+          </div>
+          <div class="col">
+            <b id="stayInformed">Stay Informed</b><br /><br />
+            <ul aria-labelledby="stayInformed">
+              <li><a href="https://inside.java" aria-label="Inside Java">Inside.java</a><br /></li>
+              <li><a href="https://inside.java/newscast" aria-label="The inside Java newscast">Newscast</a><br /></li>
+              <li><a href="https://inside.java/podcast/" aria-label="The inside Java podcasts">Podcast</a><br /></li>
+              <li><a href="https://blogs.oracle.com/javamagazine/" aria-label="Java Magazine">Java Magazine</a><br /></li>
+              <li><a href="https://youtube.com/java" aria-label="Java on YouTube">Java YouTube</a><br /></li>
+              <li><a href="https://twitter.com/java" aria-label="Java on Twitter">@java on Twitter</a><br /></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="social-links">
+        <a href="https://www.twitter.com/java" aria-label="Java on Twitter"><i class="svg-icon twitter"></i></a>
+        <a href="https://github.com/openjdk" aria-label="GitHub OpenJDK repositories"><i class="svg-icon github"></i></a>
+        <a href="https://youtube.com/java" aria-label="Java YouTube channel"><i class="svg-icon youtube"></i></a>
+        <!--<a href="/feed.xml" aria-label="RSS Feed"><i class="svg-icon rss"></i></a>-->
+      </div>
+
+      <p id="copyright">
+        <a href="https://www.oracle.com/legal/copyright.html" aria-label="Copyright">Copyright</a> © 2023 Oracle and/or its affiliates. All rights reserved. <br />
+        <a href="https://www.oracle.com/legal/terms.html" aria-label="Terms of Use">Terms of Use</a> | <a href="https://www.oracle.com/legal/privacy/">Privacy</a> | <a href="https://www.oracle.com/legal/trademarks.html" aria-label="Trademarks">Trademarks</a>
+      </p>
+      <a href="https://www.oracle.com"><img src="/assets/images/oracle-logo.png" id="oracle-logo" alt="Oracle Home" /></a>
+
+    </div>
+  </footer>
+  <!--// FOOTER -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  
+</body>
+
+</html>

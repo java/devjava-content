@@ -50,7 +50,7 @@ IntStream.range(0, 5)
   .forEach(i -> System.out.println(i));
 ```
 
-You can further make this concise by using a methor reference for the `println` method.
+You can further make this concise by using a method reference for the `println` method.
 
 ```java
 import java.util.stream.IntStream;

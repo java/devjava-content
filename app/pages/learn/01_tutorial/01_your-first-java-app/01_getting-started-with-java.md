@@ -29,9 +29,9 @@ last_update: 2022-10-29
 <a id="first-app">&nbsp;</a>
 ## Elements of a Java Application
 
-I understand that you are eager to type some code in your editor and run it to see your first Java application in action! Do not worry, your expectation will be fulfilled by the end of this tutorial. But before we move on, I would like to do through several elements that you need to know to fully understand what you are doing.
+I understand that you are eager to type some code in your editor and run it to see your first Java application in action! Do not worry, your expectation will be fulfilled by the end of this tutorial. But before we move on, I would like to go through several elements that you need to know to fully understand what you are doing.
 
-Even if you are familiar with some other programming language, know about compilation, know what an executable file is you may be interested in the following because Java works in a way that differs from C or C++.
+Even if you are familiar with some other programming language, know about compilation, know what an executable file is, you may be interested in the following because Java works in a way that differs from C or C++.
 
 <a id="compiling-executing">&nbsp;</a>
 ## Compiling and Executing Java Code
@@ -40,28 +40,28 @@ There are several steps that you need to follow to create a Java application. Th
 
 The first of these steps is to write some Java code in a text editor.
 
-Then this code has to be transformed to another format, which can be executed by your computer. This transformation is conducted by a special piece of software called a _compiler_. Some languages do not have a compiler; Java does. Every compiler is specific to a language.
+Then this code has to be transformed to another format, which can be executed by your computer. This transformation is conducted by a special piece of software called a _compiler_. Some languages do not have a compiler; Java does. Each compiler is specific to a language.
 
-The file produced by a compiler is often called a binary file or an executable file. Whereas you can read a source code and understand it, binary or executable files are not meant to be read by a human person. Only your computer can make sense of it.
+The file produced by a compiler is often called a binary file or an executable file. Whereas you can read a source code and understand it, binary or executable files are not meant to be read by humans. Only your computer can make sense of it.
 
-This code contains special binary codes called _byte code_. This is a technical term that you may come across. The precise description of what is this _byte code_ is beyond the scope of this tutorial.
+This code contains special binary codes called _bytecode_. This is a technical term that you may come across. The precise description of what _bytecode_ is beyond the scope of this tutorial.
 
 Compiling some code may fail; your code has to be correct for the compiler to produce an executable version of it. Do not worry, this page gives you the code you are going to compile. All you need to do is copy it and paste it in your text editor.
 
-Once the compiler produced the binary file that you need, you can execute this binary file, that will your program.
+Once the compiler produced the binary file that you need, you can execute this binary file; that will be your program.
 
 > These two steps: compilation and execution require two specific pieces of software that are part of the Java Development Kit, also known as the JDK. You will see how to download the JDK for free and how to install it later in this tutorial.
 
-Note that starting with Java SE 11 you can also merge these two steps into one, by executing a `.java` file directly. You can use these feature only if you are executing a program that is written in a single file. This way of executing your java application does not work if your java code spans more than one file.
+Note that starting with Java SE 11 you can also merge these two steps into one, by executing a `.java` file directly. You can use these feature _only_ if you are executing a program that is written in a single file.
 
 <a id="first-class">&nbsp;</a>
 ## Creating a First Java Class
 
 The first step you need to know is that the Java code you are writing is saved in plain text files. In this tutorial, your application will be written in a single text file. Larger applications may require thousands of such files.
 
-Java is an object-oriented language. If this technical term does not mean anything to you, do not worry, all you need to remember at this point is that all the code you write must be held in a Java class.
+Java is an object-oriented language. If this technical term does not mean anything to you, do not worry; all you need to remember at this point is that all the code you write must be contained in a Java class.
 
-A Java class is created by a special declaration in a text file. Just copy the following code and paste it in your text editor. Congratulation! You have created your first Java class!
+A Java class is created by a special declaration in a text file. Just copy the following code and paste it in your text editor. Congratulations! You have created your first Java class!
 
 ```java
 public class MyFirstClass {
@@ -74,14 +74,14 @@ You can give this class any name as long as it does not start with a number. The
 
 If you are following this example to the letter, you should save the `MyFirstClass` class in a text file called `MyFirstClass.java`.
 
-Just a word of warning: you should be using a plain text editor to create and save this file. Using a word processor will not work.
+Just a word of warning: you should be using a plain text editor to create and save this file. Using a word processor like Microsoft Word or Google Docs will not work.
 
 <a id="first-compilation">&nbsp;</a>
 ## Preparing the Compilation of your First Class
 
 Compiling is the second step you need to follow after the creation of your first class. It consists of transforming the Java code you wrote in your `MyFirstClass.java` file into another format that can be executed. The result of this transformation will be stored in another file created by the compiler. The name of this file will be `MyFirstClass.class`.
 
-So far the only tool you have been using is a plain text editor. Compiling this class requires a compiler; something you may not have on your computer. Fortunately, you can download this compiler and use it for free. Let me guide you through this process.
+So far the only tool you have been using is a plain text editor. Compiling this class requires a compiler, something you may not have on your computer. Fortunately, you can download this compiler and use it for free. Let me guide you through this process.
 
 As of now, downloading "Java" means downloading the Java Development Kit, also known as the JDK. The JDK contains many tools and among them are the ones you will be using to compile and run a Java application. It is officially distributed by the OpenJDK project and by Oracle.
 
@@ -94,7 +94,7 @@ You may also have heard about J2EE, Java EE or Jakarta EE. All these acronyms re
 <a id="setting-up-jdk">&nbsp;</a>
 ## Setting up a Java Development Kit
 
-You can download the JDK from different places. There is a one-stop page that always refers to the latest version of the JDK: https://jdk.java.net/. Selecting the latest "Ready for use" JDK version takes you to a page where you can download the version of the JDK you need.
+You can download the JDK from different places. There is a one-stop page that always refers to the latest version of the JDK: https://jdk.java.net/. Selecting a JDK version listed under the label, "Ready for use" redirects you to a page where you can download the version of the JDK you need.
 
 From this page you can download four versions:
 

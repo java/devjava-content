@@ -94,7 +94,7 @@ You may also have heard about J2EE, Java EE or Jakarta EE. All these acronyms re
 <a id="setting-up-jdk">&nbsp;</a>
 ## Setting up a Java Development Kit
 
-You can download the JDK from different places. There is a one-stop page that always refers to the latest version of the JDK: https://jdk.java.net/. Selecting the latest "Ready for use" JDK version takes you to a page where you can download the version of the JDK you need.
+You can download the JDK from different places. There is a one-stop page that always refers to the latest version of the JDK: https://jdk.java.net/. Selecting a JDK version listed under the label, "Ready for use" redirects you to a page where you can download the version of the JDK you need.
 
 From this page you can download four versions:
 

@@ -14,6 +14,7 @@ toc:
   - The Files API {the-files-api}
   - Conclusion {conclusion}
 last_update: 2024-04-24
+last_review: 2024-08-05
 description: "This article focuses on tasks that application programmers are likely to encounter, particularly in web applications, such as reading and writing text files, reading text, images, JSON from the web, and more."
 author: ["CayHorstmann"]
 ---
@@ -155,8 +156,9 @@ String result = new String(bytes);
 Or transfer the data to an output stream:
 
 ```java
-OutputStream out = Files.newOutputStream(path);
-in.transferTo(out);
+try(OutputStream out = Files.newOutputStream(path)) {
+    in.transferTo(out);
+}
 ```
 
 Note that no loop is required if you simply want to read all bytes of an input stream. 
@@ -216,7 +218,7 @@ Here are the other methods for traversing directory entries:
 * An overloaded version of [`Files.walk`](javadoc:Files.walk(Path,depth)) lets you limit the depth of the traversed tree.
 * Two [`Files.walkFileTree`](javadoc:Files.walkFileTree(Path)) methods provide more control over the iteration process, by notifying a [`FileVisitor`](javadoc:FileVisitor) when a directory is visited for the first and last time. This can be occasionally useful, in particularly for emptying and deleting a tree of directories. See the tutorial [Walking the File Tree](id:api.javaio.file_sytem.walking_tree) for details. Unless you need this control, use the simpler [`Files.walk`](javadoc:Files.walk(Path)) method.
 * The [`Files.find`](javadoc:Files.find(Path)) method is just like [`Files.walk`](javadoc:Files.walk(Path)), but you provide a filter that inspects each path and its [`BasicFileAttributes`](javadoc:BasicFileAttributes). This is slightly more efficient than reading the attributes separately for each file.
-* Two [`Files.newDirectoryStream(Path)`](javadoc:Files.newDirectoryStream(Path)) methods yields [`DirectoryStream`](javadoc:DirectoryStream) instances, which can be used in enhanced `for` loops. There is no advantage over using [`Files.list`](javadoc:Files.list(Path)). 
+* Two [`Files.newDirectoryStream(Path)`](javadoc:Files.newDirectoryStream(Path)) methods yield [`DirectoryStream`](javadoc:DirectoryStream) instances, which can be used in enhanced `for` loops. There is no advantage over using [`Files.list`](javadoc:Files.list(Path)).
 * The legacy [`File.list`](javadoc:File.list()) or [`File.listFiles`](javadoc:File.listFiles()) methods return file names or [`File`](javadoc:File) objects. These are now obsolete.
 
 ### Working with ZIP Files

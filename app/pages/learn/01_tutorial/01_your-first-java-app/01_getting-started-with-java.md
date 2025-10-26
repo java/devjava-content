@@ -48,11 +48,11 @@ This code contains special binary codes called _byte code_. This is a technical 
 
 Compiling some code may fail; your code has to be correct for the compiler to produce an executable version of it. Do not worry, this page gives you the code you are going to compile. All you need to do is copy it and paste it in your text editor.
 
-Once the compiler produced the binary file that you need, you can execute this binary file, that will your program.
+Once the compiler produced the binary file that you need, you can execute this binary file, that will run your program.
 
 > These two steps: compilation and execution require two specific pieces of software that are part of the Java Development Kit, also known as the JDK. You will see how to download the JDK for free and how to install it later in this tutorial.
 
-Note that starting with Java SE 11 you can also merge these two steps into one, by executing a `.java` file directly. You can use these feature only if you are executing a program that is written in a single file. This way of executing your java application does not work if your java code spans more than one file.
+Note that starting with Java SE 11 you can also merge these two steps into one, by executing a `.java` file directly. You can use this feature only if you are executing a program that is written in a single file. This way of executing your java application does not work if your java code spans more than one file.
 
 <a id="first-class">&nbsp;</a>
 ## Creating a First Java Class
@@ -135,7 +135,7 @@ You then need to update your `PATH` environment variable to add the `bin` direct
 > set PATH=%JAVA_HOME%\bin;%PATH%
 ```
 
-You need to be very cautious while setting up these two variables, because a single mistake like an added white space of a missing semicolon will result in failure.
+You need to be very cautious while setting up these two variables, because a single mistake like an added white space or a missing semicolon will result in failure.
 
 Do not close this command prompt. If you close it and open it again then you will need to create these two variables again.
 
@@ -271,7 +271,7 @@ Whether you followed the Windows, the Linux or the macOS path, the remaining is 
 2. Check that your compiler is accessible from this directory by typing the following. This command is the same whether you are on Windows or Linux.
 
 ```shell
-> java -version
+> javac --version
 ```
 
 It should tell you which version of the `javac` you are currently using. If it gives you an error message then you need to check your `JAVA_HOME` and `PATH` variables as there is most probably something wrong with them.

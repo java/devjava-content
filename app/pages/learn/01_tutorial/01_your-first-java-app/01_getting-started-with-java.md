@@ -348,7 +348,7 @@ Here's one way to tell Windows where to find `javac`. Suppose you installed the 
 C:\jdk19\bin\javac HelloWorldApp.java
 ```
 
-If you choose this option, you'll have to precede your `javac` and `java` commands with `C:\jdk19\bin\` each time you compile or run a program. To avoid this extra typing, consult the section [Updating the `PATH` variable](<!-- NOTE: Missing hyperlink -->) in the JDK 19 installation instructions.
+If you choose this option, you'll have to precede your `javac` and `java` commands with `C:\jdk19\bin\` each time you compile or run a program. To avoid this extra typing, update the `PATH` variable, as explained in the section [Setting up a Java Development Kit](https://dev.java/learn/getting-started/#setting-up-jdk) in the JDK installation instructions.
 
 ```shell
 Class names, HelloWorldApp, are only accepted if annotation processing is explicitly requested

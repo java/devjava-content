@@ -494,9 +494,9 @@ This first Java program showed you the basic steps every Java developer follows 
 2. Compile these files to produce a set of corresponding `.class` binary files
 3. Run them together as an application.
 
-Developers that work on large applications do not use plain text editors to manage their source code; they use Integrated Development Environments. IDEs are complex software applications, specialized in software development. These applications handle the compilation of your source code automatically, they can help you to track errors in the syntax of your Java code and nail down bugs in its execution, among other things.
+Developers that work on large applications do not use plain text editors to manage their source code; they use Integrated Development Environments, or "IDEs". IDEs are complex software applications, specialized in software development. These applications handle the compilation of your source code automatically, help you track errors in the syntax of your Java code and nail down bugs in its execution, among other things.
 
-Some of these tools are open source and free to use.
+Some of these tools are open-source and free to use.
 
 - [`the Eclipse foundation maintains Eclipse`](doc:ide-eclipse),
 - [`the Apache foundation maintains NetBeans`](doc:ide-netbeans),

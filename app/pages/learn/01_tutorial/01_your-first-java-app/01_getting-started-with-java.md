@@ -259,39 +259,39 @@ Your shell should print the complete path to the `java` executable file in the `
 <a id="compiling">&nbsp;</a>
 ## Compiling your First Class
 
-Once you have properly set up your JDK; the `JAVA_HOME` variable and the `PATH` variable, you are ready to compile your first class.
+Once you have properly set up your JDK, the `JAVA_HOME` variable, and the `PATH` variable, you will be ready to compile your first class.
 
 All the commands you will be typing now should be typed in the same prompt as the one you used to set up these two variables.
 
 ### Compiling and Running Your First Java Program
 
-Whether you followed the Windows, the Linux or the macOS path, the remaining is the same.
+The following instructions are the same regardless of if you followed the the Windows, the Linux or the macOS path.
 
-1. Change to the directory where you saved your first class `MyFirstClass.java`. You can check that you are in the right directory by typing `dir`. It will show you the files you have in this directory. You should see your `MyFirstClass.java` file.
-2. Check that your compiler is accessible from this directory by typing the following. This command is the same whether you are on Windows or Linux.
+1. Change to the directory where you saved your first class, `MyFirstClass.java`. You can check that you are in the right directory by typing `dir` (for Windows) `ls` (for macOS or Linux). This command will list the files you have in this directory. You should see your `MyFirstClass.java` file in that list.
+2. Check that your compiler is accessible from this directory by typing this command (it should work whether you are on Windows or Linux):
 
 ```shell
 > java -version
 ```
 
-It should tell you which version of the `javac` you are currently using. If it gives you an error message then you need to check your `JAVA_HOME` and `PATH` variables as there is most probably something wrong with them.
+It should tell you which version of `javac` you are currently using. If it gives you an error message, then you need to check your `JAVA_HOME` and `PATH` variables, as they have likely been set incorrectly.
 
-3. Now you are all set to compile your first code. You can type the following.
+3. Now you are all set to compile your first code. Type the following.
 
 ```shell
 > javac MyFirstClass.java
 ```
 
-Two things may happen at this point. You may have error messages telling you that the compiler cannot compile your code because of errors in your Java code. You will need to fix them before being able to move on.
-
-If the compiler remains silent and does not complain about anything: congratulations! It means that your Java code has been properly compiled. Checking the content of the directory again should show a new file in it: `MyFirstClass.class`
+Two things may happen at this point.
+- You will have error messages telling you that the compiler cannot compile your code, because of errors in your Java code. You will need to fix them before being able to move on.
+- The compiler will remain silent and will not complain about anything, in which case, congratulations! It means that your Java code has been properly compiled. Checking the content of the directory again should show a new file in it: `MyFirstClass.class`
 
 <a id="adding-code">&nbsp;</a>
 ## Adding Code to Your Class to Run it
 
-So far your class is empty; there is no executable code in it. If you were able to compile it properly then you can advance to the next step and execute some code.
+So far your class is empty; there is no executable code in it. If you were able to compile it properly, then advance to the next line of instruction to execute some code:
 
-Just open your `MyFirstClass.java` file and copy the following code in it.
+Open your `MyFirstClass.java` file and paste the following code into it.
 
 ```java
 public class MyFirstClass {
@@ -302,30 +302,32 @@ public class MyFirstClass {
 }
 ```
 
-As you may know, there is a long-standing tradition in computer science, which is to write a program that prints "Hello, World!" on the console of your application. So let us do that!
+As you may know, there is a long-standing tradition in computer science, which is to write a program that prints "Hello, World!" on the console of your application.
 
-There is technical code in this class that may not be very clear to you. Do not worry; all you need to do is to compile it following the steps described in the previous section.
+So let us do that!
 
-Make sure that the compiler created the `MyFirstClass.class` for you. To run it, all you need to type is the following command:
+There is technical code in this class that may not be very clear to you right now. Don't worry; all you need to do is to compile it by following the steps described in the previous section.
+
+Make sure that the compiler has created the `MyFirstClass.class` for you. To run it, type is the following command:
 
 ```shell
 > java MyFirstClass
 ```
 
-This should print _Hello, World!_ on the console. If this is the case: congratulations! You have been able to run your first Java program!
+This should print _Hello, World!_ on the console. If this is the case, then congratulations! You were able to run your first Java program!
 
 <a id="single-file-app">&nbsp;</a>
 ## Running the Hello World Program as a Single File Application
 
 Starting with Java SE 11, you can run a Java application without going through the compilation step, as long as the program is written in a single file. This is the case of this simple _Hello, World!_ application.
 
-You can just type the following:
+Type the following:
 
 ```shell
 > java MyFirstClass.java
 ```
 
-And it will print the _Hello, World!_ message on the console.
+It will print the _Hello, World!_ message on the console.
 
 <a id="common-problems">&nbsp;</a>
 ## Common Problems and Their Solutions
@@ -340,19 +342,19 @@ javac is not recognized as an internal or external command, operable program or 
 
 If you receive this error, Windows cannot find the compiler [`javac`](doc:javac).
 
-Here's one way to tell Windows where to find `javac`. Suppose you installed the JDK in `C:\jdk19`. At the prompt you would type the following command and press Enter:
+Here's one way to tell Windows where to find `javac`. Suppose you installed the JDK in `C:\jdk19`. At the prompt, type the following command and press \<Enter\>:
 
 ```shell
 C:\jdk19\bin\javac HelloWorldApp.java
 ```
 
-If you choose this option, you'll have to precede your `javac` and `java` commands with `C:\jdk19\bin\` each time you compile or run a program. To avoid this extra typing, consult the section Updating the `PATH` variable in the JDK 19 installation instructions.
+If you choose this option, you'll have to precede your `javac` and `java` commands with `C:\jdk19\bin\` each time you compile or run a program. To avoid this extra typing, consult the section [Updating the `PATH` variable](<!-- NOTE: Missing hyperlink -->) in the JDK 19 installation instructions.
 
 ```shell
 Class names, HelloWorldApp, are only accepted if annotation processing is explicitly requested
 ```
 
-If you receive this error, you forgot to include the `.java` suffix when compiling the program. Remember, the command is `javac HelloWorldApp.java` not `javac HelloWorldApp`.
+If you receive this error, you forgot to include the `.java` suffix when compiling the program. Remember, the command is `javac HelloWorldApp.java`, not `javac HelloWorldApp`.
 
 #### Common Error Messages on UNIX Systems
 
@@ -362,7 +364,7 @@ javac: Command not found
 
 If you receive this error, UNIX cannot find the compiler, [`javac`](doc:javac).
 
-Here's one way to tell UNIX where to find javac. Suppose you installed the JDK in `/usr/local/jdk19`. At the prompt you would type the following command and press Return:
+Here's one way to tell UNIX where to find `javac`. Suppose you installed the JDK in `/usr/local/jdk19`. At the prompt, type the following command and press \<Return\>:
 
 ```shell
 /usr/local/jdk19/javac HelloWorldApp.java
@@ -374,11 +376,16 @@ Note: If you choose this option, each time you compile or run a program, you'll 
 Class names, 'HelloWorldApp', are only accepted if annotation processing is explicitly requested
 ```
 
-If you receive this error, you forgot to include the `.java` suffix when compiling the program. Remember, the command is `javac HelloWorldApp.java` not `javac HelloWorldApp`.
+If you receive this error, you forgot to include the `.java` suffix when compiling the program. Remember, the command is `javac HelloWorldApp.java`, not `javac HelloWorldApp`.
 
 #### Syntax Errors (All Platforms)
 
-If you mistype part of a program, the compiler may issue a syntax error. The message usually displays the type of the error, the line number where the error was detected, the code on that line, and the position of the error within the code. Here's an error caused by omitting a semicolon (`;`) at the end of a statement:
+If you mistype part of a program, the compiler may issue a syntax error. The message usually displays:
+- The type of the error that has occurred.
+- The line number where the error was detected.
+- The code on that line.
+- The position of the error within the code.
+Here's an error caused by omitting a semicolon (`;`) at the end of a statement:
 
 ```shell
 Testing.java:8: error: ';' expected
@@ -409,15 +416,17 @@ Again, your program did not successfully compile, and the compiler did not creat
 
 #### Error Messages on Microsoft Windows Systems
 
+<!-- NOTE: What error? -->
+
 If you receive this error, `java` cannot find your bytecode file, `HelloWorldApp.class`.
 
-One of the places `java` tries to find your `.class` file is your current directory. So if your `.class` file is in `C:\java`, you should change your current directory to that. To change your directory, type the following command at the prompt and press Enter:
+One of the places where `java` tries to find your `.class` file is your current directory. So if your `.class` file is in `C:\java`, you should change your current directory to that. To change your directory, type the following command at the prompt and press \<Enter\>:
 
 ```shell
 cd c:\java
 ```
 
-The prompt should change to `C:\java>`. If you enter `dir` at the prompt, you should see your `.java` and `.class` files. Now enter `java HelloWorldApp` again.
+The prompt should change to `C:\java>`. If you enter `dir` at the prompt, you should see your `.java` and `.class` files. Now enter `java HelloWorldApp` and press \<Return\> again.
 
 If you still have problems, you might have to change your `CLASSPATH` variable. To see if this is necessary, try clobbering the classpath with the following command.
 
@@ -425,7 +434,7 @@ If you still have problems, you might have to change your `CLASSPATH` variable. 
 set CLASSPATH=
 ```
 
-Now enter `java HelloWorldApp` again. If the program works now, you'll have to change your `CLASSPATH` variable. To set this variable, consult the _Updating the PATH variable_ section in the JDK installation instructions. The `CLASSPATH` variable is set in the same manner.
+Now enter `java HelloWorldApp` and press \<Enter\> again. If the program works now, you'll have to change your `CLASSPATH` variable. To set this variable, consult the _Updating the PATH variable_ section in the JDK installation instructions. The `CLASSPATH` variable is set in the same manner.
 
 ```shell
 Could not find or load main class HelloWorldApp.class
@@ -437,7 +446,7 @@ A common mistake made by beginner programmers is to try and run the `java` launc
 Exception in thread "main" java.lang.NoSuchMethodError: main
 ```
 
-The Java VM requires that the class you execute with it have a `main` method at which to begin execution of your application. A Closer Look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#anchor_7) section discusses the main method in detail.
+The Java VM requires that the class you execute with it has a `main` method at which to begin execution of your application. A closer look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#anchor_7) section discusses the `main` method in detail.
 
 #### Error Messages on UNIX Systems
 
@@ -447,7 +456,7 @@ Exception in thread "main" java.lang.NoClassDefFoundError: HelloWorldApp
 
 If you receive this error, `java` cannot find your bytecode file, `HelloWorldApp.class`.
 
-One of the places java tries to find your bytecode file is your current directory. So, for example, if your bytecode file is in `/home/jdoe/java`, you should change your current directory to that. To change your directory, type the following command at the prompt and press Return:
+One of the places where `java` tries to find your bytecode file is your current directory. So, for example, if your bytecode file is in `/home/jdoe/java`, you should change your current directory to that. To change your directory, type the following command at the prompt and press \<Return\>:
 
 ```shell
 cd /home/jdoe/java
@@ -467,13 +476,13 @@ Now enter `java HelloWorldApp` again. If the program works now, you'll have to c
 Exception in thread "main" java.lang.NoClassDefFoundError: HelloWorldApp/class
 ```
 
-A common mistake made by beginner programmers is to try and run the java launcher on the `.class` file that was created by the compiler. For example, you'll get this error if you try to run your program with `java HelloWorldApp.class` instead of `java HelloWorldApp`. Remember, the argument is the name of the class that you want to use, not the filename.
+A common mistake made by beginner programmers is to try and run `java` on the `.class` file that was created by the compiler. For example, you'll get this error if you try to run your program with `java HelloWorldApp.class` instead of `java HelloWorldApp`. Remember, the argument is the name of the class that you want to use, not the filename.
 
 ```shell
 Exception in thread "main" java.lang.NoSuchMethodError: main
 ```
 
-The Java VM requires that the class you execute with it have a main method at which to begin execution of your application. A Closer Look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#anchor_7) section discusses the main method in detail.
+The Java VM requires that the class you execute with it has a `main` method at which to begin execution of your application. A closer look at the [Adding Code to Your Class to Run it](id:first_app.getting_started#anchor_7) section discusses the `main` method in detail.
 
 
 <a id="going-further">&nbsp;</a>

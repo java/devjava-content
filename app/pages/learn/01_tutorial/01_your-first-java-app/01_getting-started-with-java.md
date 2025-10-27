@@ -109,13 +109,13 @@ This page provides production-ready open-source builds of the Java Development K
 
 Let us download the Windows version. What you get is a ZIP file of about 200MB that you can open with any ZIP utility software. This ZIP file contains the JDK. You can unzip the content of this file anywhere on your computer.
 
-Once this is done you need to create an environment variable called `JAVA_HOME` that points to the directory where you unzipped the JDK. First you need to open a DOS prompt. If you unzipped a JDK 19 ZIP file in the `D:\jdk\` directory then the command you need to type in this DOS prompt is the following:
+Once this is done, you need to create an environment variable called `JAVA_HOME` that points to the directory where you unzipped the JDK. First, you need to open a DOS prompt. If you unzipped a JDK 19 ZIP file in the `D:\jdk\` directory, then the command you need to type in this DOS prompt is the following:
 
 ```shell
 > set JAVA_HOME=D:\jdk\jdk-19
 ```
 
-Please note that in this example and all the others the leading `>` is there to show you that you need to type this command or paste it in a prompt. You should not type this character or paste it as it is not part of the `set` command.
+Please note that in this example and all the others, the leading `>` is there to show you that you need to type this command or paste it into a prompt. You should not type this character or paste it, as it is not part of the `set` command.
 
 You can check that the `JAVA_HOME` variable has been properly set by typing the following code:
 
@@ -135,33 +135,33 @@ You then need to update your `PATH` environment variable to add the `bin` direct
 > set PATH=%JAVA_HOME%\bin;%PATH%
 ```
 
-You need to be very cautious while setting up these two variables, because a single mistake like an added white space of a missing semicolon will result in failure.
+You need to be very cautious while setting up these two variables, because a single mistake like an extra space or a missing semicolon will result in failure.
 
-Do not close this command prompt. If you close it and open it again then you will need to create these two variables again.
+Do not close this command prompt. If you close it and open it again, then you will need to create these two variables again.
 
 ### Setting up a JDK for Linux/x64
 
-Let us download the Linux version. What you get is an archive file with a `.tar.gz` extension that you need to expand.
+Let us download the Linux version. What you get is an archive file with a `.tar.gz` extension that you need to extract.
 
-To expand it, you need to copy it or move it to the right directory. You can then type the following command:
+To extract it, you need to copy it or move it to the right directory. You can then type the following command:
 
 ```shell
 $ tar xzf *.tar.gz
 ```
 
-Please note that in this example and all the others, the leading `$` is there to show you that you need to type this command or paste it in a prompt. You should not type this character or paste it, as it is not part of the `tar` command.
+Please note that in this example and all the others, the leading `$` is there to show you that you need to type this command or paste it into a prompt. You should not type this character or paste it, as it is not part of the `tar` command.
 
-This command expands all the files with the extension `.tar.gz` that you have in the current directory. You can use the exact name of this file if you just need to expand it.
+This command extracts all the files with the extension `.tar.gz` that you have in the current directory. You can use the exact name of this file if you just need to extract it.
 
-Executing this command may take several seconds or more, depending on your system. It creates a new directory in the current directory with the content of the JDK in it.
+Executing this command may take several seconds or more, depending on your system. It creates a new directory in the current directory, with the content of the JDK already in it.
 
-Once this is done you need to create an environment variable called `JAVA_HOME` that points to the directory where you expanded the JDK. If you expanded a JDK 19 archive file in the `/home/javauser/jdk` directory then the command you need to type in this shell prompt is the following:
+Once this is done, you need to create an environment variable called `JAVA_HOME` that points to the directory where you extracted the JDK. If you extracted a JDK 19 archive file in the `/home/javauser/jdk` directory, then the command you need to type in this shell prompt is the following:
 
 ```shell
 $ export JAVA_HOME=/home/javauser/jdk/jdk-19
 ```
 
-The exact directory depends on the distribution file you have expanded.
+The exact directory depends on the distribution file you have extracted.
 
 You can check that the `JAVA_HOME` variable has been properly set by typing the following code:
 
@@ -181,17 +181,17 @@ Then you need to update your `PATH` variable to add the `bin` directory of your 
 $ export PATH=$JAVA_HOME/bin:$PATH
 ```
 
-You need to be very cautious while setting up these two variables because a single mistake like an added white space of a missing semicolon will result in failure.
+You need to be very cautious while setting up these two variables because a single mistake like an extra space or a missing semicolon will result in failure.
 
-Do not close this shell prompt. If you close it and open it again then you will need to create these two variables again.
+Do not close this shell prompt. If you close it and open it again, then you will need to create these two variables again.
 
-You can check if everything is ok by typing the following command:
+You can check if everything is okay by typing the following command:
 
 ```shell
 $ which java
 ```
 
-Your shell should print the complete path to the `java` executable file in the `bin` directory of the distribution you just expanded. In this example it will print:
+Your shell should print the complete path to the `java` executable file in the `bin` directory of the distribution you just extracted. In this example it will print:
 
 ```shell
 /home/javauser/jdk/jdk-19/bin/java
@@ -199,27 +199,27 @@ Your shell should print the complete path to the `java` executable file in the `
 
 ### Setting up a JDK for macOS
 
-Let us download the macOS version. What you get is an archive file with a `.tar.gz` extension that you need to expand.
+Let us download the macOS version. What you get is an archive file with a `.tar.gz` extension that you need to extract.
 
-To expand it, you need to copy it or move it to the right directory. You can then type the following command:
+To extract it, you need to copy it or move it to the right directory. You can then type the following command:
 
 ```shell
 $ tar xzf *.tar.gz
 ```
 
-Please note that in this example, and all the others, the leading `$` is there to show you that you need to type this command or paste it in a prompt. You should not type this character or paste it as it is not part of the `tar` command.
+Please note that in this example and all the others, the leading `$` is there to show you that you need to type this command or paste it into a prompt. You should not type this character or paste it, as it is not part of the `tar` command.
 
-This command expands all the files with the extension `.tar.gz` that you have in the current directory. You can use the exact name of this file if you just need to expand it.
+This command extracts all the files with the extension `.tar.gz` that you have in the current directory. You can use the exact name of this file if you just need to extract it.
 
-Executing this command may take several seconds or more, depending on your system. It creates a new directory in the current directory with the content of the JDK in it. This directory has the extension `.jdk`.
+Executing this command may take several seconds or more, depending on your system. It creates a new directory in the current directory, with the content of the JDK already in it. This directory has the extension `.jdk`.
 
-Once this is done you need to create an environment variable called `JAVA_HOME` that points to the directory where you expanded the JDK. If you expanded a JDK 19 archive file in the `/Users/javauser/jdk` directory then the command you need to type in this shell prompt is the following:
+Once this is done, you need to create an environment variable called `JAVA_HOME` that points to the directory where you extracted the JDK. If you extracted a JDK 19 archive file in the `/Users/javauser/jdk` directory then the command you need to type in this shell prompt is the following:
 
 ```shell
 $ export JAVA_HOME=/Users/javauser/jdk/jdk-19.jdk/Contents/Home
 ```
 
-The exact directory depends on the distribution file you have expanded.
+The exact directory depends on the distribution file you have extracted.
 
 You can check that the `JAVA_HOME` variable has been properly set by typing the following code:
 
@@ -239,17 +239,17 @@ You then need to update your `PATH` variable to add the `bin` directory of your 
 $ export PATH=$JAVA_HOME/bin:$PATH
 ```
 
-You need to be very cautious while setting up these two variables because a single mistake like an added white space of a missing semicolon will result in failure.
+You need to be very cautious while setting up these two variables because a single mistake like an extra space or a missing semicolon will result in failure.
 
-Do not close this shell prompt. If you close it and open it again then you will need to create these two variables again.
+Do not close this shell prompt. If you close it and open it again, then you will need to create these two variables again.
 
-You can check if everything is ok by typing the following command:
+You can check if everything is okay by typing the following command:
 
 ```shell
 $ which java
 ```
 
-Your shell should print the complete path to the `java` executable file in the `bin` directory of the distribution you just expanded. In this example it will print:
+Your shell should print the complete path to the `java` executable file in the `bin` directory of the distribution you just extracted. In this example it will print:
 
 ```shell
 /Users/javauser/jdk/jdk-19.jdk/Contents/Home/bin/java

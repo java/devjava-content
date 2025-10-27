@@ -52,7 +52,7 @@ Once the compiler produced the binary file that you need, you can execute this b
 
 > These two steps: compilation and execution require two specific pieces of software that are part of the Java Development Kit, also known as the JDK. You will see how to download the JDK for free and how to install it later in this tutorial.
 
-Note that starting with Java SE 11 you can also merge these two steps into one, by executing a `.java` file directly. You can use these feature _only_ if you are executing a program that is written in a single file.
+Note that starting with Java SE 11 you can also merge these two steps into one, by executing a `.java` file directly. You can use this feature _only_ if you are executing a program that is written in a single file. Note: Starting with Java SE, you may execute a program that spans multiple files, provided that the classes declared in those files is unique within the program, and those files exist in the same directory.
 
 <a id="first-class">&nbsp;</a>
 ## Creating a First Java Class

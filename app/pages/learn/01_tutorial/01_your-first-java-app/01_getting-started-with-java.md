@@ -74,7 +74,7 @@ You can give this class any name as long as it does not start with a number. The
 
 If you are following this example to the letter, you should save the `MyFirstClass` class in a text file called `MyFirstClass.java`.
 
-Just a word of warning: you should be using a plain text editor to create and save this file. Using a word processor like Microsoft Word or Google Docs will not work.
+Just a word of warning: you should be using a plain text editor to create and save this file. Using a word processor will not work.
 
 <a id="first-compilation">&nbsp;</a>
 ## Preparing the Compilation of your First Class
@@ -94,7 +94,7 @@ You may also have heard about J2EE, Java EE or Jakarta EE. All these acronyms re
 <a id="setting-up-jdk">&nbsp;</a>
 ## Setting up a Java Development Kit
 
-You can download the JDK from different places. There is a one-stop page that always refers to the latest version of the JDK: https://jdk.java.net/. Selecting a JDK version listed under the label, "Ready for use" redirects you to a page where you can download the version of the JDK you need.
+You can download the JDK from different places. There is a one-stop page that always refers to the latest version of the JDK: https://jdk.java.net/. Selecting a JDK version listed under the label "Ready for use" redirects you to a page where you can download the version of the JDK you need.
 
 From this page you can download four versions:
 
@@ -265,9 +265,9 @@ All the commands you will be typing now should be typed in the same prompt as th
 
 ### Compiling and Running Your First Java Program
 
-The following instructions are the same regardless of if you followed the the Windows, the Linux or the macOS path.
+The following instructions are the same regardless of if you followed the Windows, the Linux or the macOS path.
 
-1. Change to the directory where you saved your first class, `MyFirstClass.java`. You can check that you are in the right directory by typing `dir` (for Windows) `ls` (for macOS or Linux). This command will list the files you have in this directory. You should see your `MyFirstClass.java` file in that list.
+1. Change to the directory where you saved your first class, `MyFirstClass.java`. You can check that you are in the right directory by typing `dir` (on Windows) or `ls` (on macOS or Linux). This command will list the files you have in this directory. You should see your `MyFirstClass.java` file in that list.
 2. Check that your compiler is accessible from this directory by typing this command (it should work whether you are on Windows or Linux):
 
 ```shell
@@ -364,7 +364,7 @@ javac: Command not found
 
 If you receive this error, UNIX cannot find the compiler, [`javac`](doc:javac).
 
-Here's one way to tell UNIX where to find `javac`. Suppose you installed the JDK in `/usr/local/jdk19`. At the prompt, type the following command and press \<Return\>:
+Here's one way to tell UNIX where to find `javac`. Suppose you installed the JDK in `/usr/local/jdk19`. At the prompt, type the following command and press \<Enter\>:
 
 ```shell
 /usr/local/jdk19/javac HelloWorldApp.java
@@ -426,7 +426,7 @@ One of the places where `java` tries to find your `.class` file is your current 
 cd c:\java
 ```
 
-The prompt should change to `C:\java>`. If you enter `dir` at the prompt, you should see your `.java` and `.class` files. Now enter `java HelloWorldApp` and press \<Return\> again.
+The prompt should change to `C:\java>`. If you enter `dir` at the prompt, you should see your `.java` and `.class` files. Now enter `java HelloWorldApp` and press \<Enter\> again.
 
 If you still have problems, you might have to change your `CLASSPATH` variable. To see if this is necessary, try clobbering the classpath with the following command.
 
@@ -456,7 +456,7 @@ Exception in thread "main" java.lang.NoClassDefFoundError: HelloWorldApp
 
 If you receive this error, `java` cannot find your bytecode file, `HelloWorldApp.class`.
 
-One of the places where `java` tries to find your bytecode file is your current directory. So, for example, if your bytecode file is in `/home/jdoe/java`, you should change your current directory to that. To change your directory, type the following command at the prompt and press \<Return\>:
+One of the places where `java` tries to find your bytecode file is your current directory. So, for example, if your bytecode file is in `/home/jdoe/java`, you should change your current directory to that. To change your directory, type the following command at the prompt and press \<Enter\>:
 
 ```shell
 cd /home/jdoe/java
@@ -496,7 +496,7 @@ This first Java program showed you the basic steps every Java developer follows 
 
 Developers that work on large applications do not use plain text editors to manage their source code; they use Integrated Development Environments, or "IDEs". IDEs are complex software applications, specialized in software development. These applications handle the compilation of your source code automatically, help you track errors in the syntax of your Java code and nail down bugs in its execution, among other things.
 
-Some of these tools are open-source and free to use.
+Some of these tools are open source and free to use.
 
 - [`the Eclipse foundation maintains Eclipse`](doc:ide-eclipse),
 - [`the Apache foundation maintains NetBeans`](doc:ide-netbeans),

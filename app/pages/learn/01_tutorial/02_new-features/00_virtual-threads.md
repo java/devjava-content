@@ -48,8 +48,8 @@ import java.util.concurrent.*;
 
 public class VirtualThreadDemo {
    public static void main(String[] args) {
-     final int NTASKS = 100; 
-     ExecutorService service = Executors.newVirtualThreadPerTaskExecutor();
+      final int NTASKS = 100; 
+      ExecutorService service = Executors.newVirtualThreadPerTaskExecutor();
       for (int i = 0; i < NTASKS; i++) {
          service.submit(() -> {
             long id = Thread.currentThread().threadId(); 
@@ -168,7 +168,7 @@ If you have a list of tasks with the same result type, you can use the `invokeAl
 List<Callable<T>> callables = ...;
 List<T> results = new ArrayList<>();
 for (Future<T> f : service.invokeAll(callables))
-  results.add(f.get());
+   results.add(f.get());
 ```
 
 Again, a more concrete sample program:

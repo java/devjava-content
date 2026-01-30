@@ -9,7 +9,7 @@ subheader_select: tutorials
 main_css_id: learn
 more_learning:
   youtube:
-    - H_XxH66lm3U
+    - V_vXRRydnYI
     - 70_B2DyM8mU
 toc:
 - Overview {overview}
@@ -24,28 +24,27 @@ toc:
 - Searching and navigating {navigation}
 - Summary {summary}
 description: "Learn how to code, run, test, debug and document a Java application in IntelliJ IDEA."
-last_update: 2024-04-22
+last_update: 2025-12-11
 author: ["MaritvanDijk"]
 ---
 
 <a id="overview">&nbsp;</a>
 ## Overview
 
-An IDE (Integrated Development Environment) allows you to quickly create applications, by combining a source-code editor with the ability to compile and run your code, as well as integration with build, test and debug tools, version control systems, and so on. Finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
+An IDE (Integrated Development Environment) allows you to quickly create applications by combining a source-code editor with the ability to compile and run your code, as well as integration with build, test and debug tools, version control systems, and so on. Finally, an IDE will let you search and navigate your codebase in ways your file system won’t.
 
 One of the [most widely used integrated development environments (IDEs)](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_ide) for Java is IntelliJ IDEA. Its user-friendly interface, rich feature set, and vast ecosystem make it an ideal environment for beginners to learn and grow as developers. In this tutorial you’ll learn how to use some of its features to simplify your development process and accelerate your learning curve with Java programming.
 
 <a id="install">&nbsp;</a>
 ## Installing IntelliJ IDEA
 
-To install IntelliJ IDEA, download the version you want to use from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions.
-Note that IntelliJ IDEA is available in two editions:
-- **_IntelliJ IDEA Community Edition_** - free and open-source. It provides all the basic features for Java development.
-- **_IntelliJ IDEA Ultimate_** - commercial, distributed with a 30-day trial period. It provides additional tools and features for web and enterprise development.
+To install IntelliJ IDEA, download it from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions.
 
-For this tutorial, you can download the Community Edition. For more information on installing IntelliJ IDEA on your OS, see [the documentation](https://www.jetbrains.com/help/idea/installation-guide.html#standalone).
+When you first install IntelliJ IDEA, it will come with a free 30-day trial of the Ultimate subscription. This subscription provides advanced features for professional development, but these are not required for this tutorial. Once the subscription trial ends, IntelliJ IDEA stays fully functional with all the basic features for Java development available.
 
-When you launch IntelliJ IDEA for the first time, you’ll see the **Welcome** screen. From here, you create a new project, open an existing project, or get a project from a version control system (like GitHub).
+For more information on installing IntelliJ IDEA on your OS, see [the documentation](https://www.jetbrains.com/help/idea/installation-guide.html#standalone).
+
+When you launch IntelliJ IDEA for the first time, you’ll see the **Welcome** screen. From here, you can create a new project, open an existing project, or get a project from a version control system (like GitHub).
 
 [![Welcome screen](/assets/images/intellij-idea/welcome-screen.png)](/assets/images/intellij-idea/welcome-screen.png)
 
@@ -58,7 +57,7 @@ We can create a new project from the **Welcome** screen, or we can go to **File 
 
 [![New Project menu](/assets/images/intellij-idea/new-project-menu.png)](/assets/images/intellij-idea/new-project-menu.png)
 
-In the **New Project** wizard, make sure that **Java** is selected on the left hand side, and give your project a name (for example, `java-demo`).
+In the **New Project** wizard, make sure that **Java** is selected on the left-hand side, and give your project a name (for example, `java-demo`).
 Next, we'll select a **Build system**. IntelliJ IDEA supports both Maven and Gradle; the most used build systems for Java. A build tool, like Maven or Gradle, helps you to build your project, and manage any dependencies (like additional libraries) that you want to use in your Java code. Using a build tool will also make it easier to share your application and build it on a different machine. If you don't want to use either, you can use the IntelliJ build system. In this tutorial, let’s create a Maven project.
 
 [![New Project](/assets/images/intellij-idea/new-project.png)](/assets/images/intellij-idea/new-project.png)
@@ -81,9 +80,9 @@ IntelliJ IDEA will create a project for you, with a basic `pom.xml` and a defaul
 
 We can see the project structure in the [Project tool window](https://www.jetbrains.com/help/idea/project-tool-window.html) on the left. The `.idea` folder contains your project configuration. The `src` folder contains your code. When you expand that folder, you'll see that IntelliJ IDEA has created a `main` folder for your Java code and a `test` folder for your tests.
 
-Let’s add some code by creating a new class. 
-* In the **Project** tool window on the left, select the directory `src/main/java`. 
-* To add a new Java class, right-click the **Project** tool window to open the context menu and select **New | Java class**. 
+Let’s add some code by creating a new class.
+* In the **Project** tool window on the left, select the directory `src/main/java`.
+* To add a new Java class, right-click the **Project** tool window to open the context menu and select **New | Java class**.
 * Name this class `HelloWorld`.
 
 [![New Java class](/assets/images/intellij-idea/new-java-class.png)](/assets/images/intellij-idea/new-java-class.png)
@@ -133,7 +132,7 @@ IntelliJ IDEA will manage the formatting of your code as you write it. If needed
 
 A major benefit of using an IDE is that you can directly run your code without having to first manually compile it on the command line.
 
-You can run the `HelloWorld` application directly from the editor, by clicking the green run button in the gutter near the class declaration, or using the shortcut **⌃⇧R** (on macOS) or **Ctrl+Shift+F10** (on Windows/Linux).
+You can run the `HelloWorld` application directly from the editor, by clicking the green Run button in the gutter near the class declaration, or using the shortcut **⌃⇧R** (on macOS) or **Ctrl+Shift+F10** (on Windows/Linux).
 
 Alternatively, we can run our application using the green Run button in the top right corner, or using the shortcut **⌃R** (on macOS) or **Ctrl+F10** (on Windows/Linux) to run the latest file.
 
@@ -145,7 +144,7 @@ To edit your run configurations, select the configuration in the run/debug confi
 
 [![Edit Configurations](/assets/images/intellij-idea/edit-configurations.png)](/assets/images/intellij-idea/edit-configurations.png)
 
-The popup **Run/Debug Configurations** appears and there you can modify JVM options, add program arguments and many more.
+The popup **Run/Debug Configurations** appears, and there you can modify JVM options, add program arguments, and many more.
 
 [![Run / Debug Configuration](/assets/images/intellij-idea/run-config.png)](/assets/images/intellij-idea/run-config.png)
 
@@ -173,7 +172,7 @@ We can select a **Testing library** in the **Create test** popup.
 
 [![Create test](/assets/images/intellij-idea/create-test.png)](/assets/images/intellij-idea/create-test.png)
 
-IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/junit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module”. Click **Fix** to have IntelliJ IDEA fix this for you.
+IntelliJ IDEA supports multiple testing libraries, including [JUnit 5](https://junit.org/junit5/), which is the [most used testing library for Java developers](https://www.jetbrains.com/lp/devecosystem-2023/java/#java_unittesting). If JUnit 5 is not part of your project yet, IntelliJ IDEA will note “JUnit5 library not found in the module.” Click **Fix** to have IntelliJ IDEA fix this for you.
 
 Note that the JUnit 5 dependency `junit-jupiter` is added to the `pom.xml` in the `<dependencies>` section.
 To make sure the dependencies work correctly in your project, **Load Maven Changes** by clicking the popup in the top right corner, or using the shortcut **⇧⌘I** (on macOS) or **Ctrl+Shift+O** (on Windows/Linux).
@@ -212,18 +211,18 @@ public class CalculatorTest {
 ```
 In our test class, we can select **Run All Tests** (**⌃⇧R** on macOS or **Ctrl+Shift+F10** on Windows/Linux).
 
-In our example, we see that the second tests fails. We expected to get the value `0` as the average of an empty array, but got `NaN` (not a number) instead. Let's find out why, using the debugger.
+In our example, we see that the second test fails. We expected to get the value `0` as the average of an empty array, but got `NaN` (not a number) instead. Let's find out why, using the debugger.
 
 <a id="debug">&nbsp;</a>
 ## Debugging
 
 We might want to see how our code runs, either to help us understand how it works and/or when we need to fix a bug or failing test, like the one above. We can run our code through the [debugger](https://www.jetbrains.com/help/idea/debugging-code.html) to see the state of our variables at different times, and the call stack - the order in which methods are called when the program executes. To do so, we must first add a [breakpoint](https://www.jetbrains.com/help/idea/using-breakpoints.html) to the code.
 
-To add a breakpoint, click the gutter at the line of code where you want execution to stop. Alternatively, place the caret at the line and press **⌃F8** (on macOS) or **Ctrl+F8** (on Windows/Linux). We can run our test or application using the **Debug** option; either by right-clicking the **Run** button in the gutter and selecting the **Debug** option from the list, or by selecting the **Debug** button at the top right.
+To add a breakpoint, click the gutter at the line of code where you want execution to stop. Alternatively, place the caret at the line and press **⌘F8** (on macOS) or **Ctrl+F8** (on Windows/Linux). We can run our test or application using the **Debug** option; either by right-clicking the **Run** button in the gutter and selecting the **Debug** option from the list, or by selecting the **Debug** button at the top right.
 
-Execution will stop at the breakpoint, so we can investigate the state of our application. We can see the current values of variables and objects. We can evaluate an expression, to see its current value and look at more details. We can even change the expressions to evaluate different results. We can continue execution by either stepping into a method to see what happens inside a called method (using the shortcut **F7**, or the corresponding button in the **Debug** tool window) or stepping over a line to go to the next line even if a method is called (using the shortcut **F8**, or the corresponding button in the **Debug** tool window), depending on what we’re interested in. Finally, we can resume the program to finish the execution of the test.
+Execution will stop at the breakpoint, so we can investigate the state of our application. We can see the current values of variables and objects. We can evaluate an expression to see its current value and look at more details. We can even change the expressions to evaluate different results. We can continue execution by either stepping into a method to see what happens inside a called method (using the shortcut **F7**, or the corresponding button in the **Debug** tool window) or stepping over a line to go to the next line even if a method is called (using the shortcut **F8**, or the corresponding button in the **Debug** tool window), depending on what we’re interested in. Finally, we can resume the program to finish the execution of the test.
 
-Let's debug the failing test from the previous section. In the code, place a breakpoint on line 4. Run the failing test through the debugger. Step over the code until you get to line 8, and observe the values of the variables. When we get to line 8, select `sum / numbers.length`, right-click to open the context menu and select **Evaluate Expression**. Press **Enter** to evaluate the selected expression. We see that `sum / numbers.length` results in a `java.lang.ArithmeticException: / by zero`. The empty array has a length of `0` and Java does not allow dividing by zero. 
+Let's debug the failing test from the previous section. In the code, place a breakpoint on line 4. Run the failing test through the debugger. Step over the code until you get to line 8, and observe the values of the variables. When we get to line 8, select `sum / numbers.length`, right-click to open the context menu and select **Evaluate Expression**. Press **Enter** to evaluate the selected expression. We see that `sum / numbers.length` results in a `java.lang.ArithmeticException: / by zero`. The empty array has a length of `0` and Java does not allow dividing by zero.
 When we evaluate `(double) sum / numbers.length` we get the result `NaN`. We expected `0`, so our test fails.
 
 [![Debugging](/assets/images/intellij-idea/debug.gif)](/assets/images/intellij-idea/debug.gif)
@@ -252,11 +251,11 @@ For more information on debugging, see [Debugging in Java](https://dev.java/lear
 <a id="refactor">&nbsp;</a>
 ## Refactoring code
 
-While working with our code, we may want to make small improvements without changing the functionality. We can use [refactoring](https://www.jetbrains.com/help/idea/refactoring-source-code.html) to reshape the code. 
+While working with our code, we may want to make small improvements without changing the functionality. We can use [refactoring](https://www.jetbrains.com/help/idea/refactoring-source-code.html) to reshape the code.
 
 * We can rename classes, variables and methods using **Refactor | Rename** (**⇧F6** on macOS, or **Shift+F6** on Windows/Linux).
 * We can inline variables (**⌘⌥N** on macOS, or **Ctrl+Alt+N** on Windows/Linux), or extract variables (**⌘⌥V** on macOS, or **Ctrl+Alt+V** on Windows/Linux) as needed.
-* We can break long methods into smaller parts by extracting a method (**⌘⌥M** on macOS, or **Ctrl+Alt+M** on Windows/Linux) and giving it a meaningful name. 
+* We can break long methods into smaller parts by extracting a method (**⌘⌥M** on macOS, or **Ctrl+Alt+M** on Windows/Linux) and giving it a meaningful name.
 
 All these options help us refactor our code to a more familiar style, or to use new idioms and language features.
 
@@ -269,12 +268,12 @@ Pull up the refactoring menu to see what is possible, using the shortcut **⌃T*
 
 We can add documentation to our code. IntelliJ IDEA provides completion for documentation comments, which is enabled by default. Type `/**` before a declaration and press **Enter**. IntelliJ IDEA auto-completes the documentation comment for you.
 
-IntelliJ IDEA provides a way for you to easily understand and read JavaDoc comments by selecting _Reader Mode_. **Toggle Reader Mode** in the editor using **^⌥Q** (on macOS) or **Ctrl+Alt+Q** (on Windows/Linux). Right-click the icon in the gutter to select **Render All Doc Comments** if you want all comments to show in reader mode.
+IntelliJ IDEA provides a way for you to easily understand and read Javadoc comments by selecting _Reader Mode_. **Toggle Rendered View** in the editor using **^⌥Q** (on macOS) or **Ctrl+Alt+Q** (on Windows/Linux). Right-click the icon in the gutter to select **Render All Doc Comments** if you want all comments to show in reader mode.
 
 <a id="navigation">&nbsp;</a>
 ## Searching and navigating
 
-IntelliJ IDEA also helps us by providing ways to navigate around our codebase, for example by going backwards and forwards between files, finding usages and declarations, finding interfaces and their implementations, viewing recently opened files and location, or even opening a window by name.
+IntelliJ IDEA also helps us by providing ways to navigate around our codebase, for example, by going backwards and forwards between files, finding usages and declarations, finding interfaces and their implementations, viewing recently opened files and location, or even opening a window by name.
 
 One popular way to search is [Search Everywhere](https://www.jetbrains.com/help/idea/searching-everywhere.html) (using **Shift** twice). Search everywhere allows you to search your project files and directories, as well as your project settings and IntelliJ IDEA settings.
 

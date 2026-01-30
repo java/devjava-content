@@ -18,7 +18,7 @@ toc:
 - Refactoring {refactoring}
 - Summary {summary}
 description: "Installing and getting started with the Eclipse IDE for developing Java applications"
-last_update: 2024-04-15
+last_update: 2024-04-22
 author: ["DanielSchmid"]
 ---
 <a id="intro">&nbsp;</a>
@@ -193,7 +193,7 @@ public class Person {
 
 Similarly, it is possible to generate the `hashCode` and `equals` methods using the menu `Source` > `Generate hashCode() and equals()...`.
 
-[![Generate hashCode and equals](/assets/images/eclipse/context_generate_hashcode_equals.png)](/assets/images/eclipse/generate_hashcode_equals.png)
+[![Generate hashCode and equals](/assets/images/eclipse/context_generate_hashcode_equals.png)](/assets/images/eclipse/context_generate_hashcode_equals.png)
 
 This also opens a window which allows to select the fields to include in the `hashCode` and `equals` methods.  
 [![Selecting fields to use in hashCode and equals](/assets/images/eclipse/hashcode_equals_modal.png)](/assets/images/eclipse/hashcode_equals_modal.png)

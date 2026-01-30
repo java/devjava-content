@@ -76,7 +76,7 @@ for(String name: names) {
 
 For the functional style, the `filter` method of `Stream` becomes a direct replacement of the imperative style `if`. The `filter` method will allow an element in the collection to pass through to the next stage in the functional pipeline if the predicate, passed in as a lambda, to the `filter()` method evaluates to `true`; otherwise, the value is discarded from further processing.
 
-Let's conver the previous code to functional style:
+Let's convert the previous code to functional style:
 
 ```java
 List<String> names = List.of("Jack", "Paula", "Kate", "Peter");

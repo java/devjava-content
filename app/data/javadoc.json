@@ -1,8 +1,10 @@
 {
-  "current_release":                     "19",
+  "current_release":                     "23",
 
   "java-documentation":                  "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/",
+  "java-documentation-summary":          "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/api/java.naming/module-summary.html",
   "javadoc_root":                        "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/api/",
+  "jdk-release-note":                    "https://www.oracle.com/java/technologies/javase/jdk-relnotes-index.html",
 
   "security-standard-names":             "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/security/standard-names.html",
   "jre-jdk-cryptoroadmap":               "https://www.java.com/en/jre-jdk-cryptoroadmap.html",
@@ -13,7 +15,7 @@
   "jpackage":                            "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jpackage.html",
   "java-api-docs":                       "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/api/index.html",
   "specification":                       "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/api/index.html",
-  "release-notes":                       "https://www.oracle.com/java/technologies/javase/@@CURRENT_RELEASE@@-relnotes.html",
+  "release-notes":                       "https://www.oracle.com/java/technologies/javase/@@CURRENT_RELEASE@@u-relnotes.html",
   "jvm-guide":                           "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/vm/java-virtual-machine-technology-overview.html",
   
   "gc-tuning":                        { "link": "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/gctuning/introduction-garbage-collection-tuning.html", 
@@ -52,6 +54,7 @@
   "jmod":                                "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jmod.html",
   "jdeps":                               "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jdeps.html",
   "jdeprscan":                           "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jdeprscan.html",
+  "jwebserver":                          "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jwebserver.html",
   "jfr":                                 "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jfr.html",
   "jconsole":                            "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jconsole.html",
   "jps":                                 "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jps.html",
@@ -77,6 +80,10 @@
   "rfc-5246":                            "https://www.ietf.org/rfc/rfc5246.html",
   "rfc-8446":                            "https://www.ietf.org/rfc/rfc8446.html",
   "rfc-8017":                            "https://www.ietf.org/rfc/rfc8017.html",
+  "rfc-8032":                            "https://tools.ietf.org/html/rfc8032",
+  "trec-x509":                           "https://www.itu.int/rec/T-REC-X.509/en",
+  "dss":                                 "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf",
+  "rfc-1422":                            "https://www.ietf.org/rfc/rfc1422.html",
   "ANSI-20X9.62":                        "https://standards.globalspec.com/std/1955141/ANSI%20X9.62",
 
   "ide-eclipse":  "https://www.eclipseide.org/",
@@ -121,6 +128,8 @@
   "Object.wait(long)":                   "java.base/java/lang/Object.html#wait(long)",
   "Object.wait(long,int)":               "java.base/java/lang/Object.html#wait(long,int)",
 
+  "ClassLoader":                         "java.base/java/lang/ClassLoader.html",
+
   "NullPointerException":                "java.base/java/lang/NullPointerException.html",
 
   "Override":                            "java.base/java/lang/Override.html",
@@ -138,26 +147,17 @@
   "Cloneable":                           "java.base/java/lang/Cloneable.html",
   "CloneNotSupportedException":          "java.base/java/lang/CloneNotSupportedException.html",
 
-  "Class":                               "java.base/java/lang/Class.html",
-  "Class.getFields()":                   "java.base/java/lang/Class.html#getFields()",
-  "Class.getInterfaces()":               "java.base/java/lang/Class.html#getInterfaces()",
-  "Class.getMethods()":                  "java.base/java/lang/Class.html#getMethods()",
-  "Class.getSimpleName()":               "java.base/java/lang/Class.html#getSimpleName()",
-  "Class.getSuperclass()":               "java.base/java/lang/Class.html#getSuperclass()",
-  "Class.isAnnotation()":                "java.base/java/lang/Class.html#isAnnotation()",
-  "Class.isEnum()":                      "java.base/java/lang/Class.html#isEnum()",
-  "Class.isInterface()":                 "java.base/java/lang/Class.html#isInterface()",
-
   "Record":                              "java.base/java/lang/Record.html",
 
   "System":                                                           "java.base/java/lang/System.html",
   "System.out":                                                       "java.base/java/lang/System.html#out",
   "System.arraycopy(java.lang.Object,int,java.lang.Object,int,int)":  "java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int)",
+  "System.console()":                                                 "java.base/java/lang/System.html#console()",
 
   "Long":                                "java.base/java/lang/Long.html",
   "Long.compareTo(Long)":                "java.base/java/lang/Long.html#compareTo(java.lang.Long)",
-  "Long.compareUnsigned(int,int)":       "java.base/java/lang/Long.html#compareUnsigned(int,int)",
-  "Long.divideUnsigned(int,int)":        "java.base/java/lang/Long.html#divideUnsigned(int,int)",
+  "Long.compareUnsigned(long,long)":     "java.base/java/lang/Long.html#compareUnsigned(long,long)",
+  "Long.divideUnsigned(long,long)":      "java.base/java/lang/Long.html#divideUnsigned(long,long)",
 
   "Arrays":                              "java.base/java/util/Arrays.html",
   "Arrays.asList()":                     "java.base/java/util/Arrays.html#asList(T...)",
@@ -237,10 +237,6 @@
   "Math.toRadians(double)":              "java.base/java/lang/Math.html#toRadians(double)",
   "Math":                                "java.base/java/lang/Math.html",
 
-  "Collections.sort(List)":              "java.base/java/util/Collections.html#sort(java.util.List)",
-  "Collections.sort(List,comparator)":   "java.base/java/util/Collections.html#sort(java.util.List,java.util.Comparator)",
-  "Collections.emptyList()":             "java.base/java/util/Collections.html#emptyList()",
-
   "File":                                "java.base/java/io/File.html",
   "File(String)":                        "java.base/java/io/File.html#%3Cinit%3E(java.lang.String)",
   "File(String,String)" :                "java.base/java/io/File.html#%3Cinit%3E(java.lang.String,java.lang.String)",
@@ -275,6 +271,7 @@
   "File.toURI()" :                       "java.base/java/io/File.html#toURI()",
   "File.isHidden()" :                    "java.base/java/io/File.html#isHidden()",
   "File.list()" :                        "java.base/java/io/File.html#list()",
+  "File.listFiles()" :                   "java.base/java/io/File.html#listFiles()",
   "File.mkdir()" :                       "java.base/java/io/File.html#mkdir()",
   "File.mkdirs()" :                      "java.base/java/io/File.html#mkdirs()",
   "File.listRoots()" :                   "java.base/java/io/File.html#listRoots()",
@@ -314,6 +311,8 @@
   "Files.readAllLines(Path)":            "java.base/java/nio/file/Files.html#readAllLines(java.nio.file.Path)",
   "Files.readAllLines(Path,Charset)":    "java.base/java/nio/file/Files.html#readAllLines(java.nio.file.Path,java.nio.charset.Charset)",
   "Files.write(byte)":                   "java.base/java/nio/file/Files.html#write(java.nio.file.Path,byte%5B%5D,java.nio.file.OpenOption...)",
+  "Files.writeString()":                 "java.base/java/nio/file/Files.html#writeString(java.nio.file.Path,java.lang.CharSequence,java.nio.file.OpenOption...)",
+  "Files.write()":                       "java.base/java/nio/file/Files.html#write(java.nio.file.Path,byte%5B%5D,java.nio.file.OpenOption...)",
   "Files.write(Iterable)":               "java.base/java/nio/file/Files.html#write(java.nio.file.Path,java.lang.Iterable,java.nio.charset.Charset,java.nio.file.OpenOption...)",
   "Files.newBufferedReader(CharSet)":    "java.base/java/nio/file/Files.html#newBufferedReader(java.nio.file.Path,java.nio.charset.Charset)",
   "Files.newBufferedWriter()":           "java.base/java/nio/file/Files.html#newBufferedWriter(java.nio.file.Path,java.nio.charset.Charset,java.nio.file.OpenOption...)",
@@ -335,9 +334,16 @@
   "Files.readSymbolicLink(Path)":                             "java.base/java/nio/file/Files.html#readSymbolicLink(java.nio.file.Path)",
   "Files.probeContentType(Path)":                             "java.base/java/nio/file/Files.html#probeContentType(java.nio.file.Path)",
   "Files.lines(Path)":                                        "java.base/java/nio/file/Files.html#lines(java.nio.file.Path)",
+  "Files.list(Path)":                                         "java.base/java/nio/file/Files.html#list(java.nio.file.Path)",
+  "Files.find(Path)":                                         "java.base/java/nio/file/Files.html#find(java.nio.file.Path,int,java.util.function.BiPredicate,java.nio.file.FileVisitOption...)",
+  "Files.walk(Path)":                                         "java.base/java/nio/file/Files.html#walk(java.nio.file.Path,java.nio.file.FileVisitOption...)",
+  "Files.walk(Path,depth)":                                   "java.base/java/nio/file/Files.html#walk(java.nio.file.Path,int,java.nio.file.FileVisitOption...)",
+  "Files.walkFileTree(Path)":                                   "java.base/java/nio/file/Files.html#walkFileTree(java.nio.file.Path,java.nio.file.FileVisitor)",
   "Files.copy(InputStream,Path,CopyOption)":                  "java.base/java/nio/file/Files.html#copy(java.io.InputStream,java.nio.file.Path,java.nio.file.CopyOption...)",
   "Files.copy(Path,OutputStream)":                            "java.base/java/nio/file/Files.html#copy(java.nio.file.Path,java.io.OutputStream)",
   "Files.copy(Path,Path,CopyOption)":                         "java.base/java/nio/file/Files.html#copy(java.nio.file.Path,java.nio.file.Path,java.nio.file.CopyOption...)",
+  "Files.readString(Path)":                                   "java.base/java/nio/file/Files.html#readString(java.nio.file.Path)",
+  "Files.readAllBytes(Path)":                                 "java.base/java/nio/file/Files.html#readAllBytes(java.nio.file.Path)",
   "Files.setAttribute(Path,String,Object,LinkOption)":        "java.base/java/nio/file/Files.html#setAttribute(java.nio.file.Path,java.lang.String,java.lang.Object,java.nio.file.LinkOption...)",
   "Files.createTempFile(String,String,FileAttribute)":        "java.base/java/nio/file/Files.html#createTempFile(java.lang.String,java.lang.String,java.nio.file.attribute.FileAttribute...)",
   "Files.createTempFile(Path,String,String,FileAttribute)":   "java.base/java/nio/file/Files.html#createTempFile(java.nio.file.Path,java.lang.String,java.lang.String,java.nio.file.attribute.FileAttribute...)",
@@ -407,9 +413,7 @@
 
   "FileTime":                            "java.base/java/nio/file/attribute/FileTime.html",
 
-  "Iterable":                                       "java.base/java/lang/Iterable.html",
-  "Iterable.forEach()":                             "java.base/java/lang/Iterable.html#forEach(java.util.function.Consumer)",
-  "Iterable.iterator()":                            "java.base/java/lang/Iterable.html#iterator()",
+  "Console":                             "java.base/java/io/Console.html",
 
   "Path":                                           "java.base/java/nio/file/Path.html",
   "Path.toFile()":                                  "java.base/java/nio/file/Path.html#toFile()",
@@ -451,6 +455,8 @@
   "Float.parseFloat(String)":             "java.base/java/lang/Float.html#parseFloat(java.lang.String)",
 
   "Double":                               "java.base/java/lang/Double.html",
+  "Double.toString(double)":                    "java.base/java/lang/Double.html#Double.html#toString(double)",
+  "Double.parseDouble(String)":           "java.base/java/lang/Double.html#parseDouble(java.lang.String)",
   "Double.compareTo(Double)":             "java.base/java/lang/Double.html#compareTo(java.lang.Double)",
 
   "Character":                            "java.base/java/lang/Character.html",
@@ -504,7 +510,8 @@
   "String.regionMatches(int,String,int,int)":         "java.base/java/lang/String.html#regionMatches(int,java.lang.String,int,int)",
   "String.equals(Object)":                            "java.base/java/lang/String.html#equals(java.lang.Object)",
   "String.regionMatches(boolean,int,String,int,int)": "java.base/java/lang/String.html#regionMatches(boolean,int,java.lang.String,int,int)",
-  "String.join(CharSequence,CharSequence)":           "java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence)",
+  "String.join(CharSequence,CharSequence)":           "java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.CharSequence...)",
+  "String.join(CharSequence,Iterable)":               "java.base/java/lang/String.html#join(java.lang.CharSequence,java.lang.Iterable)",
   "String.valueOf(Object)":                           "java.base/java/lang/String.html#valueOf(java.lang.Object)",
 
   "StringIndexOutOfBoundsException":            "java.base/java/lang/StringIndexOutOfBoundsException.html",
@@ -514,8 +521,8 @@
 
   "StringBuilder":                          "java.base/java/lang/StringBuilder.html",
   "StringBuilder()":                        "java.base/java/lang/StringBuilder.html#%3Cinit%3E()",
-  "StringBuilder(CharSequence)":            "java/lang/StringBuilder.html#%3Cinit%3E(java.lang.CharSequence)",
-  "StringBuilder(String)":                  "java/lang/StringBuilder.html#%3Cinit%3E(java.lang.String)",
+  "StringBuilder(CharSequence)":            "java.base/java/lang/StringBuilder.html#%3Cinit%3E(java.lang.CharSequence)",
+  "StringBuilder(String)":                  "java.base/java/lang/StringBuilder.html#%3Cinit%3E(java.lang.String)",
   "StringBuilder(int)":                     "java.base/java/lang/StringBuilder.html#%3Cinit%3E(int)",
   "StringBuilder.length()":                 "java.base/java/lang/StringBuilder.html#length()",
   "StringBuilder.capacity()":               "java.base/java/lang/StringBuilder.html#capacity()",
@@ -556,6 +563,7 @@
   "Externalizable":                      "java.base/java/io/Externalizable.html",
 
   "Writer":                              "java.base/java/io/Writer.html",
+  "FileWriter":                          "java.base/java/io/FileWriter.html",
   "FileReader":                          "java.base/java/io/FileReader.html",
   "FilterWriter":                        "java.base/java/io/FilterWriter.html",
   "CharArrayReader":                     "java.base/java/io/CharArrayReader.html",
@@ -567,6 +575,7 @@
   "LineNumberReader":                    "java.base/java/io/LineNumberReader.html",
 
   "BufferedWriter":                      "java.base/java/io/BufferedWriter.html",
+  "BufferedWriter.write(int)":           "java.base/java/io/BufferedWriter.html#write(int)",
   "BufferedWriter.close()":              "java.base/java/io/BufferedWriter.html#close()",
 
   "FileNotFoundException":               "java.base/java/io/FileNotFoundException.html",
@@ -602,10 +611,14 @@
   "BufferedOutputStream":                "java.base/java/io/BufferedOutputStream.html",
 
   "PrintWriter":                         "java.base/java/io/PrintWriter.html",
+  "PrintWriter.printf()":                "java.base/java/io/PrintWriter.html#printf(java.lang.String,java.lang.Object...)",
   "PrintWriter.println()":               "java.base/java/io/PrintWriter.html#println()",
 
-  "GZIPInputStream":                     "java.base/java/io/GZIPInputStream.html",
-  "GZIPOutputStream":                    "java.base/java/io/GZIPOutputStream.html",
+  "ZipInputStream":                     "java.base/java/util/zip/ZipInputStream.html",
+  "ZipOutputStream":                    "java.base/java/util/zip/ZipOutputStream.html",
+
+  "GZIPInputStream":                     "java.base/java/util/zip/GZIPInputStream.html",
+  "GZIPOutputStream":                    "java.base/java/util/zip/GZIPOutputStream.html",
 
   "DataOutputStream":                         "java.base/java/io/DataOutputStream.html",
   "DataOutputStream.writeBoolean(boolean)":   "java.base/java/io/DataOutputStream#writeBoolean(boolean)",
@@ -642,6 +655,8 @@
   "InputStreamReader":                   "java.base/java/io/InputStreamReader.html",
   "OutputStreamWriter":                  "java.base/java/io/OutputStreamWriter.html",
 
+  "Scanner":                             "java.base/java/util/Scanner.html",
+
   "Closeable":                           "java.base/java/io/Closeable.html",
   "Closeable.close()":                   "java.base/java/io/Closeable.html#close()",
 
@@ -670,6 +685,8 @@
   "SeekableByteChannel.read(ByteBuffer)":  "java.base/java/nio/channels/SeekableByteChannel.html#read(java.nio.ByteBuffer)",
   "SeekableByteChannel.write(ByteBuffer)": "java.base/java/nio/channels/SeekableByteChannel.html#write(java.nio.ByteBuffer)",
   "SeekableByteChannel.truncate(long)":    "java.base/java/nio/channels/SeekableByteChannel.html#truncate(long)",
+
+  "ImageIO.read(URL)":                     "java.desktop/javax/imageio/ImageIO.html#read(java.net.URL)",
 
   "URI":                                 "java.base/java/net/URI.html",
 
@@ -918,7 +935,8 @@
   "TimeZone.toZoneId()":                             "java.base/java/util/TimeZone.html#toZoneId()",
 
   "DateTimeParseException":                          "java.base/java/time/format/DateTimeParseException.html",
-  "DateTimeException":                               "java.base/java/time/format/DateTimeException.html",
+
+  "DateTimeException":                               "java.base/java/time/DateTimeException.html",
 
   "DecimalFormat":                                   "java.base/java/text/DecimalFormat.html",
 
@@ -950,6 +968,7 @@
   "NegativeArraySizeException":                      "java.base/java/lang/NegativeArraySizeException.html",
   "EmptyStackException":                             "java.base/java/util/EmptyStackException.html",
   "RuntimeException":                                "java.base/java/lang/RuntimeException.html",
+  "ReflectiveOperationException":                    "java.base/java/lang/ReflectiveOperationException.html",
 
   "ArrayStoreException":                             "java.base/java/lang/ArrayStoreException.html",
   "ClassCastException":                              "java.base/java/lang/ClassCastException.html",
@@ -1043,9 +1062,6 @@
   "RetentionPolicy.RUNTIME":                       "java.base/java/lang/annotation/RetentionPolicy.html#RUNTIME",
   "RetentionPolicy.SOURCE":                        "java.base/java/lang/annotation/RetentionPolicy.html#SOURCE",
   "Target":                                        "java.base/java/lang/annotation/Target.html",
-  "AnnotatedElement":                              "java.base/java/lang/reflect/AnnotatedElement.html",
-  "AnnotatedElement.getAnnotation(Class)":         "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotation(java.lang.Class)",
-  "AnnotatedElement.getAnnotationsByType(Class)":  "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotationsByType(java.lang.Class)",
 
   "IllegalArgumentException":                      "java.base/java/lang/IllegalArgumentException.html",
   "IllegalStateException":                         "java.base/java/lang/IllegalStateException.html",
@@ -1055,9 +1071,20 @@
 
   "ArrayDeque":                                    "java.base/java/util/ArrayDeque.html",
 
+  "Iterator":                                      "java.base/java/util/Iterator.html",
+  "Iterator.hasNext()":                            "java.base/java/util/Iterator.html#hasNext()",
+  "Iterator.next()":                               "java.base/java/util/Iterator.html#next()",
+  "Iterator.remove()":                             "java.base/java/util/Iterator.html#remove()",
+  "Iterator.forEachRemaining(Consumer)":           "java.base/java/util/Iterator.html#forEachRemaining(java.util.function.Consumer)",
+
+  "Iterable":                                       "java.base/java/lang/Iterable.html",
+  "Iterable.forEach()":                             "java.base/java/lang/Iterable.html#forEach(java.util.function.Consumer)",
+  "Iterable.iterator()":                            "java.base/java/lang/Iterable.html#iterator()",
+
   "Collection":                                    "java.base/java/util/Collection.html",
   "Collection.removeIf(Predicate)":                "java.base/java/util/Collection.html#removeIf(java.util.function.Predicate)",
   "Collection.add(E)":                             "java.base/java/util/Collection.html#add(E)",
+  "Collection.remove(Object)":                     "java.base/java/util/Collection.html#remove(java.lang.Object)",
   "Collection.addAll(Collection)":                 "java.base/java/util/Collection.html#addAll(java.util.Collection)",
   "Collection.clear()":                            "java.base/java/util/Collection.html#clear()",
   "Collection.contains(Object)":                   "java.base/java/util/Collection.html#contains(java.lang.Object)",
@@ -1079,8 +1106,11 @@
   "Collections.min(Collection)":                   "java.base/java/util/Collections.html#min(java.util.Collection)",
   "Collections.reverse(List)":                     "java.base/java/util/Collections.html#reverse(java.util.List)",
   "Collections.rotate(List,int)":                  "java.base/java/util/Collections.html#rotate(java.util.List,int)",
-  "Collections.shuffle(List)":                     "java.base/java/util/Collections.html#shuffle(java.util.List)",
   "Collections.swap(List,int,int)":                "java.base/java/util/Collections.html#swap(java.util.List,int,int)",
+  "Collections.sort(List)":              "java.base/java/util/Collections.html#sort(java.util.List)",
+  "Collections.shuffle(List)":              "java.base/java/util/Collections.html#shuffle(java.util.List)",
+  "Collections.sort(List,comparator)":   "java.base/java/util/Collections.html#sort(java.util.List,java.util.Comparator)",
+  "Collections.emptyList()":             "java.base/java/util/Collections.html#emptyList()",
 
   "Deque":                                         "java.base/java/util/Deque.html",
   "Deque.addFirst(E)":                             "java.base/java/util/Deque.html#addFirst(E)",
@@ -1107,11 +1137,6 @@
   "Hashtable":                                     "java.base/java/util/Hashtable.html",
 
   "IdentityHashMap":                               "java.base/java/util/IdentityHashMap.html",
-
-  "Iterator":                                      "java.base/java/util/Iterator.html",
-  "Iterator.hasNext()":                            "java.base/java/util/Iterator.html#hasNext()",
-  "Iterator.next()":                               "java.base/java/util/Iterator.html#next()",
-  "Iterator.remove()":                             "java.base/java/util/Iterator.html#remove()",
 
   "LinkedHashMap":                                 "java.base/java/util/LinkedHashMap.html",
 
@@ -1193,6 +1218,9 @@
   "NavigableMap.subMap(K,boolean,K,boolean)":      "java.base/java/util/NavigableMap.html#subMap(K,boolean,K,boolean)",
   "NavigableMap.tailMap(K)":                       "java.base/java/util/NavigableMap.html#tailMap(K)",
 
+  "ConcurrentMap":                                 "java.base/java/util/concurrent/ConcurrentMap.html",
+  "ConcurrentMap.putIfAbsent()":                   "java.base/java/util/concurrent/ConcurrentMap.html#putIfAbsent()",
+
   "NavigableSet":                                  "java.base/java/util/NavigableSet.html",
   "NavigableSet.ceiling(E)":                       "java.base/java/util/NavigableSet.html#ceiling(E)",
   "NavigableSet.descendingIterator()":             "java.base/java/util/NavigableSet.html#descendingIterator()",
@@ -1256,6 +1284,7 @@
   "NumberFormatException":                         "java.base/java/lang/NumberFormatException.html",
   "OutOfMemoryError":                              "java.base/java/lang/OutOfMemoryError.html",
 
+  "Character.UnicodeBlock":                       "java.base/java/lang/Character.UnicodeBlock.html",
   "Character.toString(int)":                       "java.base/java/lang/Character.html#toString(int)",
 
   "Charset":                                       "java.base/java/nio/charset/Charset.html",
@@ -1392,6 +1421,7 @@
   "Stream.toArray()":                                  "java.base/java/util/stream/Stream.html#toArray()",
   "Stream.toList()":                                   "java.base/java/util/stream/Stream.html#toList()",
 
+  "HttpClient":                                        "java.net.http/java/net/http/HttpClient.html",
   "HttpClient.send(HttpRequest,HttpResponse.BodyHandler)":  "java.net.http/java/net/http/HttpClient.html#send(java.net.http.HttpRequest,java.net.http.HttpResponse.BodyHandler)",
   "HttpResponse.BodyHandlers.ofLines()":                    "java.net.http/java/net/http/HttpResponse.BodyHandlers.html#ofLines()",
 
@@ -1408,10 +1438,15 @@
   "Security.getProviders()":                           "java.base/java/security/Security.html#getProviders()",
   "Security.addProvider(java.security.Provider)":      "java.base/java/security/Security.html#addProvider(java.security.Provider)",
   "Security.insertProviderAt":                         "java.base/java/security/Security.html#insertProviderAt(java.security.Provider,int)",
+  "Certificate":                                       "java.base/java/security/cert/Certificate.html",
+  "X509Certificate":                                   "java.base/java/security/cert/X509Certificate.html",
+  "TrustAnchor":                                       "java.base/java/security/cert/TrustAnchor.html",
+  "CertPathValidator":                                 "java.base/java/security/cert/CertPathValidator.html",
+  "Security":                                          "java.base/java/security/Security.html",
+  "FlightRecorderMXBean":                              "jdk.management.jfr/jdk/management/jfr/FlightRecorderMXBean.html",
+  "MBeanServerConnection":                             "java.management/javax/management/MBeanServerConnection.html",
+  "SimpleFileServer":                                  "jdk.httpserver/com/sun/net/httpserver/SimpleFileServer",
 
-  "Method":                                                          "java.base/java/lang/reflect/Method.html",
-  "Field":                                                           "java.base/java/lang/reflect/Field.html",
-  "Member":                                                          "java.base/java/lang/reflect/Member.html",
   "Lookup":                                                          "java.base/java/lang/invoke/MethodHandles.Lookup.html",
   "MethodType":                                                      "java.base/java/lang/invoke/MethodType.html",
   "MethodHandles":                                                   "java.base/java/lang/invoke/MethodHandles.html",
@@ -1442,5 +1477,127 @@
   "MethodHandle.invokeWithArguments(Object...)":                     "java.base/java/lang/invoke/MethodHandle.html#invokeWithArguments(java.lang.Object...)",
   "MethodHandle.asType(MethodType)":                                 "java.base/java/lang/invoke/MethodHandle.html#asType(java.lang.invoke.MethodType)",
   "VarHandle":                                                       "java.base/java/lang/invoke/VarHandle.html",
-  "WrongMethodTypeException":                                        "java.base/java/lang/invoke/WrongMethodTypeException.html"
+  "WrongMethodTypeException":                                        "java.base/java/lang/invoke/WrongMethodTypeException.html",
+
+  "ReflectPermission":                                 "java.base/java/lang/reflect/ReflectPermission.html",
+
+  "java.lang.reflect":                                 "java.base/java/lang/reflect/package-summary.html",
+
+  "Class":                                             "java.base/java/lang/Class.html",
+  "Class.getFields()":                                 "java.base/java/lang/Class.html#getFields()",
+  "Class.getInterfaces()":                             "java.base/java/lang/Class.html#getInterfaces()",
+  "Class.getMethods()":                                "java.base/java/lang/Class.html#getMethods()",
+  "Class.getSimpleName()":                             "java.base/java/lang/Class.html#getSimpleName()",
+  "Class.getSuperclass()":                             "java.base/java/lang/Class.html#getSuperclass()",
+  "Class.isAnnotation()":                              "java.base/java/lang/Class.html#isAnnotation()",
+  "Class.isEnum()":                                    "java.base/java/lang/Class.html#isEnum()",
+  "Class.isInterface()":                               "java.base/java/lang/Class.html#isInterface()",
+  "Class.toString()":                                  "java.base/java/lang/Class.html#toString()",
+  "Class.forName(String)":                             "java.base/java/lang/Class.html#forName(java.lang.String)",
+  "Class.getName()":                                   "java.base/java/lang/Class.html#getName()",
+  "Class.getCanonicalName()":                          "java.base/java/lang/Class.html#getCanonicalName()",
+  "Class.getTypeName()":                               "java.base/java/lang/Class.html#getTypeName()",
+  "Class.forPrimitiveName()":                          "java.base/java/lang/Class.html#forPrimitiveName()",
+  "Class.getClasses()":                                "java.base/java/lang/Class.html#getClasses()",
+  "Class.getEnclosingClass()":                         "java.base/java/lang/Class.html#getEnclosingClass()",
+  "Class.getDeclaredClasses()":                        "java.base/java/lang/Class.html#getDeclaredClasses()",
+  "Class.getDeclaringClass()":                         "java.base/java/lang/Class.html#getDeclaringClass()",
+  "Class.getModifiers()":                              "java.base/java/lang/Class.html#getModifiers()",
+  "Class.getDeclaredField(String)":                    "java.base/java/lang/Class.html#getDeclaredField(java.lang.String)",
+  "Class.getField(String)":                            "java.base/java/lang/Class.html#getField(java.lang.String)",
+  "Class.getDeclaredFields()":                         "java.base/java/lang/Class.html#getDeclaredFields()",
+  "Class.getDeclaredMethod(String,Class...)":          "java.base/java/lang/Class.html#getDeclaredMethod(java.lang.String,java.lang.Class...)",
+  "Class.getMethod(String,Class...)":                  "java.base/java/lang/Class.html#getMethod(java.lang.String,java.lang.Class...)",
+  "Class.getDeclaredMethods()":                        "java.base/java/lang/Class.html#getDeclaredMethods()",
+  "Class.getDeclaredConstructor(Class...)":            "java.base/java/lang/Class.html#getDeclaredConstructor(java.lang.Class...)",
+  "Class.getConstructor(Class...)":                    "java.base/java/lang/Class.html#getConstructor(java.lang.Class...)",
+  "Class.getDeclaredConstructors()":                   "java.base/java/lang/Class.html#getDeclaredConstructors()",
+  "Class.getConstructors()":                           "java.base/java/lang/Class.html#getConstructors()",
+  "Class.newInstance()":                               "java.base/java/lang/Class.html#newInstance()",
+  "Class.isRecord()":                                  "java.base/java/lang/Class.html#isRecord()",
+  "Class.getEnumConstants()":                          "java.base/java/lang/Class.html#getEnumConstants()",
+  "Class.isArray()":                                   "java.base/java/lang/Class.html#isArray()",
+  "Class.getComponentType()":                          "java.base/java/lang/Class.html#getComponentType()",
+
+  "Void":                                              "java.base/java/lang/Void.html",
+  "Void.TYPE":                                         "java.base/java/lang/Void.html#TYPE",
+
+  "Type":                                              "java.base/java/lang/reflect/Type.html",
+  "Type.getTypeName()":                                "java.base/java/lang/reflect/Type.html#getTypeName()",
+
+  "Member":                                            "java.base/java/lang/reflect/Member.html",
+  "Member.accessFlags()":                              "java.base/java/lang/reflect/Member.html#accessFlags()",
+  "Member.getDeclaringClass()":                        "java.base/java/lang/reflect/Member.html#getDeclaringClass()",
+
+  "Field":                                             "java.base/java/lang/reflect/Field.html",
+  "Field.getFields()":                                 "java.base/java/lang/reflect/Field.html#getFields()",
+  "Field.getType()":                                   "java.base/java/lang/reflect/Field.html#getType()",
+  "Field.getGenericType()":                            "java.base/java/lang/reflect/Field.html#getGenericType()",
+  "Field.getModifiers()":                              "java.base/java/lang/reflect/Field.html#getModifiers()",
+  "Field.accessFlags()":                               "java.base/java/lang/reflect/Field.html#accessFlags()",
+  "Field.get(Object)":                                 "java.base/java/lang/reflect/Field.html#get(java.lang.Object)",
+  "Field.set(Object,Object)":                          "java.base/java/lang/reflect/Field.html#set(java.lang.Object,java.lang.Object)",
+  "Field.setInt(Object,int)":                          "java.base/java/lang/reflect/Field.html#setInt(java.lang.Object,int)",
+  "Field.getInt(Object)":                              "java.base/java/lang/reflect/Field.html#getInt(java.lang.Object)",
+  "Field.setAccessible()":                             "java.base/java/lang/reflect/Field.html#setAccessible()",
+  "Field.isEnumConstant()":                            "java.base/java/lang/reflect/Field.html#isEnumConstant()",
+
+  "Method":                                            "java.base/java/lang/reflect/Method.html",
+  "Method.invoke(Object,Object...)":                   "java.base/java/lang/reflect/Method.html#invoke(java.lang.Object,java.lang.Object...)",
+  "Method.invoke()":                                   "java.base/java/lang/reflect/Method.html#invoke()",
+  "Method.getReturnType()":                            "java.base/java/lang/reflect/Method.html#getReturnType()",
+  "Method.getGenericReturnType()":                     "java.base/java/lang/reflect/Method.html#getGenericReturnType()",
+  "Method.getGenericExceptionTypes()":                 "java.base/java/lang/reflect/Method.html#getGenericExceptionTypes()",
+  "Method.getModifiers()":                             "java.base/java/lang/reflect/Method.html#getModifiers()",
+  "Method.setAccessible(boolean)":                     "java.base/java/lang/reflect/Method.html#setAccessible(boolean)",
+
+  "Constructor":                                       "java.base/java/lang/reflect/Constructor.html",
+  "Constructor.newInstance()":                         "java.base/java/lang/reflect/Constructor.html#newInstance()",
+  "Constructor.getParameterTypes()":                   "java.base/java/lang/reflect/Constructor.html#getParameterTypes()",
+  "Constructor.getGenericParameterTypes()":            "java.base/java/lang/reflect/Constructor.html#getGenericParameterTypes()",
+
+  "RecordComponent":                                   "java.base/java/lang/reflect/RecordComponent.html",
+  "RecordComponent.getDeclaringRecord()":              "java.base/java/lang/reflect/RecordComponent.html#getDeclaringRecord()",
+  "RecordComponent.getAccessor()":                     "java.base/java/lang/reflect/RecordComponent.html#getAccessor()",
+  "RecordComponent.getName()":                         "java.base/java/lang/reflect/RecordComponent.html#getName()",
+  "RecordComponent.getType()":                         "java.base/java/lang/reflect/RecordComponent.html#getType()",
+  "RecordComponent.getGenericType()":                  "java.base/java/lang/reflect/RecordComponent.html#getGenericType()",
+
+  "Array":                                             "java.base/java/lang/reflect/Array.html",
+  "Array.newInstance()":                               "java.base/java/lang/reflect/Array.html#newInstance()",
+  "Array.newInstance(Class,int)":                      "java.base/java/lang/reflect/Array.html#newInstance(java.lang.Class,int)",
+  "Array.getLength(Object)":                           "java.base/java/lang/reflect/Array.html#getLength(java.lang.Object)",
+  "Array.set(Object,int,Object)":                      "java.base/java/lang/reflect/Array.html#set(java.lang.Object,int,java.lang.Object)",
+  "Array.get(Object,int)":                             "java.base/java/lang/reflect/Array.html#set(java.lang.Object,int)",
+  "Array.setDouble(Object,int,double)":                "java.base/java/lang/reflect/Array.html#setDouble(java.lang.Object,int,double)",
+  "Array.getDouble(Object,int)":                       "java.base/java/lang/reflect/Array.html#getDouble(java.lang.Object,int)",
+
+  "AnnotatedElement":                                  "java.base/java/lang/reflect/AnnotatedElement.html",
+  "AnnotatedElement.getDeclaredAnnotations()":         "java.base/java/lang/reflect/AnnotatedElement.html#getDeclaredAnnotations()",
+  "AnnotatedElement.getAnnotations()":                 "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotations()",
+  "AnnotatedElement.isAnnotationPresent(Class)":       "java.base/java/lang/reflect/AnnotatedElement.html#isAnnotationPresent(java.lang.Class)",
+  "AnnotatedElement.getAnnotation(Class)":             "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotation(java.lang.Class)",
+  "AnnotatedElement.getDeclaredAnnotation(Class)":     "java.base/java/lang/reflect/AnnotatedElement.html#getDeclaredAnnotation(java.lang.Class)",
+  "AnnotatedElement.getAnnotationsByType(Class)":      "java.base/java/lang/reflect/AnnotatedElement.html#getAnnotationsByType(java.lang.Class)",
+
+  "AnnotatedType":                                     "java.base/java/lang/reflect/AnnotatedType.html",
+
+  "Proxy":                                              "java.base/java/lang/reflect/Proxy.html",
+
+  "Executable":                                        "java.base/java/lang/reflect/Executable.html",
+  "Executable.getParameters()":                        "java.base/java/lang/reflect/Executable.html#getParameters()",
+
+  "AccessFlag":                                        "java.base/java/lang/reflect/AccessFlag.html",
+
+  "Modifier":                                          "java.base/java/lang/reflect/Modifier.html",
+
+  "ClassNotFoundException":                            "java.base/java/lang/ClassNotFoundException.html",
+  "InstantiationException":                            "java.base/java/lang/InstantiationException.html",
+  "InvocationTargetException":                         "java.base/java/lang/reflect/InvocationTargetException.html",
+  "InvocationTargetException.getTargetException()":    "java.base/java/lang/reflect/InvocationTargetException.html#getTargetException()",
+
+  "jdk.jshell":                                                      "jdk.jshell/module-summary.html",
+
+  "jdeps-man":                                         "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jdeps.html#options-to-filter-classes-to-be-analyzed",
+  "jlink-man":                                         "https://docs.oracle.com/en/java/javase/@@CURRENT_RELEASE@@/docs/specs/man/jlink.html"
 }

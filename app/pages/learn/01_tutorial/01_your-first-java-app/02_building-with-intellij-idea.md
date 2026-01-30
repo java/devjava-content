@@ -9,7 +9,7 @@ subheader_select: tutorials
 main_css_id: learn
 more_learning:
   youtube:
-    - H_XxH66lm3U
+    - V_vXRRydnYI
     - 70_B2DyM8mU
 toc:
 - Overview {overview}
@@ -24,7 +24,7 @@ toc:
 - Searching and navigating {navigation}
 - Summary {summary}
 description: "Learn how to code, run, test, debug and document a Java application in IntelliJ IDEA."
-last_update: 2024-04-22
+last_update: 2025-12-11
 author: ["MaritvanDijk"]
 ---
 
@@ -38,12 +38,11 @@ One of the [most widely used integrated development environments (IDEs)](https:/
 <a id="install">&nbsp;</a>
 ## Installing IntelliJ IDEA
 
-To install IntelliJ IDEA, download the version you want to use from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions.
-Note that IntelliJ IDEA is available in two editions:
-- **_IntelliJ IDEA Community Edition_** - free and open-source. It provides all the basic features for Java development.
-- **_IntelliJ IDEA Ultimate_** - commercial, distributed with a 30-day trial period. It provides additional tools and features for web and enterprise development.
+To install IntelliJ IDEA, download it from the [IntelliJ IDEA website](https://www.jetbrains.com/idea/) and follow the instructions.
 
-For this tutorial, you can download the Community Edition. For more information on installing IntelliJ IDEA on your OS, see [the documentation](https://www.jetbrains.com/help/idea/installation-guide.html#standalone).
+When you first install IntelliJ IDEA, it will come with a free 30-day trial of the Ultimate subscription. This subscription provides advanced features for professional development, but these are not required for this tutorial. Once the subscription trial ends, IntelliJ IDEA stays fully functional with all the basic features for Java development available.
+
+For more information on installing IntelliJ IDEA on your OS, see [the documentation](https://www.jetbrains.com/help/idea/installation-guide.html#standalone).
 
 When you launch IntelliJ IDEA for the first time, you’ll see the **Welcome** screen. From here, you can create a new project, open an existing project, or get a project from a version control system (like GitHub).
 
@@ -81,9 +80,9 @@ IntelliJ IDEA will create a project for you, with a basic `pom.xml` and a defaul
 
 We can see the project structure in the [Project tool window](https://www.jetbrains.com/help/idea/project-tool-window.html) on the left. The `.idea` folder contains your project configuration. The `src` folder contains your code. When you expand that folder, you'll see that IntelliJ IDEA has created a `main` folder for your Java code and a `test` folder for your tests.
 
-Let’s add some code by creating a new class. 
-* In the **Project** tool window on the left, select the directory `src/main/java`. 
-* To add a new Java class, right-click the **Project** tool window to open the context menu and select **New | Java class**. 
+Let’s add some code by creating a new class.
+* In the **Project** tool window on the left, select the directory `src/main/java`.
+* To add a new Java class, right-click the **Project** tool window to open the context menu and select **New | Java class**.
 * Name this class `HelloWorld`.
 
 [![New Java class](/assets/images/intellij-idea/new-java-class.png)](/assets/images/intellij-idea/new-java-class.png)
@@ -223,7 +222,7 @@ To add a breakpoint, click the gutter at the line of code where you want executi
 
 Execution will stop at the breakpoint, so we can investigate the state of our application. We can see the current values of variables and objects. We can evaluate an expression to see its current value and look at more details. We can even change the expressions to evaluate different results. We can continue execution by either stepping into a method to see what happens inside a called method (using the shortcut **F7**, or the corresponding button in the **Debug** tool window) or stepping over a line to go to the next line even if a method is called (using the shortcut **F8**, or the corresponding button in the **Debug** tool window), depending on what we’re interested in. Finally, we can resume the program to finish the execution of the test.
 
-Let's debug the failing test from the previous section. In the code, place a breakpoint on line 4. Run the failing test through the debugger. Step over the code until you get to line 8, and observe the values of the variables. When we get to line 8, select `sum / numbers.length`, right-click to open the context menu and select **Evaluate Expression**. Press **Enter** to evaluate the selected expression. We see that `sum / numbers.length` results in a `java.lang.ArithmeticException: / by zero`. The empty array has a length of `0` and Java does not allow dividing by zero. 
+Let's debug the failing test from the previous section. In the code, place a breakpoint on line 4. Run the failing test through the debugger. Step over the code until you get to line 8, and observe the values of the variables. When we get to line 8, select `sum / numbers.length`, right-click to open the context menu and select **Evaluate Expression**. Press **Enter** to evaluate the selected expression. We see that `sum / numbers.length` results in a `java.lang.ArithmeticException: / by zero`. The empty array has a length of `0` and Java does not allow dividing by zero.
 When we evaluate `(double) sum / numbers.length` we get the result `NaN`. We expected `0`, so our test fails.
 
 [![Debugging](/assets/images/intellij-idea/debug.gif)](/assets/images/intellij-idea/debug.gif)
@@ -252,11 +251,11 @@ For more information on debugging, see [Debugging in Java](https://dev.java/lear
 <a id="refactor">&nbsp;</a>
 ## Refactoring code
 
-While working with our code, we may want to make small improvements without changing the functionality. We can use [refactoring](https://www.jetbrains.com/help/idea/refactoring-source-code.html) to reshape the code. 
+While working with our code, we may want to make small improvements without changing the functionality. We can use [refactoring](https://www.jetbrains.com/help/idea/refactoring-source-code.html) to reshape the code.
 
 * We can rename classes, variables and methods using **Refactor | Rename** (**⇧F6** on macOS, or **Shift+F6** on Windows/Linux).
 * We can inline variables (**⌘⌥N** on macOS, or **Ctrl+Alt+N** on Windows/Linux), or extract variables (**⌘⌥V** on macOS, or **Ctrl+Alt+V** on Windows/Linux) as needed.
-* We can break long methods into smaller parts by extracting a method (**⌘⌥M** on macOS, or **Ctrl+Alt+M** on Windows/Linux) and giving it a meaningful name. 
+* We can break long methods into smaller parts by extracting a method (**⌘⌥M** on macOS, or **Ctrl+Alt+M** on Windows/Linux) and giving it a meaningful name.
 
 All these options help us refactor our code to a more familiar style, or to use new idioms and language features.
 

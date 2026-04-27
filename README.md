@@ -102,3 +102,11 @@ You should then be able to open a browser and visit [https://localhost:3000](htt
 ## Working with Content
 
 See [working with content guide](/docs/working-with-content.md)
+
+## 💰 Bounty Contribution
+
+- **Task:** Typos and small errors in "The Collections Framework" tutorials ( https://dev.ja
+- **Reward:** $9
+- **Source:** GitHub-Paid
+- **Date:** 2026-04-27
+

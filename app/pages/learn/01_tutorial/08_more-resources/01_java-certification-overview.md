@@ -40,7 +40,7 @@ There are currently a number of active Java certification exams.
 4. [1Z0-809: Java SE 8 Programmer II exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-809) - 68 questions, passing 65% - This is the second half of the Java 8 exam.
 5. [1Z0-811: Java Foundations exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-811) - 60 questions, passing 65% - The foundations exam was introduced for those in Oracle Academy. It is far less common than the other exams. It uses Java 8 as well.
 
-Most people start with one of the latest two (1ZO-831 for Java 25 or 1Z0-830 for Java 21). Some start with the 1Z)-811 if they want to start with an easy certification faster. It is very important to use study materials that match the exam you are studying for. For example, those who hold Java 21 materials target the 1Z0-830 exam.
+Most people start with one of the latest two (1Z0-831 for Java 25 or 1Z0-830 for Java 21). Some start with the 1Z0-811 if they want to start with an easy certification faster. It is very important to use study materials that match the exam you are studying for. For example, you should target the 1Z0-830 exam if you hold Java 21 materials.
 
 <a id="next-version">&nbsp;</a>
 ## Should I wait for the next version of the certification?

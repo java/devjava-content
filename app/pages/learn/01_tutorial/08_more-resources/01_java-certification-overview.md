@@ -32,8 +32,8 @@ Learning and jobs reasons tend to be the most common reasons to get a Java certi
 
 There are currently a number of active Java certification exams.
 
-1. [1Z0-831: Java SE 25 Developer Professional exam](https://education.oracle.com/java-se-25-developer-professional/pexam_1Z0-831) - 50 questions in 120 minutes, passing 68% - For Java 21; =the most recent certification exam available.
-1. [1Z0-830: Java SE 21 Developer Professional exam](https://mylearn.oracle.com/ou/exam/java-se-21-developer-professional-1z0-830/105037/139080/220555) - 50 questions in 120 minutes, passing 68% - For Java 21; =the most recent certification exam available.
+1. [1Z0-831: Java SE 25 Developer Professional exam](https://education.oracle.com/java-se-25-developer-professional/pexam_1Z0-831) - 50 questions in 120 minutes, passing 68% - For Java 21; the most recent certification exam available.
+1. [1Z0-830: Java SE 21 Developer Professional exam](https://education.oracle.com/java-se-21-developer-professional/pexam_1Z0-830) - 50 questions in 120 minutes, passing 68% - For Java 21; the most recent certification exam available.
 1. [1Z0-829: Java SE 17 Developer exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-829) - 50 questions, passing 68% - This Java 17 is the most recent certification exams available.
 2. [1Z0-819: Java SE 11 Developer exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-819) - 50 questions, passing 68% - For Java 11, the exam was launched in two parts like Java 8 (1Z0-815 and 1Z0-816). It was consolidated into a single exam, the 1Z0-819.  
 3. [1Z0-808: Java SE 8 Programmer I exam](https://education.oracle.com/java-ee-7-application-developer/pexam_1Z0-808) - 56 questions, passing 65% - For Java 8, the exam was split into two parts. You earn a certification for each one. . Taking this first half gives you a more basic certification while you work towards the 809.

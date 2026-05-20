@@ -1,22 +1,23 @@
 ---
+id: new_features.lazy-initialization
 title: Lazy Initialization in Java Using Lazy Constants
-author: Garima Agarwal
-layout: learn
-sections:
-- title: What is Lazy Initialization?
-- title: The Old Way
-- title: LazyConstant
-- title: Lazy Collections
-- title: How to Enable It
-- title: Summary
+slug: learn/new-features/lazy-constants
+type: tutorial
+layout: learn/tutorial.html
+main_css_id: learn
+subheader_select: tutorials
+toc:
+  - What is Lazy Initialization? {what}
+  - The Old Way {old}
+  - Why Not Just Use a Static Field? {static}
+  - LazyConstant {lazy-constant}
+  - Lazy Collections {lazy-collections}
+  - How to Enable It {enabling}
+  - Summary {summary}
+description: "<insert short description here>"
+author: ["GarimaAgarwal"]
 ---
-# Lazy Initialization in Java Using Lazy Constants
-
-*Java Tutorials | New Features*  
-*Estimated read time: 10 minutes*
-
----
-
+<a id="old">&nbsp;</a>
 ## What is Lazy Initialization?
 
 When you write a Java application, not every object you create is needed right away. Some objects are expensive to build maybe they open a database connection, read a config file, or do a lot of calculation. Creating them at the start of the program, even when they might not be used, wastes time and memory.
@@ -27,11 +28,10 @@ Think of it like this. Imagine a restaurant that preps every dish on the menu be
 
 That is exactly what lazy initialization does in Java.
 
----
-
+<a id="what">&nbsp;</a>
 ## The Old Way: What Java Developers Have Been Doing for 25 Years
 
-The most common pattern for lazy initialization is called **double-checked locking**. If you open almost any large Java codebase, you will find something like this:
+The most common pattern for lazy initialization is called *double-checked locking*. If you open almost any large Java codebase, you will find something like this:
 
 ```java
 public class DatabaseConnection {
@@ -60,7 +60,7 @@ This pattern has been around since the late 1990s. It looks complicated because 
 
 Let's break down what each part is doing, so you can see exactly why it became a headache:
 
-**`volatile`** : This keyword tells Java "do not cache this value; always read it fresh from memory." Without it, different threads might each see a different, stale version of `instance`. It was only properly fixed in Java 5.
+**`volatile`** : This keyword tells Java "do not cache this value; always read it fresh from memory." Without it, different threads might each see a different, stale version of `instance`.
 
 **`synchronized`** : This makes sure only one thread at a time can run the block of code inside. Without it, two threads might both see `instance == null` at the same moment and both try to create a new connection which you don't want.
 
@@ -68,8 +68,7 @@ Let's break down what each part is doing, so you can see exactly why it became a
 
 This works. But notice how much code is needed just to say "create this object once, when it's first needed." It's a lot to remember, and easy to get wrong. If you forget the `volatile`, or get the checks in the wrong order, you get a subtle bug that only appears under heavy load, the worst kind.
 
----
-
+<a id="static">&nbsp;</a>
 ## Why Not Just Use a Static Field?
 
 A fair question. Why not write this instead?
@@ -84,11 +83,13 @@ public class DatabaseConnection {
 }
 ```
 
-This is perfectly safe and simple. But it creates the connection the moment the class is loaded even if your program never ends up needing it. For one object that might not matter. But if your application has dozens of services all doing this, your startup time grows for no reason.
-
-In serverless environments (like AWS Lambda) or command-line tools, startup time is everything. Every millisecond counts.
-
----
+This is perfectly safe and simple. But it creates the connection the moment
+the class is loaded, even if your program never ends up needing it. The
+startup cost depends not on how many services you have, but on how expensive
+each one is to initialize. Opening a database connection, reading a config
+file, or parsing a large resource all take real time and eager
+initialization means you pay that cost upfront, whether or not those
+resources are ever used.
 
 ## A Slightly Better Old Pattern (But Still Tricky)
 
@@ -114,17 +115,16 @@ public class DatabaseConnection {
 This actually works well. The inner class `Holder` is only loaded when `getInstance()` is called, so initialization is lazy. And because `INSTANCE` is `final`, Java can optimize it very well.
 
 But it has limits:
-- It only works for static singletons (one per application)
-- The trick relies on how Java loads inner classes a concept that confuses many developers
-- If you have ten different services that need this pattern, you end up with ten inner `Holder` classes cluttering your code
+- It only works for static singletons (one per application).
+- The trick relies on how Java loads inner classes a concept that confuses many developers.
+- If you have ten different services that need this pattern, you end up with ten inner `Holder` classes cluttering your code.
 
----
-
+<a id="lazy-constant">&nbsp;</a>
 ## The New Way: LazyConstant (JEP 531)
 
 Java 26 introduced a new tool called `LazyConstant`. It is currently a **preview feature**, which means it is available to try out but the API might have small changes before it becomes permanent.
 
-> **What is a preview feature?** It's a feature that is fully working but not yet finalized. You can use it by adding `--enable-preview` to your compile and run commands. Oracle wants developer feedback before locking it in forever.
+> **What is a preview feature?** It's a feature that is fully working but not yet finalized. You can use it by adding `--enable-preview` to your compile and run commands. The OpenJDK community actively welcomes developer feedback during preview rounds that feedback directly shapes the final API.
 
 Here is the same `DatabaseConnection` example using `LazyConstant`:
 
@@ -152,13 +152,24 @@ The first time `INSTANCE.get()` is called, Java runs `DatabaseConnection::new` t
 
 And if multiple threads call `getInstance()` at the very same moment? Only one of them runs the constructor. The others wait, and then all of them get the same instance back. Thread safety is built in.
 
----
-
 ## Understanding the Key Rules
 
 There are three important things to know about `LazyConstant`:
 
-**Rule 1 : The variable holding it must be `final`.**
+**Recommendation 1: Declare the variable `final`.**
+
+`final` is not required for `LazyConstant` to work correctly or
+safely, thread safety is built in regardless. However, declaring
+it `final` is strongly recommended because it is the only way to
+enable the JVM's constant-folding optimization on the hot path.
+Without `final`, the JVM cannot treat the value as a true constant
+after initialization, and you lose the main performance benefit of
+using `LazyConstant` over simpler alternatives.
+
+For static fields, `static final` enables full constant folding
+today. For instance fields, the benefit is more limited due to
+current JVM constraints — but `final` is still good practice for
+clarity and correctness.
 
 ```java
 // WRONG : will not give you the JVM's optimization benefits
@@ -191,8 +202,7 @@ private static final LazyConstant<Optional<String>> NAME =
 
 If you are working with older code that sends objects across a network or saves them to disk using Java's built-in serialization, `LazyConstant` cannot be used directly as the backing store for that. This is rare in modern code, but worth knowing.
 
----
-
+<a id="lazy-collections">&nbsp;</a>
 ## Lazy Collections: The Even More Exciting Part
 
 `LazyConstant` also unlocks something new in Java's standard collections: **lazy initialization per element**.
@@ -248,8 +258,6 @@ String second = lookupTable.get(1);   // computed now
 // lookupTable.get(2) through .get(999) are still not computed
 ```
 
----
-
 ## Why Does This Make Your Code Faster?
 
 There are two performance wins here, and they are worth understanding separately.
@@ -267,19 +275,34 @@ When the JIT sees a `final` field, it knows the value will never change, so it c
 Compare the three approaches at a high level (Y means Yes and N means No):
 
 | Pattern | Thread-safe? | Lazy? | JIT-optimized warm path? | Easy to read? |
-|---|---|---|---|---|
+|---|---|---|---|--|
 | Eager static final | Y | N | Y | Y |
-| Double-checked locking | Y (if done right) | Y | N (volatile fence) | Y |
-| Holder idiom | Y | Y | Y | Confusing |
+| Double-checked locking | Y (if done right) | Y | N (volatile fence) | N (easy to get wrong) |
+| Holder idiom | Y | Y | Y | Mostly (tricky concept) |
 | `LazyConstant` | Y | Y | Y | Y |
 
----
+<a id="enabling">&nbsp;</a>
+## Using LazyConstant in Your Project
 
-## How to Enable It in Your Project
+`LazyConstant` is a preview feature in JDK 26 (JEP 526) and JDK 27 (JEP 531). Preview features require opting in at both compile time and runtime using `--enable-preview`.
 
-`LazyConstant` is a preview feature in JDK 26 (JEP 526) and JDK 27 (JEP 531). You need to turn on preview features to use it.
+There is one rule that catches many developers by surprise:
 
-**With Maven**, add this to your `pom.xml`:
+> **The JDK version you compile with must exactly match the version you run with.** Code compiled with JDK 26 preview features will not run on JDK 27, even though JDK 27 also supports preview features. Always compile and run with the same version.
+
+Here is how to opt in across the most common setups.
+
+**From the command line** 
+
+```bash
+# Step 1 — Compile
+javac --enable-preview --release 26 MyClass.java
+
+# Step 2 — Run with the SAME JDK version used to compile
+java --enable-preview MyClass
+```
+
+**With Maven** - update `maven-compiler-plugin` to pass the preview flag at compile time, and `maven-surefire-plugin` so your tests can run with it too:
 
 ```xml
 <plugin>
@@ -292,11 +315,7 @@ Compare the three approaches at a high level (Y means Yes and N means No):
         </compilerArgs>
     </configuration>
 </plugin>
-```
 
-Also update your `maven-surefire-plugin` so tests can run with preview enabled:
-
-```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-surefire-plugin</artifactId>
@@ -306,15 +325,11 @@ Also update your `maven-surefire-plugin` so tests can run with preview enabled:
 </plugin>
 ```
 
-**With Gradle** (Kotlin DSL), add to your `build.gradle.kts`:
+**With Gradle (Kotlin DSL)** - add to your `build.gradle.kts`:
 
 ```kotlin
 tasks.withType<JavaCompile> {
     options.compilerArgs.addAll(listOf("--enable-preview", "--release", "26"))
-}
-
-tasks.withType<JavaExec> {
-    jvmArgs("--enable-preview")
 }
 
 tasks.withType<Test> {
@@ -322,17 +337,19 @@ tasks.withType<Test> {
 }
 ```
 
-**From the command line:**
+**With Gradle (Groovy DSL)** : add to your `build.gradle`:
 
-```bash
-# Compile
-javac --enable-preview --release 26 MyClass.java
+```groovy
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['--enable-preview', '--release', '26']
+}
 
-# Run
-java --enable-preview MyClass
+tasks.withType(Test) {
+    jvmArgs '--enable-preview'
+}
 ```
 
----
+> **Note:** Once `LazyConstant` becomes a standard (non-preview) feature, none of this configuration will be needed. You will be able to use it exactly like any other standard Java API setup.
 
 ## Putting It All Together: A Before and After
 
@@ -341,33 +358,32 @@ Let's look at a complete, realistic example. Suppose you have a service that loa
 **Before (double-checked locking):**
 
 ```java
-public class AppConfig {
+public class HttpClientProvider {
 
-    private static volatile AppConfig instance;
+    private static volatile HttpClientProvider instance;
 
-    private final String databaseUrl;
-    private final int maxConnections;
+    private final java.net.http.HttpClient client;
 
-    private AppConfig() {
-        // reads config.properties from disk
-        Properties props = loadFromDisk();
-        this.databaseUrl = props.getProperty("db.url");
-        this.maxConnections = Integer.parseInt(props.getProperty("db.maxConnections"));
+    private HttpClientProvider() {
+        // HttpClient is expensive to build — it creates a thread pool
+        // and establishes connection settings
+        this.client = java.net.http.HttpClient.newBuilder()
+                .connectTimeout(java.time.Duration.ofSeconds(10))
+                .build();
     }
 
-    public static AppConfig getInstance() {
+    public static HttpClientProvider getInstance() {
         if (instance == null) {
-            synchronized (AppConfig.class) {
+            synchronized (HttpClientProvider.class) {
                 if (instance == null) {
-                    instance = new AppConfig();
+                    instance = new HttpClientProvider();
                 }
             }
         }
         return instance;
     }
 
-    public String getDatabaseUrl() { return databaseUrl; }
-    public int getMaxConnections() { return maxConnections; }
+    public java.net.http.HttpClient client() { return client; }
 }
 ```
 
@@ -375,87 +391,40 @@ public class AppConfig {
 
 ```java
 import java.lang.invoke.LazyConstant;
+import java.net.http.HttpClient;
+import java.time.Duration;
 
-public class AppConfig {
+public class HttpClientProvider {
 
-    private static final LazyConstant<AppConfig> INSTANCE =
-        LazyConstant.of(AppConfig::new);
+    private static final LazyConstant<HttpClient> CLIENT =
+            LazyConstant.of(() -> HttpClient.newBuilder()
+                    .connectTimeout(Duration.ofSeconds(10))
+                    .build());
 
-    private final String databaseUrl;
-    private final int maxConnections;
-
-    private AppConfig() {
-        // reads config.properties from disk
-        Properties props = loadFromDisk();
-        this.databaseUrl = props.getProperty("db.url");
-        this.maxConnections = Integer.parseInt(props.getProperty("db.maxConnections"));
+    public static HttpClient client() {
+        return CLIENT.get();
     }
-
-    public static AppConfig getInstance() {
-        return INSTANCE.get();
-    }
-
-    public String getDatabaseUrl() { return databaseUrl; }
-    public int getMaxConnections() { return maxConnections; }
 }
 ```
 
 The behavior is identical. The `LazyConstant` version is easier to read, easier to review, and impossible to break by forgetting a `volatile` or getting a null check in the wrong order.
-
----
-
-## Common Questions
-
-**Q: Is `LazyConstant` ready to use in production?**
-
-It is a preview feature, which means it requires `--enable-preview` and the API could have small changes between Java versions. For production code, it is best to wait for it to become a standard (non-preview) feature, expected around Java 28 or 29. For personal projects, side projects, or learning, it is completely fine to use today.
-
-**Q: Can I use `LazyConstant` for an instance field, not just a static one?**
-
-Yes, but the field still needs to be `final`. It works for per-instance lazy values too:
-
-```java
-public class Report {
-    private final LazyConstant<String> summary =
-        LazyConstant.of(this::generateSummary);
-
-    public String getSummary() {
-        return summary.get();
-    }
-
-    private String generateSummary() {
-        // expensive computation
-        return "...";
-    }
-}
-```
-
-**Q: What happens if my supplier throws an exception?**
-
-If the supplier throws a `RuntimeException` or `Error`, it propagates up to the caller of `.get()`. The `LazyConstant` is reset, and the next call to `.get()` will try the supplier again.
-
-**Q: How is this different from `Optional`?**
-
-`Optional` is for representing a value that may or may not be present. `LazyConstant` is for representing a value that is definitely present, but computed later. They solve different problems, though as shown above, you can combine them when your value might be `null`.
-
----
-
+<a id="summary">&nbsp;</a>
 ## Summary
 
 `LazyConstant` is a clean, simple solution to a problem Java developers have been solving with complex boilerplate for decades.
 
 Here is what to remember:
 
-- Use `LazyConstant.of(supplier)` to create a value that is computed once on first access
-- Always declare the `LazyConstant` variable as `final`
-- The supplier must not return `null`, use `Optional` wrapping if needed
-- Use `Map.ofLazy()`, `List.ofLazy()`, or `Set.ofLazy()` when you want per-element lazy initialization inside a collection
-- It requires `--enable-preview` in JDK 26 and 27, not yet a finalized feature
-
-To try it today, download a JDK 26 or JDK 27 early-access build from [jdk.java.net](https://jdk.java.net) and add `--enable-preview` to your compile and run commands.
-
----
-
-*This tutorial covers `LazyConstant` as introduced in JEP 526 (JDK 26, Second Preview) and JEP 531 (JDK 27, Third Preview). As a preview feature, the API may have minor changes before it is finalized. For the latest details, see the [OpenJDK JEP index](https://openjdk.org/jeps/0).*
-
-*Looking to explore further? See the tutorials on [Virtual Threads](https://dev.java/learn/new-features/virtual-threads/) and [Records](https://dev.java/learn/records/) on dev.java.*
+- Use `LazyConstant.of(supplier)` to create a value that is computed
+  once on first access, in a thread-safe way.
+- Declare the `LazyConstant` variable as `final` wherever possible —
+  it is not required for correctness, but it enables the JVM's
+  constant-folding optimization on the hot path.
+- The supplier must not return `null`. If your value might legitimately
+  be null, wrap it in `Optional`.
+- Use `Map.ofLazy()`, `List.ofLazy()`, or `Set.ofLazy()` when you want
+  each element in a collection to be initialized independently on first
+  access.
+- `LazyConstant` requires `--enable-preview` in JDK 26 and JDK 27 and
+  is not yet a finalized feature. The configuration will not be needed
+  once it is fully released as a standard Java feature.

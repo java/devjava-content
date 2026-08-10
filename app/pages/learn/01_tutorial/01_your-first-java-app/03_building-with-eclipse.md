@@ -17,7 +17,7 @@ toc:
 - Generating Code {generating}
 - Refactoring {refactoring}
 - Summary {summary}
-description: "Installing and getting started with the Eclipse IDE for developing Java applications"
+description: "Installing and getting started with the Eclipse IDE for developing Java applications."
 last_update: 2024-04-15
 author: ["DanielSchmid"]
 ---

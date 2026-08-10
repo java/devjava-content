@@ -14,4 +14,4 @@ main_css_id: learn
 description: "Getting to know the basics of the Java language."
 ---
 
-This part of the tutorial covers the basics of the language, including: variables, operators, expressions, statements, blocks and control flow statements.
+This part of the tutorial covers the basics of the language, including variables, operators, expressions, statements, blocks and control flow statements.

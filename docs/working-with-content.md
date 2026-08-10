@@ -125,8 +125,8 @@ There are 7 entries on the tutorial welcome page:
 - Staying Aware of New Features
 - Getting to Know the Language
 - Mastering the API
-- Organizing your Application
-- Getting to know the JVM
+- Organizing Your Application
+- Getting to Know the JVM
 - References
 
 These 7 entries are hard-coded in the `template/pages/learn/index.html` page. A page is displayed under an entry on this page if it is a `tutorial` page that has the right `category` defined in its front matter.

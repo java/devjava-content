@@ -13,7 +13,7 @@ toc:
 - Should I wait for Java 21? {java-21}
 - What is covered {topics}
 - How to study {study}
-description: "Overview of the Java Certification and how to study"
+description: "Overview of the Java Certification and how to study."
 last_update: 2023-07-30
 author: ["JeanneBoyarsky"]
 ---

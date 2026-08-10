@@ -16,7 +16,7 @@ toc:
 - Debugger basics {basic}
 - Advanced techniques {advanced}
 - Documentation {docs}
-description: "Learning how to use a debugger"
+description: "Learning how to use a debugger."
 last_update: 2023-11-05
 author: ["JeanneBoyarsky"]
 ---

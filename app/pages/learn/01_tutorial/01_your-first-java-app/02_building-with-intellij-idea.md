@@ -1,6 +1,6 @@
 ---
 id: first_app.intellij-idea
-title: Building a Java application in IntelliJ IDEA
+title: Building a Java Application in IntelliJ IDEA
 slug: learn/intellij-idea
 type: tutorial
 category: start

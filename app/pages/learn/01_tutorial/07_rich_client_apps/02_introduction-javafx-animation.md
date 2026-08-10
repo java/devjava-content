@@ -1,6 +1,6 @@
 ---
 id: javafx.animation
-title: Introduction to JavaFX animations
+title: Introduction to JavaFX Animations
 slug: learn/javafx-animations
 type: tutorial
 group: rich-client-apps

@@ -16,7 +16,7 @@ toc:
 - Bidirectional Binding {unidir-binding}
 - Unidirectional Binding {bidir-binding}
 - Fluent API and Bindings API {fluent-api}
-description: "Control nodes by manipulating their properties. "
+description: "Control nodes by manipulating their properties."
 last_update: 2023-09-12
 author: ["GailC.Anderson", "PaulAnderson"]
 byline: 'and is from <a href="https://link.springer.com/book/10.1007/978-1-4842-7268-8">The Definitive Guide to Modern Java Clients with JavaFX 17</a> graciously contributed by Apress.'

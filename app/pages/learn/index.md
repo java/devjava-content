@@ -8,7 +8,7 @@ subheader_select: tutorials
 
 <div class="learn-group">
 
-## References for the latest release
+## References for the Latest Release
 
 - [Java Documentation](doc:java-documentation)
 - [Java API Docs](doc:java-api-docs)
